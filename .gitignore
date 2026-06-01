@@ -30,3 +30,15 @@ __pycache__/
 # OS / editor
 .DS_Store
 .vscode/
+
+# Python virtual environments
+tp_cientifico/
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
