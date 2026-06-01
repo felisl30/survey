@@ -1,0 +1,134 @@
+VERIFICACIÓN DE RESULTADOS S1
+============================
+Fecha UTC: 2026-06-01T17:45:28.352855+00:00
+
+Archivos de entrada
+-------------------
+Parsed:    outputs/s1/generation/hotpotqa_mini_s1_parsed.csv
+Evaluated: outputs/s1/evaluation/hotpotqa_mini_s1_answer_results.csv
+Summary:   outputs/s1/evaluation/hotpotqa_mini_s1_answer_summary.json (existe)
+
+Chequeo estructural
+-------------------
+Filas parsed: 20
+Filas evaluated: 20
+IDs coinciden entre parsed/evaluated: True
+Columnas faltantes parsed: []
+Columnas faltantes evaluated: []
+
+Parseo / formato
+----------------
+Valid format rate: 1.000
+Valid format count: 20
+Invalid format count: 0
+Run error rate: 0.000
+Run error count: 0
+Parse method counts: {"json": 20}
+
+Calidad de respuesta
+--------------------
+Answer accuracy: 0.550
+Answer correct count: 11
+Answer incorrect count: 9
+Exact match rate: 0.250
+Contains gold answer rate: 0.550
+Gold contains answer rate: 0.300
+Avg token F1: 0.410
+Min token F1: 0.000
+Max token F1: 1.000
+Avg confidence: 0.554
+
+Abstención
+----------
+Abstention rate: 0.450
+Abstention count: 9
+Wrong abstention rate: 0.450
+Wrong abstention count: 9
+
+Retrieval asociado a las respuestas
+-----------------------------------
+Retrieval hit gold rate: 1.000
+Retrieval full recall rate: 0.550
+Avg retrieval recall: 0.775
+Avg retrieval precision: 0.310
+
+Costo / latencia
+----------------
+Avg latency seconds: 6.594
+Max latency seconds: 20.326
+Avg input tokens: 1089.250
+Avg output tokens: 174.700
+Avg total tokens: 1263.950
+Max total tokens: 1672.000
+Avg RAG prompt chars: 3906.050
+Max RAG prompt chars: 6470.000
+
+Distribuciones importantes
+--------------------------
+eval_error_type_counts:
+  - correct: 11
+  - wrong_abstention_with_partial_retrieval: 8
+  - wrong_abstention_despite_full_retrieval: 1
+topic_counts:
+  - geography: 10
+  - entertainment: 10
+hotpot_type_counts:
+  - bridge: 13
+  - comparison: 7
+top_k_counts:
+  - 5: 20
+
+Casos problemáticos
+-------------------
+Cantidad: 9
+Problem rate: 0.450
+
+                id                  expected_answer                                                                                                                                    parsed_answer  eval_answer_correct  eval_token_f1  eval_retrieval_recall                         eval_error_type
+hotpotqa_mini_0001 Greenwich Village, New York City No hay información suficiente en el contexto recuperado para determinar en qué ciudad de Nueva York está basada la directora de "Big Stone Gap".                False         0.1053                    0.5 wrong_abstention_with_partial_retrieval
+hotpotqa_mini_0003                              yes   No hay información suficiente para determinar si ambos son de Estados Unidos; el contexto solo indica que Local H es una banda estadounidense.                False         0.0000                    0.5 wrong_abstention_with_partial_retrieval
+hotpotqa_mini_0005                               no                                        No hay información suficiente para afirmarlo; habría que aclarar qué significa “usados para real estate”.                False         0.1818                    1.0 wrong_abstention_despite_full_retrieval
+hotpotqa_mini_0006                            9,984                                                   No hay información suficiente en el contexto recuperado para determinar la población del país.                False         0.0000                    0.5 wrong_abstention_with_partial_retrieval
+hotpotqa_mini_0007                  1969 until 1974                                      No hay información suficiente en el contexto recuperado para indicar los años en que sirvió ese presidente.                False         0.0000                    0.5 wrong_abstention_with_partial_retrieval
+hotpotqa_mini_0010                              yes                                                No hay información suficiente en el contexto para determinar la nacionalidad de Scott Derrickson.                False         0.0000                    0.5 wrong_abstention_with_partial_retrieval
+hotpotqa_mini_0011                Chief of Protocol                             No hay información suficiente en el contexto recuperado para responder qué cargo gubernamental ocupó Shirley Temple.                False         0.0000                    0.5 wrong_abstention_with_partial_retrieval
+hotpotqa_mini_0013                 YG Entertainment                                                    No hay información suficiente en el contexto recuperado para determinar quién formó al grupo.                False         0.0000                    0.5 wrong_abstention_with_partial_retrieval
+hotpotqa_mini_0014                 Terry Richardson                                                                                    No hay información suficiente para determinar quién es mayor.                False         0.0000                    0.5 wrong_abstention_with_partial_retrieval
+
+Resumen JSON original de evaluate_s1_answers.py
+----------------------------------------------
+Se encontró y se cargó correctamente el summary original.
+overall:
+{
+  "n": 20,
+  "answer_accuracy": 0.55,
+  "exact_match_rate": 0.25,
+  "contains_gold_answer_rate": 0.55,
+  "avg_token_f1": 0.410135,
+  "valid_format_rate": 1.0,
+  "run_error_rate": 0.0,
+  "abstention_rate": 0.45,
+  "wrong_abstention_rate": 0.45,
+  "manual_review_rate": 0.0,
+  "retrieval_hit_gold_rate": 1.0,
+  "retrieval_full_recall_rate": 0.55,
+  "avg_retrieval_recall": 0.775,
+  "avg_retrieval_precision": 0.3100000000000001,
+  "avg_confidence": 0.554,
+  "avg_latency_seconds": 6.5939499999999995,
+  "avg_input_tokens": 1089.25,
+  "avg_output_tokens": 174.7,
+  "avg_total_tokens": 1263.95,
+  "error_type_counts": {
+    "correct": 11,
+    "wrong_abstention_with_partial_retrieval": 8,
+    "wrong_abstention_despite_full_retrieval": 1
+  }
+}
+
+Archivos generados
+------------------
+- verificacion_de_resultados/s1_verificacion_resumen.txt
+- verificacion_de_resultados/s1_verificacion_resumen.json
+- verificacion_de_resultados/s1_casos_problematicos.csv
+- verificacion_de_resultados/s1_muestra_respuestas.csv
+- verificacion_de_resultados/s1_metricas_por_grupo.csv

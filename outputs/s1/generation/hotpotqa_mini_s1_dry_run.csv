@@ -1,0 +1,265 @@
+id,dataset,case_type,topic,hotpot_type,level,source,source_split,original_hotpotqa_id,original_question,question,prompt,expected_answer,gold_answer,gold_answer_text,expected_behavior,correct_answers_json,incorrect_answers_json,gold_evidence_ids,gold_evidence_titles,context_chunk_ids,expected_model_output_format,system,model,top_k,retrieval_query,retrieved_chunk_ids,retrieved_doc_ids,retrieved_titles,retrieved_scores,retrieved_context_json,rag_prompt,rag_prompt_chars,retrieval_latency_seconds,dry_run,raw_output,latency_seconds,usage_json,input_tokens,output_tokens,total_tokens,error
+hotpotqa_mini_0000,hotpotqa,open_qa,geography,comparison,hard,HotpotQA distractor via Hugging Face,validation,5adbf0a255429947ff17385a,Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",no,no,no,answer,"[""no""]",[],hotpotqa_mini_0000_chunk_05|hotpotqa_mini_0000_chunk_06,Esma Sultan Mansion|Laleli Mosque,hotpotqa_mini_0000_chunk_00|hotpotqa_mini_0000_chunk_01|hotpotqa_mini_0000_chunk_02|hotpotqa_mini_0000_chunk_03|hotpotqa_mini_0000_chunk_04|hotpotqa_mini_0000_chunk_05|hotpotqa_mini_0000_chunk_06|hotpotqa_mini_0000_chunk_07|hotpotqa_mini_0000_chunk_08|hotpotqa_mini_0000_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}",S1_basic_rag,,5,Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?,hotpotqa_mini_0000_chunk_06|hotpotqa_mini_0000_chunk_05|hotpotqa_mini_0000_chunk_04|hotpotqa_mini_0000_chunk_01|hotpotqa_mini_0000_chunk_00,hotpotqa_mini_0000_doc_06|hotpotqa_mini_0000_doc_05|hotpotqa_mini_0000_doc_04|hotpotqa_mini_0000_doc_01|hotpotqa_mini_0000_doc_00,Esma Sultan Mansion|Laleli Mosque|Sultan Ahmed Mosque|Djamaâ el Kebir|Esma Sultan (daughter of Abdülaziz),0.688997|0.630795|0.526103|0.518195|0.515703,"[{""rank"": 1, ""chunk_id"": ""hotpotqa_mini_0000_chunk_06"", ""doc_id"": ""hotpotqa_mini_0000_doc_06"", ""title"": ""Esma Sultan Mansion"", ""score"": 0.6889973878860474, ""text"": ""The Esma Sultan Mansion (Turkish: \""Esma Sultan Yalısı\"" ), a historical yalı (English: waterside mansion ) located at Bosphorus in Ortaköy neighborhood of Istanbul, Turkey and named after its original owner Esma Sultan, is used today as a cultural center after being redeveloped."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0000"", ""paragraph_index"": 6}, {""rank"": 2, ""chunk_id"": ""hotpotqa_mini_0000_chunk_05"", ""doc_id"": ""hotpotqa_mini_0000_doc_05"", ""title"": ""Laleli Mosque"", ""score"": 0.6307952404022217, ""text"": ""The Laleli Mosque (Turkish: \""Laleli Camii, or Tulip Mosque\"" ) is an 18th-century Ottoman imperial mosque located in Laleli, Fatih, Istanbul, Turkey."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0000"", ""paragraph_index"": 5}, {""rank"": 3, ""chunk_id"": ""hotpotqa_mini_0000_chunk_04"", ""doc_id"": ""hotpotqa_mini_0000_doc_04"", ""title"": ""Sultan Ahmed Mosque"", ""score"": 0.5261028409004211, ""text"": ""The Sultan Ahmed Mosque or Sultan Ahmet Mosque (Turkish: \""Sultan Ahmet Camii\"" ) is a historic mosque located in Istanbul, Turkey. A popular tourist site, the Sultan Ahmed Mosque continues to function as a mosque today; men still kneel in prayer on the mosque's lush red carpet after the call to prayer. The Blue Mosque, as it is popularly known, was constructed between 1609 and 1616 during the rule of Ahmed I. Its Külliye contains Ahmed's tomb, a madrasah and a hospice. Hand-painted blue tiles adorn the mosque’s interior walls, and at night the mosque is bathed in blue as lights frame the mosque’s five main domes, six minarets and eight secondary domes. It sits next to the Hagia Sophia, another popular tourist site."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0000"", ""paragraph_index"": 4}, {""rank"": 4, ""chunk_id"": ""hotpotqa_mini_0000_chunk_01"", ""doc_id"": ""hotpotqa_mini_0000_doc_01"", ""title"": ""Djamaâ el Kebir"", ""score"": 0.5181952118873596, ""text"": ""The Great Mosque of Algiers (Arabic: الجامع الكبير‎ ‎ , \""Jemaa Kebir\"") or “Djama’a al-Kebir” (meaning Great Mosque) is a mosque in Algiers, Algeria, located very close to Algiers Harbor. An inscription on the minbar (منبر) or the pulpit testifies to fact that the mosque was built in 1097. It is also known by several other names such as Grand Mosque d'Alger, Djamaa al-Kebir, El Kebir Mosque and Jami Masjid. It is one of the few remaining examples of Almoravid architecture. It is the oldest mosque in Algiers and is said to be the oldest mosque in Algeria after Sidi Okba Mosque. It was built under sultan Ali ibn Yusuf. Its minaret dates from 1332 (1324 in some sources) and was built by the Ziyyanid Sultan of Tlemcen. The gallery at the outside of the mosque was built in 1840. Its construction was a consequence of a complete reconstruction of the street by the French."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0000"", ""paragraph_index"": 1}, {""rank"": 5, ""chunk_id"": ""hotpotqa_mini_0000_chunk_00"", ""doc_id"": ""hotpotqa_mini_0000_doc_00"", ""title"": ""Esma Sultan (daughter of Abdülaziz)"", ""score"": 0.5157028436660767, ""text"": ""Esma Sultan (21 March 1873 – 7 May 1899) was an Ottoman princess, the daughter of Sultan Abdülaziz and his wife Gevheri Kadın, herself the daughter of Salih Bey Svatnba. She was the half-sister of Abdülmecid II, the last Caliph of the Muslim world."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0000"", ""paragraph_index"": 0}]","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Usá solo la información del contexto recuperado.
+- No agregues información externa.
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Contexto recuperado:
+[1]
+chunk_id: hotpotqa_mini_0000_chunk_06
+title: Esma Sultan Mansion
+score: 0.688997
+text: The Esma Sultan Mansion (Turkish: ""Esma Sultan Yalısı"" ), a historical yalı (English: waterside mansion ) located at Bosphorus in Ortaköy neighborhood of Istanbul, Turkey and named after its original owner Esma Sultan, is used today as a cultural center after being redeveloped.
+
+[2]
+chunk_id: hotpotqa_mini_0000_chunk_05
+title: Laleli Mosque
+score: 0.630795
+text: The Laleli Mosque (Turkish: ""Laleli Camii, or Tulip Mosque"" ) is an 18th-century Ottoman imperial mosque located in Laleli, Fatih, Istanbul, Turkey.
+
+[3]
+chunk_id: hotpotqa_mini_0000_chunk_04
+title: Sultan Ahmed Mosque
+score: 0.526103
+text: The Sultan Ahmed Mosque or Sultan Ahmet Mosque (Turkish: ""Sultan Ahmet Camii"" ) is a historic mosque located in Istanbul, Turkey. A popular tourist site, the Sultan Ahmed Mosque continues to function as a mosque today; men still kneel in prayer on the mosque's lush red carpet after the call to prayer. The Blue Mosque, as it is popularly known, was constructed between 1609 and 1616 during the rule of Ahmed I. Its Külliye contains Ahmed's tomb, a madrasah and a hospice. Hand-painted blue tiles adorn the mosque’s interior walls, and at night the mosque is bathed in blue as lights frame the mosque’s five main domes, six minarets and eight secondary domes. It sits next to the Hagia Sophia, another popular tourist site.
+
+[4]
+chunk_id: hotpotqa_mini_0000_chunk_01
+title: Djamaâ el Kebir
+score: 0.518195
+text: The Great Mosque of Algiers (Arabic: الجامع الكبير‎ ‎ , ""Jemaa Kebir"") or “Djama’a al-Kebir” (meaning Great Mosque) is a mosque in Algiers, Algeria, located very close to Algiers Harbor. An inscription on the minbar (منبر) or the pulpit testifies to fact that the mosque was built in 1097. It is also known by several other names such as Grand Mosque d'Alger, Djamaa al-Kebir, El Kebir Mosque and Jami Masjid. It is one of the few remaining examples of Almoravid architecture. It is the oldest mosque in Algiers and is said to be the oldest mosque in Algeria after Sidi Okba Mosque. It was built under sultan Ali ibn Yusuf. Its minaret dates from 1332 (1324 in some sources) and was built by the Ziyyanid Sultan of Tlemcen. The gallery at the outside of the mosque was built in 1840. Its construction was a consequence of a complete reconstruction of the street by the French.
+
+[5]
+chunk_id: hotpotqa_mini_0000_chunk_00
+title: Esma Sultan (daughter of Abdülaziz)
+score: 0.515703
+text: Esma Sultan (21 March 1873 – 7 May 1899) was an Ottoman princess, the daughter of Sultan Abdülaziz and his wife Gevheri Kadın, herself the daughter of Salih Bey Svatnba. She was the half-sister of Abdülmecid II, the last Caliph of the Muslim world.
+
+Pregunta:
+Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",3466,5.633,True,,,,,,,DRY_RUN: no se llamó al modelo.
+hotpotqa_mini_0001,hotpotqa,open_qa,geography,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a8e3ea95542995a26add48d,"The director of the romantic comedy ""Big Stone Gap"" is based in what New York city?","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+The director of the romantic comedy ""Big Stone Gap"" is based in what New York city?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+The director of the romantic comedy ""Big Stone Gap"" is based in what New York city?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Greenwich Village, New York City","Greenwich Village, New York City","Greenwich Village, New York City",answer,"[""Greenwich Village, New York City""]",[],hotpotqa_mini_0001_chunk_03|hotpotqa_mini_0001_chunk_09,Adriana Trigiani|Big Stone Gap (film),hotpotqa_mini_0001_chunk_00|hotpotqa_mini_0001_chunk_01|hotpotqa_mini_0001_chunk_02|hotpotqa_mini_0001_chunk_03|hotpotqa_mini_0001_chunk_04|hotpotqa_mini_0001_chunk_05|hotpotqa_mini_0001_chunk_06|hotpotqa_mini_0001_chunk_07|hotpotqa_mini_0001_chunk_08|hotpotqa_mini_0001_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}",S1_basic_rag,,5,"The director of the romantic comedy ""Big Stone Gap"" is based in what New York city?",hotpotqa_mini_0001_chunk_09|hotpotqa_mini_0001_chunk_08|hotpotqa_mini_0001_chunk_02|hotpotqa_mini_0015_chunk_06|hotpotqa_mini_0001_chunk_04,hotpotqa_mini_0001_doc_09|hotpotqa_mini_0001_doc_08|hotpotqa_mini_0001_doc_02|hotpotqa_mini_0015_doc_06|hotpotqa_mini_0001_doc_04,Big Stone Gap (film)|I Love NY (2015 film)|Nola (film)|Drive Angry|Great Eastern Conventions,0.720658|0.327374|0.304549|0.302057|0.292323,"[{""rank"": 1, ""chunk_id"": ""hotpotqa_mini_0001_chunk_09"", ""doc_id"": ""hotpotqa_mini_0001_doc_09"", ""title"": ""Big Stone Gap (film)"", ""score"": 0.7206583023071289, ""text"": ""Big Stone Gap is a 2014 American drama romantic comedy film written and directed by Adriana Trigiani and produced by Donna Gigliotti for Altar Identity Studios, a subsidiary of Media Society. Based on Trigiani's 2000 best-selling novel of the same name, the story is set in the actual Virginia town of Big Stone Gap circa 1970s. The film had its world premiere at the Virginia Film Festival on November 6, 2014."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0001"", ""paragraph_index"": 9}, {""rank"": 2, ""chunk_id"": ""hotpotqa_mini_0001_chunk_08"", ""doc_id"": ""hotpotqa_mini_0001_doc_08"", ""title"": ""I Love NY (2015 film)"", ""score"": 0.32737356424331665, ""text"": ""I Love NY, also known as I Love New Year, is an Indian romantic comedy film directed by Radhika Rao and Vinay Sapru starring Sunny Deol and Kangana Ranaut in lead roles. The film is produced by Bhushan Kumar and Krishan Kumar under the banner of Super Cassettes Industries Ltd. The film was extensively shot in Mumbai, New York City and Bangkok. The main plot was taken from the Russian romantic comedy \""The Irony of Fate\"" (1976). After numerous delays, the film released on 10 July 2015."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0001"", ""paragraph_index"": 8}, {""rank"": 3, ""chunk_id"": ""hotpotqa_mini_0001_chunk_02"", ""doc_id"": ""hotpotqa_mini_0001_doc_02"", ""title"": ""Nola (film)"", ""score"": 0.3045489192008972, ""text"": ""Nola is a 2003 American romantic comedy film written and directed by Alan Hruska. It depicts the struggle of a young woman trying to survive in New York City while looking for her birth father. It premiered in New York City on July 23, 2004."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0001"", ""paragraph_index"": 2}, {""rank"": 4, ""chunk_id"": ""hotpotqa_mini_0015_chunk_06"", ""doc_id"": ""hotpotqa_mini_0015_doc_06"", ""title"": ""Drive Angry"", ""score"": 0.30205678939819336, ""text"": ""Drive Angry is a 2011 American fantasy action film starring Nicolas Cage and Amber Heard, and directed by Patrick Lussier. It was released on February 25, 2011. Shot in 3-D, the film was met with a mixed reception and grossed almost $29 million."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""entertainment"", ""question_id"": ""hotpotqa_mini_0015"", ""paragraph_index"": 6}, {""rank"": 5, ""chunk_id"": ""hotpotqa_mini_0001_chunk_04"", ""doc_id"": ""hotpotqa_mini_0001_doc_04"", ""title"": ""Great Eastern Conventions"", ""score"": 0.29232311248779297, ""text"": ""Great Eastern Conventions, Inc. was an entertainment company which produced comic book conventions, most actively during the years 1987-1996. In New York City, the Great Eastern shows filled the gap between the mid-1980s demise of the annual Comic Art Convention and Creation Conventions, and the establishment of promoter Michael Carbonaro's annual Big Apple Comic Con in 1996. From 1993–1995, Great Eastern hosted two New York City shows annually at the Jacob K. Javits Convention Center. Great Eastern also ran shows in New Jersey, Pennsylvania, Massachusetts, Oregon, Minnesota, and Texas."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0001"", ""paragraph_index"": 4}]","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Usá solo la información del contexto recuperado.
+- No agregues información externa.
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Contexto recuperado:
+[1]
+chunk_id: hotpotqa_mini_0001_chunk_09
+title: Big Stone Gap (film)
+score: 0.720658
+text: Big Stone Gap is a 2014 American drama romantic comedy film written and directed by Adriana Trigiani and produced by Donna Gigliotti for Altar Identity Studios, a subsidiary of Media Society. Based on Trigiani's 2000 best-selling novel of the same name, the story is set in the actual Virginia town of Big Stone Gap circa 1970s. The film had its world premiere at the Virginia Film Festival on November 6, 2014.
+
+[2]
+chunk_id: hotpotqa_mini_0001_chunk_08
+title: I Love NY (2015 film)
+score: 0.327374
+text: I Love NY, also known as I Love New Year, is an Indian romantic comedy film directed by Radhika Rao and Vinay Sapru starring Sunny Deol and Kangana Ranaut in lead roles. The film is produced by Bhushan Kumar and Krishan Kumar under the banner of Super Cassettes Industries Ltd. The film was extensively shot in Mumbai, New York City and Bangkok. The main plot was taken from the Russian romantic comedy ""The Irony of Fate"" (1976). After numerous delays, the film released on 10 July 2015.
+
+[3]
+chunk_id: hotpotqa_mini_0001_chunk_02
+title: Nola (film)
+score: 0.304549
+text: Nola is a 2003 American romantic comedy film written and directed by Alan Hruska. It depicts the struggle of a young woman trying to survive in New York City while looking for her birth father. It premiered in New York City on July 23, 2004.
+
+[4]
+chunk_id: hotpotqa_mini_0015_chunk_06
+title: Drive Angry
+score: 0.302057
+text: Drive Angry is a 2011 American fantasy action film starring Nicolas Cage and Amber Heard, and directed by Patrick Lussier. It was released on February 25, 2011. Shot in 3-D, the film was met with a mixed reception and grossed almost $29 million.
+
+[5]
+chunk_id: hotpotqa_mini_0001_chunk_04
+title: Great Eastern Conventions
+score: 0.292323
+text: Great Eastern Conventions, Inc. was an entertainment company which produced comic book conventions, most actively during the years 1987-1996. In New York City, the Great Eastern shows filled the gap between the mid-1980s demise of the annual Comic Art Convention and Creation Conventions, and the establishment of promoter Michael Carbonaro's annual Big Apple Comic Con in 1996. From 1993–1995, Great Eastern hosted two New York City shows annually at the Jacob K. Javits Convention Center. Great Eastern also ran shows in New Jersey, Pennsylvania, Massachusetts, Oregon, Minnesota, and Texas.
+
+Pregunta:
+The director of the romantic comedy ""Big Stone Gap"" is based in what New York city?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",3162,0.049,True,,,,,,,DRY_RUN: no se llamó al modelo.
+hotpotqa_mini_0002,hotpotqa,open_qa,geography,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a87ab905542996e4f3088c1,The arena where the Lewiston Maineiacs played their home games can seat how many people?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+The arena where the Lewiston Maineiacs played their home games can seat how many people?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+The arena where the Lewiston Maineiacs played their home games can seat how many people?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","3,677 seated","3,677 seated","3,677 seated",answer,"[""3,677 seated""]",[],hotpotqa_mini_0002_chunk_05|hotpotqa_mini_0002_chunk_07,Androscoggin Bank Colisée|Lewiston Maineiacs,hotpotqa_mini_0002_chunk_00|hotpotqa_mini_0002_chunk_01|hotpotqa_mini_0002_chunk_02|hotpotqa_mini_0002_chunk_03|hotpotqa_mini_0002_chunk_04|hotpotqa_mini_0002_chunk_05|hotpotqa_mini_0002_chunk_06|hotpotqa_mini_0002_chunk_07|hotpotqa_mini_0002_chunk_08|hotpotqa_mini_0002_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}",S1_basic_rag,,5,The arena where the Lewiston Maineiacs played their home games can seat how many people?,hotpotqa_mini_0002_chunk_07|hotpotqa_mini_0002_chunk_08|hotpotqa_mini_0002_chunk_05|hotpotqa_mini_0002_chunk_04|hotpotqa_mini_0002_chunk_01,hotpotqa_mini_0002_doc_07|hotpotqa_mini_0002_doc_08|hotpotqa_mini_0002_doc_05|hotpotqa_mini_0002_doc_04|hotpotqa_mini_0002_doc_01,Lewiston Maineiacs|Dwyer Arena|Androscoggin Bank Colisée|Case Gym|Robins Center,0.517773|0.512063|0.418061|0.380183|0.353336,"[{""rank"": 1, ""chunk_id"": ""hotpotqa_mini_0002_chunk_07"", ""doc_id"": ""hotpotqa_mini_0002_doc_07"", ""title"": ""Lewiston Maineiacs"", ""score"": 0.517772912979126, ""text"": ""The Lewiston Maineiacs were a junior ice hockey team of the Quebec Major Junior Hockey League based in Lewiston, Maine. The team played its home games at the Androscoggin Bank Colisée. They were the second QMJHL team in the United States, and the only one to play a full season. They won the President's Cup in 2007."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0002"", ""paragraph_index"": 7}, {""rank"": 2, ""chunk_id"": ""hotpotqa_mini_0002_chunk_08"", ""doc_id"": ""hotpotqa_mini_0002_doc_08"", ""title"": ""Dwyer Arena"", ""score"": 0.5120633840560913, ""text"": ""The Robert and Concetta Dwyer Arena houses two ice surfaces, both 200 x 85 ft., and pro shop on Niagara University's campus in Lewiston, New York, United States. The main rink can seat up to 1,400 people and is the home to the Niagara Purple Eagles men's ice hockey team, which plays in Atlantic Hockey. The arena was formerly home to the women's ice hockey team, which played in College Hockey America."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0002"", ""paragraph_index"": 8}, {""rank"": 3, ""chunk_id"": ""hotpotqa_mini_0002_chunk_05"", ""doc_id"": ""hotpotqa_mini_0002_doc_05"", ""title"": ""Androscoggin Bank Colisée"", ""score"": 0.41806119680404663, ""text"": ""The Androscoggin Bank Colisée (formerly Central Maine Civic Center and Lewiston Colisee) is a 4,000 capacity (3,677 seated) multi-purpose arena, in Lewiston, Maine, that opened in 1958. In 1965 it was the location of the World Heavyweight Title fight during which one of the most famous sports photographs of the century was taken of Muhammed Ali standing over Sonny Liston."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0002"", ""paragraph_index"": 5}, {""rank"": 4, ""chunk_id"": ""hotpotqa_mini_0002_chunk_04"", ""doc_id"": ""hotpotqa_mini_0002_doc_04"", ""title"": ""Case Gym"", ""score"": 0.38018277287483215, ""text"": ""Case Gym is a 1,800-seat multi-purpose arena at Boston University in Boston, Massachusetts. It opened in 1972 as part of the Harold Case Physical Education Center, which is named after the university's fifth president, Harold C. Case. The gym is referred to as \""The Roof\"" because it is located on the top level of the building, above Walter Brown Arena. It is home to the Boston University Terriers men's and women's basketball teams, as well as the men's wrestling team. Basketball games are also played in Agganis Arena, and on occasion Walter Brown Arena. When Boston University left the America East Conference for the Patriot League in July 2013, they announced that all home men's basketball conference games would be played at Agganis Arena, with the non-conference games to be played at Case."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0002"", ""paragraph_index"": 4}, {""rank"": 5, ""chunk_id"": ""hotpotqa_mini_0002_chunk_01"", ""doc_id"": ""hotpotqa_mini_0002_doc_01"", ""title"": ""Robins Center"", ""score"": 0.35333573818206787, ""text"": ""The Robins Center is a 7,201-seat multi-purpose arena in Richmond, Virginia. Opened in 1972, the arena is home to the University of Richmond Spiders basketball. It hosted the ECAC South (now known as the Colonial Athletic Association) men's basketball tournament in 1983. It is named for E. Claiborne Robins Sr, class of 1931, who, along with his family, have been leading benefactors for the school. The opening of the Robins Center returning Spider basketball to an on-campus facility for the first time since the mid-1940s when it outgrew Millhiser Gymnasium. In the intervening decades, the Spiders played home games in numerous locations around the Richmond area, including the Richmond Coliseum (1971–1972), the Richmond Arena (1954–1971), the Benedictine High School gymnasium (1951–1954), Grays' Armory (1950–1951) and Blues' Armory (1947–1950). The Robins Center arena serves as the location of the University of Richmond's commencement exercises and hosted a 1992 Presidential debate involving Bill Clinton, George H. W. Bush, and Ross Perot."", ""source"": ""hotpotqa_huggingface_distractor"", ""topic"": ""geography"", ""question_id"": ""hotpotqa_mini_0002"", ""paragraph_index"": 1}]","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Usá solo la información del contexto recuperado.
+- No agregues información externa.
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Contexto recuperado:
+[1]
+chunk_id: hotpotqa_mini_0002_chunk_07
+title: Lewiston Maineiacs
+score: 0.517773
+text: The Lewiston Maineiacs were a junior ice hockey team of the Quebec Major Junior Hockey League based in Lewiston, Maine. The team played its home games at the Androscoggin Bank Colisée. They were the second QMJHL team in the United States, and the only one to play a full season. They won the President's Cup in 2007.
+
+[2]
+chunk_id: hotpotqa_mini_0002_chunk_08
+title: Dwyer Arena
+score: 0.512063
+text: The Robert and Concetta Dwyer Arena houses two ice surfaces, both 200 x 85 ft., and pro shop on Niagara University's campus in Lewiston, New York, United States. The main rink can seat up to 1,400 people and is the home to the Niagara Purple Eagles men's ice hockey team, which plays in Atlantic Hockey. The arena was formerly home to the women's ice hockey team, which played in College Hockey America.
+
+[3]
+chunk_id: hotpotqa_mini_0002_chunk_05
+title: Androscoggin Bank Colisée
+score: 0.418061
+text: The Androscoggin Bank Colisée (formerly Central Maine Civic Center and Lewiston Colisee) is a 4,000 capacity (3,677 seated) multi-purpose arena, in Lewiston, Maine, that opened in 1958. In 1965 it was the location of the World Heavyweight Title fight during which one of the most famous sports photographs of the century was taken of Muhammed Ali standing over Sonny Liston.
+
+[4]
+chunk_id: hotpotqa_mini_0002_chunk_04
+title: Case Gym
+score: 0.380183
+text: Case Gym is a 1,800-seat multi-purpose arena at Boston University in Boston, Massachusetts. It opened in 1972 as part of the Harold Case Physical Education Center, which is named after the university's fifth president, Harold C. Case. The gym is referred to as ""The Roof"" because it is located on the top level of the building, above Walter Brown Arena. It is home to the Boston University Terriers men's and women's basketball teams, as well as the men's wrestling team. Basketball games are also played in Agganis Arena, and on occasion Walter Brown Arena. When Boston University left the America East Conference for the Patriot League in July 2013, they announced that all home men's basketball conference games would be played at Agganis Arena, with the non-conference games to be played at Case.
+
+[5]
+chunk_id: hotpotqa_mini_0002_chunk_01
+title: Robins Center
+score: 0.353336
+text: The Robins Center is a 7,201-seat multi-purpose arena in Richmond, Virginia. Opened in 1972, the arena is home to the University of Richmond Spiders basketball. It hosted the ECAC South (now known as the Colonial Athletic Association) men's basketball tournament in 1983. It is named for E. Claiborne Robins Sr, class of 1931, who, along with his family, have been leading benefactors for the school. The opening of the Robins Center returning Spider basketball to an on-campus facility for the first time since the mid-1940s when it outgrew Millhiser Gymnasium. In the intervening decades, the Spiders played home games in numerous locations around the Richmond area, including the Richmond Coliseum (1971–1972), the Richmond Arena (1954–1971), the Benedictine High School gymnasium (1951–1954), Grays' Armory (1950–1951) and Blues' Armory (1947–1950). The Robins Center arena serves as the location of the University of Richmond's commencement exercises and hosted a 1992 Presidential debate involving Bill Clinton, George H. W. Bush, and Ross Perot.
+
+Pregunta:
+The arena where the Lewiston Maineiacs played their home games can seat how many people?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",4121,0.087,True,,,,,,,DRY_RUN: no se llamó al modelo.

@@ -1,0 +1,329 @@
+CONCLUSIONES SOBRE EL ESTADO ACTUAL DEL MODELO S1 Y PRÓXIMOS PASOS DE MEJORA
+================================================================================
+
+1. Estado actual del modelo S1
+-----------------------------
+
+El modelo S1 ya se encuentra implementado como un pipeline RAG básico funcional de punta a punta. Actualmente el flujo completo es:
+
+    questions_s1.csv
+        -> retriever top-k
+        -> armado de prompt con contexto recuperado
+        -> llamada al LLM
+        -> guardado de respuestas crudas
+        -> parseo de respuestas JSON
+        -> evaluación automática
+        -> verificación de resultados
+
+Desde el punto de vista técnico, la implementación actual está en buen estado. La corrida sobre HotpotQA-mini produjo 20 respuestas para 20 preguntas, sin errores de ejecución, sin respuestas vacías y con formato JSON válido en todos los casos. Esto indica que los componentes principales del pipeline están correctamente conectados:
+
+    - el dataset S1 se lee correctamente;
+    - el índice vectorial se carga correctamente;
+    - el retriever devuelve exactamente 5 chunks por pregunta;
+    - el prompt RAG se construye sin errores;
+    - el LLM responde en el formato esperado;
+    - el parser puede extraer los campos solicitados;
+    - el evaluador puede calcular métricas de respuesta y de retrieval.
+
+En consecuencia, el problema actual ya no es de infraestructura ni de ejecución, sino de calidad experimental del modelo S1.
+
+
+2. Resultados principales obtenidos
+-----------------------------------
+
+Los resultados de parseo y evaluación muestran lo siguiente:
+
+    - Total de preguntas evaluadas: 20
+    - Formato JSON válido: 20/20
+    - Errores de ejecución: 0
+    - Accuracy de respuesta: 0.55
+    - Respuestas correctas: 11/20
+    - Respuestas incorrectas: 9/20
+    - Exact match: 0.25
+    - Contains gold answer: 0.55
+    - Token F1 promedio: 0.410
+    - Tasa de abstención: 0.45
+    - Abstenciones incorrectas: 9/20
+    - Retrieval hit gold rate: 1.00
+    - Retrieval full recall rate: 0.55
+    - Retrieval recall promedio: 0.775
+    - Retrieval precision promedio: 0.310
+
+Estos números son coherentes con el comportamiento esperado de un RAG básico sobre HotpotQA-mini. El sistema no falla por formato, ni por ejecución, ni por falta total de evidencia. El comportamiento más importante observado es que S1 tiende a abstenerse cuando el contexto recuperado no parece suficiente.
+
+
+3. Interpretación de los resultados
+-----------------------------------
+
+La conclusión más importante es que S1 top-5 funciona correctamente como sistema RAG básico, pero su rendimiento está limitado por la recuperación incompleta de evidencia.
+
+El retriever tiene un resultado muy bueno en términos de hit@k: en todas las preguntas recupera al menos un chunk gold. Esto se refleja en:
+
+    retrieval_hit_gold_rate = 1.00
+
+Sin embargo, HotpotQA suele requerir razonamiento multi-hop, es decir, conectar dos piezas de evidencia. En el mini-dataset usado, cada pregunta tiene en promedio 2 chunks gold. Con top-k=5, el sistema solo recupera toda la evidencia gold en el 55% de las preguntas:
+
+    retrieval_full_recall_rate = 0.55
+
+Esto explica buena parte de los errores. La distribución de errores fue:
+
+    - correct: 11
+    - wrong_abstention_with_partial_retrieval: 8
+    - wrong_abstention_despite_full_retrieval: 1
+
+Por lo tanto, 8 de los 9 errores se explican por recuperación parcial. En esos casos, el modelo encuentra parte de la evidencia, pero no todo lo necesario para responder con seguridad. Frente a esa situación, el LLM se comporta de forma conservadora y responde que no hay información suficiente.
+
+Esto no debe interpretarse como un fallo total del sistema, sino como una señal diagnóstica clara:
+
+    S1 no está alucinando de forma agresiva.
+    S1 está absteniéndose cuando la evidencia recuperada es incompleta.
+    El cuello de botella principal está en el retrieval, no en el parser ni en el formato de salida.
+
+
+4. Sobre la abstención
+---------------------
+
+La abstención incorrecta es actualmente el principal problema del modelo S1.
+
+La tasa de abstención fue:
+
+    abstention_rate = 0.45
+
+Y todas esas abstenciones fueron incorrectas porque, en este subconjunto, todas las preguntas tenían una respuesta esperada:
+
+    wrong_abstention_rate = 0.45
+
+Esto significa que el prompt está induciendo un comportamiento prudente. El modelo parece respetar la instrucción de no responder si el contexto no alcanza. Eso es positivo desde el punto de vista de seguridad y control de alucinaciones, pero negativo para HotpotQA si el objetivo es maximizar respuestas correctas.
+
+La interpretación adecuada es:
+
+    El modelo S1 top-5 prioriza no inventar antes que responder con evidencia parcial.
+
+Para un sistema factual o de producción, esa prudencia puede ser deseable. Para un benchmark como HotpotQA, donde todas las preguntas tienen respuesta, puede bajar la accuracy.
+
+
+5. Sobre exact match y métricas de respuesta
+--------------------------------------------
+
+El exact match obtenido fue bajo:
+
+    exact_match_rate = 0.25
+
+Esto no resulta especialmente preocupante porque las respuestas son abiertas. En tareas abiertas, una respuesta puede ser correcta aunque no coincida exactamente con el texto gold. Por ejemplo, si la respuesta esperada es:
+
+    3,677 seated
+
+y el modelo responde:
+
+    3,677 seated (4,000 total capacity)
+
+la respuesta es sustancialmente correcta, aunque puede no contar como exact match estricto.
+
+Por eso, para este S1 conviene priorizar métricas como:
+
+    - contains_gold_answer;
+    - token_f1;
+    - answer_accuracy heurística;
+    - análisis manual de casos problemáticos;
+    - clasificación de errores por causa.
+
+Exact match puede mantenerse como métrica secundaria, pero no debería ser la única métrica de calidad.
+
+
+6. Conclusión experimental actual
+---------------------------------
+
+Una formulación posible para el informe sería:
+
+    El sistema S1 implementa un RAG básico sobre HotpotQA-mini utilizando recuperación vectorial con embeddings de sentence-transformers y generación condicionada por los top-k chunks recuperados. En la configuración top-k=5, el pipeline fue técnicamente robusto: obtuvo 100% de salidas JSON válidas, 0 errores de ejecución y recuperó al menos una evidencia gold para todas las preguntas. Sin embargo, la accuracy final fue de 55%. El análisis de errores mostró que la principal causa de fallo fue la abstención incorrecta asociada a recuperación parcial de evidencia. Esto sugiere que, para preguntas multi-hop, recuperar solo cinco chunks puede no ser suficiente para capturar todas las piezas necesarias de evidencia. En consecuencia, el principal cuello de botella de S1 no está en el formato de salida ni en la ejecución del LLM, sino en la cobertura de retrieval y en la política de abstención del prompt.
+
+
+7. Qué hace falta para mejorar S1
+---------------------------------
+
+A partir de los resultados actuales, las mejoras deberían hacerse en este orden:
+
+
+7.1. Probar S1 con top-k=10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El siguiente experimento más importante es correr exactamente el mismo pipeline usando:
+
+    top_k = 10
+
+La razón es que la evaluación previa del retriever mostró que top-10 aumentaba el recall frente a top-5:
+
+    top-5:
+        hit@5 = 1.000
+        recall@5 = 0.775
+        precision@5 = 0.310
+
+    top-10:
+        hit@10 = 1.000
+        recall@10 = 0.950
+        precision@10 = 0.190
+
+Esto permite responder una pregunta experimental directa:
+
+    ¿S1 falla principalmente porque top-5 no recupera suficiente evidencia?
+
+Si S1-top10 mejora la accuracy y reduce las abstenciones incorrectas, entonces el cuello de botella era principalmente retrieval incompleto.
+
+Si S1-top10 no mejora, entonces el problema está más en el prompt, en la generación o en la forma de usar la evidencia.
+
+
+7.2. Comparar S1-top5 vs S1-top10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No conviene reemplazar automáticamente top-5 por top-10. Lo correcto es comparar ambas variantes:
+
+    S1-top5:
+        configuración más selectiva, menos ruido, menor costo.
+
+    S1-top10:
+        configuración con más cobertura, más evidencia, más ruido y más tokens.
+
+La tabla de comparación debería incluir:
+
+    - answer_accuracy;
+    - wrong_abstention_rate;
+    - retrieval_full_recall_rate;
+    - avg_token_f1;
+    - avg_total_tokens;
+    - avg_latency_seconds.
+
+Esto permitiría discutir el trade-off entre cobertura de evidencia y ruido contextual.
+
+
+7.3. Ajustar el prompt para reducir abstención excesiva
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Si el sistema sigue absteniéndose demasiado, incluso con más evidencia, habría que suavizar el prompt. Actualmente el prompt parece inducir una regla conservadora muy fuerte:
+
+    "Si el contexto no alcanza, indicá que no hay información suficiente."
+
+Eso está bien, pero puede hacer que el modelo se abstenga ante cualquier incertidumbre menor. Una mejora posible sería pedirle que responda cuando la evidencia sea suficiente de forma razonable, aunque no sea perfecta.
+
+Por ejemplo, cambiar la instrucción hacia algo como:
+
+    - Respondé usando únicamente el contexto recuperado.
+    - Si el contexto contiene evidencia directa o inferible, respondé.
+    - Si falta una de las entidades o no hay evidencia suficiente, abstente.
+    - No te abstengas si la respuesta puede inferirse claramente de los chunks.
+
+Esto podría reducir abstenciones innecesarias.
+
+
+7.4. Agregar análisis de evidencia recuperada al prompt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Otra mejora posible es pedirle al modelo que primero identifique internamente qué chunks son relevantes, pero que responda solo con JSON final.
+
+La idea sería que el prompt ayude al modelo a usar mejor el contexto:
+
+    - identificar entidades de la pregunta;
+    - buscar esas entidades en los chunks;
+    - combinar información multi-hop;
+    - producir respuesta final breve.
+
+Esto no requiere cambiar el retriever, solo mejorar el prompt.
+
+
+7.5. Implementar reranking
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Después de probar top-10, una mejora natural sería:
+
+    retrieve top-10 -> rerank -> usar top-5 final
+
+Esto puede dar lo mejor de ambos mundos:
+
+    - top-10 aumenta la probabilidad de capturar evidencia gold;
+    - reranking reduce ruido antes de pasar contexto al LLM;
+    - top-5 final mantiene bajo el costo del prompt.
+
+El reranking puede implementarse primero con heurísticas simples:
+
+    - priorizar chunks cuyos títulos aparecen en la pregunta;
+    - priorizar chunks con mayor overlap léxico con la pregunta;
+    - combinar score vectorial + score BM25;
+    - favorecer diversidad de títulos para preguntas multi-hop.
+
+Más adelante podría usarse un cross-encoder, pero no es necesario para el primer experimento.
+
+
+7.6. Implementar retrieval híbrido
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El S1 actual usa retrieval vectorial. Una mejora S2 razonable sería sumar búsqueda léxica:
+
+    dense retrieval + BM25
+
+Esto puede ayudar porque HotpotQA trabaja mucho con nombres de entidades, títulos de Wikipedia y coincidencias léxicas fuertes. A veces BM25 recupera mejor entidades exactas que un embedding denso.
+
+Una arquitectura posible sería:
+
+    query
+        -> dense retriever top-10
+        -> BM25 top-10
+        -> fusión de rankings
+        -> top-k final
+        -> LLM
+
+Esto podría ser el modelo S2 o una variante mejorada de S1.
+
+
+7.7. Separar errores de retrieval y errores de generación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El evaluador actual ya permite hacer este análisis, pero conviene explotarlo más.
+
+Para cada respuesta incorrecta, conviene clasificar:
+
+    - retrieval_miss;
+    - partial_retrieval;
+    - full_retrieval_but_wrong_generation;
+    - wrong_abstention;
+    - format_error;
+    - possible_evaluation_false_negative.
+
+Esto es importante para el paper porque permite explicar por qué falla el sistema, no solo cuánto falla.
+
+
+8. Próximo paso recomendado
+---------------------------
+
+El próximo paso concreto debería ser:
+
+    Correr S1 con top_k=10 y repetir parse/evaluate/verificación.
+
+La secuencia recomendada sería:
+
+    1. Ejecutar run_s1_rag.py con top-k=10.
+    2. Guardar salida como hotpotqa_mini_s1_top10_raw.csv.
+    3. Parsear con parse_s1_outputs.py.
+    4. Evaluar con evaluate_s1_answers.py.
+    5. Verificar con check_s1_evaluation_results.py.
+    6. Comparar contra S1-top5.
+
+Esto permitiría decidir con evidencia si la mejora más urgente es aumentar contexto, ajustar prompt o implementar reranking.
+
+
+9. Estado final del S1 actual
+-----------------------------
+
+En síntesis:
+
+    - S1 ya funciona como RAG básico completo.
+    - La infraestructura está correcta.
+    - El formato de salida es robusto.
+    - El parser y evaluador funcionan correctamente.
+    - La configuración top-k=5 logra 55% de accuracy.
+    - El principal problema es la abstención incorrecta.
+    - La causa dominante de error es recuperación parcial de evidencia.
+    - El siguiente experimento debe ser S1-top10.
+    - Después de top10, las mejoras naturales son prompt tuning, reranking y retrieval híbrido.
+
+Conclusión final:
+
+    El modelo S1 está listo como baseline RAG básico. No debe considerarse terminado como sistema optimizado, pero sí como una primera versión experimental sólida. Su valor principal es que ya permite medir de forma separada retrieval, generación, formato, costo y errores de abstención. A partir de este punto, las mejoras deben orientarse a aumentar la cobertura de evidencia sin introducir demasiado ruido, especialmente para preguntas multi-hop.

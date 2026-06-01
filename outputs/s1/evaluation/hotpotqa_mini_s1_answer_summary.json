@@ -1,0 +1,197 @@
+{
+  "input_path": "outputs/s1/generation/hotpotqa_mini_s1_parsed.csv",
+  "output_path": "outputs/s1/evaluation/hotpotqa_mini_s1_answer_results.csv",
+  "summary_path": "outputs/s1/evaluation/hotpotqa_mini_s1_answer_summary.json",
+  "group_summary_path": "outputs/s1/evaluation/hotpotqa_mini_s1_answer_summary_by_group.csv",
+  "thresholds": {
+    "f1_threshold": 0.7
+  },
+  "overall": {
+    "n": 20,
+    "answer_accuracy": 0.55,
+    "exact_match_rate": 0.25,
+    "contains_gold_answer_rate": 0.55,
+    "avg_token_f1": 0.410135,
+    "valid_format_rate": 1.0,
+    "run_error_rate": 0.0,
+    "abstention_rate": 0.45,
+    "wrong_abstention_rate": 0.45,
+    "manual_review_rate": 0.0,
+    "retrieval_hit_gold_rate": 1.0,
+    "retrieval_full_recall_rate": 0.55,
+    "avg_retrieval_recall": 0.775,
+    "avg_retrieval_precision": 0.3100000000000001,
+    "avg_confidence": 0.554,
+    "avg_latency_seconds": 6.5939499999999995,
+    "avg_input_tokens": 1089.25,
+    "avg_output_tokens": 174.7,
+    "avg_total_tokens": 1263.95,
+    "error_type_counts": {
+      "correct": 11,
+      "wrong_abstention_with_partial_retrieval": 8,
+      "wrong_abstention_despite_full_retrieval": 1
+    }
+  },
+  "by_topic": {
+    "entertainment": {
+      "n": 10,
+      "answer_accuracy": 0.6,
+      "exact_match_rate": 0.4,
+      "contains_gold_answer_rate": 0.6,
+      "avg_token_f1": 0.45333000000000007,
+      "valid_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "abstention_rate": 0.4,
+      "wrong_abstention_rate": 0.4,
+      "manual_review_rate": 0.0,
+      "retrieval_hit_gold_rate": 1.0,
+      "retrieval_full_recall_rate": 0.5,
+      "avg_retrieval_recall": 0.75,
+      "avg_retrieval_precision": 0.3,
+      "avg_confidence": 0.548,
+      "avg_latency_seconds": 6.8705,
+      "avg_input_tokens": 1027.9,
+      "avg_output_tokens": 175.2,
+      "avg_total_tokens": 1203.1,
+      "error_type_counts": {
+        "correct": 6,
+        "wrong_abstention_with_partial_retrieval": 4
+      }
+    },
+    "geography": {
+      "n": 10,
+      "answer_accuracy": 0.5,
+      "exact_match_rate": 0.1,
+      "contains_gold_answer_rate": 0.5,
+      "avg_token_f1": 0.36694,
+      "valid_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "abstention_rate": 0.5,
+      "wrong_abstention_rate": 0.5,
+      "manual_review_rate": 0.0,
+      "retrieval_hit_gold_rate": 1.0,
+      "retrieval_full_recall_rate": 0.6,
+      "avg_retrieval_recall": 0.8,
+      "avg_retrieval_precision": 0.32,
+      "avg_confidence": 0.5599999999999999,
+      "avg_latency_seconds": 6.3174,
+      "avg_input_tokens": 1150.6,
+      "avg_output_tokens": 174.2,
+      "avg_total_tokens": 1324.8,
+      "error_type_counts": {
+        "correct": 5,
+        "wrong_abstention_with_partial_retrieval": 4,
+        "wrong_abstention_despite_full_retrieval": 1
+      }
+    }
+  },
+  "by_hotpot_type": {
+    "bridge": {
+      "n": 13,
+      "answer_accuracy": 0.5384615384615384,
+      "exact_match_rate": 0.3076923076923077,
+      "contains_gold_answer_rate": 0.5384615384615384,
+      "avg_token_f1": 0.4520538461538462,
+      "valid_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "abstention_rate": 0.46153846153846156,
+      "wrong_abstention_rate": 0.46153846153846156,
+      "manual_review_rate": 0.0,
+      "retrieval_hit_gold_rate": 1.0,
+      "retrieval_full_recall_rate": 0.46153846153846156,
+      "avg_retrieval_recall": 0.7307692307692307,
+      "avg_retrieval_precision": 0.2923076923076924,
+      "avg_confidence": 0.51,
+      "avg_latency_seconds": 6.4427692307692315,
+      "avg_input_tokens": 1106.923076923077,
+      "avg_output_tokens": 140.92307692307693,
+      "avg_total_tokens": 1247.8461538461538,
+      "error_type_counts": {
+        "correct": 7,
+        "wrong_abstention_with_partial_retrieval": 6
+      }
+    },
+    "comparison": {
+      "n": 7,
+      "answer_accuracy": 0.5714285714285714,
+      "exact_match_rate": 0.14285714285714285,
+      "contains_gold_answer_rate": 0.5714285714285714,
+      "avg_token_f1": 0.33228571428571424,
+      "valid_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "abstention_rate": 0.42857142857142855,
+      "wrong_abstention_rate": 0.42857142857142855,
+      "manual_review_rate": 0.0,
+      "retrieval_hit_gold_rate": 1.0,
+      "retrieval_full_recall_rate": 0.7142857142857143,
+      "avg_retrieval_recall": 0.8571428571428571,
+      "avg_retrieval_precision": 0.34285714285714286,
+      "avg_confidence": 0.6357142857142858,
+      "avg_latency_seconds": 6.874714285714285,
+      "avg_input_tokens": 1056.4285714285713,
+      "avg_output_tokens": 237.42857142857142,
+      "avg_total_tokens": 1293.857142857143,
+      "error_type_counts": {
+        "correct": 4,
+        "wrong_abstention_with_partial_retrieval": 2,
+        "wrong_abstention_despite_full_retrieval": 1
+      }
+    }
+  },
+  "by_level": {
+    "hard": {
+      "n": 20,
+      "answer_accuracy": 0.55,
+      "exact_match_rate": 0.25,
+      "contains_gold_answer_rate": 0.55,
+      "avg_token_f1": 0.410135,
+      "valid_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "abstention_rate": 0.45,
+      "wrong_abstention_rate": 0.45,
+      "manual_review_rate": 0.0,
+      "retrieval_hit_gold_rate": 1.0,
+      "retrieval_full_recall_rate": 0.55,
+      "avg_retrieval_recall": 0.775,
+      "avg_retrieval_precision": 0.3100000000000001,
+      "avg_confidence": 0.554,
+      "avg_latency_seconds": 6.5939499999999995,
+      "avg_input_tokens": 1089.25,
+      "avg_output_tokens": 174.7,
+      "avg_total_tokens": 1263.95,
+      "error_type_counts": {
+        "correct": 11,
+        "wrong_abstention_with_partial_retrieval": 8,
+        "wrong_abstention_despite_full_retrieval": 1
+      }
+    }
+  },
+  "by_top_k": {
+    "5": {
+      "n": 20,
+      "answer_accuracy": 0.55,
+      "exact_match_rate": 0.25,
+      "contains_gold_answer_rate": 0.55,
+      "avg_token_f1": 0.410135,
+      "valid_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "abstention_rate": 0.45,
+      "wrong_abstention_rate": 0.45,
+      "manual_review_rate": 0.0,
+      "retrieval_hit_gold_rate": 1.0,
+      "retrieval_full_recall_rate": 0.55,
+      "avg_retrieval_recall": 0.775,
+      "avg_retrieval_precision": 0.3100000000000001,
+      "avg_confidence": 0.554,
+      "avg_latency_seconds": 6.5939499999999995,
+      "avg_input_tokens": 1089.25,
+      "avg_output_tokens": 174.7,
+      "avg_total_tokens": 1263.95,
+      "error_type_counts": {
+        "correct": 11,
+        "wrong_abstention_with_partial_retrieval": 8,
+        "wrong_abstention_despite_full_retrieval": 1
+      }
+    }
+  }
+}
