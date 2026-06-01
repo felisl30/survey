@@ -42,3 +42,8 @@ __pycache__/
 *.pyc
 *.pyo
 .ipynb_checkpoints/
+
+# Secrets / environment variables
+.env
+.env.*
+!.env.example
