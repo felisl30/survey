@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-06-01T05:10:49.385617+00:00",
+  "corpus_path": "data/s1/hotpotqa_mini/corpus_s1.csv",
+  "index_dir": "indexes/s1/hotpotqa_mini",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "n_chunks": 200,
+  "embedding_dim": 384,
+  "embeddings_file": "indexes/s1/hotpotqa_mini/embeddings.npy",
+  "chunks_file": "indexes/s1/hotpotqa_mini/chunks.csv",
+  "normalized_embeddings": true,
+  "similarity": "cosine_similarity_via_dot_product",
+  "text_field": "embedding_text = Title + Text",
+  "batch_size": 32,
+  "columns": [
+    "doc_id",
+    "chunk_id",
+    "title",
+    "text",
+    "source",
+    "source_split",
+    "topic",
+    "question_id",
+    "original_hotpotqa_id",
+    "paragraph_index",
+    "is_gold_evidence",
+    "embedding_text"
+  ]
+}

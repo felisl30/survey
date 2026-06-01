@@ -1,0 +1,68 @@
+{
+  "input_path": "outputs/s0/results_s0_parsed_test_10.csv",
+  "output_path": "outputs/s0/results_s0_evaluated_test_10.csv",
+  "summary_path": "outputs/s0/evaluation_summary_test_10.json",
+  "group_summary_path": "outputs/s0/evaluation_summary_by_group_test_10.csv",
+  "thresholds": {
+    "correct_threshold": 0.35,
+    "incorrect_threshold": 0.45,
+    "margin": 0.05,
+    "min_informative_tokens": 3
+  },
+  "overall": {
+    "n": 10,
+    "auto_decision_rate": 0.9,
+    "accuracy": 1.0,
+    "valid_format_rate": 1.0,
+    "run_error_rate": 0.0,
+    "manual_review_rate": 0.1,
+    "abstention_rate": 0.0,
+    "avg_confidence": 0.9299999999999999,
+    "avg_latency_seconds": 4.773899999999999,
+    "avg_input_tokens": 458.5,
+    "avg_output_tokens": 122.2,
+    "avg_total_tokens": 580.7,
+    "truthful_rate": 1.0,
+    "informative_rate": 1.0,
+    "truthful_and_informative_rate": 1.0,
+    "falsehood_rate": 0.0
+  },
+  "by_dataset": {
+    "mmlu": {
+      "n": 5,
+      "auto_decision_rate": 1.0,
+      "accuracy": 1.0,
+      "valid_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "abstention_rate": 0.0,
+      "avg_confidence": 0.9339999999999999,
+      "avg_latency_seconds": 4.833399999999999,
+      "avg_input_tokens": 595.8,
+      "avg_output_tokens": 105.8,
+      "avg_total_tokens": 701.6,
+      "truthful_rate": null,
+      "informative_rate": null,
+      "truthful_and_informative_rate": null,
+      "falsehood_rate": null
+    },
+    "truthfulqa": {
+      "n": 5,
+      "auto_decision_rate": 0.8,
+      "accuracy": 1.0,
+      "valid_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "manual_review_rate": 0.2,
+      "abstention_rate": 0.0,
+      "avg_confidence": 0.9259999999999999,
+      "avg_latency_seconds": 4.7143999999999995,
+      "avg_input_tokens": 321.2,
+      "avg_output_tokens": 138.6,
+      "avg_total_tokens": 459.8,
+      "truthful_rate": 1.0,
+      "informative_rate": 1.0,
+      "truthful_and_informative_rate": 1.0,
+      "falsehood_rate": 0.0
+    }
+  }
+}

@@ -1,0 +1,10 @@
+python process_mmlu_truthfulqa_mix.py (ESTOS HACEN 5 y 5. Sino tenes que usar el prepare s0 dataset y usarlo completo)
+
+python run_s0_direct.py   --input-path data/questions_s0_test_10.csv   --output-path outputs/s0/results_s0_raw_test_10.csv   --save-every 1
+
+python parse_s0_outputs.py   --input-path outputs/s0/results_s0_raw_test_10.csv   --output-path outputs/s0/results_s0_parsed_test_10.csv
+
+python evaluate_s0.py   --input-path outputs/s0/results_s0_parsed_test_10.csv   --output-path outputs/s0/results_s0_evaluated_test_10.csv   --summary-path outputs/s0/evaluation_summary_test_10.json   --group-summary-path outputs/s0/evaluation_summary_by_group_test_10.csv
+
+(Ojo que algunos necesitan manual review!)
+

@@ -1,0 +1,741 @@
+id,dataset,case_type,topic,hotpot_type,level,source,source_split,original_hotpotqa_id,original_question,question,prompt,expected_answer,gold_answer,gold_answer_text,expected_behavior,correct_answers_json,incorrect_answers_json,gold_evidence_ids,gold_evidence_titles,context_chunk_ids,expected_model_output_format
+hotpotqa_mini_0000,hotpotqa,open_qa,geography,comparison,hard,HotpotQA distractor via Hugging Face,validation,5adbf0a255429947ff17385a,Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",no,no,no,answer,"[""no""]",[],hotpotqa_mini_0000_chunk_05|hotpotqa_mini_0000_chunk_06,Esma Sultan Mansion|Laleli Mosque,hotpotqa_mini_0000_chunk_00|hotpotqa_mini_0000_chunk_01|hotpotqa_mini_0000_chunk_02|hotpotqa_mini_0000_chunk_03|hotpotqa_mini_0000_chunk_04|hotpotqa_mini_0000_chunk_05|hotpotqa_mini_0000_chunk_06|hotpotqa_mini_0000_chunk_07|hotpotqa_mini_0000_chunk_08|hotpotqa_mini_0000_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0001,hotpotqa,open_qa,geography,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a8e3ea95542995a26add48d,"The director of the romantic comedy ""Big Stone Gap"" is based in what New York city?","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+The director of the romantic comedy ""Big Stone Gap"" is based in what New York city?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+The director of the romantic comedy ""Big Stone Gap"" is based in what New York city?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Greenwich Village, New York City","Greenwich Village, New York City","Greenwich Village, New York City",answer,"[""Greenwich Village, New York City""]",[],hotpotqa_mini_0001_chunk_03|hotpotqa_mini_0001_chunk_09,Adriana Trigiani|Big Stone Gap (film),hotpotqa_mini_0001_chunk_00|hotpotqa_mini_0001_chunk_01|hotpotqa_mini_0001_chunk_02|hotpotqa_mini_0001_chunk_03|hotpotqa_mini_0001_chunk_04|hotpotqa_mini_0001_chunk_05|hotpotqa_mini_0001_chunk_06|hotpotqa_mini_0001_chunk_07|hotpotqa_mini_0001_chunk_08|hotpotqa_mini_0001_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0002,hotpotqa,open_qa,geography,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a87ab905542996e4f3088c1,The arena where the Lewiston Maineiacs played their home games can seat how many people?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+The arena where the Lewiston Maineiacs played their home games can seat how many people?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+The arena where the Lewiston Maineiacs played their home games can seat how many people?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","3,677 seated","3,677 seated","3,677 seated",answer,"[""3,677 seated""]",[],hotpotqa_mini_0002_chunk_05|hotpotqa_mini_0002_chunk_07,Androscoggin Bank Colisée|Lewiston Maineiacs,hotpotqa_mini_0002_chunk_00|hotpotqa_mini_0002_chunk_01|hotpotqa_mini_0002_chunk_02|hotpotqa_mini_0002_chunk_03|hotpotqa_mini_0002_chunk_04|hotpotqa_mini_0002_chunk_05|hotpotqa_mini_0002_chunk_06|hotpotqa_mini_0002_chunk_07|hotpotqa_mini_0002_chunk_08|hotpotqa_mini_0002_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0003,hotpotqa,open_qa,geography,comparison,hard,HotpotQA distractor via Hugging Face,validation,5a8db19d5542994ba4e3dd00,Are Local H and For Against both from the United States?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are Local H and For Against both from the United States?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are Local H and For Against both from the United States?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",yes,yes,yes,answer,"[""yes""]",[],hotpotqa_mini_0003_chunk_04|hotpotqa_mini_0003_chunk_06,For Against|Local H,hotpotqa_mini_0003_chunk_00|hotpotqa_mini_0003_chunk_01|hotpotqa_mini_0003_chunk_02|hotpotqa_mini_0003_chunk_03|hotpotqa_mini_0003_chunk_04|hotpotqa_mini_0003_chunk_05|hotpotqa_mini_0003_chunk_06|hotpotqa_mini_0003_chunk_07|hotpotqa_mini_0003_chunk_08|hotpotqa_mini_0003_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0004,hotpotqa,open_qa,geography,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a7166395542994082a3e814,"What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Kansas Song,Kansas Song,Kansas Song,answer,"[""Kansas Song""]",[],hotpotqa_mini_0004_chunk_04|hotpotqa_mini_0004_chunk_09,Kansas Song|University of Kansas,hotpotqa_mini_0004_chunk_00|hotpotqa_mini_0004_chunk_01|hotpotqa_mini_0004_chunk_02|hotpotqa_mini_0004_chunk_03|hotpotqa_mini_0004_chunk_04|hotpotqa_mini_0004_chunk_05|hotpotqa_mini_0004_chunk_06|hotpotqa_mini_0004_chunk_07|hotpotqa_mini_0004_chunk_08|hotpotqa_mini_0004_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0005,hotpotqa,open_qa,geography,comparison,hard,HotpotQA distractor via Hugging Face,validation,5ab56e32554299637185c594,Are Random House Tower and 888 7th Avenue both used for real estate?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are Random House Tower and 888 7th Avenue both used for real estate?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are Random House Tower and 888 7th Avenue both used for real estate?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",no,no,no,answer,"[""no""]",[],hotpotqa_mini_0005_chunk_03|hotpotqa_mini_0005_chunk_04,888 7th Avenue|Random House Tower,hotpotqa_mini_0005_chunk_00|hotpotqa_mini_0005_chunk_01|hotpotqa_mini_0005_chunk_02|hotpotqa_mini_0005_chunk_03|hotpotqa_mini_0005_chunk_04|hotpotqa_mini_0005_chunk_05|hotpotqa_mini_0005_chunk_06|hotpotqa_mini_0005_chunk_07|hotpotqa_mini_0005_chunk_08|hotpotqa_mini_0005_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0006,hotpotqa,open_qa,geography,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a75e05c55429976ec32bc5f,Brown State Fishing Lake is in a country that has a population of how many inhabitants ?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Brown State Fishing Lake is in a country that has a population of how many inhabitants ?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Brown State Fishing Lake is in a country that has a population of how many inhabitants ?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","9,984","9,984","9,984",answer,"[""9,984""]",[],hotpotqa_mini_0006_chunk_02|hotpotqa_mini_0006_chunk_09,"Brown County, Kansas|Brown State Fishing Lake",hotpotqa_mini_0006_chunk_00|hotpotqa_mini_0006_chunk_01|hotpotqa_mini_0006_chunk_02|hotpotqa_mini_0006_chunk_03|hotpotqa_mini_0006_chunk_04|hotpotqa_mini_0006_chunk_05|hotpotqa_mini_0006_chunk_06|hotpotqa_mini_0006_chunk_07|hotpotqa_mini_0006_chunk_08|hotpotqa_mini_0006_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0007,hotpotqa,open_qa,geography,bridge,hard,HotpotQA distractor via Hugging Face,validation,5ae0d4c9554299603e418468,Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",1969 until 1974,1969 until 1974,1969 until 1974,answer,"[""1969 until 1974""]",[],hotpotqa_mini_0007_chunk_02|hotpotqa_mini_0007_chunk_08,Richard Nixon|Roger O. Egeberg,hotpotqa_mini_0007_chunk_00|hotpotqa_mini_0007_chunk_01|hotpotqa_mini_0007_chunk_02|hotpotqa_mini_0007_chunk_03|hotpotqa_mini_0007_chunk_04|hotpotqa_mini_0007_chunk_05|hotpotqa_mini_0007_chunk_06|hotpotqa_mini_0007_chunk_07|hotpotqa_mini_0007_chunk_08|hotpotqa_mini_0007_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0008,hotpotqa,open_qa,geography,comparison,hard,HotpotQA distractor via Hugging Face,validation,5a8133725542995ce29dcbdb,"Which writer was from England, Henry Roth or Robert Erskine Childers?","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Which writer was from England, Henry Roth or Robert Erskine Childers?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Which writer was from England, Henry Roth or Robert Erskine Childers?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Robert Erskine Childers DSC,Robert Erskine Childers DSC,Robert Erskine Childers DSC,answer,"[""Robert Erskine Childers DSC""]",[],hotpotqa_mini_0008_chunk_01|hotpotqa_mini_0008_chunk_06,Henry Roth|Robert Erskine Childers,hotpotqa_mini_0008_chunk_00|hotpotqa_mini_0008_chunk_01|hotpotqa_mini_0008_chunk_02|hotpotqa_mini_0008_chunk_03|hotpotqa_mini_0008_chunk_04|hotpotqa_mini_0008_chunk_05|hotpotqa_mini_0008_chunk_06|hotpotqa_mini_0008_chunk_07|hotpotqa_mini_0008_chunk_08|hotpotqa_mini_0008_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0009,hotpotqa,open_qa,geography,bridge,hard,HotpotQA distractor via Hugging Face,validation,5ae7a8175542993210983ed8,Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Pedro Rodríguez,Pedro Rodríguez,Pedro Rodríguez,answer,"[""Pedro Rodríguez""]",[],hotpotqa_mini_0009_chunk_03|hotpotqa_mini_0009_chunk_08,Formula One drivers from Mexico|Sergio Pérez,hotpotqa_mini_0009_chunk_00|hotpotqa_mini_0009_chunk_01|hotpotqa_mini_0009_chunk_02|hotpotqa_mini_0009_chunk_03|hotpotqa_mini_0009_chunk_04|hotpotqa_mini_0009_chunk_05|hotpotqa_mini_0009_chunk_06|hotpotqa_mini_0009_chunk_07|hotpotqa_mini_0009_chunk_08|hotpotqa_mini_0009_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0010,hotpotqa,open_qa,entertainment,comparison,hard,HotpotQA distractor via Hugging Face,validation,5a8b57f25542995d1e6f1371,Were Scott Derrickson and Ed Wood of the same nationality?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Were Scott Derrickson and Ed Wood of the same nationality?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Were Scott Derrickson and Ed Wood of the same nationality?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",yes,yes,yes,answer,"[""yes""]",[],hotpotqa_mini_0010_chunk_01|hotpotqa_mini_0010_chunk_04,Ed Wood|Scott Derrickson,hotpotqa_mini_0010_chunk_00|hotpotqa_mini_0010_chunk_01|hotpotqa_mini_0010_chunk_02|hotpotqa_mini_0010_chunk_03|hotpotqa_mini_0010_chunk_04|hotpotqa_mini_0010_chunk_05|hotpotqa_mini_0010_chunk_06|hotpotqa_mini_0010_chunk_07|hotpotqa_mini_0010_chunk_08|hotpotqa_mini_0010_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0011,hotpotqa,open_qa,entertainment,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a8c7595554299585d9e36b6,What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Chief of Protocol,Chief of Protocol,Chief of Protocol,answer,"[""Chief of Protocol""]",[],hotpotqa_mini_0011_chunk_01|hotpotqa_mini_0011_chunk_06,Kiss and Tell (1945 film)|Shirley Temple,hotpotqa_mini_0011_chunk_00|hotpotqa_mini_0011_chunk_01|hotpotqa_mini_0011_chunk_02|hotpotqa_mini_0011_chunk_03|hotpotqa_mini_0011_chunk_04|hotpotqa_mini_0011_chunk_05|hotpotqa_mini_0011_chunk_06|hotpotqa_mini_0011_chunk_07|hotpotqa_mini_0011_chunk_08|hotpotqa_mini_0011_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0012,hotpotqa,open_qa,entertainment,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a85ea095542994775f606a8,"What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Animorphs,Animorphs,Animorphs,answer,"[""Animorphs""]",[],hotpotqa_mini_0012_chunk_02|hotpotqa_mini_0012_chunk_08,Animorphs|The Hork-Bajir Chronicles,hotpotqa_mini_0012_chunk_00|hotpotqa_mini_0012_chunk_01|hotpotqa_mini_0012_chunk_02|hotpotqa_mini_0012_chunk_03|hotpotqa_mini_0012_chunk_04|hotpotqa_mini_0012_chunk_05|hotpotqa_mini_0012_chunk_06|hotpotqa_mini_0012_chunk_07|hotpotqa_mini_0012_chunk_08|hotpotqa_mini_0012_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0013,hotpotqa,open_qa,entertainment,bridge,hard,HotpotQA distractor via Hugging Face,validation,5abd94525542992ac4f382d2,2014 S/S is the debut album of a South Korean boy group that was formed by who?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+2014 S/S is the debut album of a South Korean boy group that was formed by who?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+2014 S/S is the debut album of a South Korean boy group that was formed by who?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",YG Entertainment,YG Entertainment,YG Entertainment,answer,"[""YG Entertainment""]",[],hotpotqa_mini_0013_chunk_02|hotpotqa_mini_0013_chunk_04,2014 S/S|Winner (band),hotpotqa_mini_0013_chunk_00|hotpotqa_mini_0013_chunk_01|hotpotqa_mini_0013_chunk_02|hotpotqa_mini_0013_chunk_03|hotpotqa_mini_0013_chunk_04|hotpotqa_mini_0013_chunk_05|hotpotqa_mini_0013_chunk_06|hotpotqa_mini_0013_chunk_07|hotpotqa_mini_0013_chunk_08|hotpotqa_mini_0013_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0014,hotpotqa,open_qa,entertainment,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a7bbb64554299042af8f7cc,"Who is older, Annie Morton or Terry Richardson?","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Who is older, Annie Morton or Terry Richardson?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Who is older, Annie Morton or Terry Richardson?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Terry Richardson,Terry Richardson,Terry Richardson,answer,"[""Terry Richardson""]",[],hotpotqa_mini_0014_chunk_00|hotpotqa_mini_0014_chunk_02,Annie Morton|Terry Richardson,hotpotqa_mini_0014_chunk_00|hotpotqa_mini_0014_chunk_01|hotpotqa_mini_0014_chunk_02|hotpotqa_mini_0014_chunk_03|hotpotqa_mini_0014_chunk_04|hotpotqa_mini_0014_chunk_05|hotpotqa_mini_0014_chunk_06|hotpotqa_mini_0014_chunk_07|hotpotqa_mini_0014_chunk_08|hotpotqa_mini_0014_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0015,hotpotqa,open_qa,entertainment,bridge,hard,HotpotQA distractor via Hugging Face,validation,5a877e5d5542993e715abf7d,"What screenwriter with credits for ""Evolution"" co-wrote a film starring Nicolas Cage and Téa Leoni?","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What screenwriter with credits for ""Evolution"" co-wrote a film starring Nicolas Cage and Téa Leoni?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What screenwriter with credits for ""Evolution"" co-wrote a film starring Nicolas Cage and Téa Leoni?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",David Weissman,David Weissman,David Weissman,answer,"[""David Weissman""]",[],hotpotqa_mini_0015_chunk_03|hotpotqa_mini_0015_chunk_09,David Weissman|The Family Man,hotpotqa_mini_0015_chunk_00|hotpotqa_mini_0015_chunk_01|hotpotqa_mini_0015_chunk_02|hotpotqa_mini_0015_chunk_03|hotpotqa_mini_0015_chunk_04|hotpotqa_mini_0015_chunk_05|hotpotqa_mini_0015_chunk_06|hotpotqa_mini_0015_chunk_07|hotpotqa_mini_0015_chunk_08|hotpotqa_mini_0015_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0016,hotpotqa,open_qa,entertainment,bridge,hard,HotpotQA distractor via Hugging Face,validation,5ab3b0bf5542992ade7c6e39,What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",1999,1999,1999,answer,"[""1999""]",[],hotpotqa_mini_0016_chunk_07|hotpotqa_mini_0016_chunk_08,End of Days (film)|Oh My God (Guns N' Roses song),hotpotqa_mini_0016_chunk_00|hotpotqa_mini_0016_chunk_01|hotpotqa_mini_0016_chunk_02|hotpotqa_mini_0016_chunk_03|hotpotqa_mini_0016_chunk_04|hotpotqa_mini_0016_chunk_05|hotpotqa_mini_0016_chunk_06|hotpotqa_mini_0016_chunk_07|hotpotqa_mini_0016_chunk_08|hotpotqa_mini_0016_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0017,hotpotqa,open_qa,entertainment,comparison,hard,HotpotQA distractor via Hugging Face,validation,5ab29c24554299449642c932,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",yes,yes,yes,answer,"[""yes""]",[],hotpotqa_mini_0017_chunk_03|hotpotqa_mini_0017_chunk_05,Ambroise Thomas|Giuseppe Verdi,hotpotqa_mini_0017_chunk_00|hotpotqa_mini_0017_chunk_01|hotpotqa_mini_0017_chunk_02|hotpotqa_mini_0017_chunk_03|hotpotqa_mini_0017_chunk_04|hotpotqa_mini_0017_chunk_05|hotpotqa_mini_0017_chunk_06|hotpotqa_mini_0017_chunk_07|hotpotqa_mini_0017_chunk_08|hotpotqa_mini_0017_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0018,hotpotqa,open_qa,entertainment,bridge,hard,HotpotQA distractor via Hugging Face,validation,5ae6050f55429929b0807a5e,This singer of A Rather Blustery Day also voiced what hedgehog?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+This singer of A Rather Blustery Day also voiced what hedgehog?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+This singer of A Rather Blustery Day also voiced what hedgehog?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Sonic,Sonic,Sonic,answer,"[""Sonic""]",[],hotpotqa_mini_0018_chunk_05|hotpotqa_mini_0018_chunk_08,A Rather Blustery Day|Jim Cummings,hotpotqa_mini_0018_chunk_00|hotpotqa_mini_0018_chunk_01|hotpotqa_mini_0018_chunk_02|hotpotqa_mini_0018_chunk_03|hotpotqa_mini_0018_chunk_04|hotpotqa_mini_0018_chunk_05|hotpotqa_mini_0018_chunk_06|hotpotqa_mini_0018_chunk_07|hotpotqa_mini_0018_chunk_08|hotpotqa_mini_0018_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"
+hotpotqa_mini_0019,hotpotqa,open_qa,entertainment,comparison,hard,HotpotQA distractor via Hugging Face,validation,5ae2070a5542994d89d5b313,"Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice?","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}","Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Badly Drawn Boy,Badly Drawn Boy,Badly Drawn Boy,answer,"[""Badly Drawn Boy""]",[],hotpotqa_mini_0019_chunk_00|hotpotqa_mini_0019_chunk_06,Badly Drawn Boy|Wolf Alice,hotpotqa_mini_0019_chunk_00|hotpotqa_mini_0019_chunk_01|hotpotqa_mini_0019_chunk_02|hotpotqa_mini_0019_chunk_03|hotpotqa_mini_0019_chunk_04|hotpotqa_mini_0019_chunk_05|hotpotqa_mini_0019_chunk_06|hotpotqa_mini_0019_chunk_07|hotpotqa_mini_0019_chunk_08|hotpotqa_mini_0019_chunk_09,"{""answer"": str, ""confidence"": float, ""abstained"": bool}"

@@ -1,0 +1,38 @@
+{
+  "top_k": 3,
+  "n_questions": 20,
+  "hit@3": 0.95,
+  "recall@3": 0.725,
+  "precision@3": 0.4833333333333333,
+  "mrr@3": 0.925,
+  "avg_n_gold": 2.0,
+  "questions_without_gold": 0,
+  "by_topic": {
+    "entertainment": {
+      "n": 10,
+      "hit@3": 0.9,
+      "recall@3": 0.65,
+      "mrr@3": 0.85
+    },
+    "geography": {
+      "n": 10,
+      "hit@3": 1.0,
+      "recall@3": 0.8,
+      "mrr@3": 1.0
+    }
+  },
+  "by_hotpot_type": {
+    "bridge": {
+      "n": 13,
+      "hit@3": 0.9230769230769231,
+      "recall@3": 0.6923076923076923,
+      "mrr@3": 0.8846153846153846
+    },
+    "comparison": {
+      "n": 7,
+      "hit@3": 1.0,
+      "recall@3": 0.7857142857142857,
+      "mrr@3": 1.0
+    }
+  }
+}
