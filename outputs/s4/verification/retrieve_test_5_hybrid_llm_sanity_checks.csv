@@ -1,0 +1,10 @@
+check_name,status,message,value,threshold
+parsed_file_available,PASS,Archivo parseado S4 disponible.,outputs/s4/generation/fire_like_s4_parsed_retrieve_test_5_hybrid_claims_llm_verify.csv,
+claim_results_available,PASS,Archivo claim-level disponible.,outputs/s4/evaluation/fire_like_s4_claim_results_retrieve_test_5_hybrid_llm.csv,
+answer_results_available,PASS,Archivo answer-level disponible.,outputs/s4/evaluation/fire_like_s4_answer_results_retrieve_test_5_hybrid_llm.csv,
+duplicate_question_ids,PASS,No hay IDs duplicados.,0,
+parsed_answer_row_count_match,PASS,La cantidad de filas parseadas y answer-level coincide.,"parsed=1, answers=1",
+parsed_claim_question_count_match,PASS,La cantidad de preguntas con claims coincide con S4 parseado.,"parsed=1, claim_questions=1",
+parsed_required_columns,PASS,Columnas mínimas parseadas presentes.,,
+parsed_vs_claim_counts_match,PASS,Conteos de claims entre parsed y claim-level coinciden.,0,
+parsed_answer_id_overlap,PASS,IDs de parsed y answer-level coinciden.,"overlap=1, parsed=1, answers=1",

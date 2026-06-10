@@ -1,0 +1,422 @@
+RESUMEN DEL MODELO S2 - ADAPTIVE RAG CON ROUTER
+=================================================
+
+1. Objetivo general de S2
+-------------------------
+
+El modelo S2 fue planteado como una extensión adaptativa sobre los modelos anteriores:
+
+- S0: baseline de LLM directo, sin recuperación externa.
+- S1: RAG básico con recuperación top-k fija.
+- S2: Adaptive-RAG, donde antes de responder se decide qué política usar.
+
+La idea central de S2 es no recuperar documentos siempre, sino decidir caso por caso si conviene:
+
+- responder directo;
+- recuperar evidencia externa;
+- abstenerse;
+- pedir aclaración.
+
+Esto permite evaluar una hipótesis más interesante que S1: no solo si el modelo responde bien, sino si sabe cuándo usar memoria externa.
+
+
+2. Datos elegidos para S2
+-------------------------
+
+El dataset S2 se construyó como una mezcla controlada de casos de distinto tipo:
+
+- Casos directos desde S0:
+  - MMLU;
+  - TruthfulQA;
+  - expected_route = direct.
+
+- Casos answerable con RAG desde S1 / HotpotQA-mini:
+  - preguntas que requieren evidencia;
+  - expected_route = retrieve.
+
+- Casos sintéticos sin evidencia suficiente:
+  - preguntas que parecen requerir corpus, pero piden datos no disponibles;
+  - expected_route = abstain;
+  - acceptable_routes_json acepta también retrieve si el sistema luego se abstiene correctamente.
+
+- Casos sintéticos ambiguos:
+  - preguntas subespecificadas como "When was he born?" o "Where is it located?";
+  - expected_route = clarify.
+
+Distribución preparada:
+
+- questions_total: 150
+- corpus_chunks: 200
+- qrels_total: 40
+
+Distribución por tipo:
+
+- direct_truthfulqa: 50
+- direct_mmlu: 50
+- rag_multi_hop: 20
+- ambiguous: 15
+- rag_no_answer: 15
+
+Distribución por ruta esperada:
+
+- direct: 100
+- retrieve: 20
+- clarify: 15
+- abstain: 15
+
+
+3. Índice vectorial S2
+----------------------
+
+Se creó el archivo:
+
+- s2_model_code/build_s2_index.py
+
+Este script construye el índice vectorial a partir de:
+
+- data/s2/adaptive_rag/corpus_s2.csv
+
+Y genera:
+
+- indexes/s2/adaptive_rag/chunks.csv
+- indexes/s2/adaptive_rag/embeddings.npy
+- indexes/s2/adaptive_rag/metadata.json
+
+Configuración usada:
+
+- modelo de embeddings: sentence-transformers/all-MiniLM-L6-v2
+- representación del chunk: Title + Text
+- embeddings normalizados con norma L2
+- similitud: cosine similarity implementada como producto punto
+- sin FAISS, usando NumPy, suficiente para este corpus chico
+
+Resultado obtenido:
+
+- Chunks indexados: 200
+- Embedding shape: (200, 384)
+- Embedding dim: 384
+- Max norm error: 0.00000012
+
+Conclusión:
+El índice S2 quedó correctamente construido y listo para retrieval.
+
+
+4. Router S2
+------------
+
+Se creó el archivo:
+
+- s2_model_code/router_s2.py
+
+El router decide una de cuatro rutas:
+
+- direct
+- retrieve
+- abstain
+- clarify
+
+Se implementaron tres estrategias posibles:
+
+- rules: router determinístico basado en reglas;
+- llm: router basado en llamada al LLM;
+- hybrid: reglas para casos obvios y LLM para casos más delicados.
+
+Para las pruebas iniciales se usó:
+
+- --strategy rules
+
+porque es más barato, reproducible y no consume API.
+
+Resultado del smoke test de 20 filas:
+
+- Routing accuracy strict: 0.850
+- Routing accuracy relaxed: 0.850
+- Over-retrieval rate: 0.050
+- Under-retrieval rate: 0.100
+
+Rutas predichas:
+
+- direct: 16
+- retrieve: 2
+- clarify: 1
+- abstain: 1
+
+Conclusión:
+El router por reglas pasó el smoke test. No es perfecto, pero funciona bien como primera versión. El principal error a vigilar es el under-retrieval, porque implica responder directo cuando se debería recuperar evidencia.
+
+
+5. Runner completo S2
+---------------------
+
+Se creó el archivo:
+
+- s2_model_code/run_s2_adaptive_rag.py
+
+Este script ejecuta el flujo completo de S2:
+
+questions_s2.csv
+    -> router_s2.py
+    -> direct / retrieve / abstain / clarify
+    -> generación de respuesta final cruda
+    -> CSV de salida
+
+Políticas de generación:
+
+- direct:
+  llama al LLM sin contexto recuperado.
+
+- retrieve:
+  recupera top-k chunks del índice S2 y luego llama al LLM con contexto.
+
+- abstain:
+  genera una respuesta determinística de abstención sin gastar API.
+
+- clarify:
+  genera una respuesta determinística pidiendo aclaración sin gastar API.
+
+Se probó un smoke test real de 5 filas con llamada a API:
+
+- direct_llm: 4 casos
+- rag_with_retrieval: 1 caso
+
+Resultado:
+
+- Run error/dry-run note rate: 0.000
+- Avg generation total tokens: 659.400
+- Avg generation latency seconds: 4.397
+- Avg retrieval latency seconds: 0.950
+
+Conclusión:
+La API funciona correctamente. Las llamadas al LLM se realizaron, se guardaron respuestas, tokens y latencias. También funcionó el camino RAG con retrieval.
+
+
+6. Parseo S2
+------------
+
+Se creó el archivo:
+
+- s2_model_code/parse_s2_outputs.py
+
+El parseo toma el CSV raw generado por run_s2_adaptive_rag.py y agrega columnas normalizadas como:
+
+- run_error_present
+- parsed_route
+- parsed_retrieval_mode
+- parsed_router_confidence
+- parsed_router_reason
+- valid_router_format
+- parsed_answer
+- parsed_confidence
+- parsed_abstained
+- valid_answer_format
+- valid_format
+- parse_method
+- parse_error
+- parsed_json
+
+Resultado del parseo sobre el smoke test de 5 filas:
+
+- Filas totales: 5
+- Rutas parseadas:
+  - direct: 4
+  - retrieve: 1
+- Métodos de parseo de respuesta:
+  - json: 5
+- Valid router format rate: 1.000
+- Valid answer format rate: 1.000
+- Run error rate: 0.000
+- Abstention rate: 0.400
+
+Conclusión:
+El formato de salida fue correcto. Todas las respuestas vinieron en JSON válido y el parser pudo extraer correctamente respuesta, confianza y abstención.
+
+
+7. Evaluación del routing
+-------------------------
+
+Se creó el archivo:
+
+- s2_model_code/evaluate_s2_routing.py
+
+Este script evalúa la decisión del router, comparando:
+
+- expected_route
+- parsed_route / predicted_route
+- acceptable_routes_json
+
+Métricas principales:
+
+- routing_accuracy_strict
+- routing_accuracy_relaxed
+- over_retrieval_strict_rate
+- over_retrieval_unacceptable_rate
+- under_retrieval_rate
+- retrieval_mode_consistency_rate
+- valid_router_format_rate
+- run_error_rate
+- precision / recall / f1 por ruta
+- matriz de confusión
+
+Resultado del smoke test de 5 filas:
+
+- Filas totales: 5
+- Routing accuracy strict: 0.600
+- Routing accuracy relaxed: 0.600
+- Over-retrieval strict rate: 0.200
+- Over-retrieval unacceptable rate: 0.200
+- Under-retrieval rate: 0.200
+- Retrieval mode consistency rate: 1.000
+- Valid router format rate: 1.000
+- Run error rate: 0.000
+- Avg router confidence: 0.668
+
+Tipos de resultado:
+
+- correct: 3
+- over_retrieval: 1
+- under_retrieval: 1
+
+Matriz de confusión:
+
+- expected direct:
+  - predicted direct: 3
+  - predicted retrieve: 1
+
+- expected retrieve:
+  - predicted direct: 1
+
+Conclusión:
+El evaluador de routing funciona correctamente. La calidad del router en este mini test no debe tomarse como resultado final porque n=5 es muy chico. Cada error mueve la métrica en 20 puntos porcentuales. Aun así, el test fue útil porque detectó correctamente over-retrieval y under-retrieval.
+
+
+8. Evaluación de respuestas finales
+-----------------------------------
+
+Se creó el archivo:
+
+- s2_model_code/evaluate_s2_answers.py
+
+Este paso evalúa la respuesta final de S2, no solo el routing.
+
+Métricas principales:
+
+- final_accuracy
+- behavior_accuracy
+- answer_accuracy
+- exact_match_rate
+- contains_gold_answer_rate
+- avg_token_f1
+- abstention_rate
+- clarification_rate
+- wrong_abstention_rate
+- wrong_clarification_rate
+- missing_abstention_rate
+- missing_clarification_rate
+- routing_acceptable_rate
+- under_retrieval_rate
+- over_retrieval_rate
+- retrieval_hit_gold_rate
+- retrieval_full_recall_rate
+- avg_total_tokens
+- avg_generation_latency_seconds
+
+Diferencia conceptual:
+
+- answer_accuracy:
+  mide si el contenido de la respuesta coincide con la respuesta esperada.
+
+- behavior_accuracy:
+  mide si el sistema tuvo la conducta correcta:
+  responder, abstenerse o pedir aclaración.
+
+- final_accuracy:
+  métrica combinada. Cuenta como correcto cuando el comportamiento fue correcto y, si correspondía responder, la respuesta fue correcta.
+
+Este paso quedó listo para correr sobre el CSV parseado.
+
+
+9. Estado actual de S2
+----------------------
+
+Estado técnico:
+
+- Dataset S2 preparado.
+- Índice S2 construido.
+- Router S2 implementado.
+- Runner Adaptive-RAG implementado.
+- Llamadas reales a API verificadas.
+- Parseo S2 implementado y probado.
+- Evaluación de routing implementada y probada.
+- Evaluación de respuestas finales implementada.
+
+Estado experimental:
+
+- El pipeline completo ya funciona en smoke tests.
+- El router por reglas es razonable como baseline adaptativo inicial.
+- Los resultados de routing de n=5 no deben interpretarse como performance final.
+- El principal punto débil observado es el under-retrieval.
+
+
+10. Cosas a mejorar
+-------------------
+
+Mejoras prioritarias:
+
+1. Correr S2 en más filas
+   El test de 5 filas sirve para validar funcionamiento, pero no para sacar conclusiones robustas.
+   Próximo paso recomendado: correr 20, 50 y luego 150 filas.
+
+2. Comparar router rules vs llm vs hybrid
+   El router por reglas es reproducible, pero puede fallar en preguntas HotpotQA.
+   Conviene evaluar si el router LLM o hybrid reduce el under-retrieval.
+
+3. Reducir under-retrieval
+   Es el error más importante en Adaptive-RAG.
+   Si una pregunta requiere evidencia y el router elige direct, el sistema puede responder sin fundamento.
+
+4. Evaluar recuperación específicamente en S2
+   Hace falta revisar, para los casos retrieve, si el top-k recupera los gold chunks.
+   Esto separa errores de retrieval de errores de generación.
+
+5. Analizar casos problemáticos
+   Crear un CSV con:
+   - errores de routing;
+   - respuestas incorrectas;
+   - under-retrieval;
+   - over-retrieval;
+   - casos donde se recuperó evidencia correcta pero se respondió mal.
+
+6. Ajustar prompts
+   Puede mejorarse:
+   - prompt del router;
+   - prompt direct;
+   - prompt RAG;
+   - formato JSON obligatorio;
+   - instrucciones para abstención.
+
+7. Medir costo y latencia
+   S2 debería compararse con S1 no solo en accuracy, sino también en:
+   - llamadas evitadas;
+   - tokens promedio;
+   - latencia promedio;
+   - proporción de preguntas que no usaron retrieval.
+
+8. Reportar métricas por tipo de caso
+   Es clave separar:
+   - direct_mmlu;
+   - direct_truthfulqa;
+   - rag_multi_hop;
+   - ambiguous;
+   - rag_no_answer.
+
+
+11. Conclusión general
+----------------------
+
+S2 ya está implementado como un Adaptive-RAG funcional. A diferencia de S1, que recupera siempre, S2 decide antes de responder si conviene usar memoria externa, responder directo, abstenerse o pedir aclaración.
+
+Los smoke tests muestran que el pipeline técnico funciona bien: se construye el índice, se ejecuta el router, se llama a la API, se recupera contexto cuando corresponde, se parsean respuestas y se evalúa el routing.
+
+La parte más débil por ahora no es la infraestructura, sino la política de decisión del router. El router rules sirve como baseline inicial, pero probablemente convenga comparar contra router LLM o hybrid para reducir under-retrieval y mejorar la toma de decisiones.
+
+En resumen: S2 está listo para pasar de smoke tests a una corrida experimental más grande y a un análisis sistemático de errores.

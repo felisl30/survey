@@ -1,0 +1,52 @@
+Verificación final S4
+=====================
+
+Estado general: PASS
+
+Resumen parseado
+----------------
+Filas S4 parseadas: 1
+Valid answer format rate: 1.000
+Run error rate: 0.000
+S4 abstention rate: 0.000
+S4 correction rate: 0.000
+Avg claims: 2.000
+Avg supported claims: 2.000
+Avg NEI claims: 0.000
+Avg latency seconds: 29.697
+Avg total tokens: 789.000
+Final decisions: {'unchanged': 1}
+
+Resumen claim-level
+-------------------
+Claims evaluados: 2
+Preguntas con claims: 1
+Supported rate: 1.000
+Refuted rate: 0.000
+NEI rate: 0.000
+Manual review rate: 0.000
+Uses gold evidence rate: 1.000
+Question all claims supported rate: 1.000
+
+Resumen answer-level
+--------------------
+Filas evaluadas: 1
+Final accuracy: 1.000
+Behavior accuracy: 1.000
+Answer accuracy: 1.000
+Manual review rate: 0.000
+Wrong abstention rate: 0.000
+Any claim NEI rate: 0.000
+Any claim refuted rate: 0.000
+Error/result types: {'correct': 1}
+
+Problemas detectados
+--------------------
+Checks: {'PASS': 9}
+Issues totales: 0
+Issues por nivel: {}
+Issues por categoría: {}
+
+Lectura recomendada
+-------------------
+El pipeline S4 luce consistente para estos archivos. Se puede avanzar a comparar S2 vs S4.

@@ -1,0 +1,98 @@
+{
+  "overall_status": "PASS",
+  "inputs": {
+    "s4_parsed_path": "outputs/s4/generation/fire_like_s4_parsed_retrieve_test_5_hybrid_claims_llm_verify.csv",
+    "claim_results_path": "outputs/s4/evaluation/fire_like_s4_claim_results_retrieve_test_5_hybrid_llm.csv",
+    "answer_results_path": "outputs/s4/evaluation/fire_like_s4_answer_results_retrieve_test_5_hybrid_llm.csv"
+  },
+  "parsed_summary": {
+    "available": true,
+    "n": 1,
+    "duplicate_id_count": 0,
+    "final_decision_counts": {
+      "unchanged": 1
+    },
+    "parse_method_counts": {
+      "raw_output_json": 1
+    },
+    "valid_answer_format_rate": 1.0,
+    "run_error_rate": 0.0,
+    "s4_abstention_rate": 0.0,
+    "s4_correction_rate": 0.0,
+    "avg_claims": 2.0,
+    "avg_supported_claims": 2.0,
+    "avg_refuted_claims": 0.0,
+    "avg_nei_claims": 0.0,
+    "avg_verification_rounds": 4.0,
+    "avg_retrieval_rounds": 2.0,
+    "avg_chunks_retrieved": 9.0,
+    "avg_total_tokens": 789.0,
+    "avg_latency_seconds": 29.697
+  },
+  "claim_summary": {
+    "available": true,
+    "n_claims": 2,
+    "n_questions": 1,
+    "verdict_counts": {
+      "supported": 2
+    },
+    "claim_type_counts": {
+      "factual": 2
+    },
+    "supported_rate": 1.0,
+    "refuted_rate": 0.0,
+    "nei_rate": 0.0,
+    "requires_evidence_rate": 1.0,
+    "manual_review_rate": 0.0,
+    "uses_gold_supporting_rate": 1.0,
+    "uses_gold_evidence_rate": 1.0,
+    "retrieved_gold_evidence_rate": 1.0,
+    "avg_confidence": 0.975,
+    "avg_rounds": 2.0,
+    "avg_retrieval_rounds": 1.0,
+    "avg_retrieved_chunks": 5.0,
+    "question_all_claims_supported_rate": 1.0,
+    "question_any_refuted_rate": 0.0,
+    "question_any_nei_rate": 0.0,
+    "question_manual_review_rate": 0.0,
+    "avg_question_support_rate": 1.0
+  },
+  "answer_summary": {
+    "available": true,
+    "n": 1,
+    "final_accuracy": 1.0,
+    "behavior_accuracy": 1.0,
+    "answer_accuracy": 1.0,
+    "avg_token_f1": 0.2222,
+    "error_type_counts": {
+      "correct": 1
+    },
+    "expected_behavior_counts": {
+      "answer": 1
+    },
+    "s4_final_decision_counts": {
+      "unchanged": 1
+    },
+    "manual_review_rate": 0.0,
+    "wrong_abstention_rate": 0.0,
+    "wrong_clarification_rate": 0.0,
+    "missing_abstention_rate": 0.0,
+    "missing_clarification_rate": 0.0,
+    "s4_changed_answer_rate": 0.0,
+    "s4_changed_behavior_rate": 0.0,
+    "all_claims_supported_rate": 1.0,
+    "any_claim_nei_rate": 0.0,
+    "any_claim_refuted_rate": 0.0
+  },
+  "verification": {
+    "num_checks": 9,
+    "check_counts": {
+      "PASS": 9
+    },
+    "num_question_issues": 0,
+    "num_claim_issues": 0,
+    "num_total_issues": 0,
+    "issue_counts_by_level": {},
+    "issue_counts_by_category": {}
+  }
+}

@@ -1,0 +1,547 @@
+{
+  "input_path": "outputs/s4/generation/fire_like_s4_parsed_retrieve_test_5_hybrid_claims_llm_verify.csv",
+  "output_path": "outputs/s4/evaluation/fire_like_s4_answer_results_retrieve_test_5_hybrid_llm.csv",
+  "summary_path": "outputs/s4/evaluation/fire_like_s4_answer_summary_retrieve_test_5_hybrid_llm.json",
+  "group_summary_path": "outputs/s4/evaluation/fire_like_s4_answer_summary_by_group_retrieve_test_5_hybrid_llm.csv",
+  "thresholds": {
+    "f1_threshold": 0.7
+  },
+  "overall": {
+    "n": 1,
+    "final_accuracy": 1.0,
+    "behavior_accuracy": 1.0,
+    "answer_accuracy": 1.0,
+    "exact_match_rate": 0.0,
+    "contains_gold_answer_rate": 1.0,
+    "avg_token_f1": 0.2222,
+    "valid_answer_format_rate": 1.0,
+    "run_error_rate": 0.0,
+    "s4_abstention_rate": 0.0,
+    "s4_clarification_rate": 0.0,
+    "wrong_abstention_rate": 0.0,
+    "wrong_clarification_rate": 0.0,
+    "missing_abstention_rate": 0.0,
+    "missing_clarification_rate": 0.0,
+    "source_abstention_rate": 0.0,
+    "s4_changed_answer_rate": 0.0,
+    "s4_changed_behavior_rate": 0.0,
+    "manual_review_rate": 0.0,
+    "avg_claim_support_rate": 1.0,
+    "avg_claim_nei_rate": 0.0,
+    "avg_claim_refuted_rate": 0.0,
+    "all_claims_supported_rate": 1.0,
+    "any_claim_nei_rate": 0.0,
+    "any_claim_refuted_rate": 0.0,
+    "s4_correction_rate": 0.0,
+    "avg_s4_claims": 2.0,
+    "avg_s4_supported_claims": 2.0,
+    "avg_s4_refuted_claims": 0.0,
+    "avg_s4_nei_claims": 0.0,
+    "avg_s4_verification_rounds": 4.0,
+    "avg_s4_retrieval_rounds": 2.0,
+    "avg_s4_chunks_retrieved": 9.0,
+    "avg_s4_total_tokens": 789.0,
+    "avg_s4_latency_seconds": 29.697,
+    "expected_final_behavior_counts": {
+      "answer": 1
+    },
+    "s4_final_decision_counts": {
+      "unchanged": 1
+    },
+    "error_type_counts": {
+      "correct": 1
+    },
+    "s4_claim_strategy_counts": {
+      "hybrid": 1
+    },
+    "s4_verification_strategy_counts": {
+      "llm": 1
+    }
+  },
+  "by_s2_case_type": {
+    "rag_multi_hop": {
+      "n": 1,
+      "final_accuracy": 1.0,
+      "behavior_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "exact_match_rate": 0.0,
+      "contains_gold_answer_rate": 1.0,
+      "avg_token_f1": 0.2222,
+      "valid_answer_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "s4_abstention_rate": 0.0,
+      "s4_clarification_rate": 0.0,
+      "wrong_abstention_rate": 0.0,
+      "wrong_clarification_rate": 0.0,
+      "missing_abstention_rate": 0.0,
+      "missing_clarification_rate": 0.0,
+      "source_abstention_rate": 0.0,
+      "s4_changed_answer_rate": 0.0,
+      "s4_changed_behavior_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_claim_support_rate": 1.0,
+      "avg_claim_nei_rate": 0.0,
+      "avg_claim_refuted_rate": 0.0,
+      "all_claims_supported_rate": 1.0,
+      "any_claim_nei_rate": 0.0,
+      "any_claim_refuted_rate": 0.0,
+      "s4_correction_rate": 0.0,
+      "avg_s4_claims": 2.0,
+      "avg_s4_supported_claims": 2.0,
+      "avg_s4_refuted_claims": 0.0,
+      "avg_s4_nei_claims": 0.0,
+      "avg_s4_verification_rounds": 4.0,
+      "avg_s4_retrieval_rounds": 2.0,
+      "avg_s4_chunks_retrieved": 9.0,
+      "avg_s4_total_tokens": 789.0,
+      "avg_s4_latency_seconds": 29.697,
+      "expected_final_behavior_counts": {
+        "answer": 1
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 1
+      },
+      "error_type_counts": {
+        "correct": 1
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 1
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 1
+      }
+    }
+  },
+  "by_dataset": {
+    "hotpotqa": {
+      "n": 1,
+      "final_accuracy": 1.0,
+      "behavior_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "exact_match_rate": 0.0,
+      "contains_gold_answer_rate": 1.0,
+      "avg_token_f1": 0.2222,
+      "valid_answer_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "s4_abstention_rate": 0.0,
+      "s4_clarification_rate": 0.0,
+      "wrong_abstention_rate": 0.0,
+      "wrong_clarification_rate": 0.0,
+      "missing_abstention_rate": 0.0,
+      "missing_clarification_rate": 0.0,
+      "source_abstention_rate": 0.0,
+      "s4_changed_answer_rate": 0.0,
+      "s4_changed_behavior_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_claim_support_rate": 1.0,
+      "avg_claim_nei_rate": 0.0,
+      "avg_claim_refuted_rate": 0.0,
+      "all_claims_supported_rate": 1.0,
+      "any_claim_nei_rate": 0.0,
+      "any_claim_refuted_rate": 0.0,
+      "s4_correction_rate": 0.0,
+      "avg_s4_claims": 2.0,
+      "avg_s4_supported_claims": 2.0,
+      "avg_s4_refuted_claims": 0.0,
+      "avg_s4_nei_claims": 0.0,
+      "avg_s4_verification_rounds": 4.0,
+      "avg_s4_retrieval_rounds": 2.0,
+      "avg_s4_chunks_retrieved": 9.0,
+      "avg_s4_total_tokens": 789.0,
+      "avg_s4_latency_seconds": 29.697,
+      "expected_final_behavior_counts": {
+        "answer": 1
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 1
+      },
+      "error_type_counts": {
+        "correct": 1
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 1
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 1
+      }
+    }
+  },
+  "by_case_type": {
+    "open_qa": {
+      "n": 1,
+      "final_accuracy": 1.0,
+      "behavior_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "exact_match_rate": 0.0,
+      "contains_gold_answer_rate": 1.0,
+      "avg_token_f1": 0.2222,
+      "valid_answer_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "s4_abstention_rate": 0.0,
+      "s4_clarification_rate": 0.0,
+      "wrong_abstention_rate": 0.0,
+      "wrong_clarification_rate": 0.0,
+      "missing_abstention_rate": 0.0,
+      "missing_clarification_rate": 0.0,
+      "source_abstention_rate": 0.0,
+      "s4_changed_answer_rate": 0.0,
+      "s4_changed_behavior_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_claim_support_rate": 1.0,
+      "avg_claim_nei_rate": 0.0,
+      "avg_claim_refuted_rate": 0.0,
+      "all_claims_supported_rate": 1.0,
+      "any_claim_nei_rate": 0.0,
+      "any_claim_refuted_rate": 0.0,
+      "s4_correction_rate": 0.0,
+      "avg_s4_claims": 2.0,
+      "avg_s4_supported_claims": 2.0,
+      "avg_s4_refuted_claims": 0.0,
+      "avg_s4_nei_claims": 0.0,
+      "avg_s4_verification_rounds": 4.0,
+      "avg_s4_retrieval_rounds": 2.0,
+      "avg_s4_chunks_retrieved": 9.0,
+      "avg_s4_total_tokens": 789.0,
+      "avg_s4_latency_seconds": 29.697,
+      "expected_final_behavior_counts": {
+        "answer": 1
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 1
+      },
+      "error_type_counts": {
+        "correct": 1
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 1
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 1
+      }
+    }
+  },
+  "by_expected_route": {
+    "retrieve": {
+      "n": 1,
+      "final_accuracy": 1.0,
+      "behavior_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "exact_match_rate": 0.0,
+      "contains_gold_answer_rate": 1.0,
+      "avg_token_f1": 0.2222,
+      "valid_answer_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "s4_abstention_rate": 0.0,
+      "s4_clarification_rate": 0.0,
+      "wrong_abstention_rate": 0.0,
+      "wrong_clarification_rate": 0.0,
+      "missing_abstention_rate": 0.0,
+      "missing_clarification_rate": 0.0,
+      "source_abstention_rate": 0.0,
+      "s4_changed_answer_rate": 0.0,
+      "s4_changed_behavior_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_claim_support_rate": 1.0,
+      "avg_claim_nei_rate": 0.0,
+      "avg_claim_refuted_rate": 0.0,
+      "all_claims_supported_rate": 1.0,
+      "any_claim_nei_rate": 0.0,
+      "any_claim_refuted_rate": 0.0,
+      "s4_correction_rate": 0.0,
+      "avg_s4_claims": 2.0,
+      "avg_s4_supported_claims": 2.0,
+      "avg_s4_refuted_claims": 0.0,
+      "avg_s4_nei_claims": 0.0,
+      "avg_s4_verification_rounds": 4.0,
+      "avg_s4_retrieval_rounds": 2.0,
+      "avg_s4_chunks_retrieved": 9.0,
+      "avg_s4_total_tokens": 789.0,
+      "avg_s4_latency_seconds": 29.697,
+      "expected_final_behavior_counts": {
+        "answer": 1
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 1
+      },
+      "error_type_counts": {
+        "correct": 1
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 1
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 1
+      }
+    }
+  },
+  "by_eval_expected_final_behavior": {
+    "answer": {
+      "n": 1,
+      "final_accuracy": 1.0,
+      "behavior_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "exact_match_rate": 0.0,
+      "contains_gold_answer_rate": 1.0,
+      "avg_token_f1": 0.2222,
+      "valid_answer_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "s4_abstention_rate": 0.0,
+      "s4_clarification_rate": 0.0,
+      "wrong_abstention_rate": 0.0,
+      "wrong_clarification_rate": 0.0,
+      "missing_abstention_rate": 0.0,
+      "missing_clarification_rate": 0.0,
+      "source_abstention_rate": 0.0,
+      "s4_changed_answer_rate": 0.0,
+      "s4_changed_behavior_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_claim_support_rate": 1.0,
+      "avg_claim_nei_rate": 0.0,
+      "avg_claim_refuted_rate": 0.0,
+      "all_claims_supported_rate": 1.0,
+      "any_claim_nei_rate": 0.0,
+      "any_claim_refuted_rate": 0.0,
+      "s4_correction_rate": 0.0,
+      "avg_s4_claims": 2.0,
+      "avg_s4_supported_claims": 2.0,
+      "avg_s4_refuted_claims": 0.0,
+      "avg_s4_nei_claims": 0.0,
+      "avg_s4_verification_rounds": 4.0,
+      "avg_s4_retrieval_rounds": 2.0,
+      "avg_s4_chunks_retrieved": 9.0,
+      "avg_s4_total_tokens": 789.0,
+      "avg_s4_latency_seconds": 29.697,
+      "expected_final_behavior_counts": {
+        "answer": 1
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 1
+      },
+      "error_type_counts": {
+        "correct": 1
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 1
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 1
+      }
+    }
+  },
+  "by_s4_final_decision": {
+    "unchanged": {
+      "n": 1,
+      "final_accuracy": 1.0,
+      "behavior_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "exact_match_rate": 0.0,
+      "contains_gold_answer_rate": 1.0,
+      "avg_token_f1": 0.2222,
+      "valid_answer_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "s4_abstention_rate": 0.0,
+      "s4_clarification_rate": 0.0,
+      "wrong_abstention_rate": 0.0,
+      "wrong_clarification_rate": 0.0,
+      "missing_abstention_rate": 0.0,
+      "missing_clarification_rate": 0.0,
+      "source_abstention_rate": 0.0,
+      "s4_changed_answer_rate": 0.0,
+      "s4_changed_behavior_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_claim_support_rate": 1.0,
+      "avg_claim_nei_rate": 0.0,
+      "avg_claim_refuted_rate": 0.0,
+      "all_claims_supported_rate": 1.0,
+      "any_claim_nei_rate": 0.0,
+      "any_claim_refuted_rate": 0.0,
+      "s4_correction_rate": 0.0,
+      "avg_s4_claims": 2.0,
+      "avg_s4_supported_claims": 2.0,
+      "avg_s4_refuted_claims": 0.0,
+      "avg_s4_nei_claims": 0.0,
+      "avg_s4_verification_rounds": 4.0,
+      "avg_s4_retrieval_rounds": 2.0,
+      "avg_s4_chunks_retrieved": 9.0,
+      "avg_s4_total_tokens": 789.0,
+      "avg_s4_latency_seconds": 29.697,
+      "expected_final_behavior_counts": {
+        "answer": 1
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 1
+      },
+      "error_type_counts": {
+        "correct": 1
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 1
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 1
+      }
+    }
+  },
+  "by_s4_claim_strategy": {
+    "hybrid": {
+      "n": 1,
+      "final_accuracy": 1.0,
+      "behavior_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "exact_match_rate": 0.0,
+      "contains_gold_answer_rate": 1.0,
+      "avg_token_f1": 0.2222,
+      "valid_answer_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "s4_abstention_rate": 0.0,
+      "s4_clarification_rate": 0.0,
+      "wrong_abstention_rate": 0.0,
+      "wrong_clarification_rate": 0.0,
+      "missing_abstention_rate": 0.0,
+      "missing_clarification_rate": 0.0,
+      "source_abstention_rate": 0.0,
+      "s4_changed_answer_rate": 0.0,
+      "s4_changed_behavior_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_claim_support_rate": 1.0,
+      "avg_claim_nei_rate": 0.0,
+      "avg_claim_refuted_rate": 0.0,
+      "all_claims_supported_rate": 1.0,
+      "any_claim_nei_rate": 0.0,
+      "any_claim_refuted_rate": 0.0,
+      "s4_correction_rate": 0.0,
+      "avg_s4_claims": 2.0,
+      "avg_s4_supported_claims": 2.0,
+      "avg_s4_refuted_claims": 0.0,
+      "avg_s4_nei_claims": 0.0,
+      "avg_s4_verification_rounds": 4.0,
+      "avg_s4_retrieval_rounds": 2.0,
+      "avg_s4_chunks_retrieved": 9.0,
+      "avg_s4_total_tokens": 789.0,
+      "avg_s4_latency_seconds": 29.697,
+      "expected_final_behavior_counts": {
+        "answer": 1
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 1
+      },
+      "error_type_counts": {
+        "correct": 1
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 1
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 1
+      }
+    }
+  },
+  "by_s4_verification_strategy": {
+    "llm": {
+      "n": 1,
+      "final_accuracy": 1.0,
+      "behavior_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "exact_match_rate": 0.0,
+      "contains_gold_answer_rate": 1.0,
+      "avg_token_f1": 0.2222,
+      "valid_answer_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "s4_abstention_rate": 0.0,
+      "s4_clarification_rate": 0.0,
+      "wrong_abstention_rate": 0.0,
+      "wrong_clarification_rate": 0.0,
+      "missing_abstention_rate": 0.0,
+      "missing_clarification_rate": 0.0,
+      "source_abstention_rate": 0.0,
+      "s4_changed_answer_rate": 0.0,
+      "s4_changed_behavior_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_claim_support_rate": 1.0,
+      "avg_claim_nei_rate": 0.0,
+      "avg_claim_refuted_rate": 0.0,
+      "all_claims_supported_rate": 1.0,
+      "any_claim_nei_rate": 0.0,
+      "any_claim_refuted_rate": 0.0,
+      "s4_correction_rate": 0.0,
+      "avg_s4_claims": 2.0,
+      "avg_s4_supported_claims": 2.0,
+      "avg_s4_refuted_claims": 0.0,
+      "avg_s4_nei_claims": 0.0,
+      "avg_s4_verification_rounds": 4.0,
+      "avg_s4_retrieval_rounds": 2.0,
+      "avg_s4_chunks_retrieved": 9.0,
+      "avg_s4_total_tokens": 789.0,
+      "avg_s4_latency_seconds": 29.697,
+      "expected_final_behavior_counts": {
+        "answer": 1
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 1
+      },
+      "error_type_counts": {
+        "correct": 1
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 1
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 1
+      }
+    }
+  },
+  "by_source_system_for_s4": {
+    "s2": {
+      "n": 1,
+      "final_accuracy": 1.0,
+      "behavior_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "exact_match_rate": 0.0,
+      "contains_gold_answer_rate": 1.0,
+      "avg_token_f1": 0.2222,
+      "valid_answer_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "s4_abstention_rate": 0.0,
+      "s4_clarification_rate": 0.0,
+      "wrong_abstention_rate": 0.0,
+      "wrong_clarification_rate": 0.0,
+      "missing_abstention_rate": 0.0,
+      "missing_clarification_rate": 0.0,
+      "source_abstention_rate": 0.0,
+      "s4_changed_answer_rate": 0.0,
+      "s4_changed_behavior_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_claim_support_rate": 1.0,
+      "avg_claim_nei_rate": 0.0,
+      "avg_claim_refuted_rate": 0.0,
+      "all_claims_supported_rate": 1.0,
+      "any_claim_nei_rate": 0.0,
+      "any_claim_refuted_rate": 0.0,
+      "s4_correction_rate": 0.0,
+      "avg_s4_claims": 2.0,
+      "avg_s4_supported_claims": 2.0,
+      "avg_s4_refuted_claims": 0.0,
+      "avg_s4_nei_claims": 0.0,
+      "avg_s4_verification_rounds": 4.0,
+      "avg_s4_retrieval_rounds": 2.0,
+      "avg_s4_chunks_retrieved": 9.0,
+      "avg_s4_total_tokens": 789.0,
+      "avg_s4_latency_seconds": 29.697,
+      "expected_final_behavior_counts": {
+        "answer": 1
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 1
+      },
+      "error_type_counts": {
+        "correct": 1
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 1
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 1
+      }
+    }
+  }
+}

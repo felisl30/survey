@@ -1,0 +1,556 @@
+{
+  "input_path": "outputs/s4/generation/fire_like_s4_parsed_retrieve_test_5_hybrid_claims_llm_verify.csv",
+  "claim_output_path": "outputs/s4/evaluation/fire_like_s4_claim_results_retrieve_test_5_hybrid_llm.csv",
+  "summary_path": "outputs/s4/evaluation/fire_like_s4_claim_summary_retrieve_test_5_hybrid_llm.json",
+  "group_summary_path": "outputs/s4/evaluation/fire_like_s4_claim_summary_by_group_retrieve_test_5_hybrid_llm.csv",
+  "overall_claim_level": {
+    "n_claim_rows": 2,
+    "n_questions": 1,
+    "supported_rate": 1.0,
+    "refuted_rate": 0.0,
+    "nei_rate": 0.0,
+    "requires_evidence_rate": 1.0,
+    "factual_claim_rate": 1.0,
+    "non_factual_claim_rate": 0.0,
+    "core_claim_rate": 1.0,
+    "avg_claim_confidence": 0.975,
+    "avg_claim_rounds": 2.0,
+    "avg_claim_retrieval_rounds": 1.0,
+    "avg_claim_supporting_chunks": 1.0,
+    "avg_claim_refuting_chunks": 0.0,
+    "avg_claim_evidence_ids": 5.0,
+    "avg_claim_retrieved_chunks": 5.0,
+    "claim_uses_gold_supporting_rate": 1.0,
+    "claim_uses_gold_evidence_rate": 1.0,
+    "claim_retrieved_gold_evidence_rate": 1.0,
+    "claim_manual_review_rate": 0.0,
+    "claim_verdict_counts": {
+      "supported": 2
+    },
+    "claim_type_counts": {
+      "factual": 2
+    },
+    "claim_importance_counts": {
+      "core": 2
+    },
+    "manual_review_reason_counts": {
+      "": 2
+    },
+    "s4_final_decision_counts": {
+      "unchanged": 2
+    },
+    "s4_claim_strategy_counts": {
+      "hybrid": 2
+    },
+    "s4_verification_strategy_counts": {
+      "llm": 2
+    }
+  },
+  "overall_question_level_from_claims": {
+    "n_questions": 1,
+    "question_all_claims_supported_rate": 1.0,
+    "question_all_evidence_required_claims_supported_rate": 1.0,
+    "question_any_claim_refuted_rate": 0.0,
+    "question_any_claim_nei_rate": 0.0,
+    "question_manual_review_rate": 0.0,
+    "avg_question_claim_support_rate": 1.0,
+    "avg_question_claim_nei_rate": 0.0,
+    "avg_question_claim_refuted_rate": 0.0,
+    "avg_question_claim_confidence": 0.975
+  },
+  "by_s2_case_type": {
+    "rag_multi_hop": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_dataset": {
+    "hotpotqa": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_case_type": {
+    "open_qa": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_expected_route": {
+    "retrieve": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_s4_final_decision": {
+    "unchanged": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_s4_claim_strategy": {
+    "hybrid": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_s4_verification_strategy": {
+    "llm": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_claim_type": {
+    "factual": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_claim_importance": {
+    "core": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_claim_verdict": {
+    "supported": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  },
+  "by_claim_requires_evidence": {
+    "True": {
+      "n_claim_rows": 2,
+      "n_questions": 1,
+      "supported_rate": 1.0,
+      "refuted_rate": 0.0,
+      "nei_rate": 0.0,
+      "requires_evidence_rate": 1.0,
+      "factual_claim_rate": 1.0,
+      "non_factual_claim_rate": 0.0,
+      "core_claim_rate": 1.0,
+      "avg_claim_confidence": 0.975,
+      "avg_claim_rounds": 2.0,
+      "avg_claim_retrieval_rounds": 1.0,
+      "avg_claim_supporting_chunks": 1.0,
+      "avg_claim_refuting_chunks": 0.0,
+      "avg_claim_evidence_ids": 5.0,
+      "avg_claim_retrieved_chunks": 5.0,
+      "claim_uses_gold_supporting_rate": 1.0,
+      "claim_uses_gold_evidence_rate": 1.0,
+      "claim_retrieved_gold_evidence_rate": 1.0,
+      "claim_manual_review_rate": 0.0,
+      "claim_verdict_counts": {
+        "supported": 2
+      },
+      "claim_type_counts": {
+        "factual": 2
+      },
+      "claim_importance_counts": {
+        "core": 2
+      },
+      "manual_review_reason_counts": {
+        "": 2
+      },
+      "s4_final_decision_counts": {
+        "unchanged": 2
+      },
+      "s4_claim_strategy_counts": {
+        "hybrid": 2
+      },
+      "s4_verification_strategy_counts": {
+        "llm": 2
+      }
+    }
+  }
+}

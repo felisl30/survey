@@ -1,0 +1,597 @@
+RESUMEN DEL MODELO S3 - FLARE-LIKE ACTIVE RETRIEVAL
+=====================================================
+
+1. Idea general del modelo S3
+----------------------------
+
+El modelo S3 fue organizado como una versión FLARE-like, es decir, un sistema de pregunta-respuesta con recuperación activa durante la generación.
+
+La diferencia central frente a S2 es la ubicación de la decisión de retrieval:
+
+- S2 Adaptive-RAG decide antes de responder si conviene ir por una ruta direct, retrieve, clarify o abstain.
+- S3 no decide todo antes de responder. Primero genera una oración candidata, luego evalúa si esa oración necesita evidencia externa, y recién ahí decide si activa retrieval.
+
+En limpio, S3 funciona así:
+
+Pregunta del usuario
+    -> generación de una oración candidata
+    -> decisión de si esa oración necesita retrieval
+    -> recuperación de chunks si corresponde
+    -> regeneración/verificación local de la oración con evidencia
+    -> acumulación de respuesta final
+    -> repetición hasta terminar o cortar por criterio de parada
+
+Esto permite estudiar una hipótesis distinta a S2: no solo si conviene recuperar para una pregunta completa, sino si conviene recuperar para claims parciales generados durante la respuesta.
+
+
+2. Archivos principales de S3
+-----------------------------
+
+El modelo quedó organizado en la carpeta:
+
+s3_model_code/
+
+con los siguientes archivos principales:
+
+1) prompts_s3.py
+
+Contiene los prompts del sistema S3:
+
+- Prompt para generar una oración candidata.
+- Prompt para decidir si una oración candidata necesita retrieval.
+- Prompt para regenerar o corregir una oración usando evidencia recuperada.
+
+También incluye builders de prompts como:
+
+- build_candidate_prompt(...)
+- build_retrieval_decision_prompt(...)
+- build_regenerate_prompt(...)
+
+Además, diferencia perfiles de tarea:
+
+- multiple_choice
+- open_direct
+- open_retrieval
+- ambiguous
+- open_qa
+
+
+2) active_retrieval_policy_s3.py
+
+Contiene la política de recuperación activa.
+
+La política decide si una oración candidata necesita retrieval. La versión actual usa principalmente reglas reproducibles.
+
+La función clave es:
+
+needs_retrieval(...)
+
+y por debajo usa:
+
+needs_retrieval_rules(...)
+
+La política considera señales como:
+
+- entidades nombradas
+- fechas o números
+- comparaciones
+- relaciones factuales
+- pedidos explícitos de evidencia, documentos, corpus o contexto
+
+Después de los primeros smoke tests, se corrigió la política para evitar over-retrieval en casos directos:
+
+- multiple_choice se trata como directo y no dispara retrieval.
+- open_direct con sesgo conservative no recupera salvo que haya pedido documental explícito.
+- open_retrieval usa un sesgo aggressive y sí recupera ante claims factuales o multi-hop.
+
+Esto fue clave para evitar que preguntas de MMLU o TruthfulQA terminen usando un corpus irrelevante.
+
+
+3) flare_controller_s3.py
+
+Es el controlador principal del loop FLARE-like para una sola pregunta.
+
+La función central es:
+
+run_flare_controller_for_question(...)
+
+El controlador hace:
+
+1. Genera una oración candidata.
+2. Pasa esa oración por la política de retrieval.
+3. Si hace falta, recupera chunks con el retriever usado por S1/S2.
+4. Si hubo retrieval, regenera o corrige la oración con evidencia.
+5. Agrega la oración final a la respuesta parcial.
+6. Guarda un trace detallado por step.
+7. Decide si debe seguir o cortar.
+
+También guarda:
+
+- answer
+- confidence
+- abstained
+- retrieval_mode
+- num_generation_steps
+- num_retrieval_steps
+- num_chunks_retrieved_total
+- evidence_ids
+- flare_trace
+- tokens
+- latency
+- error
+
+Durante las pruebas se detectó un problema importante: en un caso multi-hop, el primer step ya respondía correctamente con evidencia, pero el controlador seguía generando una segunda oración redundante. Esa segunda oración activaba retrieval otra vez y podía terminar en abstención. Para resolverlo, se agregó una regla de parada:
+
+should_stop_after_supported_retrieval(...)
+
+La lógica es:
+
+Si task_type == open_retrieval, hubo retrieval, se recuperaron chunks, la oración final tiene support_status supported o corrected, no hay abstención y la confianza es suficiente, entonces se corta el loop.
+
+Esto estabilizó el caso HotpotQA multi-hop.
+
+
+4) run_s3_flare_like.py
+
+Es el runner completo para correr S3 sobre un CSV de preguntas.
+
+Entrada típica:
+
+data/s2/adaptive_rag/questions_s2.csv
+
+Salida típica:
+
+outputs/s3/generation/flare_like_s3_raw.csv
+
+Este archivo:
+
+- lee las preguntas
+- infiere el tipo de tarea
+- construye el prompt correcto
+- ejecuta el controlador S3
+- guarda resultados raw
+- permite limit, resume, dry-run y guardado incremental
+
+También infiere perfiles automáticamente:
+
+- MMLU -> multiple_choice + conservative
+- TruthfulQA/direct -> open_direct + conservative
+- HotpotQA/rag -> open_retrieval + aggressive
+- ambiguous -> ambiguous + conservative
+
+Esto fue importante porque S3 no debería tratar todas las preguntas igual.
+
+
+5) parse_s3_outputs.py
+
+Es el parser de salidas raw de S3.
+
+Entrada típica:
+
+outputs/s3/generation/flare_like_s3_raw_test_5_v4.csv
+
+Salida típica:
+
+outputs/s3/generation/flare_like_s3_parsed_test_5_v4_fixed.csv
+
+El parser:
+
+- no llama al LLM
+- conserva columnas originales
+- parsea raw_output o raw_response_json
+- extrae parsed_answer
+- extrae parsed_choice en multiple-choice
+- extrae parsed_confidence
+- extrae parsed_abstained
+- extrae parsed_active_retrieval_triggered
+- extrae parsed_retrieved_chunk_ids
+- extrae parsed_final_support_status
+- extrae métricas de trace
+- calcula valid_s3_format y valid_answer_format
+
+Durante la prueba se corrigió un bug de latencia. El parser inicialmente transformaba latencias como 14.080 segundos en 0.1408 por tratarlas como porcentajes. Se agregó una función específica para floats simples, de modo que parsed_latency_seconds conserve el valor correcto.
+
+
+6) evaluate_s3_answers.py
+
+Es el evaluador de respuestas de S3.
+
+Entrada típica:
+
+outputs/s3/generation/flare_like_s3_parsed_test_5_v4_fixed.csv
+
+Salidas típicas:
+
+outputs/s3/evaluation/flare_like_s3_answer_results_test_5_v4.csv
+outputs/s3/evaluation/flare_like_s3_answer_summary_test_5_v4.json
+outputs/s3/evaluation/flare_like_s3_answer_summary_by_group_test_5_v4.csv
+
+El evaluador no llama al LLM.
+
+Evalúa:
+
+- final_accuracy
+- behavior_accuracy
+- answer_accuracy
+- exact_match
+- contains_gold_answer
+- token_f1
+- abstention_rate
+- clarification_rate
+- active_retrieval_rate
+- retrieval_decision_accuracy
+- over_retrieval_rate
+- under_retrieval_rate
+- retrieval_hit_gold_rate
+- retrieval_full_recall_rate
+- retrieval_supported_rate
+- steps, chunks, tokens y latencia
+
+Como S3 no tiene router previo, el evaluador infiere la acción observada:
+
+- clarify si parsed_clarification=True
+- abstain si parsed_abstained=True
+- retrieve si parsed_active_retrieval_triggered=True
+- direct si respondió sin retrieval
+
+Luego compara esa acción contra expected_route.
+
+
+3. Camino seguido durante la implementación
+-------------------------------------------
+
+El desarrollo de S3 fue incremental.
+
+Primero se armó la estructura base:
+
+- prompts_s3.py
+- active_retrieval_policy_s3.py
+- flare_controller_s3.py
+
+Con esto se pudo ejecutar un smoke test de una sola pregunta.
+
+Después se agregó el runner:
+
+- run_s3_flare_like.py
+
+El runner permitió correr S3 sobre las primeras 5 preguntas del dataset S2.
+
+En los primeros resultados se observó que el sistema funcionaba técnicamente, pero tenía over-retrieval. En particular, activaba retrieval en preguntas directas de TruthfulQA y MMLU.
+
+Para corregirlo se agregó el perfilado automático:
+
+- multiple_choice -> conservative
+- open_direct -> conservative
+- open_retrieval -> aggressive
+
+Luego se ajustó la política para que:
+
+- MMLU no recupere.
+- TruthfulQA directo no recupere salvo pedido explícito de documentos.
+- HotpotQA/RAG sí recupere.
+
+Después se detectó otro problema: en el caso multi-hop de Verdi y Ambroise Thomas, el primer step ya producía una respuesta correcta y soportada, pero el segundo step era redundante y terminaba generando una abstención incorrecta.
+
+Para corregir eso se agregó:
+
+should_stop_after_supported_retrieval(...)
+
+Con esa regla, el sistema corta después de una oración retrieval soportada/corregida.
+
+Luego se construyó el parser:
+
+- parse_s3_outputs.py
+
+El parser funcionó bien, salvo por el bug de latencia, que se corrigió.
+
+Finalmente se construyó el evaluador:
+
+- evaluate_s3_answers.py
+
+Con eso quedó un pipeline completo para S3:
+
+raw generation
+    -> parsing
+    -> evaluation
+
+
+4. Resultados obtenidos en el smoke test de 5 preguntas
+-------------------------------------------------------
+
+Con la versión estabilizada de S3, el smoke test de 5 preguntas produjo:
+
+- 3 casos direct_truthfulqa
+- 1 caso direct_mmlu
+- 1 caso rag_multi_hop
+
+En la etapa raw/parsing se obtuvo:
+
+Run error rate: 0.000
+Valid S3 format rate: 1.000
+Valid answer format rate: 1.000
+Abstention rate: 0.000
+Clarification rate: 0.000
+Active retrieval triggered rate: 0.200
+Avg generation steps: 1.800
+Avg retrieval steps: 0.200
+Avg chunks retrieved total: 0.400
+Avg total tokens: 1361.000
+Avg latency seconds: 14.080
+
+Por tipo de tarea:
+
+multiple_choice:
+    retrieval_rate = 0.0
+
+open_direct:
+    retrieval_rate = 0.0
+
+open_retrieval:
+    retrieval_rate = 1.0
+
+Esto confirma que S3 activó retrieval solamente en el caso que lo requería.
+
+En evaluación se obtuvo:
+
+Final accuracy: 0.600
+Behavior accuracy: 1.000
+Answer accuracy: 0.600
+Exact match rate: 0.200
+Contains gold answer rate: 0.600
+Avg token F1: 0.415
+Valid S3 format rate: 1.000
+Run error rate: 0.000
+Abstention rate: 0.000
+Clarification rate: 0.000
+Active retrieval rate: 0.200
+Retrieval decision accuracy: 1.000
+Over-retrieval rate: 0.000
+Under-retrieval rate: 0.000
+Retrieval hit gold rate: 0.200
+Retrieval full recall rate: 0.200
+Retrieval supported rate: 0.200
+
+La lectura más importante es que el comportamiento fue correcto:
+
+- S3 respondió cuando debía responder.
+- S3 no se abstuvo indebidamente.
+- S3 no pidió aclaraciones innecesarias.
+- S3 no recuperó en preguntas directas.
+- S3 recuperó en la pregunta multi-hop.
+- S3 recuperó los chunks esperados en el caso RAG.
+
+El final_accuracy de 0.600 no necesariamente indica que S3 esté funcionando mal. Los dos casos marcados como answer_mismatch fueron preguntas abiertas donde la respuesta era conceptualmente razonable, pero no coincidía textualmente con el gold answer.
+
+Ejemplo:
+
+Gold:
+Himalayan salt has the same health benefits as table salt
+
+Respuesta S3:
+Pink Himalayan salt is nutritionally very similar to regular table salt, and its trace minerals are present in amounts too small to provide meaningful health benefits...
+
+La respuesta parece compatible con el gold, pero la métrica textual automática la penaliza.
+
+Otro ejemplo:
+
+Gold:
+The price could either fall or rise
+
+Respuesta S3:
+You cannot reliably predict next year’s stock price just because it has risen for years. It could rise, fall, or stay roughly flat...
+
+Nuevamente, la respuesta parece conceptualmente correcta, pero no coincide de forma estricta con el gold.
+
+
+5. Estado actual del modelo S3
+------------------------------
+
+El estado actual de S3 es bueno para smoke test.
+
+Se puede considerar que están cerrados estos componentes:
+
+- generación parcial
+- política de retrieval activo
+- controlador FLARE-like
+- runner sobre CSV
+- parser de outputs
+- evaluador de respuestas
+- métricas de comportamiento
+- métricas de retrieval
+- métricas básicas de costo
+
+El sistema ya permite comparar S3 contra S0, S1 y S2 usando un pipeline reproducible.
+
+
+6. Qué falta o qué conviene mejorar
+-----------------------------------
+
+1) Correr un test más grande
+
+El próximo paso recomendado es correr S3 con 20 preguntas.
+
+Comandos esperados:
+
+python s3_model_code/run_s3_flare_like.py \
+  --input-path data/s2/adaptive_rag/questions_s2.csv \
+  --index-dir indexes/s2/adaptive_rag \
+  --output-path outputs/s3/generation/flare_like_s3_raw_test_20_v4.csv \
+  --limit 20 \
+  --max-steps 3 \
+  --top-k-per-step 2 \
+  --max-retrieval-steps 2 \
+  --max-total-chunks 4 \
+  --retrieval-strategy rules
+
+python s3_model_code/parse_s3_outputs.py \
+  --input-path outputs/s3/generation/flare_like_s3_raw_test_20_v4.csv \
+  --output-path outputs/s3/generation/flare_like_s3_parsed_test_20_v4.csv
+
+python s3_model_code/evaluate_s3_answers.py \
+  --input-path outputs/s3/generation/flare_like_s3_parsed_test_20_v4.csv \
+  --output-path outputs/s3/evaluation/flare_like_s3_answer_results_test_20_v4.csv \
+  --summary-path outputs/s3/evaluation/flare_like_s3_answer_summary_test_20_v4.json \
+  --group-summary-path outputs/s3/evaluation/flare_like_s3_answer_summary_by_group_test_20_v4.csv
+
+En ese test hay que mirar especialmente:
+
+- run_error_rate
+- valid_s3_format_rate
+- retrieval_decision_accuracy
+- over_retrieval_rate
+- under_retrieval_rate
+- abstention_rate
+- manual_review_rate
+- error_type_counts
+
+
+2) Correr el dataset completo
+
+Si el test de 20 preguntas es estable, el siguiente paso sería correr las 150 preguntas del dataset S2/S3.
+
+Eso permitiría evaluar:
+
+- estabilidad por tipo de caso
+- costo promedio
+- comportamiento en ambiguous
+- comportamiento en rag_no_answer
+- comportamiento en direct_mmlu
+- comportamiento en direct_truthfulqa
+- calidad de retrieval en rag_multi_hop
+
+
+3) Mejorar la evaluación de preguntas abiertas
+
+La métrica actual para open QA usa exact match, substring y token F1. Esto es reproducible, pero es estricta.
+
+Conviene agregar una métrica complementaria para preguntas abiertas:
+
+- revisión manual
+- evaluación semántica con embeddings
+- evaluación LLM-as-judge controlada
+- clasificación entailment/contradiction
+- métrica de equivalencia semántica entre answer y gold
+
+Esto es importante porque varias respuestas correctas conceptualmente pueden aparecer como answer_mismatch.
+
+
+4) Analizar errores por grupo
+
+Después de correr 20 o 150 preguntas, conviene revisar:
+
+- errores en direct_truthfulqa
+- errores en direct_mmlu
+- errores en rag_multi_hop
+- errores en rag_no_answer
+- errores en ambiguous
+
+En particular, conviene separar:
+
+- error de generación
+- error de retrieval
+- error de abstención
+- error de aclaración
+- falso negativo de la métrica textual
+- error real del modelo
+
+
+5) Ajustar costo y longitud
+
+En algunas preguntas directas S3 puede usar 2 o 3 generation steps. Eso mejora completitud, pero aumenta costo.
+
+Una optimización posible:
+
+multiple_choice:
+    max_steps efectivo = 1
+
+open_direct:
+    max_steps efectivo = 2
+
+open_retrieval:
+    max_steps efectivo = 3
+
+Esto reduciría tokens y latencia, manteniendo el comportamiento experimental.
+
+
+6) Comparar S3 contra S2
+
+Una vez que S3 esté evaluado en 20 o 150 preguntas, conviene comparar contra S2 en:
+
+- accuracy final
+- routing/retrieval decision accuracy
+- over-retrieval
+- under-retrieval
+- abstention rate
+- retrieval hit gold
+- retrieval full recall
+- tokens promedio
+- latencia promedio
+- chunks recuperados
+- manual review rate
+
+La comparación conceptual esperada es:
+
+S2:
+    decide antes de generar
+
+S3:
+    decide durante la generación, claim por claim
+
+Esto permite discutir si el retrieval activo durante generación mejora el balance entre calidad y costo.
+
+
+7) Posible mejora futura: política híbrida
+
+La política actual por reglas funciona y es reproducible.
+
+Más adelante podría probarse:
+
+- rules
+- llm
+- hybrid
+
+La política hybrid permitiría usar reglas cuando hay alta confianza y LLM cuando el caso es dudoso.
+
+Esto agregaría costo, pero podría mejorar decisiones difíciles.
+
+
+8) Posible mejora futura: integración con S4
+
+S3 verifica localmente cada oración con evidencia recuperada, pero no hace una verificación final iterativa de todos los claims.
+
+S4 podría tomar la respuesta final de S3 y verificarla claim por claim.
+
+Eso permitiría un pipeline más fuerte:
+
+S3:
+    retrieval activo durante generación
+
+S4:
+    verificación iterativa posterior de claims
+
+
+7. Conclusión breve
+-------------------
+
+S3 quedó implementado como un sistema FLARE-like funcional y evaluable.
+
+El camino principal fue:
+
+1. Construir prompts y política de retrieval activo.
+2. Implementar controlador por steps.
+3. Agregar runner sobre CSV.
+4. Corregir over-retrieval en preguntas directas.
+5. Corregir la parada después de retrieval soportado.
+6. Crear parser.
+7. Corregir bug de latencia.
+8. Crear evaluador.
+9. Validar todo con smoke test de 5 preguntas.
+
+El resultado más importante es que S3 ya distingue correctamente entre:
+
+- responder directo
+- activar retrieval durante generación
+- usar evidencia recuperada
+- cortar cuando la respuesta ya está soportada
+
+Actualmente el modelo está listo para correr un test de 20 preguntas y luego escalar a una evaluación completa.

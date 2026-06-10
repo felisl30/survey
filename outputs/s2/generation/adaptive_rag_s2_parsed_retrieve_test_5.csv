@@ -1,0 +1,44 @@
+id,source_system,source_question_id,source_dataset,dataset,case_type,s2_case_type,expected_route,acceptable_routes_json,requires_retrieval,retrieval_mode,expected_behavior,expected_final_behavior,routing_question,original_question,question,prompt,source_prompt,subject,topic,difficulty,level,hotpot_type,source,source_split,original_hotpotqa_id,truthfulqa_category,truthfulqa_type,original_source,A,B,C,D,answer_choices_json,gold_answer,gold_answer_idx,gold_answer_text,expected_answer,best_answer,correct_answers_json,incorrect_answers_json,gold_evidence_ids,gold_evidence_titles,context_chunk_ids,is_synthetic,synthetic_strategy,expected_model_output_format,evaluation_notes,system,model,top_k,s2_question,predicted_route,predicted_retrieval_mode,generation_policy,router_query,router_confidence,router_reason,router_strategy,router_source,router_rule_name,router_raw_output,router_parse_method,router_parse_error,router_error,router_model,router_usage_json,router_input_tokens,router_output_tokens,router_total_tokens,router_latency_seconds,router_precomputed,router_route_exact_match,router_route_acceptable,retrieval_query,retrieved_chunk_ids,retrieved_doc_ids,retrieved_titles,retrieved_scores,retrieved_context_json,retrieval_latency_seconds,final_prompt,final_prompt_chars,rag_prompt,rag_prompt_chars,dry_run,raw_output,latency_seconds,usage_json,input_tokens,output_tokens,total_tokens,error,run_error_present,parsed_route,parsed_retrieval_mode,parsed_router_confidence,parsed_router_reason,valid_router_format,router_parse_method_final,router_parse_error_final,parsed_router_json,parsed_answer,parsed_confidence,parsed_abstained,valid_answer_format,valid_format,parse_method,parse_error,parsed_json
+s2_retrieve_hotpotqa_0018,S1,hotpotqa_mini_0017,hotpotqa,hotpotqa,open_qa,rag_multi_hop,retrieve,"[""retrieve""]",True,multi_step,answer,answer,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",,entertainment,,hard,comparison,HotpotQA distractor via Hugging Face,validation,5ab29c24554299449642c932,,,,,,,,,yes,,yes,yes,,"[""yes""]",[],hotpotqa_mini_0017_chunk_03|hotpotqa_mini_0017_chunk_05,Ambroise Thomas|Giuseppe Verdi,hotpotqa_mini_0017_chunk_00|hotpotqa_mini_0017_chunk_01|hotpotqa_mini_0017_chunk_02|hotpotqa_mini_0017_chunk_03|hotpotqa_mini_0017_chunk_04|hotpotqa_mini_0017_chunk_05|hotpotqa_mini_0017_chunk_06|hotpotqa_mini_0017_chunk_07|hotpotqa_mini_0017_chunk_08|hotpotqa_mini_0017_chunk_09,False,,"{""route"": ""retrieve"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso answerable tomado de S1/HotpotQA-mini. El router debería usar retrieval.,S2_adaptive_rag,gpt-5.5,5,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,direct,none,direct_llm,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,False,False,False,,,,,,[],0.0,"Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no tenés información suficiente, indicá que no hay información suficiente.
+- Si la pregunta es ambigua, pedí la aclaración mínima necesaria.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información o ambigüedad; si no, false.
+
+Pregunta:
+Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",740,,0,False,"{
+  ""answer"": ""Yes. Giuseppe Verdi and Ambroise Thomas were both opera composers."",
+  ""confidence"": 0.98,
+  ""abstained"": false
+}",4.619,"{""input_tokens"": 319, ""input_tokens_details"": {""cached_tokens"": 0}, ""output_tokens"": 84, ""output_tokens_details"": {""reasoning_tokens"": 39}, ""total_tokens"": 403}",319,84,403,,False,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,True,columns_with_router_json,,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",Yes. Giuseppe Verdi and Ambroise Thomas were both opera composers.,0.98,False,True,True,json,,"{""answer"": ""Yes. Giuseppe Verdi and Ambroise Thomas were both opera composers."", ""confidence"": 0.98, ""abstained"": false}"

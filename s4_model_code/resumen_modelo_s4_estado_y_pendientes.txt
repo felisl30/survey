@@ -1,0 +1,487 @@
+Resumen del modelo S4: FIRE-like con verificación iterativa de claims
+=========================================================================
+
+Contexto general
+----------------
+
+El modelo S4 se implementó como una etapa posterior a S2/S3, inspirada en una arquitectura FIRE-like de verificación iterativa de afirmaciones. La idea central no es generar la respuesta desde cero, sino tomar una respuesta inicial producida por otro sistema —por ejemplo S2 Adaptive-RAG o S3 FLARE-like— y auditarla mediante extracción de claims, recuperación de evidencia, verificación y reparación final.
+
+En términos conceptuales, S4 responde a la parte más fuerte de la hipótesis del proyecto: no alcanza con recuperar documentos; también hay que verificar si lo generado está efectivamente soportado por evidencia. Por eso, S4 funciona como una capa de control factual posterior a la generación.
+
+El flujo general implementado fue:
+
+    respuesta inicial de S2/S3
+        -> extracción de claims atómicos
+        -> verificación de cada claim contra evidencia
+        -> recuperación adicional si falta evidencia
+        -> decisión por claim: supported / refuted / not_enough_info
+        -> reparación final de la respuesta
+        -> parseo, evaluación y verificación final de resultados
+
+
+Archivos implementados
+----------------------
+
+1. prompts_s4.py
+
+Este fue el primer bloque de S4. Centraliza los prompts y builders usados por el extractor, el verificador, la generación de queries y la reparación final. Sirve para mantener el diseño del modelo limpio y evitar prompts dispersos en varios archivos.
+
+Incluye prompts para:
+
+- extracción de claims;
+- verificación de claims;
+- generación de queries de búsqueda;
+- reparación final de la respuesta.
+
+También incluye funciones auxiliares para construir bloques de contexto, bloques de claims, bloques de resultados de verificación y prompts completos.
+
+Resultado: el archivo compiló correctamente y pasó su self-test.
+
+
+2. claim_extractor_s4.py
+
+Este archivo se encarga de extraer claims atómicos a partir de una pregunta y una respuesta inicial. No verifica ni recupera evidencia: solamente transforma una respuesta textual en una lista de afirmaciones verificables.
+
+Se implementaron estrategias:
+
+- rules;
+- llm;
+- hybrid.
+
+Durante los tests se vio que la estrategia rules funciona como smoke test, pero tiene limitaciones. Por ejemplo, originalmente separaba "Yes." como si fuera un claim factual, lo cual no es deseable. La estrategia hybrid resolvió mejor los casos compuestos, como:
+
+    "Giuseppe Verdi and Ambroise Thomas were both opera composers."
+
+y lo separó en:
+
+    "Giuseppe Verdi was an opera composer."
+    "Ambroise Thomas was an opera composer."
+
+Resultado: el extractor quedó funcional. La estrategia recomendada para S4 real es hybrid.
+
+
+3. fire_verifier_s4.py
+
+Este archivo verifica un claim individual contra evidencia. Devuelve un veredicto:
+
+- supported;
+- refuted;
+- not_enough_info.
+
+También puede sugerir una nueva query si necesita más evidencia.
+
+Se implementaron estrategias:
+
+- rules;
+- llm;
+- hybrid.
+
+Durante los tests vimos que rules sirve como baseline determinístico, pero es débil para razonamiento semántico o evidencia distribuida en varios chunks. Por ejemplo, no logró verificar bien que Ambroise Thomas era compositor de ópera aunque el chunk correcto estaba recuperado, porque el solapamiento léxico era bajo.
+
+Cuando se usó verification-strategy llm, el caso se resolvió correctamente.
+
+Resultado: el verificador quedó funcional. Para S4 experimental real, conviene usar llm en la verificación.
+
+
+4. fire_controller_s4.py
+
+Este archivo implementa el loop central de S4 para una pregunta y una respuesta inicial.
+
+El flujo es:
+
+    respuesta inicial
+        -> extraer claims
+        -> verificar cada claim
+        -> si falta evidencia, recuperar chunks
+        -> volver a verificar
+        -> decidir si mantener, corregir o abstener
+        -> devolver una traza estructurada
+
+Este controller integra:
+
+- claim_extractor_s4.py;
+- fire_verifier_s4.py;
+- retriever sobre el índice S2;
+- reparación final.
+
+Se probó primero con ejemplos controlados y después con un caso real del índice S2:
+
+    Are Giuseppe Verdi and Ambroise Thomas both Opera composers?
+
+Cuando la respuesta inicial se dio como dos afirmaciones separadas, el controller logró verificar ambos claims. Cuando la respuesta venía como afirmación compuesta, rules-only fallaba, pero hybrid + llm verification funcionó correctamente.
+
+Resultado: el controller quedó funcional y aprobado.
+
+
+5. run_s4_fire_like.py
+
+Este archivo permite correr S4 sobre un CSV de outputs parseados de S2 o S3. Es el runner batch del modelo S4.
+
+Lee respuestas iniciales, aplica el controller S4 y guarda un CSV raw con muchas columnas estructuradas, por ejemplo:
+
+- parsed_answer;
+- parsed_abstained;
+- valid_answer_format;
+- s4_final_decision;
+- s4_num_claims;
+- s4_num_supported_claims;
+- s4_num_refuted_claims;
+- s4_num_nei_claims;
+- s4_claim_results_json;
+- s4_retrieved_chunk_ids;
+- s4_total_tokens;
+- s4_latency_seconds.
+
+Durante la prueba inicial apareció un error en el resumen por recursión infinita dentro de summarize_output. El problema no afectaba la generación del CSV, solo el print final. Se corrigió agregando un parámetro include_groups para evitar agrupar recursivamente sobre s2_case_type.
+
+Resultado: el runner quedó funcional. Puede procesar CSVs de S2/S3 y generar outputs S4.
+
+
+6. parse_s4_outputs.py
+
+Aunque run_s4_fire_like.py ya genera muchas columnas semi-parseadas, se implementó este archivo para mantener el pipeline consistente con S0/S1/S2/S3.
+
+El parser normaliza formalmente la salida raw de S4 y produce un CSV parseado. Extrae y estandariza:
+
+- parsed_answer;
+- parsed_confidence;
+- parsed_abstained;
+- valid_answer_format;
+- s4_final_decision;
+- s4_correction_applied;
+- conteos de claims;
+- claims soportados/refutados/NEI;
+- evidencia usada;
+- chunks recuperados;
+- tokens;
+- latencia;
+- errores de parseo.
+
+Se probó sobre el caso retrieve con hybrid + llm verification y produjo:
+
+- valid_answer_format = 1.000;
+- run_error_rate = 0.000;
+- s4_abstention_rate = 0.000;
+- avg supported claims = 2.000;
+- avg NEI claims = 0.000;
+- final_decision = unchanged.
+
+Resultado: parse_s4_outputs.py quedó aprobado.
+
+
+7. evaluate_s4_claims.py
+
+Este archivo evalúa S4 a nivel claim. Toma el CSV parseado y expande s4_claim_results_json a una fila por claim.
+
+Mide:
+
+- supported rate;
+- refuted rate;
+- NEI rate;
+- requires evidence rate;
+- factual claim rate;
+- uso de evidencia gold;
+- uso de chunks soporte;
+- rondas de verificación;
+- rondas de retrieval;
+- claims que requieren revisión manual.
+
+En el caso probado, produjo:
+
+- Claims evaluados: 2;
+- Supported rate: 1.000;
+- Refuted rate: 0.000;
+- NEI rate: 0.000;
+- Requires evidence rate: 1.000;
+- Factual claim rate: 1.000;
+- Manual review rate: 0.000;
+- Uses gold evidence rate: 1.000.
+
+Los dos claims quedaron correctamente soportados:
+
+    c1: Giuseppe Verdi was an opera composer.
+        soporte: hotpotqa_mini_0017_chunk_03
+
+    c2: Ambroise Thomas was an opera composer.
+        soporte: hotpotqa_mini_0017_chunk_05
+
+Resultado: evaluate_s4_claims.py quedó aprobado.
+
+
+8. evaluate_s4_answers.py
+
+Este archivo evalúa la respuesta final de S4 a nivel answer-level. No mira solamente claims, sino si la respuesta final sirve como respuesta a la pregunta.
+
+Mide:
+
+- final_accuracy;
+- behavior_accuracy;
+- answer_accuracy;
+- token F1;
+- exact match;
+- contains gold answer;
+- abstenciones incorrectas;
+- aclaraciones incorrectas;
+- cambios respecto de la respuesta fuente;
+- consistencia agregada con claims;
+- costo de S4.
+
+En el caso probado, produjo:
+
+- Final accuracy: 1.000;
+- Behavior accuracy: 1.000;
+- Answer accuracy: 1.000;
+- Valid answer format rate: 1.000;
+- Run error rate: 0.000;
+- Wrong abstention rate: 0.000;
+- All claims supported rate: 1.000;
+- error_type = correct.
+
+La respuesta final fue:
+
+    Yes. Giuseppe Verdi and Ambroise Thomas were both opera composers.
+
+El gold answer era "yes", por eso exact_match fue 0.000 pero contains_gold_answer fue 1.000. El token F1 quedó bajo porque compara una respuesta completa contra un gold muy corto, pero el evaluador correctamente la marcó como respuesta válida.
+
+Resultado: evaluate_s4_answers.py quedó aprobado.
+
+
+9. verify_s4_results.py
+
+Este archivo hace el sanity-check final del pipeline S4. Lee:
+
+- CSV parseado;
+- CSV de evaluación claim-level;
+- CSV de evaluación answer-level.
+
+Luego genera:
+
+- summary JSON;
+- summary TXT;
+- problematic_questions.csv;
+- problematic_claims.csv;
+- sanity_checks.csv.
+
+Verifica cuestiones como:
+
+- existencia de archivos;
+- IDs duplicados;
+- consistencia entre filas parseadas y evaluadas;
+- consistencia entre conteos de claims;
+- errores de parseo;
+- errores de ejecución;
+- respuestas inválidas;
+- respuestas unchanged con claims no soportados;
+- abstenciones incorrectas;
+- problemas de latencia/tokens.
+
+En la prueba final produjo:
+
+- Estado general: PASS;
+- Checks: 9 PASS;
+- Issues totales: 0;
+- problematic_questions.csv vacío;
+- problematic_claims.csv vacío.
+
+Resultado: verify_s4_results.py quedó aprobado.
+
+
+Conclusión sobre S4
+-------------------
+
+El modelo S4 quedó implementado de punta a punta y validado en un caso RAG real. El pipeline completo es:
+
+    run_s4_fire_like.py
+        -> parse_s4_outputs.py
+            -> evaluate_s4_claims.py
+                -> evaluate_s4_answers.py
+                    -> verify_s4_results.py
+
+La configuración que mejor funcionó fue:
+
+    claim-strategy: hybrid
+    verification-strategy: llm
+    query-strategy: rules
+    repair-strategy: rules
+
+La configuración rules-only es útil como baseline barato y determinístico, pero resultó demasiado conservadora. En particular, tuvo problemas con:
+
+- claims compuestos;
+- evidencia distribuida;
+- bajo solapamiento léxico;
+- frases cortas como "Yes." tomadas como claims.
+
+La variante hybrid + llm verification resolvió estos problemas en el caso probado.
+
+
+Estado actual
+-------------
+
+Archivos S4 implementados y aprobados:
+
+1. prompts_s4.py              OK
+2. claim_extractor_s4.py      OK
+3. fire_verifier_s4.py        OK
+4. fire_controller_s4.py      OK
+5. run_s4_fire_like.py        OK
+6. parse_s4_outputs.py        OK
+7. evaluate_s4_claims.py      OK
+8. evaluate_s4_answers.py     OK
+9. verify_s4_results.py       OK
+
+Con esto, S4 está técnicamente completo como pipeline.
+
+
+Qué queda por hacer
+-------------------
+
+1. Correr S4 sobre más casos
+
+Hasta ahora se validó muy bien el pipeline, pero principalmente sobre un caso retrieve real. Eso alcanza para validar implementación, pero no alcanza para sacar conclusiones experimentales.
+
+El próximo paso debería ser correr S4 sobre más casos retrieve, idealmente usando:
+
+    outputs/s2/generation/adaptive_rag_s2_parsed_test_20.csv
+
+o un subset más grande del dataset S2.
+
+
+2. Crear subset retrieve más grande
+
+Conviene filtrar los casos donde expected_route == retrieve o s2_case_type contiene rag. Esto evita gastar S4 en preguntas directas que no tienen evidencia en el índice RAG.
+
+Archivo sugerido:
+
+    outputs/s2/generation/adaptive_rag_s2_parsed_retrieve_test_20.csv
+
+
+3. Correr S4 hybrid + llm sobre ese subset
+
+Comando conceptual:
+
+    python s4_model_code/run_s4_fire_like.py       --input-path outputs/s2/generation/adaptive_rag_s2_parsed_retrieve_test_20.csv       --index-dir indexes/s2/adaptive_rag       --output-path outputs/s4/generation/fire_like_s4_raw_retrieve_test_20_hybrid_claims_llm_verify.csv       --use-index       --claim-strategy hybrid       --verification-strategy llm       --query-strategy rules       --repair-strategy rules       --initial-evidence-mode auto       --max-claims 4       --max-rounds-per-claim 3       --top-k-per-round 5       --max-total-retrievals 8       --max-total-chunks 12
+
+
+4. Repetir post-procesamiento
+
+Después de correr S4, hay que ejecutar:
+
+    parse_s4_outputs.py
+    evaluate_s4_claims.py
+    evaluate_s4_answers.py
+    verify_s4_results.py
+
+Esto genera todos los artefactos necesarios para comparar.
+
+
+5. Implementar comparador S2 vs S4
+
+Este es el próximo gran paso del roadmap.
+
+Archivo sugerido:
+
+    s4_model_code/compare_s2_s4_results.py
+
+Objetivo:
+
+- tomar evaluación de S2;
+- tomar evaluación de S4;
+- unir por id;
+- medir cambios por pregunta;
+- ver si S4 mantuvo, corrigió o empeoró la respuesta;
+- medir si S4 aumentó abstenciones;
+- medir si S4 mejoró factualidad claim-level;
+- medir trade-off entre calidad y costo.
+
+Métricas sugeridas para comparación:
+
+- accuracy S2;
+- accuracy S4;
+- delta accuracy;
+- abstention rate S2;
+- abstention rate S4;
+- wrong abstention rate S4;
+- correction rate S4;
+- unchanged rate S4;
+- claim support rate S4;
+- NEI rate S4;
+- refuted claim rate S4;
+- tokens promedio S4;
+- latencia promedio S4;
+- casos donde S2 era correcto y S4 lo mantuvo;
+- casos donde S2 era incorrecto y S4 corrigió;
+- casos donde S2 era correcto y S4 empeoró;
+- casos donde S4 se abstuvo aunque había respuesta.
+
+Outputs sugeridos:
+
+    outputs/s4/comparison/s2_vs_s4_results.csv
+    outputs/s4/comparison/s2_vs_s4_summary.json
+    outputs/s4/comparison/s2_vs_s4_summary.txt
+    outputs/s4/comparison/s2_vs_s4_problematic_cases.csv
+
+
+6. Comparar S3 vs S4
+
+Después de S2 vs S4, conviene repetir la misma lógica con S3.
+
+Archivo posible:
+
+    s4_model_code/compare_s3_s4_results.py
+
+o hacer un comparador genérico:
+
+    s4_model_code/compare_source_vs_s4_results.py
+
+donde source puede ser s2 o s3.
+
+Recomendación: implementar primero compare_s2_s4_results.py, porque S4 ya fue probado sobre outputs de S2. Después generalizar a S3.
+
+
+7. Evaluación sobre dataset más grande
+
+Para conclusiones del paper, lo ideal sería no quedarse solo con test_20. Se debería intentar una corrida más representativa, por ejemplo:
+
+- todos los casos retrieve disponibles;
+- algunos casos no_answer;
+- algunos casos ambiguous;
+- evitar direct_truthfulqa/direct_mmlu salvo que se tenga un corpus apropiado para verificarlos.
+
+La evaluación final debería separarse por grupo:
+
+- direct_mmlu;
+- direct_truthfulqa;
+- rag_multi_hop;
+- rag_no_answer;
+- ambiguous.
+
+Pero S4 tiene más sentido especialmente en:
+
+- rag_multi_hop;
+- rag_no_answer;
+- respuestas largas con claims verificables.
+
+
+8. Decidir política final de S4
+
+Con los resultados acumulados habrá que decidir si S4 se aplica:
+
+- a todas las respuestas;
+- solo a las rutas retrieve;
+- solo cuando S2/S3 tiene baja confianza;
+- solo cuando la respuesta contiene varios claims;
+- solo cuando el router detecta necesidad de evidencia.
+
+Por ahora, la recomendación más razonable es:
+
+    aplicar S4 principalmente sobre casos retrieve o respuestas con claims factuales verificables.
+
+
+Conclusión final
+----------------
+
+S4 quedó implementado correctamente como una etapa FIRE-like de verificación posterior a generación. El sistema puede extraer claims, recuperar evidencia, verificarlos, mantener o reparar respuestas, parsear outputs, evaluar claims, evaluar respuestas y verificar consistencia final.
+
+El resultado más importante hasta ahora es que la configuración hybrid + llm verification logró verificar correctamente un caso RAG real donde rules-only fallaba. Esto demuestra que el valor de S4 aparece especialmente cuando se necesita razonamiento semántico sobre evidencia, no solo solapamiento léxico.
+
+Lo que falta no es tanto implementación interna de S4, sino evaluación experimental más amplia y comparación contra sistemas anteriores. El próximo paso recomendado es implementar el comparador S2 vs S4 y correr S4 sobre un subset retrieve más grande para obtener resultados comparativos significativos.
