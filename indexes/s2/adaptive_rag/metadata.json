@@ -1,0 +1,32 @@
+{
+  "system": "S2_adaptive_rag",
+  "created_at_utc": "2026-06-09T22:06:43.358841+00:00",
+  "corpus_path": "data/s2/adaptive_rag/corpus_s2.csv",
+  "index_dir": "indexes/s2/adaptive_rag",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "n_chunks": 200,
+  "embedding_dim": 384,
+  "embeddings_file": "indexes/s2/adaptive_rag/embeddings.npy",
+  "chunks_file": "indexes/s2/adaptive_rag/chunks.csv",
+  "metadata_file": "indexes/s2/adaptive_rag/metadata.json",
+  "normalized_embeddings": true,
+  "similarity": "cosine_similarity_via_dot_product",
+  "text_field": "embedding_text = Title + Text",
+  "batch_size": 32,
+  "columns": [
+    "doc_id",
+    "chunk_id",
+    "title",
+    "text",
+    "source",
+    "source_split",
+    "topic",
+    "question_id",
+    "original_hotpotqa_id",
+    "paragraph_index",
+    "is_gold_evidence",
+    "source_system",
+    "s2_corpus_role",
+    "embedding_text"
+  ]
+}

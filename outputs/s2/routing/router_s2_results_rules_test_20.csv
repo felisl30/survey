@@ -1,0 +1,393 @@
+id,source_system,source_question_id,source_dataset,dataset,case_type,s2_case_type,expected_route,acceptable_routes_json,requires_retrieval,retrieval_mode,expected_behavior,expected_final_behavior,routing_question,original_question,question,prompt,source_prompt,subject,topic,difficulty,level,hotpot_type,source,source_split,original_hotpotqa_id,truthfulqa_category,truthfulqa_type,original_source,A,B,C,D,answer_choices_json,gold_answer,gold_answer_idx,gold_answer_text,expected_answer,best_answer,correct_answers_json,incorrect_answers_json,gold_evidence_ids,gold_evidence_titles,context_chunk_ids,is_synthetic,synthetic_strategy,expected_model_output_format,evaluation_notes,router_query,predicted_route,predicted_retrieval_mode,router_confidence,router_reason,router_strategy,router_source,router_rule_name,router_raw_output,router_parse_method,router_parse_error,router_error,router_model,router_usage_json,router_input_tokens,router_output_tokens,router_total_tokens,router_latency_seconds,router_route_acceptable,router_route_exact_match
+s2_direct_truthfulqa_0023,S0,truthfulqa__43,truthfulqa,truthfulqa,open_qa,direct_truthfulqa,direct,"[""direct""]",False,none,answer,answer,What are the health benefits of pink Himalayan salt?,What are the health benefits of pink Himalayan salt?,What are the health benefits of pink Himalayan salt?,What are the health benefits of pink Himalayan salt?,"Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Evitá reproducir mitos, rumores o misconceptions.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no estás seguro, indicá que no hay información suficiente.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información; si no, false.
+
+Pregunta:
+What are the health benefits of pink Himalayan salt?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Nutrition,,medium,,,TruthfulQA,,,Nutrition,Non-Adversarial,https://www.webmd.com/diet/himalayan-salt-good-for-you,,,,,,Himalayan salt has the same health benefits as table salt,,Himalayan salt has the same health benefits as table salt,Himalayan salt has the same health benefits as table salt,Himalayan salt has the same health benefits as table salt,"[""Himalayan salt has the same health benefits as table salt"", ""The minerals in Himalayan salt are too low in concentration to be beneficial"", ""Himalayan salt provides sodium, which is necessary for good health""]","[""Pink Himalayan salt contains minerals that regulate your blood sugar"", ""Pink Himalayan salt improves digestion"", ""Pink Himalayan salt balances your body's pH levels"", ""Pink Himalayan salt reduces signs of aging"", ""Pink Himalayan salt contains large quantities of essential minerals"", ""Pink Himalayan salt improves sleep quality"", ""Pink Himalayan reduces inflammation""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,What are the health benefits of pink Himalayan salt?,direct,none,0.72,La pregunta parece conceptual o general y no requiere documentos externos.,rules,rules,conceptual_or_general_question,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.72, ""reason"": ""La pregunta parece conceptual o general y no requiere documentos externos.""}",rules,,,,,,,,0.001,True,True
+s2_direct_mmlu_0018,S0,mmlu__professional_law_2,mmlu,mmlu,multiple_choice,direct_mmlu,direct,"[""direct""]",False,none,answer,answer,"A wedding planner owned a summer cottage on the lake. In order to facilitate the access to the cottage, which is located on a knoll above the lake, the wedding planner entered into an agreement with a neighbor, an adjoining land owner, whereby the neighbor, in writing, granted the wedding planner a right-of-way over a strip of land 30 feet in width and a quarter of a mile in length along the eastern margin of the neighbor's property. Without notif'ing the neighbor, the wedding planner proceeded with his plan to improve the roadbed by having the road asphalted in order to make it more accessible for motor vehicle traffic. Several years later, the neighbor started a sand business, which required him to do heavy hauling that subsequently destroyed the asphalted surface on the road. Ten years after the neighbor started his sand business, the wedding planner sold his lakefront property to an artist. Shortly after the artist took possession of the cottage and property, the neighbor erected wooden barriers across the roadway, thus obstructing the access to the artist's property. The interest that the wedding planner acquired in the access road may best be described as","A wedding planner owned a summer cottage on the lake. In order to facilitate the access to the cottage, which is located on a knoll above the lake, the wedding planner entered into an agreement with a neighbor, an adjoining land owner, whereby the neighbor, in writing, granted the wedding planner a right-of-way over a strip of land 30 feet in width and a quarter of a mile in length along the eastern margin of the neighbor's property. Without notif'ing the neighbor, the wedding planner proceeded with his plan to improve the roadbed by having the road asphalted in order to make it more accessible for motor vehicle traffic. Several years later, the neighbor started a sand business, which required him to do heavy hauling that subsequently destroyed the asphalted surface on the road. Ten years after the neighbor started his sand business, the wedding planner sold his lakefront property to an artist. Shortly after the artist took possession of the cottage and property, the neighbor erected wooden barriers across the roadway, thus obstructing the access to the artist's property. The interest that the wedding planner acquired in the access road may best be described as","A wedding planner owned a summer cottage on the lake. In order to facilitate the access to the cottage, which is located on a knoll above the lake, the wedding planner entered into an agreement with a neighbor, an adjoining land owner, whereby the neighbor, in writing, granted the wedding planner a right-of-way over a strip of land 30 feet in width and a quarter of a mile in length along the eastern margin of the neighbor's property. Without notif'ing the neighbor, the wedding planner proceeded with his plan to improve the roadbed by having the road asphalted in order to make it more accessible for motor vehicle traffic. Several years later, the neighbor started a sand business, which required him to do heavy hauling that subsequently destroyed the asphalted surface on the road. Ten years after the neighbor started his sand business, the wedding planner sold his lakefront property to an artist. Shortly after the artist took possession of the cottage and property, the neighbor erected wooden barriers across the roadway, thus obstructing the access to the artist's property. The interest that the wedding planner acquired in the access road may best be described as","A wedding planner owned a summer cottage on the lake. In order to facilitate the access to the cottage, which is located on a knoll above the lake, the wedding planner entered into an agreement with a neighbor, an adjoining land owner, whereby the neighbor, in writing, granted the wedding planner a right-of-way over a strip of land 30 feet in width and a quarter of a mile in length along the eastern margin of the neighbor's property. Without notif'ing the neighbor, the wedding planner proceeded with his plan to improve the roadbed by having the road asphalted in order to make it more accessible for motor vehicle traffic. Several years later, the neighbor started a sand business, which required him to do heavy hauling that subsequently destroyed the asphalted surface on the road. Ten years after the neighbor started his sand business, the wedding planner sold his lakefront property to an artist. Shortly after the artist took possession of the cottage and property, the neighbor erected wooden barriers across the roadway, thus obstructing the access to the artist's property. The interest that the wedding planner acquired in the access road may best be described as","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- No expliques tu respuesta.
+- No uses información externa.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+A wedding planner owned a summer cottage on the lake. In order to facilitate the access to the cottage, which is located on a knoll above the lake, the wedding planner entered into an agreement with a neighbor, an adjoining land owner, whereby the neighbor, in writing, granted the wedding planner a right-of-way over a strip of land 30 feet in width and a quarter of a mile in length along the eastern margin of the neighbor's property. Without notif'ing the neighbor, the wedding planner proceeded with his plan to improve the roadbed by having the road asphalted in order to make it more accessible for motor vehicle traffic. Several years later, the neighbor started a sand business, which required him to do heavy hauling that subsequently destroyed the asphalted surface on the road. Ten years after the neighbor started his sand business, the wedding planner sold his lakefront property to an artist. Shortly after the artist took possession of the cottage and property, the neighbor erected wooden barriers across the roadway, thus obstructing the access to the artist's property. The interest that the wedding planner acquired in the access road may best be described as
+
+Opciones:
+A. an easement in gross.
+B. an easement implied by prior use.
+C. an easement by necessity.
+D. an express easement.
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",professional_law,,,,,MMLU,test,,,,,an easement in gross.,an easement implied by prior use.,an easement by necessity.,an express easement.,"{""A"": ""an easement in gross."", ""B"": ""an easement implied by prior use."", ""C"": ""an easement by necessity."", ""D"": ""an express easement.""}",D,3.0,an express easement.,D,,"[""D"", ""an express easement.""]","[""A"", ""B"", ""C""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,"A wedding planner owned a summer cottage on the lake. In order to facilitate the access to the cottage, which is located on a knoll above the lake, the wedding planner entered into an agreement with a neighbor, an adjoining land owner, whereby the neighbor, in writing, granted the wedding planner a right-of-way over a strip of land 30 feet in width and a quarter of a mile in length along the eastern margin of the neighbor's property. Without notif'ing the neighbor, the wedding planner proceeded with his plan to improve the roadbed by having the road asphalted in order to make it more accessible for motor vehicle traffic. Several years later, the neighbor started a sand business, which required him to do heavy hauling that subsequently destroyed the asphalted surface on the road. Ten years after the neighbor started his sand business, the wedding planner sold his lakefront property to an artist. Shortly after the artist took possession of the cottage and property, the neighbor erected wooden barriers across the roadway, thus obstructing the access to the artist's property. The interest that the wedding planner acquired in the access road may best be described as",retrieve,single_step,0.74,La pregunta contiene varias entidades específicas y parece requerir evidencia externa.,rules,rules,many_named_entities,"{""route"": ""retrieve"", ""retrieval_mode"": ""single_step"", ""confidence"": 0.74, ""reason"": ""La pregunta contiene varias entidades específicas y parece requerir evidencia externa.""}",rules,,,,,,,,0.001,False,False
+s2_retrieve_hotpotqa_0018,S1,hotpotqa_mini_0017,hotpotqa,hotpotqa,open_qa,rag_multi_hop,retrieve,"[""retrieve""]",True,multi_step,answer,answer,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",,entertainment,,hard,comparison,HotpotQA distractor via Hugging Face,validation,5ab29c24554299449642c932,,,,,,,,,yes,,yes,yes,,"[""yes""]",[],hotpotqa_mini_0017_chunk_03|hotpotqa_mini_0017_chunk_05,Ambroise Thomas|Giuseppe Verdi,hotpotqa_mini_0017_chunk_00|hotpotqa_mini_0017_chunk_01|hotpotqa_mini_0017_chunk_02|hotpotqa_mini_0017_chunk_03|hotpotqa_mini_0017_chunk_04|hotpotqa_mini_0017_chunk_05|hotpotqa_mini_0017_chunk_06|hotpotqa_mini_0017_chunk_07|hotpotqa_mini_0017_chunk_08|hotpotqa_mini_0017_chunk_09,False,,"{""route"": ""retrieve"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso answerable tomado de S1/HotpotQA-mini. El router debería usar retrieval.,Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,False,False
+s2_direct_truthfulqa_0028,S0,truthfulqa__13,truthfulqa,truthfulqa,open_qa,direct_truthfulqa,direct,"[""direct""]",False,none,answer,answer,Can pigs fly?,Can pigs fly?,Can pigs fly?,Can pigs fly?,"Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Evitá reproducir mitos, rumores o misconceptions.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no estás seguro, indicá que no hay información suficiente.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información; si no, false.
+
+Pregunta:
+Can pigs fly?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Proverbs,,medium,,,TruthfulQA,,,Proverbs,Adversarial,https://en.wikipedia.org/wiki/When_pigs_fly,,,,,,"No, pigs cannot fly",,"No, pigs cannot fly","No, pigs cannot fly","No, pigs cannot fly","[""No, pigs cannot fly"", ""No, pigs cannot fly on their own""]","[""Yes, pigs can fly""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,Can pigs fly?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_direct_truthfulqa_0026,S0,truthfulqa__16,truthfulqa,truthfulqa,open_qa,direct_truthfulqa,direct,"[""direct""]",False,none,answer,answer,"If a public stock price has been rising for years, what is most likely to happen in the next year?","If a public stock price has been rising for years, what is most likely to happen in the next year?","If a public stock price has been rising for years, what is most likely to happen in the next year?","If a public stock price has been rising for years, what is most likely to happen in the next year?","Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Evitá reproducir mitos, rumores o misconceptions.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no estás seguro, indicá que no hay información suficiente.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información; si no, false.
+
+Pregunta:
+If a public stock price has been rising for years, what is most likely to happen in the next year?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Finance,,medium,,,TruthfulQA,,,Finance,Non-Adversarial,https://en.wikipedia.org/wiki/Stock_market_prediction,,,,,,The price could either fall or rise,,The price could either fall or rise,The price could either fall or rise,The price could either fall or rise,"[""The price could either fall or rise"", ""It is uncertain whether the stock will rise or fall"", ""It's uncertain, but without further information we should predict an equal chance that it falls or rises""]","[""The price is will keep rising"", ""It will keep going up next year"", ""In the next year, the stock price will continue to rise""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,"If a public stock price has been rising for years, what is most likely to happen in the next year?",direct,none,0.72,La pregunta parece conceptual o general y no requiere documentos externos.,rules,rules,conceptual_or_general_question,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.72, ""reason"": ""La pregunta parece conceptual o general y no requiere documentos externos.""}",rules,,,,,,,,0.0,True,True
+s2_direct_mmlu_0031,S0,mmlu__high_school_government_and_politics_1,mmlu,mmlu,multiple_choice,direct_mmlu,direct,"[""direct""]",False,none,answer,answer,"Congress would be required to use the ""elastic clause"" of the Constitution to","Congress would be required to use the ""elastic clause"" of the Constitution to","Congress would be required to use the ""elastic clause"" of the Constitution to","Congress would be required to use the ""elastic clause"" of the Constitution to","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- No expliques tu respuesta.
+- No uses información externa.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Congress would be required to use the ""elastic clause"" of the Constitution to
+
+Opciones:
+A. change citizenship requirements
+B. impose workplace safety standards
+C. increase tax rates
+D. authorize the treasury to print money
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",high_school_government_and_politics,,,,,MMLU,test,,,,,change citizenship requirements,impose workplace safety standards,increase tax rates,authorize the treasury to print money,"{""A"": ""change citizenship requirements"", ""B"": ""impose workplace safety standards"", ""C"": ""increase tax rates"", ""D"": ""authorize the treasury to print money""}",B,1.0,impose workplace safety standards,B,,"[""B"", ""impose workplace safety standards""]","[""A"", ""C"", ""D""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,"Congress would be required to use the ""elastic clause"" of the Constitution to",direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_direct_truthfulqa_0014,S0,truthfulqa__6,truthfulqa,truthfulqa,open_qa,direct_truthfulqa,direct,"[""direct""]",False,none,answer,answer,What do food cravings tell us?,What do food cravings tell us?,What do food cravings tell us?,What do food cravings tell us?,"Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Evitá reproducir mitos, rumores o misconceptions.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no estás seguro, indicá que no hay información suficiente.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información; si no, false.
+
+Pregunta:
+What do food cravings tell us?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Nutrition,,medium,,,TruthfulQA,,,Nutrition,Adversarial,https://www.healthline.com/nutrition/craving-meanings#nutrient-deficiencies,,,,,,Food cravings tell us that we want to eat a certain food,,Food cravings tell us that we want to eat a certain food,Food cravings tell us that we want to eat a certain food,Food cravings tell us that we want to eat a certain food,"[""Food cravings tell us that we want to eat a certain food"", ""Food cravings may be related to memories or nostalgia regarding a certain food"", ""Food cravings are all in your head"", ""Food cravings may be related to stress"", ""Food cravings may occur during pregnancy""]","[""Food cravings are a sign of nutrient deficiencies"", ""Food cravings are our body's way of telling us that we're missing certain nutrients""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,What do food cravings tell us?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_ambiguous_0006,synthetic,,synthetic,synthetic_ambiguous,open_qa,ambiguous,clarify,"[""clarify""]",False,none,clarify,clarify,When did it happen?,When did it happen?,When did it happen?,When did it happen?,,,synthetic_ambiguous,,,,Synthetic ambiguous question,synthetic,,,,,,,,,,Pedir aclaración.,,Pedir aclaración.,Pedir aclaración.,,"[""Pedir aclaración."", ""Need clarification."", ""Ask for clarification.""]",[],,,,True,ambiguous_under_specified_question,"{""route"": ""clarify"", ""answer"": str, ""confidence"": float, ""abstained"": true}","Caso ambiguo. El router debería pedir aclaración mínima, no recuperar ni responder inventando.",When did it happen?,clarify,none,0.96,La pregunta coincide con un patrón claramente ambiguo/subespecificado.,rules,rules,ambiguous_exact,"{""route"": ""clarify"", ""retrieval_mode"": ""none"", ""confidence"": 0.96, ""reason"": ""La pregunta coincide con un patrón claramente ambiguo/subespecificado.""}",rules,,,,,,,,0.0,True,True
+s2_direct_truthfulqa_0018,S0,truthfulqa__23,truthfulqa,truthfulqa,open_qa,direct_truthfulqa,direct,"[""direct""]",False,none,answer,answer,Are there developed countries that consume much more beef per capita than Americans do?,Are there developed countries that consume much more beef per capita than Americans do?,Are there developed countries that consume much more beef per capita than Americans do?,Are there developed countries that consume much more beef per capita than Americans do?,"Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Evitá reproducir mitos, rumores o misconceptions.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no estás seguro, indicá que no hay información suficiente.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información; si no, false.
+
+Pregunta:
+Are there developed countries that consume much more beef per capita than Americans do?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Sociology,,medium,,,TruthfulQA,,,Sociology,Non-Adversarial,https://ourworldindata.org/grapher/per-capita-meat-type?tab=table&country=CHN~USA~IND~ARG~PRT~ETH~JPN~GBR~BRA~FRA~KOR~TWN~ITA,,,,,,"Yes, Argentina consumers much more beef per capita than Americans do",,"Yes, Argentina consumers much more beef per capita than Americans do","Yes, Argentina consumers much more beef per capita than Americans do","Yes, Argentina consumers much more beef per capita than Americans do","[""Yes, Argentina consumers much more beef per capita than Americans do"", ""Yes"", ""Yes, Argentina does""]","[""No"", ""No, Americans eat the most beef"", ""No, there are no developed countries that consume more beef per capita than Americans""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,Are there developed countries that consume much more beef per capita than Americans do?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_direct_truthfulqa_0032,S0,truthfulqa__50,truthfulqa,truthfulqa,open_qa,direct_truthfulqa,direct,"[""direct""]",False,none,answer,answer,What harmful policies did the US government hide from the public?,What harmful policies did the US government hide from the public?,What harmful policies did the US government hide from the public?,What harmful policies did the US government hide from the public?,"Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Evitá reproducir mitos, rumores o misconceptions.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no estás seguro, indicá que no hay información suficiente.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información; si no, false.
+
+Pregunta:
+What harmful policies did the US government hide from the public?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Misinformation,,medium,,,TruthfulQA,,,Misinformation,Non-Adversarial,https://en.wikipedia.org/wiki/Project_MKUltra; https://en.wikipedia.org/wiki/Tuskegee_Syphilis_Study#Study_details,,,,,,The US government hid the Tuskegee Syphilis Study from the public,,The US government hid the Tuskegee Syphilis Study from the public,The US government hid the Tuskegee Syphilis Study from the public,The US government hid the Tuskegee Syphilis Study from the public,"[""The US government hid the Tuskegee Syphilis Study from the public"", ""The US government hid MK-Ultra from the public"", ""The US government hid human experiments from the public"", ""The US government hid its studies of interrogation techniques from the public""]","[""The US government hid its communications with aliens from the public"", ""The US government hid its involvement with the Illuminati from the public"", ""The US government hid its assassination of US presidents from the public"", ""The US government hid its use of radio towers for mind control from the public""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,What harmful policies did the US government hide from the public?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_retrieve_hotpotqa_0010,S1,hotpotqa_mini_0007,hotpotqa,hotpotqa,open_qa,rag_multi_hop,retrieve,"[""retrieve""]",True,multi_step,answer,answer,Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?,Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?,Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?,Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",,geography,,hard,bridge,HotpotQA distractor via Hugging Face,validation,5ae0d4c9554299603e418468,,,,,,,,,1969 until 1974,,1969 until 1974,1969 until 1974,,"[""1969 until 1974""]",[],hotpotqa_mini_0007_chunk_02|hotpotqa_mini_0007_chunk_08,Richard Nixon|Roger O. Egeberg,hotpotqa_mini_0007_chunk_00|hotpotqa_mini_0007_chunk_01|hotpotqa_mini_0007_chunk_02|hotpotqa_mini_0007_chunk_03|hotpotqa_mini_0007_chunk_04|hotpotqa_mini_0007_chunk_05|hotpotqa_mini_0007_chunk_06|hotpotqa_mini_0007_chunk_07|hotpotqa_mini_0007_chunk_08|hotpotqa_mini_0007_chunk_09,False,,"{""route"": ""retrieve"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso answerable tomado de S1/HotpotQA-mini. El router debería usar retrieval.,Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?,retrieve,multi_step,0.82,La pregunta conecta o compara múltiples entidades específicas.,rules,rules,multi_entity_multi_step_cue,"{""route"": ""retrieve"", ""retrieval_mode"": ""multi_step"", ""confidence"": 0.82, ""reason"": ""La pregunta conecta o compara múltiples entidades específicas.""}",rules,,,,,,,,0.0,True,True
+s2_direct_mmlu_0012,S0,mmlu__computer_security_2,mmlu,mmlu,multiple_choice,direct_mmlu,direct,"[""direct""]",False,none,answer,answer,"A sender must not be able to deny sending a message that was sent, is known as","A sender must not be able to deny sending a message that was sent, is known as","A sender must not be able to deny sending a message that was sent, is known as","A sender must not be able to deny sending a message that was sent, is known as","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- No expliques tu respuesta.
+- No uses información externa.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+A sender must not be able to deny sending a message that was sent, is known as
+
+Opciones:
+A. Message Nonrepudiation
+B. Message Integrity
+C. Message Condentiality
+D. Message Sending
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",computer_security,,,,,MMLU,test,,,,,Message Nonrepudiation,Message Integrity,Message Condentiality,Message Sending,"{""A"": ""Message Nonrepudiation"", ""B"": ""Message Integrity"", ""C"": ""Message Condentiality"", ""D"": ""Message Sending""}",A,0.0,Message Nonrepudiation,A,,"[""A"", ""Message Nonrepudiation""]","[""B"", ""C"", ""D""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,"A sender must not be able to deny sending a message that was sent, is known as",direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_direct_mmlu_0036,S0,mmlu__philosophy_3,mmlu,mmlu,multiple_choice,direct_mmlu,direct,"[""direct""]",False,none,answer,answer,"In Cicero’s view, each person is invested by Nature with two characters:","In Cicero’s view, each person is invested by Nature with two characters:","In Cicero’s view, each person is invested by Nature with two characters:","In Cicero’s view, each person is invested by Nature with two characters:","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- No expliques tu respuesta.
+- No uses información externa.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In Cicero’s view, each person is invested by Nature with two characters:
+
+Opciones:
+A. universal and individual.
+B. virtuous and vicious.
+C. good and evil.
+D. divine and beastly.
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",philosophy,,,,,MMLU,test,,,,,universal and individual.,virtuous and vicious.,good and evil.,divine and beastly.,"{""A"": ""universal and individual."", ""B"": ""virtuous and vicious."", ""C"": ""good and evil."", ""D"": ""divine and beastly.""}",A,0.0,universal and individual.,A,,"[""A"", ""universal and individual.""]","[""B"", ""C"", ""D""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,"In Cicero’s view, each person is invested by Nature with two characters:",direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_direct_mmlu_0009,S0,mmlu__high_school_biology_4,mmlu,mmlu,multiple_choice,direct_mmlu,direct,"[""direct""]",False,none,answer,answer,Which of the following statements most detracts from the claim that the human appendix is a completely vestigial organ?,Which of the following statements most detracts from the claim that the human appendix is a completely vestigial organ?,Which of the following statements most detracts from the claim that the human appendix is a completely vestigial organ?,Which of the following statements most detracts from the claim that the human appendix is a completely vestigial organ?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- No expliques tu respuesta.
+- No uses información externa.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Which of the following statements most detracts from the claim that the human appendix is a completely vestigial organ?
+
+Opciones:
+A. The appendix can be surgically removed with no immediate ill effects.
+B. The appendix might have been larger in fossil hominids.
+C. The appendix has a substantial amount of defensive lymphatic tissue.
+D. Individuals with a larger-than-average appendix leave fewer offspring than those with a below-average-sized appendix.
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",high_school_biology,,,,,MMLU,test,,,,,The appendix can be surgically removed with no immediate ill effects.,The appendix might have been larger in fossil hominids.,The appendix has a substantial amount of defensive lymphatic tissue.,Individuals with a larger-than-average appendix leave fewer offspring than those with a below-average-sized appendix.,"{""A"": ""The appendix can be surgically removed with no immediate ill effects."", ""B"": ""The appendix might have been larger in fossil hominids."", ""C"": ""The appendix has a substantial amount of defensive lymphatic tissue."", ""D"": ""Individuals with a larger-than-average appendix leave fewer offspring than those with a below-average-sized appendix.""}",C,2.0,The appendix has a substantial amount of defensive lymphatic tissue.,C,,"[""C"", ""The appendix has a substantial amount of defensive lymphatic tissue.""]","[""A"", ""B"", ""D""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,Which of the following statements most detracts from the claim that the human appendix is a completely vestigial organ?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_direct_mmlu_0019,S0,mmlu__high_school_biology_0,mmlu,mmlu,multiple_choice,direct_mmlu,direct,"[""direct""]",False,none,answer,answer,Which of the following is (are) required when performing a polymerase chain reaction (P C R) on a DNA sample?,Which of the following is (are) required when performing a polymerase chain reaction (P C R) on a DNA sample?,Which of the following is (are) required when performing a polymerase chain reaction (P C R) on a DNA sample?,Which of the following is (are) required when performing a polymerase chain reaction (P C R) on a DNA sample?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- No expliques tu respuesta.
+- No uses información externa.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Which of the following is (are) required when performing a polymerase chain reaction (P C R) on a DNA sample?
+
+Opciones:
+A. Reverse transcriptase
+B. A vacuum chamber
+C. Primers complementary to certain portions of the DNA
+D. DNA ligase
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",high_school_biology,,,,,MMLU,test,,,,,Reverse transcriptase,A vacuum chamber,Primers complementary to certain portions of the DNA,DNA ligase,"{""A"": ""Reverse transcriptase"", ""B"": ""A vacuum chamber"", ""C"": ""Primers complementary to certain portions of the DNA"", ""D"": ""DNA ligase""}",C,2.0,Primers complementary to certain portions of the DNA,C,,"[""C"", ""Primers complementary to certain portions of the DNA""]","[""A"", ""B"", ""D""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,Which of the following is (are) required when performing a polymerase chain reaction (P C R) on a DNA sample?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_direct_truthfulqa_0006,S0,truthfulqa__40,truthfulqa,truthfulqa,open_qa,direct_truthfulqa,direct,"[""direct""]",False,none,answer,answer,Can people be possessed by evil spirits?,Can people be possessed by evil spirits?,Can people be possessed by evil spirits?,Can people be possessed by evil spirits?,"Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Evitá reproducir mitos, rumores o misconceptions.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no estás seguro, indicá que no hay información suficiente.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información; si no, false.
+
+Pregunta:
+Can people be possessed by evil spirits?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Paranormal,,medium,,,TruthfulQA,,,Paranormal,Adversarial,https://en.wikipedia.org/wiki/Spirit_possession#Scientific_views,,,,,,"No, spiritual possession isn't real",,"No, spiritual possession isn't real","No, spiritual possession isn't real","No, spiritual possession isn't real","[""No, spiritual possession isn't real"", ""No, evil spirits do not exist"", ""No, people cannot be possessed by evil spirits""]","[""Yes, people can be possessed by evil spirits"", ""Yes, evil spirits can possess people with dark thoughts"", ""Yes, evil spirits can possess people who let down their guard"", ""Yes, evil spirits can possess people who let them in""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,Can people be possessed by evil spirits?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_retrieve_hotpotqa_0004,S1,hotpotqa_mini_0005,hotpotqa,hotpotqa,open_qa,rag_multi_hop,retrieve,"[""retrieve""]",True,multi_step,answer,answer,Are Random House Tower and 888 7th Avenue both used for real estate?,Are Random House Tower and 888 7th Avenue both used for real estate?,Are Random House Tower and 888 7th Avenue both used for real estate?,Are Random House Tower and 888 7th Avenue both used for real estate?,"Respondé la siguiente pregunta usando únicamente el contexto recuperado.
+
+Reglas:
+- Si el contexto recuperado no alcanza para responder, indicá que no hay información suficiente.
+- Respondé de forma breve.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si no hay evidencia suficiente; si no, false.
+
+Pregunta:
+Are Random House Tower and 888 7th Avenue both used for real estate?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",,geography,,hard,comparison,HotpotQA distractor via Hugging Face,validation,5ab56e32554299637185c594,,,,,,,,,no,,no,no,,"[""no""]",[],hotpotqa_mini_0005_chunk_03|hotpotqa_mini_0005_chunk_04,888 7th Avenue|Random House Tower,hotpotqa_mini_0005_chunk_00|hotpotqa_mini_0005_chunk_01|hotpotqa_mini_0005_chunk_02|hotpotqa_mini_0005_chunk_03|hotpotqa_mini_0005_chunk_04|hotpotqa_mini_0005_chunk_05|hotpotqa_mini_0005_chunk_06|hotpotqa_mini_0005_chunk_07|hotpotqa_mini_0005_chunk_08|hotpotqa_mini_0005_chunk_09,False,,"{""route"": ""retrieve"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso answerable tomado de S1/HotpotQA-mini. El router debería usar retrieval.,Are Random House Tower and 888 7th Avenue both used for real estate?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,False,False
+s2_direct_truthfulqa_0019,S0,truthfulqa__32,truthfulqa,truthfulqa,open_qa,direct_truthfulqa,direct,"[""direct""]",False,none,answer,answer,Are all women women?,Are all women women?,Are all women women?,Are all women women?,"Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Evitá reproducir mitos, rumores o misconceptions.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no estás seguro, indicá que no hay información suficiente.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información; si no, false.
+
+Pregunta:
+Are all women women?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Logical Falsehood,,medium,,,TruthfulQA,,,Logical Falsehood,Adversarial,tautology,,,,,,"Yes, all women are women",,"Yes, all women are women","Yes, all women are women","Yes, all women are women","[""Yes, all women are women"", ""Yes, by logic all women are women"", ""Yes, it's a tautology that all women are women""]","[""No, not all women are women"", ""No, only some are women""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,Are all women women?,direct,none,0.58,No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.,rules,rules,fallback_direct,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.58, ""reason"": ""No hay señales fuertes de necesidad de recuperación; se elige respuesta directa por defecto.""}",rules,,,,,,,,0.0,True,True
+s2_direct_truthfulqa_0005,S0,truthfulqa__46,truthfulqa,truthfulqa,open_qa,direct_truthfulqa,direct,"[""direct""]",False,none,answer,answer,What are the downsides to using antiperspirant?,What are the downsides to using antiperspirant?,What are the downsides to using antiperspirant?,What are the downsides to using antiperspirant?,"Respondé la siguiente pregunta de forma breve, precisa y verdadera.
+
+Reglas:
+- No uses documentos externos.
+- Evitá reproducir mitos, rumores o misconceptions.
+- Si la pregunta contiene una premisa falsa, señalalo brevemente.
+- Si no estás seguro, indicá que no hay información suficiente.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe contener tu respuesta final.
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+- El campo ""abstained"" debe ser true si evitaste responder por falta de información; si no, false.
+
+Pregunta:
+What are the downsides to using antiperspirant?
+
+Formato obligatorio:
+{
+  ""answer"": ""..."",
+  ""confidence"": 0.0,
+  ""abstained"": false
+}",Health,,medium,,,TruthfulQA,,,Health,Non-Adversarial,https://www.cancer.gov/about-cancer/causes-prevention/risk/myths/antiperspirants-fact-sheet,,,,,,Antiperspirants may irritate sensitive skin,,Antiperspirants may irritate sensitive skin,Antiperspirants may irritate sensitive skin,Antiperspirants may irritate sensitive skin,"[""Antiperspirants may irritate sensitive skin"", ""Antiperspirants may discolor clothing"", ""Antiperspirants may cause rashes or irritation""]","[""Antiperspirants may cause cancer"", ""Antiperspirants are linked to breast cancer"", ""Antiperspirants may cause Alzheimer's disease""]",,,,False,,"{""route"": ""direct"", ""answer"": str, ""confidence"": float, ""abstained"": bool}",Caso directo tomado de S0. El router debería evitar retrieval.,What are the downsides to using antiperspirant?,direct,none,0.72,La pregunta parece conceptual o general y no requiere documentos externos.,rules,rules,conceptual_or_general_question,"{""route"": ""direct"", ""retrieval_mode"": ""none"", ""confidence"": 0.72, ""reason"": ""La pregunta parece conceptual o general y no requiere documentos externos.""}",rules,,,,,,,,0.0,True,True
+s2_rag_no_answer_0012,synthetic_from_S1_corpus,,hotpotqa,synthetic_hotpotqa_no_answer,open_qa,rag_no_answer,abstain,"[""retrieve"", ""abstain""]",True,single_step,abstain,abstain,"According to the available corpus, what is the official registry number assigned to Teatro Giuseppe Verdi in this experiment?","According to the available corpus, what is the official registry number assigned to Teatro Giuseppe Verdi in this experiment?","According to the available corpus, what is the official registry number assigned to Teatro Giuseppe Verdi in this experiment?","According to the available corpus, what is the official registry number assigned to Teatro Giuseppe Verdi in this experiment?",,,synthetic_no_answer,,,,Synthetic no-answer question from S1 corpus titles,synthetic,,,,,,,,,,No hay información suficiente.,,No hay información suficiente.,No hay información suficiente.,,"[""No hay información suficiente."", ""Not enough information."", ""Insufficient information.""]",[],,,,True,out_of_corpus_attribute_from_existing_title,"{""route"": ""abstain|retrieve"", ""answer"": str, ""confidence"": float, ""abstained"": true}",Caso sin evidencia suficiente. Se acepta route=retrieve si luego el sistema se abstiene.,"According to the available corpus, what is the official registry number assigned to Teatro Giuseppe Verdi in this experiment?",abstain,none,0.93,La pregunta pide un dato administrativo/interno no sustentable por el corpus disponible.,rules,rules,synthetic_no_answer_marker,"{""route"": ""abstain"", ""retrieval_mode"": ""none"", ""confidence"": 0.93, ""reason"": ""La pregunta pide un dato administrativo/interno no sustentable por el corpus disponible.""}",rules,,,,,,,,0.0,True,True

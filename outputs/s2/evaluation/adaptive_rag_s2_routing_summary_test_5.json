@@ -1,0 +1,1397 @@
+{
+  "input_path": "outputs/s2/generation/adaptive_rag_s2_parsed_test_5.csv",
+  "output_path": "outputs/s2/evaluation/adaptive_rag_s2_routing_results_test_5.csv",
+  "summary_path": "outputs/s2/evaluation/adaptive_rag_s2_routing_summary_test_5.json",
+  "group_summary_path": "outputs/s2/evaluation/adaptive_rag_s2_routing_summary_by_group_test_5.csv",
+  "overall": {
+    "n": 5,
+    "routing_accuracy_strict": 0.6,
+    "routing_accuracy_relaxed": 0.6,
+    "valid_route_rate": 1.0,
+    "valid_retrieval_mode_rate": 1.0,
+    "retrieval_mode_consistency_rate": 1.0,
+    "retrieval_mode_exact_match_rate": 0.6,
+    "over_retrieval_strict_rate": 0.2,
+    "over_retrieval_unacceptable_rate": 0.2,
+    "under_retrieval_rate": 0.2,
+    "missed_clarify_rate": 0.0,
+    "missed_abstain_rate": 0.0,
+    "unnecessary_clarify_rate": 0.0,
+    "unnecessary_abstain_rate": 0.0,
+    "manual_review_rate": 0.0,
+    "avg_router_confidence": 0.6679999999999999,
+    "avg_router_latency_seconds": 0.0004,
+    "avg_router_total_tokens": null,
+    "valid_router_format_rate": 1.0,
+    "run_error_rate": 0.0,
+    "expected_route_counts": {
+      "direct": 4,
+      "retrieve": 1
+    },
+    "predicted_route_counts": {
+      "direct": 4,
+      "retrieve": 1
+    },
+    "error_type_counts": {
+      "correct": 3,
+      "over_retrieval": 1,
+      "under_retrieval": 1
+    },
+    "per_route": {
+      "abstain": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "clarify": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "direct": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1": 0.75
+      },
+      "retrieve": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    "confusion_matrix": {
+      "direct": {
+        "direct": 3,
+        "retrieve": 1
+      },
+      "retrieve": {
+        "direct": 1
+      }
+    }
+  },
+  "by_s2_case_type": {
+    "direct_mmlu": {
+      "n": 1,
+      "routing_accuracy_strict": 0.0,
+      "routing_accuracy_relaxed": 0.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.0,
+      "over_retrieval_strict_rate": 1.0,
+      "over_retrieval_unacceptable_rate": 1.0,
+      "under_retrieval_rate": 0.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.74,
+      "avg_router_latency_seconds": 0.001,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 1
+      },
+      "predicted_route_counts": {
+        "retrieve": 1
+      },
+      "error_type_counts": {
+        "over_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "retrieve": 1
+        }
+      }
+    },
+    "direct_truthfulqa": {
+      "n": 3,
+      "routing_accuracy_strict": 1.0,
+      "routing_accuracy_relaxed": 1.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 1.0,
+      "over_retrieval_strict_rate": 0.0,
+      "over_retrieval_unacceptable_rate": 0.0,
+      "under_retrieval_rate": 0.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.6733333333333332,
+      "avg_router_latency_seconds": 0.0003333333333333333,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 3
+      },
+      "predicted_route_counts": {
+        "direct": 3
+      },
+      "error_type_counts": {
+        "correct": 3
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "direct": 3
+        }
+      }
+    },
+    "rag_multi_hop": {
+      "n": 1,
+      "routing_accuracy_strict": 0.0,
+      "routing_accuracy_relaxed": 0.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.0,
+      "over_retrieval_strict_rate": 0.0,
+      "over_retrieval_unacceptable_rate": 0.0,
+      "under_retrieval_rate": 1.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.58,
+      "avg_router_latency_seconds": 0.0,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "retrieve": 1
+      },
+      "predicted_route_counts": {
+        "direct": 1
+      },
+      "error_type_counts": {
+        "under_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "retrieve": {
+          "direct": 1
+        }
+      }
+    }
+  },
+  "by_expected_route": {
+    "direct": {
+      "n": 4,
+      "routing_accuracy_strict": 0.75,
+      "routing_accuracy_relaxed": 0.75,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.75,
+      "over_retrieval_strict_rate": 0.25,
+      "over_retrieval_unacceptable_rate": 0.25,
+      "under_retrieval_rate": 0.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.69,
+      "avg_router_latency_seconds": 0.0005,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 4
+      },
+      "predicted_route_counts": {
+        "direct": 3,
+        "retrieve": 1
+      },
+      "error_type_counts": {
+        "correct": 3,
+        "over_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "direct": 3,
+          "retrieve": 1
+        }
+      }
+    },
+    "retrieve": {
+      "n": 1,
+      "routing_accuracy_strict": 0.0,
+      "routing_accuracy_relaxed": 0.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.0,
+      "over_retrieval_strict_rate": 0.0,
+      "over_retrieval_unacceptable_rate": 0.0,
+      "under_retrieval_rate": 1.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.58,
+      "avg_router_latency_seconds": 0.0,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "retrieve": 1
+      },
+      "predicted_route_counts": {
+        "direct": 1
+      },
+      "error_type_counts": {
+        "under_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "retrieve": {
+          "direct": 1
+        }
+      }
+    }
+  },
+  "by_retrieval_mode": {
+    "multi_step": {
+      "n": 1,
+      "routing_accuracy_strict": 0.0,
+      "routing_accuracy_relaxed": 0.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.0,
+      "over_retrieval_strict_rate": 0.0,
+      "over_retrieval_unacceptable_rate": 0.0,
+      "under_retrieval_rate": 1.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.58,
+      "avg_router_latency_seconds": 0.0,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "retrieve": 1
+      },
+      "predicted_route_counts": {
+        "direct": 1
+      },
+      "error_type_counts": {
+        "under_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "retrieve": {
+          "direct": 1
+        }
+      }
+    },
+    "none": {
+      "n": 4,
+      "routing_accuracy_strict": 0.75,
+      "routing_accuracy_relaxed": 0.75,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.75,
+      "over_retrieval_strict_rate": 0.25,
+      "over_retrieval_unacceptable_rate": 0.25,
+      "under_retrieval_rate": 0.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.69,
+      "avg_router_latency_seconds": 0.0005,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 4
+      },
+      "predicted_route_counts": {
+        "direct": 3,
+        "retrieve": 1
+      },
+      "error_type_counts": {
+        "correct": 3,
+        "over_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "direct": 3,
+          "retrieve": 1
+        }
+      }
+    }
+  },
+  "by_expected_behavior": {
+    "answer": {
+      "n": 5,
+      "routing_accuracy_strict": 0.6,
+      "routing_accuracy_relaxed": 0.6,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.6,
+      "over_retrieval_strict_rate": 0.2,
+      "over_retrieval_unacceptable_rate": 0.2,
+      "under_retrieval_rate": 0.2,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.6679999999999999,
+      "avg_router_latency_seconds": 0.0004,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 4,
+        "retrieve": 1
+      },
+      "predicted_route_counts": {
+        "direct": 4,
+        "retrieve": 1
+      },
+      "error_type_counts": {
+        "correct": 3,
+        "over_retrieval": 1,
+        "under_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "direct": 3,
+          "retrieve": 1
+        },
+        "retrieve": {
+          "direct": 1
+        }
+      }
+    }
+  },
+  "by_generation_policy": {
+    "direct_llm": {
+      "n": 4,
+      "routing_accuracy_strict": 0.75,
+      "routing_accuracy_relaxed": 0.75,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.75,
+      "over_retrieval_strict_rate": 0.0,
+      "over_retrieval_unacceptable_rate": 0.0,
+      "under_retrieval_rate": 0.25,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.6499999999999999,
+      "avg_router_latency_seconds": 0.00025,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 3,
+        "retrieve": 1
+      },
+      "predicted_route_counts": {
+        "direct": 4
+      },
+      "error_type_counts": {
+        "correct": 3,
+        "under_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "direct": 3
+        },
+        "retrieve": {
+          "direct": 1
+        }
+      }
+    },
+    "rag_with_retrieval": {
+      "n": 1,
+      "routing_accuracy_strict": 0.0,
+      "routing_accuracy_relaxed": 0.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.0,
+      "over_retrieval_strict_rate": 1.0,
+      "over_retrieval_unacceptable_rate": 1.0,
+      "under_retrieval_rate": 0.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.74,
+      "avg_router_latency_seconds": 0.001,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 1
+      },
+      "predicted_route_counts": {
+        "retrieve": 1
+      },
+      "error_type_counts": {
+        "over_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "retrieve": 1
+        }
+      }
+    }
+  },
+  "by_router_strategy": {
+    "rules": {
+      "n": 5,
+      "routing_accuracy_strict": 0.6,
+      "routing_accuracy_relaxed": 0.6,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.6,
+      "over_retrieval_strict_rate": 0.2,
+      "over_retrieval_unacceptable_rate": 0.2,
+      "under_retrieval_rate": 0.2,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.6679999999999999,
+      "avg_router_latency_seconds": 0.0004,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 4,
+        "retrieve": 1
+      },
+      "predicted_route_counts": {
+        "direct": 4,
+        "retrieve": 1
+      },
+      "error_type_counts": {
+        "correct": 3,
+        "over_retrieval": 1,
+        "under_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "direct": 3,
+          "retrieve": 1
+        },
+        "retrieve": {
+          "direct": 1
+        }
+      }
+    }
+  },
+  "by_router_source": {
+    "rules": {
+      "n": 5,
+      "routing_accuracy_strict": 0.6,
+      "routing_accuracy_relaxed": 0.6,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.6,
+      "over_retrieval_strict_rate": 0.2,
+      "over_retrieval_unacceptable_rate": 0.2,
+      "under_retrieval_rate": 0.2,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.6679999999999999,
+      "avg_router_latency_seconds": 0.0004,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 4,
+        "retrieve": 1
+      },
+      "predicted_route_counts": {
+        "direct": 4,
+        "retrieve": 1
+      },
+      "error_type_counts": {
+        "correct": 3,
+        "over_retrieval": 1,
+        "under_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "direct": 3,
+          "retrieve": 1
+        },
+        "retrieve": {
+          "direct": 1
+        }
+      }
+    }
+  },
+  "by_source_dataset": {
+    "hotpotqa": {
+      "n": 1,
+      "routing_accuracy_strict": 0.0,
+      "routing_accuracy_relaxed": 0.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.0,
+      "over_retrieval_strict_rate": 0.0,
+      "over_retrieval_unacceptable_rate": 0.0,
+      "under_retrieval_rate": 1.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.58,
+      "avg_router_latency_seconds": 0.0,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "retrieve": 1
+      },
+      "predicted_route_counts": {
+        "direct": 1
+      },
+      "error_type_counts": {
+        "under_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "retrieve": {
+          "direct": 1
+        }
+      }
+    },
+    "mmlu": {
+      "n": 1,
+      "routing_accuracy_strict": 0.0,
+      "routing_accuracy_relaxed": 0.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.0,
+      "over_retrieval_strict_rate": 1.0,
+      "over_retrieval_unacceptable_rate": 1.0,
+      "under_retrieval_rate": 0.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.74,
+      "avg_router_latency_seconds": 0.001,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 1
+      },
+      "predicted_route_counts": {
+        "retrieve": 1
+      },
+      "error_type_counts": {
+        "over_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "retrieve": 1
+        }
+      }
+    },
+    "truthfulqa": {
+      "n": 3,
+      "routing_accuracy_strict": 1.0,
+      "routing_accuracy_relaxed": 1.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 1.0,
+      "over_retrieval_strict_rate": 0.0,
+      "over_retrieval_unacceptable_rate": 0.0,
+      "under_retrieval_rate": 0.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.6733333333333332,
+      "avg_router_latency_seconds": 0.0003333333333333333,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 3
+      },
+      "predicted_route_counts": {
+        "direct": 3
+      },
+      "error_type_counts": {
+        "correct": 3
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "direct": 3
+        }
+      }
+    }
+  },
+  "by_dataset": {
+    "hotpotqa": {
+      "n": 1,
+      "routing_accuracy_strict": 0.0,
+      "routing_accuracy_relaxed": 0.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.0,
+      "over_retrieval_strict_rate": 0.0,
+      "over_retrieval_unacceptable_rate": 0.0,
+      "under_retrieval_rate": 1.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.58,
+      "avg_router_latency_seconds": 0.0,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "retrieve": 1
+      },
+      "predicted_route_counts": {
+        "direct": 1
+      },
+      "error_type_counts": {
+        "under_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "retrieve": {
+          "direct": 1
+        }
+      }
+    },
+    "mmlu": {
+      "n": 1,
+      "routing_accuracy_strict": 0.0,
+      "routing_accuracy_relaxed": 0.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 0.0,
+      "over_retrieval_strict_rate": 1.0,
+      "over_retrieval_unacceptable_rate": 1.0,
+      "under_retrieval_rate": 0.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.74,
+      "avg_router_latency_seconds": 0.001,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 1
+      },
+      "predicted_route_counts": {
+        "retrieve": 1
+      },
+      "error_type_counts": {
+        "over_retrieval": 1
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "retrieve": 1
+        }
+      }
+    },
+    "truthfulqa": {
+      "n": 3,
+      "routing_accuracy_strict": 1.0,
+      "routing_accuracy_relaxed": 1.0,
+      "valid_route_rate": 1.0,
+      "valid_retrieval_mode_rate": 1.0,
+      "retrieval_mode_consistency_rate": 1.0,
+      "retrieval_mode_exact_match_rate": 1.0,
+      "over_retrieval_strict_rate": 0.0,
+      "over_retrieval_unacceptable_rate": 0.0,
+      "under_retrieval_rate": 0.0,
+      "missed_clarify_rate": 0.0,
+      "missed_abstain_rate": 0.0,
+      "unnecessary_clarify_rate": 0.0,
+      "unnecessary_abstain_rate": 0.0,
+      "manual_review_rate": 0.0,
+      "avg_router_confidence": 0.6733333333333332,
+      "avg_router_latency_seconds": 0.0003333333333333333,
+      "avg_router_total_tokens": null,
+      "valid_router_format_rate": 1.0,
+      "run_error_rate": 0.0,
+      "expected_route_counts": {
+        "direct": 3
+      },
+      "predicted_route_counts": {
+        "direct": 3
+      },
+      "error_type_counts": {
+        "correct": 3
+      },
+      "per_route": {
+        "abstain": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "clarify": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "direct": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "retrieve": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "direct": {
+          "direct": 3
+        }
+      }
+    }
+  }
+}

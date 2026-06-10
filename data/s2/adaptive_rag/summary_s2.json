@@ -1,0 +1,60 @@
+{
+  "created_at_utc": "2026-06-08T19:00:58.054271+00:00",
+  "input_paths": {
+    "s0_path": "data/questions_s0.csv",
+    "s1_questions_path": "data/s1/hotpotqa_mini/questions_s1.csv",
+    "s1_corpus_path": "data/s1/hotpotqa_mini/corpus_s1.csv",
+    "s1_qrels_path": "data/s1/hotpotqa_mini/qrels_s1.csv"
+  },
+  "output_paths": {
+    "questions_s2": "data/s2/adaptive_rag/questions_s2.csv",
+    "corpus_s2": "data/s2/adaptive_rag/corpus_s2.csv",
+    "qrels_s2": "data/s2/adaptive_rag/qrels_s2.csv",
+    "summary_s2": "data/s2/adaptive_rag/summary_s2.json"
+  },
+  "config": {
+    "n_direct_mmlu": 50,
+    "n_direct_truthfulqa": 50,
+    "n_retrieve": 20,
+    "n_abstain": 15,
+    "n_clarify": 15,
+    "sample": true,
+    "shuffle": true,
+    "random_seed": 42,
+    "strict_counts": false
+  },
+  "counts": {
+    "questions_total": 150,
+    "corpus_chunks": 200,
+    "qrels_total": 40,
+    "by_s2_case_type": {
+      "direct_truthfulqa": 50,
+      "direct_mmlu": 50,
+      "rag_multi_hop": 20,
+      "ambiguous": 15,
+      "rag_no_answer": 15
+    },
+    "by_expected_route": {
+      "direct": 100,
+      "retrieve": 20,
+      "clarify": 15,
+      "abstain": 15
+    },
+    "by_expected_behavior": {
+      "answer": 120,
+      "clarify": 15,
+      "abstain": 15
+    },
+    "by_retrieval_mode": {
+      "none": 115,
+      "multi_step": 20,
+      "single_step": 15
+    }
+  },
+  "notes": [
+    "question/prompt contienen la pregunta limpia; el runner de S2 debe construir prompts de router/respuesta.",
+    "source_prompt conserva el prompt original de S0/S1 por trazabilidad.",
+    "routing_question es la columna recomendada para el router de S2.",
+    "Para rag_no_answer, expected_route=abstain pero acceptable_routes_json acepta retrieve si el sistema luego se abstiene."
+  ]
+}

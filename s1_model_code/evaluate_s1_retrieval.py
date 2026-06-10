@@ -7,6 +7,14 @@ Evalúa el retriever de S1 sin llamar al LLM.
 Entradas:
     data/hotpotqa_mini/questions_s1.csv
     data/hotpotqa_mini/qrels_s1.csv
+
+    Cambio esas ultimas dos por: 
+    data//s1/hotpotqa_mini/questions_s1.csv
+    data/s1/hotpotqa_mini/qrels_s1.csv
+
+
+
+
     indexes/s1/hotpotqa_mini/chunks.csv
     indexes/s1/hotpotqa_mini/embeddings.npy
     indexes/s1/hotpotqa_mini/metadata.json
@@ -29,8 +37,8 @@ from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 
 
-DEFAULT_QUESTIONS_PATH = Path("data/hotpotqa_mini/questions_s1.csv")
-DEFAULT_QRELS_PATH = Path("data/hotpotqa_mini/qrels_s1.csv")
+DEFAULT_QUESTIONS_PATH = Path("data/s1/hotpotqa_mini/questions_s1.csv")
+DEFAULT_QRELS_PATH = Path("data/s1/hotpotqa_mini/qrels_s1.csv")
 DEFAULT_INDEX_DIR = Path("indexes/s1/hotpotqa_mini")
 DEFAULT_OUTPUT_DIR = Path("outputs/s1/retrieval")
 
