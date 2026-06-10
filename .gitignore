@@ -68,3 +68,20 @@ tp_cientifico/
 .venv/
 venv/
 env/
+
+# Secrets / environment variables
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Python virtual environments
+tp_cientifico/
+.venv/
+venv/
+env/
