@@ -53,18 +53,31 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_S0_PATH = Path("data/questions_s0.csv")
-DEFAULT_S1_QUESTIONS_PATH = Path("data/s1/hotpotqa_mini/questions_s1.csv")
-DEFAULT_S1_CORPUS_PATH = Path("data/s1/hotpotqa_mini/corpus_s1.csv")
-DEFAULT_S1_QRELS_PATH = Path("data/s1/hotpotqa_mini/qrels_s1.csv")
-DEFAULT_OUTPUT_DIR = Path("data/s2/adaptive_rag")
+from project_paths import (
+    S0_QUESTIONS_PATH,
+    S1_CORPUS_PATH,
+    S1_QRELS_PATH,
+    S1_QUESTIONS_PATH,
+    S2_DATA_DIR,
+)
+
+
+DEFAULT_S0_PATH = S0_QUESTIONS_PATH
+DEFAULT_S1_QUESTIONS_PATH = S1_QUESTIONS_PATH
+DEFAULT_S1_CORPUS_PATH = S1_CORPUS_PATH
+DEFAULT_S1_QRELS_PATH = S1_QRELS_PATH
+DEFAULT_OUTPUT_DIR = S2_DATA_DIR
 
 FALLBACK_S1_QUESTIONS_PATH = Path("data/hotpotqa_mini/questions_s1.csv")
 FALLBACK_S1_CORPUS_PATH = Path("data/hotpotqa_mini/corpus_s1.csv")

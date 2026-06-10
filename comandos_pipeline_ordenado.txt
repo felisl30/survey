@@ -1,0 +1,7 @@
+# Smoke test del pipeline ordenado
+
+python prepare_s0_dataset.py
+python s1_model_code/prepare_hotpotqa_mini.py --per-topic 1
+python s2_model_code/prepare_s2_dataset.py --n-direct-mmlu 1 --n-direct-truthfulqa 1 --n-retrieve 1 --n-abstain 1 --n-clarify 1
+python s2_model_code/router_s2.py --strategy rules --limit 5
+python s2_model_code/run_s2_adaptive_rag.py --router-strategy rules --limit 5 --dry-run --output-path outputs/s2/generation/adaptive_rag_s2_raw_smoke.csv

@@ -61,13 +61,14 @@ for path in [PROJECT_ROOT, S2_CODE_DIR, S1_CODE_DIR]:
         sys.path.insert(0, path_str)
 
 from direct_llm import ask_direct_llm_with_metadata  # noqa: E402
+from project_paths import S2_INDEX_DIR, S2_QUESTIONS_PATH, S2_RAW_OUTPUT_PATH  # noqa: E402
 from router_s2 import route_question, route_is_acceptable  # noqa: E402
 from retriever_s1 import S1Retriever, clean_text  # noqa: E402
 
 
-DEFAULT_INPUT_PATH = Path("data/s2/adaptive_rag/questions_s2.csv")
-DEFAULT_INDEX_DIR = Path("indexes/s2/adaptive_rag")
-DEFAULT_OUTPUT_PATH = Path("outputs/s2/generation/adaptive_rag_s2_raw.csv")
+DEFAULT_INPUT_PATH = S2_QUESTIONS_PATH
+DEFAULT_INDEX_DIR = S2_INDEX_DIR
+DEFAULT_OUTPUT_PATH = S2_RAW_OUTPUT_PATH
 DEFAULT_TOP_K = 5
 
 VALID_ROUTES = {"direct", "retrieve", "abstain", "clarify"}

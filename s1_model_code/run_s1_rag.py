@@ -44,13 +44,14 @@ for path in [PROJECT_ROOT, S1_CODE_DIR]:
         sys.path.insert(0, path_str)
 
 from direct_llm import ask_direct_llm_with_metadata  # noqa: E402
+from project_paths import S1_INDEX_DIR, S1_QUESTIONS_PATH, S1_RAW_OUTPUT_PATH, S1_SELECTED_TOP_K_PATH  # noqa: E402
 from retriever_s1 import S1Retriever, clean_text, get_retrieval_query, read_selected_top_k  # noqa: E402
 
 
-DEFAULT_INPUT_PATH = Path("data/s1/hotpotqa_mini/questions_s1.csv")
-DEFAULT_INDEX_DIR = Path("indexes/s1/hotpotqa_mini")
-DEFAULT_OUTPUT_PATH = Path("outputs/s1/generation/hotpotqa_mini_s1_raw.csv")
-DEFAULT_SELECTED_TOP_K_PATH = Path("outputs/s1/selected_top_k.txt")
+DEFAULT_INPUT_PATH = S1_QUESTIONS_PATH
+DEFAULT_INDEX_DIR = S1_INDEX_DIR
+DEFAULT_OUTPUT_PATH = S1_RAW_OUTPUT_PATH
+DEFAULT_SELECTED_TOP_K_PATH = S1_SELECTED_TOP_K_PATH
 DEFAULT_TOP_K = 5
 
 

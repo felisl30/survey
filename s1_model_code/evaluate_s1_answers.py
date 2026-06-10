@@ -29,6 +29,7 @@ import json
 import math
 import re
 import string
+import sys
 import unicodedata
 from collections import Counter
 from pathlib import Path
@@ -36,11 +37,22 @@ from typing import Any
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_INPUT_PATH = Path("outputs/s1/generation/hotpotqa_mini_s1_parsed.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s1/evaluation/hotpotqa_mini_s1_answer_results.csv")
-DEFAULT_SUMMARY_PATH = Path("outputs/s1/evaluation/hotpotqa_mini_s1_answer_summary.json")
-DEFAULT_GROUP_SUMMARY_PATH = Path("outputs/s1/evaluation/hotpotqa_mini_s1_answer_summary_by_group.csv")
+from project_paths import (
+    S1_ANSWER_GROUP_SUMMARY_PATH,
+    S1_ANSWER_RESULTS_PATH,
+    S1_ANSWER_SUMMARY_PATH,
+    S1_PARSED_OUTPUT_PATH,
+)
+
+
+DEFAULT_INPUT_PATH = S1_PARSED_OUTPUT_PATH
+DEFAULT_OUTPUT_PATH = S1_ANSWER_RESULTS_PATH
+DEFAULT_SUMMARY_PATH = S1_ANSWER_SUMMARY_PATH
+DEFAULT_GROUP_SUMMARY_PATH = S1_ANSWER_GROUP_SUMMARY_PATH
 
 EVALUATION_COLUMNS = [
     "eval_exact_match",

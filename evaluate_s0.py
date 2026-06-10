@@ -42,11 +42,18 @@ from typing import Any
 
 import pandas as pd
 
+from project_paths import (
+    S0_EVALUATED_OUTPUT_PATH,
+    S0_GROUP_SUMMARY_PATH,
+    S0_PARSED_OUTPUT_PATH,
+    S0_SUMMARY_PATH,
+)
 
-DEFAULT_INPUT_PATH = Path("outputs/s0/results_s0_parsed.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s0/results_s0_evaluated.csv")
-DEFAULT_SUMMARY_PATH = Path("outputs/s0/evaluation_summary.json")
-DEFAULT_GROUP_SUMMARY_PATH = Path("outputs/s0/evaluation_summary_by_group.csv")
+
+DEFAULT_INPUT_PATH = S0_PARSED_OUTPUT_PATH
+DEFAULT_OUTPUT_PATH = S0_EVALUATED_OUTPUT_PATH
+DEFAULT_SUMMARY_PATH = S0_SUMMARY_PATH
+DEFAULT_GROUP_SUMMARY_PATH = S0_GROUP_SUMMARY_PATH
 
 VALID_MMLU_OPTIONS = {"A", "B", "C", "D"}
 

@@ -39,9 +39,11 @@ from typing import Any
 
 import pandas as pd
 
+from project_paths import S0_PARSED_OUTPUT_PATH, S0_RAW_OUTPUT_PATH
 
-DEFAULT_INPUT_PATH = Path("outputs/s0/results_s0_raw.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s0/results_s0_parsed.csv")
+
+DEFAULT_INPUT_PATH = S0_RAW_OUTPUT_PATH
+DEFAULT_OUTPUT_PATH = S0_PARSED_OUTPUT_PATH
 
 VALID_MMLU_OPTIONS = {"A", "B", "C", "D"}
 

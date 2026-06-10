@@ -32,6 +32,8 @@ from typing import Any
 
 import pandas as pd
 
+from project_paths import S0_MMLU_PATH, S0_QUESTIONS_PATH, S0_TRUTHFULQA_PATH
+
 
 MMLU_REQUIRED_COLUMNS = {
     "id",
@@ -424,21 +426,21 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--mmlu-path",
         type=Path,
-        default=Path("data/mmlu_50_questions.csv"),
+        default=S0_MMLU_PATH,
         help="Ruta al CSV de MMLU.",
     )
 
     parser.add_argument(
         "--truthfulqa-path",
         type=Path,
-        default=Path("data/questions_truthfulqa_open.csv"),
+        default=S0_TRUTHFULQA_PATH,
         help="Ruta al CSV de TruthfulQA abierto.",
     )
 
     parser.add_argument(
         "--output-path",
         type=Path,
-        default=Path("data/questions_s0.csv"),
+        default=S0_QUESTIONS_PATH,
         help="Ruta donde guardar el CSV normalizado.",
     )
 

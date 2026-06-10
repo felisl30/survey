@@ -24,10 +24,11 @@ import pandas as pd
 from tqdm import tqdm
 
 from direct_llm import ask_direct_llm_with_metadata
+from project_paths import S0_QUESTIONS_PATH, S0_RAW_OUTPUT_PATH
 
 
-DEFAULT_INPUT_PATH = Path("data/questions_s0.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s0/results_s0_raw.csv")
+DEFAULT_INPUT_PATH = S0_QUESTIONS_PATH
+DEFAULT_OUTPUT_PATH = S0_RAW_OUTPUT_PATH
 
 
 REQUIRED_COLUMNS = {

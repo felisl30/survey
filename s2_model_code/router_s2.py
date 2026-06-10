@@ -81,13 +81,15 @@ for path in [PROJECT_ROOT, S2_CODE_DIR]:
     if path_str not in sys.path:
         sys.path.insert(0, path_str)
 
+from project_paths import S2_QUESTIONS_PATH, S2_ROUTER_RESULTS_PATH, S2_ROUTER_SUMMARY_PATH  # noqa: E402
+
 
 VALID_ROUTES = {"direct", "retrieve", "abstain", "clarify"}
 VALID_RETRIEVAL_MODES = {"none", "single_step", "multi_step"}
 
-DEFAULT_INPUT_PATH = Path("data/s2/adaptive_rag/questions_s2.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s2/routing/router_s2_results.csv")
-DEFAULT_SUMMARY_PATH = Path("outputs/s2/routing/router_s2_summary.json")
+DEFAULT_INPUT_PATH = S2_QUESTIONS_PATH
+DEFAULT_OUTPUT_PATH = S2_ROUTER_RESULTS_PATH
+DEFAULT_SUMMARY_PATH = S2_ROUTER_SUMMARY_PATH
 DEFAULT_STRATEGY: Literal["rules", "llm", "hybrid"] = "rules"
 
 ROUTER_SYSTEM_PROMPT = """

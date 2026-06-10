@@ -20,10 +20,17 @@ import argparse
 import html
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from project_paths import S1_DATA_DIR, S1_SOURCE_JSONL_PATH
 
 
 TOPIC_KEYWORDS = {
@@ -392,14 +399,14 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--input-path",
         type=Path,
-        default=Path("data/hotpotqa_distractor/hotpotqa_distractor_validation.jsonl"),
+        default=S1_SOURCE_JSONL_PATH,
         help="Ruta al JSONL descargado desde Hugging Face.",
     )
 
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("data/s1/hotpotqa_mini"),
+        default=S1_DATA_DIR,
         help="Directorio de salida.",
     )
 

@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -33,9 +34,15 @@ import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_CORPUS_PATH = Path("data/s2/adaptive_rag/corpus_s2.csv")
-DEFAULT_INDEX_DIR = Path("indexes/s2/adaptive_rag")
+from project_paths import S2_CORPUS_PATH, S2_INDEX_DIR
+
+
+DEFAULT_CORPUS_PATH = S2_CORPUS_PATH
+DEFAULT_INDEX_DIR = S2_INDEX_DIR
 DEFAULT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 REQUIRED_COLUMNS = {

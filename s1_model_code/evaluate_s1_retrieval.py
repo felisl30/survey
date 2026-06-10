@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -36,11 +37,17 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_QUESTIONS_PATH = Path("data/s1/hotpotqa_mini/questions_s1.csv")
-DEFAULT_QRELS_PATH = Path("data/s1/hotpotqa_mini/qrels_s1.csv")
-DEFAULT_INDEX_DIR = Path("indexes/s1/hotpotqa_mini")
-DEFAULT_OUTPUT_DIR = Path("outputs/s1/retrieval")
+from project_paths import S1_INDEX_DIR, S1_QRELS_PATH, S1_QUESTIONS_PATH, S1_RETRIEVAL_DIR
+
+
+DEFAULT_QUESTIONS_PATH = S1_QUESTIONS_PATH
+DEFAULT_QRELS_PATH = S1_QRELS_PATH
+DEFAULT_INDEX_DIR = S1_INDEX_DIR
+DEFAULT_OUTPUT_DIR = S1_RETRIEVAL_DIR
 
 
 def clean_text(value: Any) -> str:
