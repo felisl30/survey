@@ -62,14 +62,21 @@ import argparse
 import json
 import math
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_INPUT_PATH = Path("outputs/s4/generation/fire_like_s4_raw.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s4/generation/fire_like_s4_parsed.csv")
+from project_paths import S4_PARSED_OUTPUT_PATH, S4_RAW_OUTPUT_PATH
+
+
+DEFAULT_INPUT_PATH = S4_RAW_OUTPUT_PATH
+DEFAULT_OUTPUT_PATH = S4_PARSED_OUTPUT_PATH
 
 VALID_FINAL_DECISIONS = {
     "unchanged",

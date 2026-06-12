@@ -42,14 +42,21 @@ import argparse
 import json
 import math
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_INPUT_PATH = Path("outputs/s2/generation/adaptive_rag_s2_raw.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s2/generation/adaptive_rag_s2_parsed.csv")
+from project_paths import S2_PARSED_OUTPUT_PATH, S2_RAW_OUTPUT_PATH
+
+
+DEFAULT_INPUT_PATH = S2_RAW_OUTPUT_PATH
+DEFAULT_OUTPUT_PATH = S2_PARSED_OUTPUT_PATH
 
 VALID_ROUTES = {"direct", "retrieve", "abstain", "clarify"}
 VALID_RETRIEVAL_MODES = {"none", "single_step", "multi_step"}

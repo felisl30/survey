@@ -28,6 +28,7 @@ import json
 import math
 import re
 import string
+import sys
 import unicodedata
 from collections import Counter
 from pathlib import Path
@@ -35,11 +36,22 @@ from typing import Any
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_INPUT_PATH = Path("outputs/s3/generation/flare_like_s3_parsed.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s3/evaluation/flare_like_s3_answer_results.csv")
-DEFAULT_SUMMARY_PATH = Path("outputs/s3/evaluation/flare_like_s3_answer_summary.json")
-DEFAULT_GROUP_SUMMARY_PATH = Path("outputs/s3/evaluation/flare_like_s3_answer_summary_by_group.csv")
+from project_paths import (
+    S3_ANSWER_GROUP_SUMMARY_PATH,
+    S3_ANSWER_RESULTS_PATH,
+    S3_ANSWER_SUMMARY_PATH,
+    S3_PARSED_OUTPUT_PATH,
+)
+
+
+DEFAULT_INPUT_PATH = S3_PARSED_OUTPUT_PATH
+DEFAULT_OUTPUT_PATH = S3_ANSWER_RESULTS_PATH
+DEFAULT_SUMMARY_PATH = S3_ANSWER_SUMMARY_PATH
+DEFAULT_GROUP_SUMMARY_PATH = S3_ANSWER_GROUP_SUMMARY_PATH
 
 VALID_MMLU_OPTIONS = {"A", "B", "C", "D"}
 VALID_ROUTES = {"direct", "retrieve", "abstain", "clarify"}

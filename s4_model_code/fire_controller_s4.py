@@ -77,6 +77,7 @@ for path in [PROJECT_ROOT, S4_CODE_DIR, S2_CODE_DIR, S1_CODE_DIR]:
         sys.path.insert(0, path_str)
 
 try:
+    from project_paths import S2_INDEX_DIR
     from claim_extractor_s4 import extract_claims
     from fire_verifier_s4 import (
         build_search_query_rules,
@@ -91,6 +92,7 @@ try:
         build_final_repair_prompt,
     )
 except ModuleNotFoundError:
+    from project_paths import S2_INDEX_DIR
     from s4_model_code.claim_extractor_s4 import extract_claims
     from s4_model_code.fire_verifier_s4 import (
         build_search_query_rules,
@@ -106,7 +108,7 @@ except ModuleNotFoundError:
     )
 
 
-DEFAULT_INDEX_DIR = Path("indexes/s2/adaptive_rag")
+DEFAULT_INDEX_DIR = S2_INDEX_DIR
 DEFAULT_MAX_ROUNDS_PER_CLAIM = 2
 DEFAULT_TOP_K_PER_ROUND = 2
 DEFAULT_MAX_TOTAL_RETRIEVALS = 6

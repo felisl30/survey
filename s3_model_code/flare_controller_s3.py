@@ -40,6 +40,7 @@ for path in [PROJECT_ROOT, S3_CODE_DIR, S2_CODE_DIR, S1_CODE_DIR]:
 
 try:
     from direct_llm import ask_direct_llm_with_metadata
+    from project_paths import S2_INDEX_DIR
 except ModuleNotFoundError as exc:
     raise ModuleNotFoundError(
         "No se pudo importar direct_llm.py. Ejecutá desde la raíz del proyecto."
@@ -78,7 +79,7 @@ except ModuleNotFoundError:
     )
 
 
-DEFAULT_INDEX_DIR = Path("indexes/s2/adaptive_rag")
+DEFAULT_INDEX_DIR = S2_INDEX_DIR
 DEFAULT_MAX_STEPS = 4
 DEFAULT_TOP_K_PER_STEP = 2
 DEFAULT_MAX_RETRIEVAL_STEPS = 3

@@ -1,6 +1,6 @@
 # Project Layout
 
-This repository is organized around three experimental systems.
+This repository is organized around five experimental systems.
 
 ## Canonical Folders
 
@@ -18,6 +18,11 @@ This repository is organized around three experimental systems.
 | `outputs/s2/routing/` | S2 router outputs and summaries. |
 | `outputs/s2/generation/` | S2 final generations. |
 | `outputs/s2/evaluation/` | S2 evaluation outputs. |
+| `outputs/s3/generation/` | S3 FLARE-like raw and parsed generations. |
+| `outputs/s3/evaluation/` | S3 answer evaluation outputs. |
+| `outputs/s4/generation/` | S4 FIRE-like raw and parsed verification outputs. |
+| `outputs/s4/evaluation/` | S4 claim-level and answer-level evaluations. |
+| `outputs/s4/verification/` | S4 final sanity-check reports. |
 
 `project_paths.py` is the source of truth for default paths used by scripts.
 If a folder changes, update that file first and keep script defaults importing
@@ -30,6 +35,8 @@ from it.
 | S0 direct baseline | `prepare_s0_dataset.py`, `run_s0_direct.py`, `parse_s0_outputs.py`, `evaluate_s0.py` |
 | S1 basic RAG | `s1_model_code/prepare_hotpotqa_mini.py`, `build_s1_index.py`, `evaluate_s1_retrieval.py`, `run_s1_rag.py`, `parse_s1_outputs.py`, `evaluate_s1_answers.py` |
 | S2 Adaptive-RAG | `s2_model_code/prepare_s2_dataset.py`, `build_s2_index.py`, `router_s2.py`, `run_s2_adaptive_rag.py`, `parse_s2_outputs.py`, `evaluate_s2_routing.py`, `evaluate_s2_answers.py` |
+| S3 FLARE-like active retrieval | `s3_model_code/run_s3_flare_like.py`, `parse_s3_outputs.py`, `evaluate_s3_answers.py` |
+| S4 FIRE-like claim verification | `s4_model_code/run_s4_fire_like.py`, `parse_s4_outputs.py`, `evaluate_s4_claims.py`, `evaluate_s4_answers.py`, `verify_s4_results.py` |
 
 ## Recommended Smoke Run
 
@@ -50,6 +57,8 @@ uses `retrieve`; build it first with:
 ```powershell
 python s2_model_code/build_s2_index.py --overwrite
 ```
+
+For the full S0-S4 frame, see `docs/PIPELINE_BASICO.md`.
 
 ## Legacy Paths
 

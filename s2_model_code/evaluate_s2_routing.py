@@ -26,17 +26,29 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_INPUT_PATH = Path("outputs/s2/generation/adaptive_rag_s2_parsed.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s2/evaluation/adaptive_rag_s2_routing_results.csv")
-DEFAULT_SUMMARY_PATH = Path("outputs/s2/evaluation/adaptive_rag_s2_routing_summary.json")
-DEFAULT_GROUP_SUMMARY_PATH = Path("outputs/s2/evaluation/adaptive_rag_s2_routing_summary_by_group.csv")
+from project_paths import (
+    S2_PARSED_OUTPUT_PATH,
+    S2_ROUTING_GROUP_SUMMARY_PATH,
+    S2_ROUTING_RESULTS_PATH,
+    S2_ROUTING_SUMMARY_PATH,
+)
+
+
+DEFAULT_INPUT_PATH = S2_PARSED_OUTPUT_PATH
+DEFAULT_OUTPUT_PATH = S2_ROUTING_RESULTS_PATH
+DEFAULT_SUMMARY_PATH = S2_ROUTING_SUMMARY_PATH
+DEFAULT_GROUP_SUMMARY_PATH = S2_ROUTING_GROUP_SUMMARY_PATH
 
 VALID_ROUTES = {"direct", "retrieve", "abstain", "clarify"}
 VALID_RETRIEVAL_MODES = {"none", "single_step", "multi_step"}

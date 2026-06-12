@@ -93,6 +93,7 @@ for path in [PROJECT_ROOT, S4_CODE_DIR, S3_CODE_DIR, S2_CODE_DIR, S1_CODE_DIR]:
         sys.path.insert(0, path_str)
 
 try:
+    from project_paths import S2_INDEX_DIR, S2_PARSED_OUTPUT_PATH, S4_RAW_OUTPUT_PATH
     from fire_controller_s4 import (
         DEFAULT_INDEX_DIR,
         DEFAULT_MAX_CLAIMS,
@@ -105,6 +106,7 @@ try:
         run_fire_controller_for_answer,
     )
 except ModuleNotFoundError:
+    from project_paths import S2_INDEX_DIR, S2_PARSED_OUTPUT_PATH, S4_RAW_OUTPUT_PATH
     from s4_model_code.fire_controller_s4 import (
         DEFAULT_INDEX_DIR,
         DEFAULT_MAX_CLAIMS,
@@ -122,8 +124,9 @@ except ModuleNotFoundError:
 # Defaults y columnas
 # ---------------------------------------------------------------------------
 
-DEFAULT_INPUT_PATH = Path("outputs/s2/generation/adaptive_rag_s2_parsed.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s4/generation/fire_like_s4_raw.csv")
+DEFAULT_INPUT_PATH = S2_PARSED_OUTPUT_PATH
+DEFAULT_OUTPUT_PATH = S4_RAW_OUTPUT_PATH
+DEFAULT_INDEX_DIR = S2_INDEX_DIR
 
 QUESTION_COLUMNS_PRIORITY = [
     "s2_question",

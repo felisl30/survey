@@ -48,16 +48,28 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_INPUT_PATH = Path("outputs/s4/generation/fire_like_s4_parsed.csv")
-DEFAULT_CLAIM_OUTPUT_PATH = Path("outputs/s4/evaluation/fire_like_s4_claim_results.csv")
-DEFAULT_SUMMARY_PATH = Path("outputs/s4/evaluation/fire_like_s4_claim_summary.json")
-DEFAULT_GROUP_SUMMARY_PATH = Path("outputs/s4/evaluation/fire_like_s4_claim_summary_by_group.csv")
+from project_paths import (
+    S4_CLAIM_GROUP_SUMMARY_PATH,
+    S4_CLAIM_RESULTS_PATH,
+    S4_CLAIM_SUMMARY_PATH,
+    S4_PARSED_OUTPUT_PATH,
+)
+
+
+DEFAULT_INPUT_PATH = S4_PARSED_OUTPUT_PATH
+DEFAULT_CLAIM_OUTPUT_PATH = S4_CLAIM_RESULTS_PATH
+DEFAULT_SUMMARY_PATH = S4_CLAIM_SUMMARY_PATH
+DEFAULT_GROUP_SUMMARY_PATH = S4_CLAIM_GROUP_SUMMARY_PATH
 
 VALID_VERDICTS = {"supported", "refuted", "not_enough_info"}
 NON_FACTUAL_CLAIM_TYPES = {"abstention", "clarification", "meta", "answer_choice"}

@@ -81,6 +81,7 @@ for path in [PROJECT_ROOT, S3_CODE_DIR, S2_CODE_DIR, S1_CODE_DIR]:
         sys.path.insert(0, path_str)
 
 try:
+    from project_paths import S2_INDEX_DIR, S2_QUESTIONS_PATH, S3_RAW_OUTPUT_PATH
     from flare_controller_s3 import (
         DEFAULT_INDEX_DIR,
         DEFAULT_MAX_CHARS_PER_CHUNK,
@@ -92,6 +93,7 @@ try:
         run_flare_controller_for_question,
     )
 except ModuleNotFoundError:
+    from project_paths import S2_INDEX_DIR, S2_QUESTIONS_PATH, S3_RAW_OUTPUT_PATH
     from s3_model_code.flare_controller_s3 import (
         DEFAULT_INDEX_DIR,
         DEFAULT_MAX_CHARS_PER_CHUNK,
@@ -108,8 +110,9 @@ except ModuleNotFoundError:
 # Defaults
 # ---------------------------------------------------------------------------
 
-DEFAULT_INPUT_PATH = Path("data/s2/adaptive_rag/questions_s2.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s3/generation/flare_like_s3_raw.csv")
+DEFAULT_INPUT_PATH = S2_QUESTIONS_PATH
+DEFAULT_OUTPUT_PATH = S3_RAW_OUTPUT_PATH
+DEFAULT_INDEX_DIR = S2_INDEX_DIR
 DEFAULT_RETRIEVAL_STRATEGY = "rules"
 
 REQUIRED_COLUMNS = {

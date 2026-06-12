@@ -56,17 +56,30 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_S4_PARSED_PATH = Path("outputs/s4/generation/fire_like_s4_parsed.csv")
-DEFAULT_CLAIM_RESULTS_PATH = Path("outputs/s4/evaluation/fire_like_s4_claim_results.csv")
-DEFAULT_ANSWER_RESULTS_PATH = Path("outputs/s4/evaluation/fire_like_s4_answer_results.csv")
-DEFAULT_OUTPUT_DIR = Path("outputs/s4/verification")
-DEFAULT_PREFIX = "verify_s4"
+from project_paths import (
+    S4_ANSWER_RESULTS_PATH,
+    S4_CLAIM_RESULTS_PATH,
+    S4_PARSED_OUTPUT_PATH,
+    S4_VERIFICATION_DIR,
+    S4_VERIFY_PREFIX,
+)
+
+
+DEFAULT_S4_PARSED_PATH = S4_PARSED_OUTPUT_PATH
+DEFAULT_CLAIM_RESULTS_PATH = S4_CLAIM_RESULTS_PATH
+DEFAULT_ANSWER_RESULTS_PATH = S4_ANSWER_RESULTS_PATH
+DEFAULT_OUTPUT_DIR = S4_VERIFICATION_DIR
+DEFAULT_PREFIX = S4_VERIFY_PREFIX
 
 DEFAULT_LATENCY_WARN_SECONDS = 30.0
 DEFAULT_TOTAL_TOKENS_WARN = 1500

@@ -1,7 +1,24 @@
 # Smoke test del pipeline ordenado
 
+# Orquestador S1-S4 completo sin llamadas nuevas al modelo
+powershell -ExecutionPolicy Bypass -File scripts/run_frame_pipeline.ps1 -Mode demo -Tag frame_demo
+
+# Orquestador S1-S4 generando outputs nuevos sin modelo
+powershell -ExecutionPolicy Bypass -File scripts/run_frame_pipeline.ps1 -Mode dry-run -Limit 5 -Tag dry_5
+
+# Orquestador S1-S4 real con API
+powershell -ExecutionPolicy Bypass -File scripts/run_frame_pipeline.ps1 -Mode real -Limit 5 -Tag real_5
+
 python prepare_s0_dataset.py
 python s1_model_code/prepare_hotpotqa_mini.py --per-topic 1
 python s2_model_code/prepare_s2_dataset.py --n-direct-mmlu 1 --n-direct-truthfulqa 1 --n-retrieve 1 --n-abstain 1 --n-clarify 1
 python s2_model_code/router_s2.py --strategy rules --limit 5
 python s2_model_code/run_s2_adaptive_rag.py --router-strategy rules --limit 5 --dry-run --output-path outputs/s2/generation/adaptive_rag_s2_raw_smoke.csv
+
+# Demo S3/S4 sin llamadas nuevas al modelo: usa raws chicos ya generados
+python s3_model_code/parse_s3_outputs.py --input-path outputs/s3/generation/flare_like_s3_raw_test_5_v4.csv --output-path outputs/s3/generation/flare_like_s3_parsed_demo.csv
+python s3_model_code/evaluate_s3_answers.py --input-path outputs/s3/generation/flare_like_s3_parsed_demo.csv --output-path outputs/s3/evaluation/flare_like_s3_answer_results_demo.csv --summary-path outputs/s3/evaluation/flare_like_s3_answer_summary_demo.json --group-summary-path outputs/s3/evaluation/flare_like_s3_answer_summary_by_group_demo.csv
+python s4_model_code/parse_s4_outputs.py --input-path outputs/s4/generation/fire_like_s4_raw_retrieve_test_5_hybrid_claims_llm_verify.csv --output-path outputs/s4/generation/fire_like_s4_parsed_demo.csv
+python s4_model_code/evaluate_s4_claims.py --input-path outputs/s4/generation/fire_like_s4_parsed_demo.csv --claim-output-path outputs/s4/evaluation/fire_like_s4_claim_results_demo.csv --summary-path outputs/s4/evaluation/fire_like_s4_claim_summary_demo.json --group-summary-path outputs/s4/evaluation/fire_like_s4_claim_summary_by_group_demo.csv
+python s4_model_code/evaluate_s4_answers.py --input-path outputs/s4/generation/fire_like_s4_parsed_demo.csv --output-path outputs/s4/evaluation/fire_like_s4_answer_results_demo.csv --summary-path outputs/s4/evaluation/fire_like_s4_answer_summary_demo.json --group-summary-path outputs/s4/evaluation/fire_like_s4_answer_summary_by_group_demo.csv
+python s4_model_code/verify_s4_results.py --s4-parsed-path outputs/s4/generation/fire_like_s4_parsed_demo.csv --claim-results-path outputs/s4/evaluation/fire_like_s4_claim_results_demo.csv --answer-results-path outputs/s4/evaluation/fire_like_s4_answer_results_demo.csv --output-dir outputs/s4/verification --prefix demo

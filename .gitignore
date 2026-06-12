@@ -52,6 +52,15 @@ __pycache__/
 outputs/**/_smoke_data/
 outputs/**/*_smoke.csv
 outputs/**/*_smoke.json
+outputs/**/*_demo.csv
+outputs/**/*_demo.json
+outputs/**/*_demo.txt
+outputs/**/demo_*.csv
+outputs/**/demo_*.json
+outputs/**/demo_*.txt
+outputs/**/*frame_demo*.csv
+outputs/**/*frame_demo*.json
+outputs/**/*frame_demo*.txt
 # Secrets / environment variables
 .env
 .env.*

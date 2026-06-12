@@ -32,14 +32,21 @@ import argparse
 import json
 import math
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-DEFAULT_INPUT_PATH = Path("outputs/s3/generation/flare_like_s3_raw.csv")
-DEFAULT_OUTPUT_PATH = Path("outputs/s3/generation/flare_like_s3_parsed.csv")
+from project_paths import S3_PARSED_OUTPUT_PATH, S3_RAW_OUTPUT_PATH
+
+
+DEFAULT_INPUT_PATH = S3_RAW_OUTPUT_PATH
+DEFAULT_OUTPUT_PATH = S3_PARSED_OUTPUT_PATH
 
 VALID_SUPPORT_STATUSES = {"supported", "corrected", "not_enough_info", "refuted", "not_checked"}
 VALID_RETRIEVAL_MODES = {"active", "none", "single_step", "multi_step"}
