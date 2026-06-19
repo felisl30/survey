@@ -1,0 +1,100 @@
+Datos usados en cada sistema del proyecto NLP
+
+Sí, tengo bastante claro lo que veníamos usando, pero hay una parte donde prefiero marcar incertidumbre para no mezclar decisiones reales con suposiciones.
+
+En este proyecto no eran “modelos” completamente distintos, sino configuraciones/pipelines S0, S1, S2, S3 y S4 sobre un mismo modelo base o familia de modelos.
+
+1. Resumen por sistema
+
+S0 - LLM directo, sin RAG
+Datos usados/planeados:
+- TruthfulQA
+- MMLU
+
+Objetivo:
+Baseline directo. El modelo responde sin documentos, sin recuperación y sin verificador.
+
+S1 - RAG clásico top-k
+Datos usados/planeados:
+- HotpotQA mini propio
+
+Archivos asociados:
+- data/s1/hotpotqa_mini/questions_s1.csv
+- data/s1/hotpotqa_mini/corpus_s1.csv
+- data/s1/hotpotqa_mini/qrels_s1.csv
+
+Objetivo:
+Responder usando recuperación de documentos. HotpotQA sirve bien para este caso porque contiene preguntas que requieren evidencia y razonamiento multi-hop.
+
+S2 - Adaptive-RAG / router
+Datos usados/planeados:
+- Mezcla de S0 + S1
+- Preguntas directas de TruthfulQA/MMLU
+- Preguntas que requieren recuperación de HotpotQA mini
+
+Objetivo:
+Decidir si conviene responder directo, recuperar documentos, abstenerse o pedir aclaración.
+
+Categorías posibles:
+- direct: preguntas que el modelo puede responder sin recuperar.
+- retrieve: preguntas que deberían usar RAG.
+- abstain: casos donde conviene abstenerse.
+- clarify: casos ambiguos donde conviene pedir aclaración.
+
+Archivos de entrada propuestos:
+- data/questions_s0.csv
+- data/s1/hotpotqa_mini/questions_s1.csv
+- data/s1/hotpotqa_mini/corpus_s1.csv
+- data/s1/hotpotqa_mini/qrels_s1.csv
+
+Archivos esperados/propuestos:
+- data/s2/adaptive_rag/questions_s2.csv
+- data/s2/adaptive_rag/corpus_s2.csv
+- data/s2/adaptive_rag/qrels_s2.csv
+
+S3 - FLARE-like / active retrieval
+Datos usados/planeados:
+- Reutiliza principalmente la base de S2/S1
+- Especialmente el corpus e índice de recuperación
+
+Objetivo:
+Hacer recuperación activa durante la generación. La idea es generar una oración candidata, detectar si necesita evidencia, recuperar chunks y luego regenerar o corregir.
+
+S4 - Claim verification / FIRE-like
+Datos usados/planeados:
+- FEVER como dataset natural/candidato para verificación de claims
+
+Objetivo:
+Verificar afirmaciones contra evidencia.
+
+Estado:
+FEVER fue mencionado o planeado para la etapa de verificación de claims, pero no puedo asegurar que ya haya quedado integrado en código dentro del repo. Puede haber quedado como parte del diseño del paper y no como parte del pipeline ya corrido.
+
+2. Resumen limpio
+
+S0 - Direct LLM:
+  Datos: TruthfulQA + MMLU
+  Objetivo: baseline sin recuperación
+
+S1 - RAG clásico:
+  Datos: HotpotQA mini
+  Objetivo: responder con recuperación top-k
+
+S2 - Adaptive-RAG:
+  Datos: mezcla de S0 + S1
+  Objetivo: decidir si responder directo, recuperar, abstenerse o pedir aclaración
+
+S3 - FLARE-like:
+  Datos: reutiliza corpus/index de S1/S2
+  Objetivo: recuperación activa durante generación
+
+S4 - Claim verification:
+  Datos: FEVER como candidato/planeado
+  Objetivo: verificar claims con evidencia
+  Estado: no puedo asegurar que esté implementado
+
+3. Distinción importante
+
+TruthfulQA y MMLU eran para evaluar respuesta directa.
+HotpotQA era para RAG.
+FEVER era para verificación de claims.

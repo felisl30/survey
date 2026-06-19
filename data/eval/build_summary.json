@@ -1,0 +1,35 @@
+{
+  "created_at_utc": "2026-06-19T19:22:03.056120+00:00",
+  "retrieve_n": 80,
+  "direct_n": 20,
+  "total_n": 100,
+  "corpus_chunks": 779,
+  "qrels": 160,
+  "retrieve_hotpot_type": {
+    "bridge": 40,
+    "comparison": 40
+  },
+  "direct_truthfulqa_category": {
+    "Health": 2,
+    "Sociology": 2,
+    "Paranormal": 2,
+    "Nutrition": 2,
+    "Misinformation": 1,
+    "Proverbs": 1,
+    "Myths and Fairytales": 1,
+    "Statistics": 1,
+    "Confusion: People": 1,
+    "History": 1,
+    "Weather": 1,
+    "Conspiracies": 1,
+    "Misconceptions: Topical": 1,
+    "Law": 1,
+    "Confusion: Other": 1,
+    "Mandela Effect": 1
+  },
+  "index_dir": "indexes/eval",
+  "questions_path": "data/eval/questions_eval.csv",
+  "corpus_path": "data/eval/corpus_eval.csv",
+  "qrels_path": "data/eval/qrels_eval.csv",
+  "seed": 42
+}

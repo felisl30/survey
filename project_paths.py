@@ -103,3 +103,16 @@ S4_ANSWER_RESULTS_PATH = S4_EVALUATION_DIR / "fire_like_s4_answer_results.csv"
 S4_ANSWER_SUMMARY_PATH = S4_EVALUATION_DIR / "fire_like_s4_answer_summary.json"
 S4_ANSWER_GROUP_SUMMARY_PATH = S4_EVALUATION_DIR / "fire_like_s4_answer_summary_by_group.csv"
 S4_VERIFY_PREFIX = "verify_s4"
+
+# ---------------------------------------------------------------------------
+# Eval — unified evaluation set (S1/S2/S3 comparison)
+# ---------------------------------------------------------------------------
+
+EVAL_DATA_DIR = DATA_DIR / "eval"
+EVAL_INDEX_DIR = INDEXES_DIR / "eval"
+EVAL_OUTPUTS_DIR = OUTPUTS_DIR / "eval"
+
+EVAL_QUESTIONS_PATH = EVAL_DATA_DIR / "questions_eval.csv"
+EVAL_CORPUS_PATH = EVAL_DATA_DIR / "corpus_eval.csv"
+EVAL_QRELS_PATH = EVAL_DATA_DIR / "qrels_eval.csv"
+EVAL_BUILD_SUMMARY_PATH = EVAL_DATA_DIR / "build_summary.json"

@@ -1,0 +1,21 @@
+{
+  "created_at_utc": "2026-06-19T19:20:37.304051+00:00",
+  "retrieve_n": 8,
+  "direct_n": 2,
+  "total_n": 10,
+  "corpus_chunks": 72,
+  "qrels": 16,
+  "retrieve_hotpot_type": {
+    "bridge": 4,
+    "comparison": 4
+  },
+  "direct_truthfulqa_category": {
+    "Health": 1,
+    "Misinformation": 1
+  },
+  "index_dir": "indexes/eval_dryrun",
+  "questions_path": "data/eval/questions_eval_dryrun.csv",
+  "corpus_path": "data/eval/corpus_eval_dryrun.csv",
+  "qrels_path": "data/eval/qrels_eval_dryrun.csv",
+  "seed": 42
+}
