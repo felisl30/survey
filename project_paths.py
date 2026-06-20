@@ -116,3 +116,13 @@ EVAL_QUESTIONS_PATH = EVAL_DATA_DIR / "questions_eval.csv"
 EVAL_CORPUS_PATH = EVAL_DATA_DIR / "corpus_eval.csv"
 EVAL_QRELS_PATH = EVAL_DATA_DIR / "qrels_eval.csv"
 EVAL_BUILD_SUMMARY_PATH = EVAL_DATA_DIR / "build_summary.json"
+
+# ---------------------------------------------------------------------------
+# Eval MC — generated multiple-choice benchmark set for S0 saturation checks
+# ---------------------------------------------------------------------------
+
+EVAL_MC_DATA_DIR = DATA_DIR / "eval_mc"
+EVAL_MC_OUTPUTS_DIR = OUTPUTS_DIR / "eval_mc"
+
+EVAL_MC_QUESTIONS_PATH = EVAL_MC_DATA_DIR / "questions_mc_eval.csv"
+EVAL_MC_BUILD_SUMMARY_PATH = EVAL_MC_DATA_DIR / "build_summary_mc.json"

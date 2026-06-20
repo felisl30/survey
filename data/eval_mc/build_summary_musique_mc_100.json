@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-06-20T04:19:14.446998+00:00",
+  "mode": "real",
+  "generator_model": "gpt-5-mini",
+  "datasets": [
+    "musique"
+  ],
+  "per_dataset": 100,
+  "total_questions": 100,
+  "output_path": "data\\eval_mc\\questions_musique_mc_100.csv",
+  "rows_by_dataset": [
+    {
+      "dataset": "musique",
+      "loaded_candidates": 500,
+      "selected": 100
+    }
+  ],
+  "notes": "Dataset MC generado para medir saturacion de S0/directo. La metrica principal es accuracy por dataset y promedio."
+}

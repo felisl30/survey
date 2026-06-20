@@ -1,0 +1,13 @@
+model,benchmark,n,accuracy,valid_prediction_rate,saturation_flag_80pct
+gpt-4.1-mini,2wiki,100,0.61,1.0,False
+gpt-5-mini,2wiki,100,0.82,1.0,True
+gpt-5-nano,2wiki,100,0.57,1.0,False
+gpt-4.1-mini,hotpotqa,100,0.62,1.0,False
+gpt-5-mini,hotpotqa,100,0.79,1.0,False
+gpt-5-nano,hotpotqa,100,0.71,1.0,False
+gpt-4.1-mini,multihoprag,100,0.85,1.0,True
+gpt-5-mini,multihoprag,100,0.88,1.0,True
+gpt-5-nano,multihoprag,100,0.85,1.0,True
+gpt-4.1-mini,musique,100,0.44,1.0,False
+gpt-5-mini,musique,100,0.69,1.0,False
+gpt-5-nano,musique,100,0.66,1.0,False

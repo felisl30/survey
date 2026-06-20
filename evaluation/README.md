@@ -212,3 +212,58 @@ Los modelos de OpenAI que se comparan en este pipeline son:
 # Corrida real con 10 preguntas por sistema
 .\evaluation\run_frame_pipeline.ps1 -Mode real -Limit 10
 
+---
+
+## Benchmark multiple choice para S0/directo
+
+Para medir si el modelo directo satura, se agrego un pipeline separado que
+convierte benchmarks multi-hop a un formato multiple choice comun y corre solo
+el baseline S0.
+
+Archivos principales:
+
+```
+evaluation/build_mc_eval_dataset.py  # arma HotpotQA/MuSiQue/2Wiki/MultiHop-RAG en MC
+evaluation/run_s0_mc_pipeline.ps1    # corre S0 directo + parseo + accuracy
+data/eval_mc/questions_*_mc_100.csv  # datasets MC generados, 100 por benchmark
+outputs/eval_mc/                     # resultados y metricas S0
+```
+
+Primero conviene construir y revisar el dataset:
+
+```powershell
+# Smoke sin API: construye MC con distractores simples, sin correr S0
+.\evaluation\run_s0_mc_pipeline.ps1 -Mode real -BuildDataset -BuildMode dry-run -BuildOnly -PerDataset 5 -Force
+
+# Dataset real por benchmark: usa un LLM generador para distractores plausibles
+python evaluation\build_mc_eval_dataset.py --mode real --datasets musique --per-dataset 100 --output-path data\eval_mc\questions_musique_mc_100.csv --summary-path data\eval_mc\build_summary_musique_mc_100.json --force
+python evaluation\build_mc_eval_dataset.py --mode real --datasets hotpotqa --per-dataset 100 --output-path data\eval_mc\questions_hotpotqa_mc_100.csv --summary-path data\eval_mc\build_summary_hotpotqa_mc_100.json --force
+python evaluation\build_mc_eval_dataset.py --mode real --datasets 2wiki --per-dataset 100 --output-path data\eval_mc\questions_2wiki_mc_100.csv --summary-path data\eval_mc\build_summary_2wiki_mc_100.json --force
+python evaluation\build_mc_eval_dataset.py --mode real --datasets multihoprag --per-dataset 100 --output-path data\eval_mc\questions_multihoprag_mc_100.csv --summary-path data\eval_mc\build_summary_multihoprag_mc_100.json --force
+```
+
+Despues se corre S0/directo y se evalua accuracy:
+
+```powershell
+# Ejemplo: corrida real S0 sobre MuSiQue-100
+.\evaluation\run_s0_mc_pipeline.ps1 -Mode real -Model "gpt-5-mini" -QuestionPath "data\eval_mc\questions_musique_mc_100.csv" -OutputPrefix "s0_gpt_5_mini_musique_100"
+```
+
+La metrica principal queda en:
+
+```
+outputs/eval_mc/s0_*_mc_summary.csv
+outputs/eval_mc/s0_benchmark_model_grid_summary.csv
+```
+
+Benchmarks usados en esta grilla:
+
+- `hotpotqa_mc`
+- `musique_mc`
+- `2wiki_mc`
+- `multihoprag_mc`
+
+Si S0/directo ya da muy alto en un dataset, ese benchmark esta saturado para el
+objetivo del TP. Si queda en un rango medio, sirve para comparar despues contra
+S1/S2/S3/S4 con evidencia mas contrastable.
+

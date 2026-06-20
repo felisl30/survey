@@ -19,7 +19,7 @@ from typing import Any
 from dotenv import load_dotenv
 load_dotenv()
 
-MODEL_NAME = "gpt-5.5"
+MODEL_NAME = "gpt-5-mini"
 
 
 SYSTEM_PROMPT = """
