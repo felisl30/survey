@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+import pandas as pd
+
+BASE = Path("outputs/eval_mc/model_grid_musique")
+OUT_DIR = BASE / "analysis"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+MODELS = {
+    "gpt-5.4-nano": "gpt_5_4_nano",
+    "gpt-5.4-mini": "gpt_5_4_mini",
+    "gpt-5.4": "gpt_5_4",
+}
+
+SYSTEMS = ["s0", "s1", "s2", "s3_mc"]
+
+
+def read_eval(model_tag: str, system: str) -> pd.DataFrame:
+    path = BASE / model_tag / f"{system}_evaluated.csv"
+    if not path.exists():
+        raise FileNotFoundError(path)
+
+    df = pd.read_csv(path)
+
+    id_col = "id"
+    correct_col = "eval_correct" if "eval_correct" in df.columns else "mc_correct"
+    pred_col = "parsed_answer" if "parsed_answer" in df.columns else "mc_pred"
+
+    keep = [
+        c for c in [
+            id_col,
+            "original_question",
+            "question",
+            "A", "B", "C", "D",
+            "gold_answer",
+            pred_col,
+            correct_col,
+            "valid_format",
+            "run_error_present",
+            "total_tokens",
+            "latency_seconds",
+            "predicted_route",
+            "active_retrieval_triggered",
+        ]
+        if c in df.columns
+    ]
+
+    out = df[keep].copy()
+    out = out.rename(columns={
+        pred_col: f"{system}_answer",
+        correct_col: f"{system}_correct",
+        "total_tokens": f"{system}_tokens",
+        "latency_seconds": f"{system}_latency",
+        "predicted_route": f"{system}_route",
+        "active_retrieval_triggered": f"{system}_active_retrieval",
+    })
+
+    out[f"{system}_correct"] = out[f"{system}_correct"].astype(bool)
+
+    return out
+
+
+all_rows = []
+
+for model_name, tag in MODELS.items():
+    merged = None
+
+    for system in SYSTEMS:
+        df = read_eval(tag, system)
+
+        if merged is None:
+            merged = df
+        else:
+            drop_cols = [
+                c for c in [
+                    "original_question", "question",
+                    "A", "B", "C", "D",
+                    "gold_answer",
+                ]
+                if c in df.columns
+            ]
+            merged = merged.merge(
+                df.drop(columns=drop_cols, errors="ignore"),
+                on="id",
+                how="outer",
+            )
+
+    merged.insert(0, "model", model_name)
+
+    for system in ["s1", "s2", "s3_mc"]:
+        merged[f"{system}_corrected_s0"] = (~merged["s0_correct"]) & merged[f"{system}_correct"]
+        merged[f"{system}_regressed_s0"] = merged["s0_correct"] & (~merged[f"{system}_correct"])
+
+    merged["all_systems_correct"] = merged[[f"{s}_correct" for s in SYSTEMS]].all(axis=1)
+    merged["all_systems_wrong"] = (~merged[[f"{s}_correct" for s in SYSTEMS]]).all(axis=1)
+    merged["only_s3_correct"] = (
+        (~merged["s0_correct"])
+        & (~merged["s1_correct"])
+        & (~merged["s2_correct"])
+        & merged["s3_mc_correct"]
+    )
+    merged["s2_beats_s1_case"] = (~merged["s1_correct"]) & merged["s2_correct"]
+    merged["s1_beats_s2_case"] = merged["s1_correct"] & (~merged["s2_correct"])
+
+    merged.to_csv(OUT_DIR / f"{tag}_question_level_comparison.csv", index=False)
+
+    summary_rows = []
+
+    for system in SYSTEMS:
+        summary_rows.append({
+            "model": model_name,
+            "system": system,
+            "n": len(merged),
+            "accuracy": float(merged[f"{system}_correct"].mean()),
+            "avg_tokens": float(pd.to_numeric(merged.get(f"{system}_tokens"), errors="coerce").mean())
+                if f"{system}_tokens" in merged.columns else None,
+        })
+
+    for system in ["s1", "s2", "s3_mc"]:
+        summary_rows.append({
+            "model": model_name,
+            "system": f"{system}_vs_s0",
+            "n": len(merged),
+            "corrected_s0_errors": int(merged[f"{system}_corrected_s0"].sum()),
+            "regressed_s0_correct": int(merged[f"{system}_regressed_s0"].sum()),
+            "net_gain_vs_s0": int(merged[f"{system}_corrected_s0"].sum()) - int(merged[f"{system}_regressed_s0"].sum()),
+        })
+
+    summary_rows.append({
+        "model": model_name,
+        "system": "case_patterns",
+        "n": len(merged),
+        "all_systems_correct": int(merged["all_systems_correct"].sum()),
+        "all_systems_wrong": int(merged["all_systems_wrong"].sum()),
+        "only_s3_correct": int(merged["only_s3_correct"].sum()),
+        "s2_beats_s1_cases": int(merged["s2_beats_s1_case"].sum()),
+        "s1_beats_s2_cases": int(merged["s1_beats_s2_case"].sum()),
+    })
+
+    all_rows.extend(summary_rows)
+
+summary = pd.DataFrame(all_rows)
+summary_path = OUT_DIR / "model_grid_error_pattern_summary.csv"
+summary.to_csv(summary_path, index=False)
+
+txt_path = OUT_DIR / "model_grid_error_pattern_summary.txt"
+with txt_path.open("w", encoding="utf-8") as f:
+    f.write("Model grid error-pattern analysis\n")
+    f.write("=" * 80 + "\n\n")
+    f.write(summary.to_string(index=False))
+    f.write("\n")
+
+print(summary.to_string(index=False))
+print()
+print("Guardado:")
+print(summary_path)
+print(txt_path)
