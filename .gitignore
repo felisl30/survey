@@ -95,3 +95,11 @@ tp_cientifico/
 venv/
 env/
 .env
+
+# Local runtime files
+*.pid
+
+# Local backup files
+*.backup_*
+*.backup*
+*.bak
