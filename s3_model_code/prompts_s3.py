@@ -113,22 +113,32 @@ def build_candidate_prompt(
     if task_type == "multiple_choice":
         task_rules = """Reglas específicas para multiple-choice:
 - La pregunta tiene opciones.
-- La oración candidata debe proponer una opción concreta, por ejemplo: "The answer is D."
-- No expliques largamente.
+- La oración candidata debe proponer una única opción concreta, por ejemplo: "The answer is D."
+- No agregues explicación, justificación ni texto extra.
+- Idealmente generá una sola oración.
 - No uses retrieval salvo que la pregunta pida explícitamente usar documentos/corpus/contexto."""
     elif task_type == "open_direct":
         task_rules = """Reglas específicas para pregunta directa:
 - Respondé con conocimiento general del modelo.
-- No menciones corpus, documentos ni evidencia externa.
+- Respondé en una sola oración breve siempre que sea posible.
+- Priorizá una respuesta directa y compatible con una evaluación automática.
+- No menciones corpus, documentos, evidencia externa, fuentes ni contexto.
+- No digas que faltan fuentes, evidencia, contexto o documentos salvo que la pregunta los mencione explícitamente.
+- Si no estás completamente seguro, respondé de forma prudente, pero no conviertas la respuesta en una abstención documental.
 - Solo pedí evidencia si la pregunta lo solicita explícitamente."""
     elif task_type == "open_retrieval":
         task_rules = """Reglas específicas para pregunta con posible retrieval:
 - Podés generar un claim candidato verificable.
-- Si el claim depende de evidencia documental, luego será verificado con retrieval."""
+- Si el claim depende de evidencia documental, luego será verificado con retrieval.
+- Si la pregunta es yes/no, la oración candidata debe empezar con "Sí" o "No" cuando corresponda.
+- Si la pregunta pide una fecha, período, nombre o entidad específica, generá un claim corto con esa respuesta exacta.
+- Evitá respuestas largas o explicaciones generales."""
     elif task_type == "ambiguous":
         task_rules = """Reglas específicas para pregunta ambigua:
-- Si falta una entidad o referencia central, generá una aclaración breve.
-- No inventes la entidad omitida."""
+- Si falta una entidad o referencia central, generá una única pregunta de aclaración breve.
+- No respondas la pregunta ambigua.
+- No inventes la entidad omitida.
+- No agregues ejemplos largos salvo que sean estrictamente necesarios."""
     else:
         task_rules = """Reglas específicas:
 - Tratá la pregunta como QA abierta general.

@@ -119,7 +119,20 @@ CLARIFICATION_MARKERS = [
     "necesitaría una aclaración", "podrias aclarar", "podrías aclarar", "por favor aclar",
     "falta aclarar", "pregunta ambigua", "no esta claro", "no está claro",
     "need clarification", "needs clarification", "please clarify", "could you clarify",
-    "ambiguous", "unclear", "not clear who", "not clear what", "not clear which",
+    "ambiguous", "unclear",
+    "which event are you referring to",
+    "can you specify",
+    "which event you mean",
+    "which period would you like me to focus on",
+    "do you mean a particular",
+    "which one do you mean",
+    "what do you mean",
+    "who are you referring to",
+    "which are you referring to",
+    "could you specify",
+    "please specify",
+    "can you clarify what",
+    "can you clarify which", "not clear who", "not clear what", "not clear which",
 ]
 
 EXPECTED_ABSTAIN_VALUES = {"abstain", "abstention", "no_answer", "not_enough_information", "insufficient_information"}
@@ -360,6 +373,59 @@ def get_gold_answers(row: pd.Series) -> list[str]:
     return candidates
 
 
+
+def normalize_yes_no_value(text: Any) -> str:
+    """
+    Normaliza respuestas yes/no bilingües para HotpotQA.
+    Evita contar abstenciones tipo "No hay información suficiente" como respuesta "no".
+    """
+    raw = clean_text(text)
+    if not raw:
+        return ""
+
+    if infer_abstention(raw):
+        return ""
+
+    norm = normalize_text(raw)
+
+    yes_markers = {
+        "yes", "yeah", "yep", "si", "sí",
+    }
+
+    no_markers = {
+        "no", "nope",
+    }
+
+    if norm in yes_markers:
+        return "yes"
+    if norm in no_markers:
+        return "no"
+
+    if norm.startswith("yes ") or norm.startswith("yeah ") or norm.startswith("yep "):
+        return "yes"
+    if norm.startswith("si ") or norm.startswith("sí "):
+        return "yes"
+
+    if norm.startswith("no "):
+        return "no"
+
+    return ""
+
+
+def yes_no_match(prediction: str, gold_answers: list[str]) -> bool | None:
+    gold_values = [normalize_yes_no_value(gold) for gold in gold_answers]
+    gold_values = [g for g in gold_values if g]
+
+    if not gold_values:
+        return None
+
+    pred_value = normalize_yes_no_value(prediction)
+    if not pred_value:
+        return None
+
+    return pred_value in set(gold_values)
+
+
 def best_answer_match(prediction: str, gold_answers: list[str]) -> dict[str, Any]:
     pred_norm = normalize_text(prediction)
     best = {
@@ -513,6 +579,21 @@ def retrieval_metrics(row: pd.Series) -> dict[str, Any]:
 def evaluate_answer_case(row: pd.Series, *, f1_threshold: float) -> tuple[dict[str, Any], list[str]]:
     parsed_answer = clean_text(row.get("parsed_answer", ""))
     notes: list[str] = []
+
+    gold_answers_for_yes_no = get_gold_answers(row)
+    yn_match = yes_no_match(parsed_answer, gold_answers_for_yes_no)
+    if yn_match is True:
+        notes.append("yes_no_match=True")
+        return {
+            "eval_exact_match": True,
+            "eval_contains_gold_answer": True,
+            "eval_gold_contains_answer": True,
+            "eval_token_f1": 1.0,
+            "eval_token_precision": 1.0,
+            "eval_token_recall": 1.0,
+            "eval_answer_correct": True,
+        }, notes
+
     if is_mmlu_or_mc_row(row):
         pred = get_mc_prediction(row)
         gold = get_mc_gold(row)

@@ -401,6 +401,71 @@ def get_question_for_s3(row: pd.Series, *, task_type: str = "open_qa") -> str:
     return get_base_question(row)
 
 
+def get_effective_s3_params(
+    *,
+    task_type: str,
+    max_steps: int,
+    top_k_per_step: int,
+    max_retrieval_steps: int,
+    max_total_chunks: int,
+    max_chars_per_chunk: int,
+    profile_aware_params: bool,
+) -> dict[str, int]:
+    """
+    Ajusta hiperparámetros por perfil de tarea.
+
+    Objetivo:
+    - reducir costo en direct/multiple-choice/ambiguous;
+    - mantener más evidencia en open_retrieval;
+    - conservar los valores globales cuando profile_aware_params=False.
+    """
+    params = {
+        "max_steps": max_steps,
+        "top_k_per_step": top_k_per_step,
+        "max_retrieval_steps": max_retrieval_steps,
+        "max_total_chunks": max_total_chunks,
+        "max_chars_per_chunk": max_chars_per_chunk,
+    }
+
+    if not profile_aware_params:
+        return params
+
+    if task_type == "multiple_choice":
+        params.update({
+            "max_steps": 1,
+            "top_k_per_step": 1,
+            "max_retrieval_steps": 0,
+            "max_total_chunks": 0,
+            "max_chars_per_chunk": min(max_chars_per_chunk, 500),
+        })
+    elif task_type == "open_direct":
+        params.update({
+            "max_steps": 1,
+            "top_k_per_step": 1,
+            "max_retrieval_steps": 0,
+            "max_total_chunks": 0,
+            "max_chars_per_chunk": min(max_chars_per_chunk, 600),
+        })
+    elif task_type == "ambiguous":
+        params.update({
+            "max_steps": 1,
+            "top_k_per_step": 1,
+            "max_retrieval_steps": 0,
+            "max_total_chunks": 0,
+            "max_chars_per_chunk": min(max_chars_per_chunk, 500),
+        })
+    elif task_type == "open_retrieval":
+        params.update({
+            "max_steps": min(max_steps, 2),
+            "top_k_per_step": max(top_k_per_step, 3),
+            "max_retrieval_steps": max(max_retrieval_steps, 2),
+            "max_total_chunks": max(max_total_chunks, 6),
+            "max_chars_per_chunk": min(max_chars_per_chunk, 800),
+        })
+
+    return params
+
+
 def validate_input(df: pd.DataFrame) -> None:
     missing = REQUIRED_COLUMNS - set(df.columns)
     if missing:
@@ -647,6 +712,7 @@ def run_experiment(
     task_profile_mode: str,
     retrieval_bias_mode: str,
     dry_run: bool,
+    profile_aware_params: bool = False,
 ) -> pd.DataFrame:
     if not input_path.exists():
         raise FileNotFoundError(f"No se encontró input-path: {input_path}")
@@ -699,6 +765,7 @@ def run_experiment(
     print(f"Max retrieval steps: {max_retrieval_steps}")
     print(f"Max total chunks: {max_total_chunks}")
     print(f"Dry run: {dry_run}")
+    print(f"Profile-aware params: {profile_aware_params}")
     print(f"Filas consideradas: {len(df)}")
     print(f"Filas existentes: {len(existing_ids)}")
     print(f"Filas pendientes: {len(pending_df)}")
@@ -713,6 +780,13 @@ def run_experiment(
         task_type = "open_qa"
         retrieval_bias = "balanced"
         question_format = "open"
+        effective_params = {
+            "max_steps": max_steps,
+            "top_k_per_step": top_k_per_step,
+            "max_retrieval_steps": max_retrieval_steps,
+            "max_total_chunks": max_total_chunks,
+            "max_chars_per_chunk": max_chars_per_chunk,
+        }
 
         try:
             task_type, retrieval_bias, question_format = infer_task_profile(
@@ -722,16 +796,26 @@ def run_experiment(
             )
             question = get_question_for_s3(row, task_type=task_type)
 
-            result = run_flare_controller_for_question(
-                question=question,
-                retriever=retriever,
-                index_dir=index_dir,
-                model=model,
+            effective_params = get_effective_s3_params(
+                task_type=task_type,
                 max_steps=max_steps,
                 top_k_per_step=top_k_per_step,
                 max_retrieval_steps=max_retrieval_steps,
                 max_total_chunks=max_total_chunks,
                 max_chars_per_chunk=max_chars_per_chunk,
+                profile_aware_params=profile_aware_params,
+            )
+
+            result = run_flare_controller_for_question(
+                question=question,
+                retriever=retriever,
+                index_dir=index_dir,
+                model=model,
+                max_steps=effective_params["max_steps"],
+                top_k_per_step=effective_params["top_k_per_step"],
+                max_retrieval_steps=effective_params["max_retrieval_steps"],
+                max_total_chunks=effective_params["max_total_chunks"],
+                max_chars_per_chunk=effective_params["max_chars_per_chunk"],
                 retrieval_strategy=retrieval_strategy,
                 task_type=task_type,
                 retrieval_bias=retrieval_bias,
@@ -756,11 +840,11 @@ def run_experiment(
             retrieval_bias=retrieval_bias,
             question_format=question_format,
             index_dir=index_dir,
-            max_steps=max_steps,
-            top_k_per_step=top_k_per_step,
-            max_retrieval_steps=max_retrieval_steps,
-            max_total_chunks=max_total_chunks,
-            max_chars_per_chunk=max_chars_per_chunk,
+            max_steps=effective_params["max_steps"],
+            top_k_per_step=effective_params["top_k_per_step"],
+            max_retrieval_steps=effective_params["max_retrieval_steps"],
+            max_total_chunks=effective_params["max_total_chunks"],
+            max_chars_per_chunk=effective_params["max_chars_per_chunk"],
             dry_run=dry_run,
             outer_error=outer_error,
             row_latency_seconds=row_latency,
@@ -978,6 +1062,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help="No llama API ni carga índice real. Útil para validar flujo.",
     )
 
+    parser.add_argument(
+        "--profile-aware-params",
+        action="store_true",
+        help="Ajusta max_steps/top-k/retrieval por task_type para reducir costo y mejorar estabilidad.",
+    )
+
     return parser
 
 
@@ -1005,6 +1095,7 @@ def main() -> None:
         task_profile_mode=args.task_profile_mode,
         retrieval_bias_mode=args.retrieval_bias_mode,
         dry_run=args.dry_run,
+        profile_aware_params=args.profile_aware_params,
     )
 
 

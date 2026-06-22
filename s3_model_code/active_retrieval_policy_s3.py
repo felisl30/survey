@@ -444,6 +444,8 @@ def needs_retrieval_rules(
     task_type = normalize_task_type(task_type)
     retrieval_bias = normalize_retrieval_bias(retrieval_bias)
     explicit_document_request = is_explicit_document_request(question_lower, lower)
+    question_document_request = contains_any(question_lower, DOCUMENTAL_CUES)
+    candidate_document_request = contains_any(lower, DOCUMENTAL_CUES)
 
     if not candidate:
         return {
@@ -491,6 +493,19 @@ def needs_retrieval_rules(
             "confidence": 0.95,
             "policy_source": "rules",
             "rule_name": "multiple_choice_direct_no_retrieval",
+        }
+
+    # Hard gate adicional para open_direct conservador:
+    # si la pregunta original no pide documentos/evidencia/corpus/contexto,
+    # no permitimos que una frase generada por el modelo active retrieval
+    # solo por mencionar "evidence", "context", "sources", etc.
+    if task_type == "open_direct" and retrieval_bias == "conservative" and not question_document_request:
+        return {
+            "needs_retrieval": False,
+            "reason": "La tarea es open_direct conservadora y la pregunta no pide evidencia documental explícita.",
+            "confidence": 0.96,
+            "policy_source": "rules",
+            "rule_name": "open_direct_conservative_question_only_no_retrieval",
         }
 
     if explicit_document_request:
