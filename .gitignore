@@ -94,3 +94,4 @@ tp_cientifico/
 .venv/
 venv/
 env/
+.env
