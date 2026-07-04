@@ -1,0 +1,76 @@
+{
+  "created_at": "2026-07-04T15:27:55",
+  "input": {
+    "questions_path": "data/eval_mc/musique_mc_rag/questions.csv",
+    "corpus_path": "data/eval_mc/musique_mc_rag/corpus.csv",
+    "qrels_path": "data/eval_mc/musique_mc_rag/qrels.csv",
+    "n_questions": 100,
+    "n_corpus_rows": 1200,
+    "n_qrels_rows": 1200
+  },
+  "output": {
+    "output_dir": "data/eval_mc/robustness_musique",
+    "questions_path": "data/eval_mc/robustness_musique/questions.csv",
+    "qrels_path": "data/eval_mc/robustness_musique/qrels.csv",
+    "corpus_clean_path": "data/eval_mc/robustness_musique/corpus_clean.csv",
+    "corpus_noisy_path": "data/eval_mc/robustness_musique/corpus_noisy.csv",
+    "corpus_adversarial_path": "data/eval_mc/robustness_musique/corpus_adversarial.csv"
+  },
+  "parameters": {
+    "random_distractors_per_question": 12,
+    "adversarial_distractors_per_question": 12,
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "batch_size": 32,
+    "seed": 42
+  },
+  "conditions": {
+    "clean": {
+      "n_rows": 1200,
+      "n_unique_questions": 100,
+      "n_unique_doc_ids": 1200,
+      "n_gold_contexts": 1200,
+      "n_distractors": 0,
+      "context_role_counts": {
+        "gold": 1200
+      },
+      "distractor_type_counts": {
+        "": 1200
+      }
+    },
+    "noisy": {
+      "n_rows": 2400,
+      "n_unique_questions": 100,
+      "n_unique_doc_ids": 2400,
+      "n_gold_contexts": 1200,
+      "n_distractors": 1200,
+      "context_role_counts": {
+        "gold": 1200,
+        "distractor": 1200
+      },
+      "distractor_type_counts": {
+        "": 1200,
+        "noisy": 1200
+      }
+    },
+    "adversarial": {
+      "n_rows": 2400,
+      "n_unique_questions": 100,
+      "n_unique_doc_ids": 2400,
+      "n_gold_contexts": 1200,
+      "n_distractors": 1200,
+      "context_role_counts": {
+        "gold": 1200,
+        "distractor": 1200
+      },
+      "distractor_type_counts": {
+        "": 1200,
+        "adversarial": 1200
+      },
+      "adversarial_similarity_score": {
+        "mean": 0.32869882417221863,
+        "min": 0.17175202071666718,
+        "max": 0.7190535068511963
+      }
+    }
+  }
+}

@@ -1,0 +1,4701 @@
+id,question_id,dataset,case_type,source_dataset,benchmark_name,original_question,question,retrieval_query,prompt,A,B,C,D,answer_choices_json,gold_answer,gold_answer_text,expected_answer,expected_route,requires_retrieval,original_source,source_split,difficulty,frozen_input_sha256
+musique_mc__0000,musique_mc__0000,musique_mc,multiple_choice,musique,musique_mc_100,Who is the spouse of the Green performer?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the Green performer?
+
+Opciones:
+A. Miquette Giraudy
+B. Annie Haslam
+C. Maggie Reilly
+D. Gillian Gilbert
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the spouse of the Green performer?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the Green performer?
+
+Opciones:
+A. Miquette Giraudy
+B. Annie Haslam
+C. Maggie Reilly
+D. Gillian Gilbert
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Miquette Giraudy,Annie Haslam,Maggie Reilly,Gillian Gilbert,"{""A"": ""Miquette Giraudy"", ""B"": ""Annie Haslam"", ""C"": ""Maggie Reilly"", ""D"": ""Gillian Gilbert""}",A,Miquette Giraudy,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0001,musique_mc__0001,musique_mc,multiple_choice,musique,musique_mc_100,Who founded the company that distributed the film UHF?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who founded the company that distributed the film UHF?
+
+Opciones:
+A. David Geffen
+B. Don Simpson
+C. Robert Evans
+D. Mike Medavoy
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who founded the company that distributed the film UHF?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who founded the company that distributed the film UHF?
+
+Opciones:
+A. David Geffen
+B. Don Simpson
+C. Robert Evans
+D. Mike Medavoy
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",David Geffen,Don Simpson,Robert Evans,Mike Medavoy,"{""A"": ""David Geffen"", ""B"": ""Don Simpson"", ""C"": ""Robert Evans"", ""D"": ""Mike Medavoy""}",D,Mike Medavoy,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0002,musique_mc__0002,musique_mc,multiple_choice,musique,musique_mc_100,What administrative territorial entity is the owner of Ciudad Deportiva located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What administrative territorial entity is the owner of Ciudad Deportiva located?
+
+Opciones:
+A. Veracruz
+B. Nuevo Leon
+C. Tamaulipas
+D. Chihuahua
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What administrative territorial entity is the owner of Ciudad Deportiva located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What administrative territorial entity is the owner of Ciudad Deportiva located?
+
+Opciones:
+A. Veracruz
+B. Nuevo Leon
+C. Tamaulipas
+D. Chihuahua
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Veracruz,Nuevo Leon,Tamaulipas,Chihuahua,"{""A"": ""Veracruz"", ""B"": ""Nuevo Leon"", ""C"": ""Tamaulipas"", ""D"": ""Chihuahua""}",C,Tamaulipas,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0003,musique_mc__0003,musique_mc,multiple_choice,musique,musique_mc_100,Where is Ulrich Walter's employer headquartered?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where is Ulrich Walter's employer headquartered?
+
+Opciones:
+A. Berlin
+B. Cologne
+C. Hamburg
+D. Munich
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where is Ulrich Walter's employer headquartered?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where is Ulrich Walter's employer headquartered?
+
+Opciones:
+A. Berlin
+B. Cologne
+C. Hamburg
+D. Munich
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Berlin,Cologne,Hamburg,Munich,"{""A"": ""Berlin"", ""B"": ""Cologne"", ""C"": ""Hamburg"", ""D"": ""Munich""}",B,Cologne,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0004,musique_mc__0004,musique_mc,multiple_choice,musique,musique_mc_100,Which company owns the manufacturer of Learjet 60?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Which company owns the manufacturer of Learjet 60?
+
+Opciones:
+A. Gulfstream Aerospace
+B. Textron Aviation
+C. Bombardier Inc.
+D. Embraer S.A.
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Which company owns the manufacturer of Learjet 60?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Which company owns the manufacturer of Learjet 60?
+
+Opciones:
+A. Gulfstream Aerospace
+B. Textron Aviation
+C. Bombardier Inc.
+D. Embraer S.A.
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Gulfstream Aerospace,Textron Aviation,Bombardier Inc.,Embraer S.A.,"{""A"": ""Gulfstream Aerospace"", ""B"": ""Textron Aviation"", ""C"": ""Bombardier Inc."", ""D"": ""Embraer S.A.""}",C,Bombardier Inc.,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0005,musique_mc__0005,musique_mc,multiple_choice,musique,musique_mc_100,Who is the child of Caroline LeRoy's spouse?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the child of Caroline LeRoy's spouse?
+
+Opciones:
+A. Mervyn LeRoy
+B. James Stewart
+C. Daniel Webster
+D. Fletcher Webster
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the child of Caroline LeRoy's spouse?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the child of Caroline LeRoy's spouse?
+
+Opciones:
+A. Mervyn LeRoy
+B. James Stewart
+C. Daniel Webster
+D. Fletcher Webster
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Mervyn LeRoy,James Stewart,Daniel Webster,Fletcher Webster,"{""A"": ""Mervyn LeRoy"", ""B"": ""James Stewart"", ""C"": ""Daniel Webster"", ""D"": ""Fletcher Webster""}",D,Fletcher Webster,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0006,musique_mc__0006,musique_mc,multiple_choice,musique,musique_mc_100,"Who is the grandmother of Philippe, Duke of Orléans?","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the grandmother of Philippe, Duke of Orléans?
+
+Opciones:
+A. Catherine de' Medici
+B. Anne of Austria
+C. Henrietta Maria of France
+D. Marie de' Medici
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}","Who is the grandmother of Philippe, Duke of Orléans?","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the grandmother of Philippe, Duke of Orléans?
+
+Opciones:
+A. Catherine de' Medici
+B. Anne of Austria
+C. Henrietta Maria of France
+D. Marie de' Medici
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Catherine de' Medici,Anne of Austria,Henrietta Maria of France,Marie de' Medici,"{""A"": ""Catherine de' Medici"", ""B"": ""Anne of Austria"", ""C"": ""Henrietta Maria of France"", ""D"": ""Marie de' Medici""}",D,Marie de' Medici,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0007,musique_mc__0007,musique_mc,multiple_choice,musique,musique_mc_100,What is the goal of the group that European Movement Germany is a member of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the goal of the group that European Movement Germany is a member of?
+
+Opciones:
+A. Protecting human rights
+B. European integration
+C. Promoting democracy
+D. Strengthening economic cooperation
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the goal of the group that European Movement Germany is a member of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the goal of the group that European Movement Germany is a member of?
+
+Opciones:
+A. Protecting human rights
+B. European integration
+C. Promoting democracy
+D. Strengthening economic cooperation
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Protecting human rights,European integration,Promoting democracy,Strengthening economic cooperation,"{""A"": ""Protecting human rights"", ""B"": ""European integration"", ""C"": ""Promoting democracy"", ""D"": ""Strengthening economic cooperation""}",B,European integration,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0008,musique_mc__0008,musique_mc,multiple_choice,musique,musique_mc_100,What company succeeded the owner of Empire Sports Network?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What company succeeded the owner of Empire Sports Network?
+
+Opciones:
+A. Comcast Corporation
+B. Charter Communications
+C. Cox Communications
+D. Time Warner Cable
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What company succeeded the owner of Empire Sports Network?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What company succeeded the owner of Empire Sports Network?
+
+Opciones:
+A. Comcast Corporation
+B. Charter Communications
+C. Cox Communications
+D. Time Warner Cable
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Comcast Corporation,Charter Communications,Cox Communications,Time Warner Cable,"{""A"": ""Comcast Corporation"", ""B"": ""Charter Communications"", ""C"": ""Cox Communications"", ""D"": ""Time Warner Cable""}",D,Time Warner Cable,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0009,musique_mc__0009,musique_mc,multiple_choice,musique,musique_mc_100,What province shares a border with the province where Lago District is located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What province shares a border with the province where Lago District is located?
+
+Opciones:
+A. Maputo Province
+B. Cabo Delgado Province
+C. Gaza Province
+D. Sofala Province
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What province shares a border with the province where Lago District is located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What province shares a border with the province where Lago District is located?
+
+Opciones:
+A. Maputo Province
+B. Cabo Delgado Province
+C. Gaza Province
+D. Sofala Province
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Maputo Province,Cabo Delgado Province,Gaza Province,Sofala Province,"{""A"": ""Maputo Province"", ""B"": ""Cabo Delgado Province"", ""C"": ""Gaza Province"", ""D"": ""Sofala Province""}",B,Cabo Delgado Province,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0010,musique_mc__0010,musique_mc,multiple_choice,musique,musique_mc_100,What league does the team that plays in Stadio Ciro Vigorito play for?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What league does the team that plays in Stadio Ciro Vigorito play for?
+
+Opciones:
+A. Serie B
+B. Lega Pro Prima Divisione
+C. Serie D
+D. Serie C
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What league does the team that plays in Stadio Ciro Vigorito play for?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What league does the team that plays in Stadio Ciro Vigorito play for?
+
+Opciones:
+A. Serie B
+B. Lega Pro Prima Divisione
+C. Serie D
+D. Serie C
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Serie B,Lega Pro Prima Divisione,Serie D,Serie C,"{""A"": ""Serie B"", ""B"": ""Lega Pro Prima Divisione"", ""C"": ""Serie D"", ""D"": ""Serie C""}",B,Lega Pro Prima Divisione,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0011,musique_mc__0011,musique_mc,multiple_choice,musique,musique_mc_100,What is a notable work written by the author of The Timothy files?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is a notable work written by the author of The Timothy files?
+
+Opciones:
+A. The Maltese Falcon
+B. The Big Sleep
+C. The Long Goodbye
+D. Anderson Tapes
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is a notable work written by the author of The Timothy files?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is a notable work written by the author of The Timothy files?
+
+Opciones:
+A. The Maltese Falcon
+B. The Big Sleep
+C. The Long Goodbye
+D. Anderson Tapes
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",The Maltese Falcon,The Big Sleep,The Long Goodbye,Anderson Tapes,"{""A"": ""The Maltese Falcon"", ""B"": ""The Big Sleep"", ""C"": ""The Long Goodbye"", ""D"": ""Anderson Tapes""}",D,Anderson Tapes,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0012,musique_mc__0012,musique_mc,multiple_choice,musique,musique_mc_100,In which borough was Callum McManaman born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which borough was Callum McManaman born?
+
+Opciones:
+A. Sefton
+B. Knowsley
+C. St Helens
+D. Wirral
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In which borough was Callum McManaman born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which borough was Callum McManaman born?
+
+Opciones:
+A. Sefton
+B. Knowsley
+C. St Helens
+D. Wirral
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Sefton,Knowsley,St Helens,Wirral,"{""A"": ""Sefton"", ""B"": ""Knowsley"", ""C"": ""St Helens"", ""D"": ""Wirral""}",B,Knowsley,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0013,musique_mc__0013,musique_mc,multiple_choice,musique,musique_mc_100,What other county does the county where Imperial is located share a border with?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What other county does the county where Imperial is located share a border with?
+
+Opciones:
+A. Reeves County
+B. Jeff Davis County
+C. Crockett County
+D. Upton County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What other county does the county where Imperial is located share a border with?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What other county does the county where Imperial is located share a border with?
+
+Opciones:
+A. Reeves County
+B. Jeff Davis County
+C. Crockett County
+D. Upton County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Reeves County,Jeff Davis County,Crockett County,Upton County,"{""A"": ""Reeves County"", ""B"": ""Jeff Davis County"", ""C"": ""Crockett County"", ""D"": ""Upton County""}",C,Crockett County,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0014,musique_mc__0014,musique_mc,multiple_choice,musique,musique_mc_100,In what county is William W. Blair's birthplace located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In what county is William W. Blair's birthplace located?
+
+Opciones:
+A. Orleans County
+B. Genesee County
+C. Monroe County
+D. Niagara County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In what county is William W. Blair's birthplace located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In what county is William W. Blair's birthplace located?
+
+Opciones:
+A. Orleans County
+B. Genesee County
+C. Monroe County
+D. Niagara County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Orleans County,Genesee County,Monroe County,Niagara County,"{""A"": ""Orleans County"", ""B"": ""Genesee County"", ""C"": ""Monroe County"", ""D"": ""Niagara County""}",A,Orleans County,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0015,musique_mc__0015,musique_mc,multiple_choice,musique,musique_mc_100,What award did the author of The Red Tree receive?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What award did the author of The Red Tree receive?
+
+Opciones:
+A. Academy Award for Best Animated Short Film
+B. BAFTA Award for Best Short Animation
+C. Nobel Prize in Literature
+D. PEN/Diamonstein-Spielvogel Award for the Art of the Essay
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What award did the author of The Red Tree receive?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What award did the author of The Red Tree receive?
+
+Opciones:
+A. Academy Award for Best Animated Short Film
+B. BAFTA Award for Best Short Animation
+C. Nobel Prize in Literature
+D. PEN/Diamonstein-Spielvogel Award for the Art of the Essay
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Academy Award for Best Animated Short Film,BAFTA Award for Best Short Animation,Nobel Prize in Literature,PEN/Diamonstein-Spielvogel Award for the Art of the Essay,"{""A"": ""Academy Award for Best Animated Short Film"", ""B"": ""BAFTA Award for Best Short Animation"", ""C"": ""Nobel Prize in Literature"", ""D"": ""PEN/Diamonstein-Spielvogel Award for the Art of the Essay""}",A,Academy Award for Best Animated Short Film,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0016,musique_mc__0016,musique_mc,multiple_choice,musique,musique_mc_100,Where was Tyler MacDuff's child educated?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was Tyler MacDuff's child educated?
+
+Opciones:
+A. Monroe High School
+B. Blair High School
+C. Wilson High School
+D. Lincoln High School
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where was Tyler MacDuff's child educated?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was Tyler MacDuff's child educated?
+
+Opciones:
+A. Monroe High School
+B. Blair High School
+C. Wilson High School
+D. Lincoln High School
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Monroe High School,Blair High School,Wilson High School,Lincoln High School,"{""A"": ""Monroe High School"", ""B"": ""Blair High School"", ""C"": ""Wilson High School"", ""D"": ""Lincoln High School""}",B,Blair High School,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0017,musique_mc__0017,musique_mc,multiple_choice,musique,musique_mc_100,Who is the spouse of the Rabbit Hole's producer?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the Rabbit Hole's producer?
+
+Opciones:
+A. Keith Urban
+B. Orlando Bloom
+C. John Travolta
+D. Brad Pitt
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the spouse of the Rabbit Hole's producer?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the Rabbit Hole's producer?
+
+Opciones:
+A. Keith Urban
+B. Orlando Bloom
+C. John Travolta
+D. Brad Pitt
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Keith Urban,Orlando Bloom,John Travolta,Brad Pitt,"{""A"": ""Keith Urban"", ""B"": ""Orlando Bloom"", ""C"": ""John Travolta"", ""D"": ""Brad Pitt""}",A,Keith Urban,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0018,musique_mc__0018,musique_mc,multiple_choice,musique,musique_mc_100,Who is the child of Sigrid Eskilsdotter's child?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the child of Sigrid Eskilsdotter's child?
+
+Opciones:
+A. Ture Pedersson Bielke
+B. Svante Turesson Bielke
+C. Svante Stensson Sture
+D. Christina Gyllenstierna
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the child of Sigrid Eskilsdotter's child?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the child of Sigrid Eskilsdotter's child?
+
+Opciones:
+A. Ture Pedersson Bielke
+B. Svante Turesson Bielke
+C. Svante Stensson Sture
+D. Christina Gyllenstierna
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Ture Pedersson Bielke,Svante Turesson Bielke,Svante Stensson Sture,Christina Gyllenstierna,"{""A"": ""Ture Pedersson Bielke"", ""B"": ""Svante Turesson Bielke"", ""C"": ""Svante Stensson Sture"", ""D"": ""Christina Gyllenstierna""}",C,Svante Stensson Sture,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0019,musique_mc__0019,musique_mc,multiple_choice,musique,musique_mc_100,In which county is Kimbrough Memorial Stadium located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which county is Kimbrough Memorial Stadium located?
+
+Opciones:
+A. Lubbock County
+B. Randall County
+C. Potter County
+D. Hutchinson County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In which county is Kimbrough Memorial Stadium located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which county is Kimbrough Memorial Stadium located?
+
+Opciones:
+A. Lubbock County
+B. Randall County
+C. Potter County
+D. Hutchinson County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Lubbock County,Randall County,Potter County,Hutchinson County,"{""A"": ""Lubbock County"", ""B"": ""Randall County"", ""C"": ""Potter County"", ""D"": ""Hutchinson County""}",B,Randall County,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0020,musique_mc__0020,musique_mc,multiple_choice,musique,musique_mc_100,What record label is the performer of Almost Made Ya signed to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What record label is the performer of Almost Made Ya signed to?
+
+Opciones:
+A. Interscope Records
+B. Jive Records
+C. Derrty Entertainment
+D. Def Jam Recordings
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What record label is the performer of Almost Made Ya signed to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What record label is the performer of Almost Made Ya signed to?
+
+Opciones:
+A. Interscope Records
+B. Jive Records
+C. Derrty Entertainment
+D. Def Jam Recordings
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Interscope Records,Jive Records,Derrty Entertainment,Def Jam Recordings,"{""A"": ""Interscope Records"", ""B"": ""Jive Records"", ""C"": ""Derrty Entertainment"", ""D"": ""Def Jam Recordings""}",C,Derrty Entertainment,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0021,musique_mc__0021,musique_mc,multiple_choice,musique,musique_mc_100,Where was the author of Hannibal and Scipio educated at?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the author of Hannibal and Scipio educated at?
+
+Opciones:
+A. Pembroke College
+B. Exeter College
+C. Magdalen College
+D. Oriel College
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where was the author of Hannibal and Scipio educated at?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the author of Hannibal and Scipio educated at?
+
+Opciones:
+A. Pembroke College
+B. Exeter College
+C. Magdalen College
+D. Oriel College
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Pembroke College,Exeter College,Magdalen College,Oriel College,"{""A"": ""Pembroke College"", ""B"": ""Exeter College"", ""C"": ""Magdalen College"", ""D"": ""Oriel College""}",B,Exeter College,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0022,musique_mc__0022,musique_mc,multiple_choice,musique,musique_mc_100,In which county is Southern Maryland Electric Cooperative headquartered?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which county is Southern Maryland Electric Cooperative headquartered?
+
+Opciones:
+A. St. Mary's County
+B. Prince George's County
+C. Calvert County
+D. Charles County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In which county is Southern Maryland Electric Cooperative headquartered?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which county is Southern Maryland Electric Cooperative headquartered?
+
+Opciones:
+A. St. Mary's County
+B. Prince George's County
+C. Calvert County
+D. Charles County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",St. Mary's County,Prince George's County,Calvert County,Charles County,"{""A"": ""St. Mary's County"", ""B"": ""Prince George's County"", ""C"": ""Calvert County"", ""D"": ""Charles County""}",D,Charles County,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0023,musique_mc__0023,musique_mc,multiple_choice,musique,musique_mc_100,Who is the child of the Victim of Romance performer?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the child of the Victim of Romance performer?
+
+Opciones:
+A. Chynna Phillips
+B. Wendy Wilson
+C. Rachel Phillips
+D. Carnie Wilson
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the child of the Victim of Romance performer?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the child of the Victim of Romance performer?
+
+Opciones:
+A. Chynna Phillips
+B. Wendy Wilson
+C. Rachel Phillips
+D. Carnie Wilson
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Chynna Phillips,Wendy Wilson,Rachel Phillips,Carnie Wilson,"{""A"": ""Chynna Phillips"", ""B"": ""Wendy Wilson"", ""C"": ""Rachel Phillips"", ""D"": ""Carnie Wilson""}",A,Chynna Phillips,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0024,musique_mc__0024,musique_mc,multiple_choice,musique,musique_mc_100,What county was Tim Dubois born in?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What county was Tim Dubois born in?
+
+Opciones:
+A. Benton County
+B. McDonald County
+C. Lawrence County
+D. Newton County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What county was Tim Dubois born in?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What county was Tim Dubois born in?
+
+Opciones:
+A. Benton County
+B. McDonald County
+C. Lawrence County
+D. Newton County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Benton County,McDonald County,Lawrence County,Newton County,"{""A"": ""Benton County"", ""B"": ""McDonald County"", ""C"": ""Lawrence County"", ""D"": ""Newton County""}",B,McDonald County,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0025,musique_mc__0025,musique_mc,multiple_choice,musique,musique_mc_100,What record label did the person who is part of The Bruce Lee Band start?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What record label did the person who is part of The Bruce Lee Band start?
+
+Opciones:
+A. Asian Man Records
+B. Epitaph Records
+C. Hellcat Records
+D. Fat Wreck Chords
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What record label did the person who is part of The Bruce Lee Band start?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What record label did the person who is part of The Bruce Lee Band start?
+
+Opciones:
+A. Asian Man Records
+B. Epitaph Records
+C. Hellcat Records
+D. Fat Wreck Chords
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Asian Man Records,Epitaph Records,Hellcat Records,Fat Wreck Chords,"{""A"": ""Asian Man Records"", ""B"": ""Epitaph Records"", ""C"": ""Hellcat Records"", ""D"": ""Fat Wreck Chords""}",A,Asian Man Records,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0026,musique_mc__0026,musique_mc,multiple_choice,musique,musique_mc_100,What is another notable work made by the author of Miss Sara Sampson?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is another notable work made by the author of Miss Sara Sampson?
+
+Opciones:
+A. Emilia Galotti
+B. The Robbers
+C. Mary Stuart
+D. Don Carlos
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is another notable work made by the author of Miss Sara Sampson?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is another notable work made by the author of Miss Sara Sampson?
+
+Opciones:
+A. Emilia Galotti
+B. The Robbers
+C. Mary Stuart
+D. Don Carlos
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Emilia Galotti,The Robbers,Mary Stuart,Don Carlos,"{""A"": ""Emilia Galotti"", ""B"": ""The Robbers"", ""C"": ""Mary Stuart"", ""D"": ""Don Carlos""}",A,Emilia Galotti,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0027,musique_mc__0027,musique_mc,multiple_choice,musique,musique_mc_100,What instrument is played by the person from The Blackout All-Stars?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What instrument is played by the person from The Blackout All-Stars?
+
+Opciones:
+A. maraca
+B. timbale
+C. conga
+D. bongo
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What instrument is played by the person from The Blackout All-Stars?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What instrument is played by the person from The Blackout All-Stars?
+
+Opciones:
+A. maraca
+B. timbale
+C. conga
+D. bongo
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",maraca,timbale,conga,bongo,"{""A"": ""maraca"", ""B"": ""timbale"", ""C"": ""conga"", ""D"": ""bongo""}",C,conga,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0028,musique_mc__0028,musique_mc,multiple_choice,musique,musique_mc_100,What is the seat of the county where Van Hook Township is located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the seat of the county where Van Hook Township is located?
+
+Opciones:
+A. Bismarck
+B. Stanley
+C. Minot
+D. Williston
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the seat of the county where Van Hook Township is located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the seat of the county where Van Hook Township is located?
+
+Opciones:
+A. Bismarck
+B. Stanley
+C. Minot
+D. Williston
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Bismarck,Stanley,Minot,Williston,"{""A"": ""Bismarck"", ""B"": ""Stanley"", ""C"": ""Minot"", ""D"": ""Williston""}",B,Stanley,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0029,musique_mc__0029,musique_mc,multiple_choice,musique,musique_mc_100,"Who is the father of Edward Baring, 1st Baron Revelstoke's father?","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the father of Edward Baring, 1st Baron Revelstoke's father?
+
+Opciones:
+A. Henry Baring, MP
+B. Alexander Baring, 1st Baron Ashburton
+C. Thomas George Baring, 1st Earl of Northbrook
+D. Sir Francis Baring, 1st Baronet
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}","Who is the father of Edward Baring, 1st Baron Revelstoke's father?","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the father of Edward Baring, 1st Baron Revelstoke's father?
+
+Opciones:
+A. Henry Baring, MP
+B. Alexander Baring, 1st Baron Ashburton
+C. Thomas George Baring, 1st Earl of Northbrook
+D. Sir Francis Baring, 1st Baronet
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}","Henry Baring, MP","Alexander Baring, 1st Baron Ashburton","Thomas George Baring, 1st Earl of Northbrook","Sir Francis Baring, 1st Baronet","{""A"": ""Henry Baring, MP"", ""B"": ""Alexander Baring, 1st Baron Ashburton"", ""C"": ""Thomas George Baring, 1st Earl of Northbrook"", ""D"": ""Sir Francis Baring, 1st Baronet""}",D,"Sir Francis Baring, 1st Baronet",D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0030,musique_mc__0030,musique_mc,multiple_choice,musique,musique_mc_100,What group was the performer of Be the One a member of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What group was the performer of Be the One a member of?
+
+Opciones:
+A. Four Tops
+B. The Temptations
+C. The Supremes
+D. Jackson 5
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What group was the performer of Be the One a member of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What group was the performer of Be the One a member of?
+
+Opciones:
+A. Four Tops
+B. The Temptations
+C. The Supremes
+D. Jackson 5
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Four Tops,The Temptations,The Supremes,Jackson 5,"{""A"": ""Four Tops"", ""B"": ""The Temptations"", ""C"": ""The Supremes"", ""D"": ""Jackson 5""}",D,Jackson 5,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0031,musique_mc__0031,musique_mc,multiple_choice,musique,musique_mc_100,Who is the lead singer of the band performing Bang Bang Rock & Roll?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the lead singer of the band performing Bang Bang Rock & Roll?
+
+Opciones:
+A. Damon Albarn
+B. Eddie Argos
+C. Alex Kapranos
+D. Jarvis Cocker
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the lead singer of the band performing Bang Bang Rock & Roll?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the lead singer of the band performing Bang Bang Rock & Roll?
+
+Opciones:
+A. Damon Albarn
+B. Eddie Argos
+C. Alex Kapranos
+D. Jarvis Cocker
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Damon Albarn,Eddie Argos,Alex Kapranos,Jarvis Cocker,"{""A"": ""Damon Albarn"", ""B"": ""Eddie Argos"", ""C"": ""Alex Kapranos"", ""D"": ""Jarvis Cocker""}",B,Eddie Argos,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0032,musique_mc__0032,musique_mc,multiple_choice,musique,musique_mc_100,What is the network which National Cycle Route 57 is part of an example of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the network which National Cycle Route 57 is part of an example of?
+
+Opciones:
+A. national rail network
+B. national highway network
+C. national scenic byway system
+D. national cycling route network
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the network which National Cycle Route 57 is part of an example of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the network which National Cycle Route 57 is part of an example of?
+
+Opciones:
+A. national rail network
+B. national highway network
+C. national scenic byway system
+D. national cycling route network
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",national rail network,national highway network,national scenic byway system,national cycling route network,"{""A"": ""national rail network"", ""B"": ""national highway network"", ""C"": ""national scenic byway system"", ""D"": ""national cycling route network""}",D,national cycling route network,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0033,musique_mc__0033,musique_mc,multiple_choice,musique,musique_mc_100,Who is the spouse of the child of Peter Andreas Heiberg?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the child of Peter Andreas Heiberg?
+
+Opciones:
+A. Johanne Luise Heiberg
+B. Ida Falbe-Hansen
+C. Mathilde Fibiger
+D. Betty Nansen
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the spouse of the child of Peter Andreas Heiberg?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the child of Peter Andreas Heiberg?
+
+Opciones:
+A. Johanne Luise Heiberg
+B. Ida Falbe-Hansen
+C. Mathilde Fibiger
+D. Betty Nansen
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Johanne Luise Heiberg,Ida Falbe-Hansen,Mathilde Fibiger,Betty Nansen,"{""A"": ""Johanne Luise Heiberg"", ""B"": ""Ida Falbe-Hansen"", ""C"": ""Mathilde Fibiger"", ""D"": ""Betty Nansen""}",A,Johanne Luise Heiberg,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0034,musique_mc__0034,musique_mc,multiple_choice,musique,musique_mc_100,The Unwinding author volunteered for which organisation?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The Unwinding author volunteered for which organisation?
+
+Opciones:
+A. Red Cross
+B. United Nations
+C. AmeriCorps
+D. Peace Corps
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",The Unwinding author volunteered for which organisation?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The Unwinding author volunteered for which organisation?
+
+Opciones:
+A. Red Cross
+B. United Nations
+C. AmeriCorps
+D. Peace Corps
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Red Cross,United Nations,AmeriCorps,Peace Corps,"{""A"": ""Red Cross"", ""B"": ""United Nations"", ""C"": ""AmeriCorps"", ""D"": ""Peace Corps""}",D,Peace Corps,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0035,musique_mc__0035,musique_mc,multiple_choice,musique,musique_mc_100,What is the capital of the county that Pine Springs is located in?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the capital of the county that Pine Springs is located in?
+
+Opciones:
+A. Marfa
+B. Fort Stockton
+C. Van Horn
+D. Alpine
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the capital of the county that Pine Springs is located in?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the capital of the county that Pine Springs is located in?
+
+Opciones:
+A. Marfa
+B. Fort Stockton
+C. Van Horn
+D. Alpine
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Marfa,Fort Stockton,Van Horn,Alpine,"{""A"": ""Marfa"", ""B"": ""Fort Stockton"", ""C"": ""Van Horn"", ""D"": ""Alpine""}",C,Van Horn,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0036,musique_mc__0036,musique_mc,multiple_choice,musique,musique_mc_100,What district is the headquarter of Julia's House located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What district is the headquarter of Julia's House located?
+
+Opciones:
+A. North Dorset
+B. West Dorset
+C. East Dorset
+D. Purbeck
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What district is the headquarter of Julia's House located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What district is the headquarter of Julia's House located?
+
+Opciones:
+A. North Dorset
+B. West Dorset
+C. East Dorset
+D. Purbeck
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",North Dorset,West Dorset,East Dorset,Purbeck,"{""A"": ""North Dorset"", ""B"": ""West Dorset"", ""C"": ""East Dorset"", ""D"": ""Purbeck""}",C,East Dorset,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0037,musique_mc__0037,musique_mc,multiple_choice,musique,musique_mc_100,Who is the spouse of Young Man Luther's author?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of Young Man Luther's author?
+
+Opciones:
+A. Joan Erikson
+B. Helene Deutsch
+C. Dorothy Burlingham
+D. Margaret Mead
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the spouse of Young Man Luther's author?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of Young Man Luther's author?
+
+Opciones:
+A. Joan Erikson
+B. Helene Deutsch
+C. Dorothy Burlingham
+D. Margaret Mead
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Joan Erikson,Helene Deutsch,Dorothy Burlingham,Margaret Mead,"{""A"": ""Joan Erikson"", ""B"": ""Helene Deutsch"", ""C"": ""Dorothy Burlingham"", ""D"": ""Margaret Mead""}",A,Joan Erikson,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0038,musique_mc__0038,musique_mc,multiple_choice,musique,musique_mc_100,What record label did the performer of The Place and the Time belong to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What record label did the performer of The Place and the Time belong to?
+
+Opciones:
+A. Atlantic Records
+B. Decca Records
+C. Virgin Records
+D. Columbia Records
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What record label did the performer of The Place and the Time belong to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What record label did the performer of The Place and the Time belong to?
+
+Opciones:
+A. Atlantic Records
+B. Decca Records
+C. Virgin Records
+D. Columbia Records
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Atlantic Records,Decca Records,Virgin Records,Columbia Records,"{""A"": ""Atlantic Records"", ""B"": ""Decca Records"", ""C"": ""Virgin Records"", ""D"": ""Columbia Records""}",D,Columbia Records,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0039,musique_mc__0039,musique_mc,multiple_choice,musique,musique_mc_100,Who is the child of the person who followed Tihomir of Serbia?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the child of the person who followed Tihomir of Serbia?
+
+Opciones:
+A. Vukan Nemanjic
+B. Miroslav of Hum
+C. Stefan Nemanjic
+D. Saint Sava
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the child of the person who followed Tihomir of Serbia?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the child of the person who followed Tihomir of Serbia?
+
+Opciones:
+A. Vukan Nemanjic
+B. Miroslav of Hum
+C. Stefan Nemanjic
+D. Saint Sava
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Vukan Nemanjic,Miroslav of Hum,Stefan Nemanjic,Saint Sava,"{""A"": ""Vukan Nemanjic"", ""B"": ""Miroslav of Hum"", ""C"": ""Stefan Nemanjic"", ""D"": ""Saint Sava""}",D,Saint Sava,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0040,musique_mc__0040,musique_mc,multiple_choice,musique,musique_mc_100,What team was Anna Benson's husband on?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What team was Anna Benson's husband on?
+
+Opciones:
+A. Chicago Cubs
+B. New York Yankees
+C. Pittsburgh Pirates
+D. Los Angeles Dodgers
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What team was Anna Benson's husband on?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What team was Anna Benson's husband on?
+
+Opciones:
+A. Chicago Cubs
+B. New York Yankees
+C. Pittsburgh Pirates
+D. Los Angeles Dodgers
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Chicago Cubs,New York Yankees,Pittsburgh Pirates,Los Angeles Dodgers,"{""A"": ""Chicago Cubs"", ""B"": ""New York Yankees"", ""C"": ""Pittsburgh Pirates"", ""D"": ""Los Angeles Dodgers""}",C,Pittsburgh Pirates,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0041,musique_mc__0041,musique_mc,multiple_choice,musique,musique_mc_100,What place does the administrative territorial entity that Juba is located in share a border with?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What place does the administrative territorial entity that Juba is located in share a border with?
+
+Opciones:
+A. Central Equatoria
+B. Western Equatoria
+C. Eastern Equatoria
+D. Upper Nile
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What place does the administrative territorial entity that Juba is located in share a border with?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What place does the administrative territorial entity that Juba is located in share a border with?
+
+Opciones:
+A. Central Equatoria
+B. Western Equatoria
+C. Eastern Equatoria
+D. Upper Nile
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Central Equatoria,Western Equatoria,Eastern Equatoria,Upper Nile,"{""A"": ""Central Equatoria"", ""B"": ""Western Equatoria"", ""C"": ""Eastern Equatoria"", ""D"": ""Upper Nile""}",C,Eastern Equatoria,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0042,musique_mc__0042,musique_mc,multiple_choice,musique,musique_mc_100,Where was the spouse of Frances Tupper born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the spouse of Frances Tupper born?
+
+Opciones:
+A. Truro
+B. Yarmouth
+C. Amherst
+D. Halifax
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where was the spouse of Frances Tupper born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the spouse of Frances Tupper born?
+
+Opciones:
+A. Truro
+B. Yarmouth
+C. Amherst
+D. Halifax
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Truro,Yarmouth,Amherst,Halifax,"{""A"": ""Truro"", ""B"": ""Yarmouth"", ""C"": ""Amherst"", ""D"": ""Halifax""}",C,Amherst,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0043,musique_mc__0043,musique_mc,multiple_choice,musique,musique_mc_100,Who founded the political party of Dimuthu Bandara Abayakoon?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who founded the political party of Dimuthu Bandara Abayakoon?
+
+Opciones:
+A. S. W. R. D. Bandaranaike
+B. Rohana Wijeweera
+C. Don Stephen Senanayake
+D. G. G. Ponnambalam
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who founded the political party of Dimuthu Bandara Abayakoon?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who founded the political party of Dimuthu Bandara Abayakoon?
+
+Opciones:
+A. S. W. R. D. Bandaranaike
+B. Rohana Wijeweera
+C. Don Stephen Senanayake
+D. G. G. Ponnambalam
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",S. W. R. D. Bandaranaike,Rohana Wijeweera,Don Stephen Senanayake,G. G. Ponnambalam,"{""A"": ""S. W. R. D. Bandaranaike"", ""B"": ""Rohana Wijeweera"", ""C"": ""Don Stephen Senanayake"", ""D"": ""G. G. Ponnambalam""}",B,Rohana Wijeweera,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0044,musique_mc__0044,musique_mc,multiple_choice,musique,musique_mc_100,Bancroft's county borders what county?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Bancroft's county borders what county?
+
+Opciones:
+A. Lennox and Addington County
+B. Northumberland County
+C. Haliburton County
+D. Peterborough County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Bancroft's county borders what county?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Bancroft's county borders what county?
+
+Opciones:
+A. Lennox and Addington County
+B. Northumberland County
+C. Haliburton County
+D. Peterborough County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Lennox and Addington County,Northumberland County,Haliburton County,Peterborough County,"{""A"": ""Lennox and Addington County"", ""B"": ""Northumberland County"", ""C"": ""Haliburton County"", ""D"": ""Peterborough County""}",C,Haliburton County,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0045,musique_mc__0045,musique_mc,multiple_choice,musique,musique_mc_100,In which county is Mark Dismore's birthplace located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which county is Mark Dismore's birthplace located?
+
+Opciones:
+A. Hancock County
+B. Decatur County
+C. Shelby County
+D. Marion County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In which county is Mark Dismore's birthplace located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which county is Mark Dismore's birthplace located?
+
+Opciones:
+A. Hancock County
+B. Decatur County
+C. Shelby County
+D. Marion County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Hancock County,Decatur County,Shelby County,Marion County,"{""A"": ""Hancock County"", ""B"": ""Decatur County"", ""C"": ""Shelby County"", ""D"": ""Marion County""}",A,Hancock County,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0046,musique_mc__0046,musique_mc,multiple_choice,musique,musique_mc_100,Who was the sibling of Nannina de' Medici?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who was the sibling of Nannina de' Medici?
+
+Opciones:
+A. Piero de' Medici
+B. Giuliano de' Medici
+C. Giovanni de' Medici
+D. Lorenzo de' Medici
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who was the sibling of Nannina de' Medici?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who was the sibling of Nannina de' Medici?
+
+Opciones:
+A. Piero de' Medici
+B. Giuliano de' Medici
+C. Giovanni de' Medici
+D. Lorenzo de' Medici
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Piero de' Medici,Giuliano de' Medici,Giovanni de' Medici,Lorenzo de' Medici,"{""A"": ""Piero de' Medici"", ""B"": ""Giuliano de' Medici"", ""C"": ""Giovanni de' Medici"", ""D"": ""Lorenzo de' Medici""}",B,Giuliano de' Medici,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0047,musique_mc__0047,musique_mc,multiple_choice,musique,musique_mc_100,What county is the NRHEG High School located in?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What county is the NRHEG High School located in?
+
+Opciones:
+A. Le Sueur County
+B. Rice County
+C. Steele County
+D. Waseca County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What county is the NRHEG High School located in?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What county is the NRHEG High School located in?
+
+Opciones:
+A. Le Sueur County
+B. Rice County
+C. Steele County
+D. Waseca County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Le Sueur County,Rice County,Steele County,Waseca County,"{""A"": ""Le Sueur County"", ""B"": ""Rice County"", ""C"": ""Steele County"", ""D"": ""Waseca County""}",D,Waseca County,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0048,musique_mc__0048,musique_mc,multiple_choice,musique,musique_mc_100,What league does the team that occupies the Rabat Ajax Football Ground belong to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What league does the team that occupies the Rabat Ajax Football Ground belong to?
+
+Opciones:
+A. Maltese Premier League
+B. Maltese Challenge League
+C. Maltese First Division
+D. Maltese Second Division
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What league does the team that occupies the Rabat Ajax Football Ground belong to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What league does the team that occupies the Rabat Ajax Football Ground belong to?
+
+Opciones:
+A. Maltese Premier League
+B. Maltese Challenge League
+C. Maltese First Division
+D. Maltese Second Division
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Maltese Premier League,Maltese Challenge League,Maltese First Division,Maltese Second Division,"{""A"": ""Maltese Premier League"", ""B"": ""Maltese Challenge League"", ""C"": ""Maltese First Division"", ""D"": ""Maltese Second Division""}",A,Maltese Premier League,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0049,musique_mc__0049,musique_mc,multiple_choice,musique,musique_mc_100,Who was married to the star of No Escape?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who was married to the star of No Escape?
+
+Opciones:
+A. Michael Redgrave
+B. John Profumo
+C. Alec Guinness
+D. Laurence Olivier
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who was married to the star of No Escape?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who was married to the star of No Escape?
+
+Opciones:
+A. Michael Redgrave
+B. John Profumo
+C. Alec Guinness
+D. Laurence Olivier
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Michael Redgrave,John Profumo,Alec Guinness,Laurence Olivier,"{""A"": ""Michael Redgrave"", ""B"": ""John Profumo"", ""C"": ""Alec Guinness"", ""D"": ""Laurence Olivier""}",B,John Profumo,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0050,musique_mc__0050,musique_mc,multiple_choice,musique,musique_mc_100,What administrative territorial entity contains the place where KPRM is licensed to broadcast to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What administrative territorial entity contains the place where KPRM is licensed to broadcast to?
+
+Opciones:
+A. Hubbard County
+B. Becker County
+C. Cass County
+D. Clearwater County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What administrative territorial entity contains the place where KPRM is licensed to broadcast to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What administrative territorial entity contains the place where KPRM is licensed to broadcast to?
+
+Opciones:
+A. Hubbard County
+B. Becker County
+C. Cass County
+D. Clearwater County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Hubbard County,Becker County,Cass County,Clearwater County,"{""A"": ""Hubbard County"", ""B"": ""Becker County"", ""C"": ""Cass County"", ""D"": ""Clearwater County""}",A,Hubbard County,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0051,musique_mc__0051,musique_mc,multiple_choice,musique,musique_mc_100,Where are the headquarters for the publisher of In the Shadow of Greatness?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where are the headquarters for the publisher of In the Shadow of Greatness?
+
+Opciones:
+A. Alexandria
+B. Washington
+C. Baltimore
+D. Annapolis
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where are the headquarters for the publisher of In the Shadow of Greatness?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where are the headquarters for the publisher of In the Shadow of Greatness?
+
+Opciones:
+A. Alexandria
+B. Washington
+C. Baltimore
+D. Annapolis
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Alexandria,Washington,Baltimore,Annapolis,"{""A"": ""Alexandria"", ""B"": ""Washington"", ""C"": ""Baltimore"", ""D"": ""Annapolis""}",D,Annapolis,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0052,musique_mc__0052,musique_mc,multiple_choice,musique,musique_mc_100,Who is part of the band that performed Full Cooperation?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is part of the band that performed Full Cooperation?
+
+Opciones:
+A. Keith Murray
+B. Busta Rhymes
+C. Erick Sermon
+D. Method Man
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is part of the band that performed Full Cooperation?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is part of the band that performed Full Cooperation?
+
+Opciones:
+A. Keith Murray
+B. Busta Rhymes
+C. Erick Sermon
+D. Method Man
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Keith Murray,Busta Rhymes,Erick Sermon,Method Man,"{""A"": ""Keith Murray"", ""B"": ""Busta Rhymes"", ""C"": ""Erick Sermon"", ""D"": ""Method Man""}",C,Erick Sermon,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0053,musique_mc__0053,musique_mc,multiple_choice,musique,musique_mc_100,The territory containing Bansaan Island is located at which island?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The territory containing Bansaan Island is located at which island?
+
+Opciones:
+A. Cebu Island
+B. Panglao Island
+C. Bohol Island
+D. Siargao Island
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",The territory containing Bansaan Island is located at which island?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The territory containing Bansaan Island is located at which island?
+
+Opciones:
+A. Cebu Island
+B. Panglao Island
+C. Bohol Island
+D. Siargao Island
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Cebu Island,Panglao Island,Bohol Island,Siargao Island,"{""A"": ""Cebu Island"", ""B"": ""Panglao Island"", ""C"": ""Bohol Island"", ""D"": ""Siargao Island""}",B,Panglao Island,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0054,musique_mc__0054,musique_mc,multiple_choice,musique,musique_mc_100,In which county did Snappy Tomato Pizza form?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which county did Snappy Tomato Pizza form?
+
+Opciones:
+A. Boone County
+B. Campbell County
+C. Hamilton County
+D. Kenton County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In which county did Snappy Tomato Pizza form?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which county did Snappy Tomato Pizza form?
+
+Opciones:
+A. Boone County
+B. Campbell County
+C. Hamilton County
+D. Kenton County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Boone County,Campbell County,Hamilton County,Kenton County,"{""A"": ""Boone County"", ""B"": ""Campbell County"", ""C"": ""Hamilton County"", ""D"": ""Kenton County""}",D,Kenton County,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0055,musique_mc__0055,musique_mc,multiple_choice,musique,musique_mc_100,What's the place of birth of the former member of The Sunnyboys?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What's the place of birth of the former member of The Sunnyboys?
+
+Opciones:
+A. Ballina
+B. Byron Bay
+C. Kingscliff
+D. Newcastle
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What's the place of birth of the former member of The Sunnyboys?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What's the place of birth of the former member of The Sunnyboys?
+
+Opciones:
+A. Ballina
+B. Byron Bay
+C. Kingscliff
+D. Newcastle
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Ballina,Byron Bay,Kingscliff,Newcastle,"{""A"": ""Ballina"", ""B"": ""Byron Bay"", ""C"": ""Kingscliff"", ""D"": ""Newcastle""}",C,Kingscliff,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0056,musique_mc__0056,musique_mc,multiple_choice,musique,musique_mc_100,In which district was Ernie Watts born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which district was Ernie Watts born?
+
+Opciones:
+A. North Somerset
+B. East Hampshire
+C. South Oxfordshire
+D. West Berkshire
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In which district was Ernie Watts born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which district was Ernie Watts born?
+
+Opciones:
+A. North Somerset
+B. East Hampshire
+C. South Oxfordshire
+D. West Berkshire
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",North Somerset,East Hampshire,South Oxfordshire,West Berkshire,"{""A"": ""North Somerset"", ""B"": ""East Hampshire"", ""C"": ""South Oxfordshire"", ""D"": ""West Berkshire""}",D,West Berkshire,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0057,musique_mc__0057,musique_mc,multiple_choice,musique,musique_mc_100,Which county does Lloyd Dane's birthplace belong to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Which county does Lloyd Dane's birthplace belong to?
+
+Opciones:
+A. Phelps County
+B. Miller County
+C. Camden County
+D. Cole County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Which county does Lloyd Dane's birthplace belong to?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Which county does Lloyd Dane's birthplace belong to?
+
+Opciones:
+A. Phelps County
+B. Miller County
+C. Camden County
+D. Cole County
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Phelps County,Miller County,Camden County,Cole County,"{""A"": ""Phelps County"", ""B"": ""Miller County"", ""C"": ""Camden County"", ""D"": ""Cole County""}",B,Miller County,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0058,musique_mc__0058,musique_mc,multiple_choice,musique,musique_mc_100,Who is the spouse of the screenwriter of The Actress?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the screenwriter of The Actress?
+
+Opciones:
+A. Basil Dearden
+B. Rip Torn
+C. Garson Kanin
+D. Stephen Hensley
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the spouse of the screenwriter of The Actress?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the screenwriter of The Actress?
+
+Opciones:
+A. Basil Dearden
+B. Rip Torn
+C. Garson Kanin
+D. Stephen Hensley
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Basil Dearden,Rip Torn,Garson Kanin,Stephen Hensley,"{""A"": ""Basil Dearden"", ""B"": ""Rip Torn"", ""C"": ""Garson Kanin"", ""D"": ""Stephen Hensley""}",C,Garson Kanin,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0059,musique_mc__0059,musique_mc,multiple_choice,musique,musique_mc_100,What award was received by the person who authored Missing Person?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What award was received by the person who authored Missing Person?
+
+Opciones:
+A. Nobel Prize in Literature
+B. Man Booker Prize
+C. Pulitzer Prize for Fiction
+D. Cervantes Prize
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What award was received by the person who authored Missing Person?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What award was received by the person who authored Missing Person?
+
+Opciones:
+A. Nobel Prize in Literature
+B. Man Booker Prize
+C. Pulitzer Prize for Fiction
+D. Cervantes Prize
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Nobel Prize in Literature,Man Booker Prize,Pulitzer Prize for Fiction,Cervantes Prize,"{""A"": ""Nobel Prize in Literature"", ""B"": ""Man Booker Prize"", ""C"": ""Pulitzer Prize for Fiction"", ""D"": ""Cervantes Prize""}",A,Nobel Prize in Literature,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0060,musique_mc__0060,musique_mc,multiple_choice,musique,musique_mc_100,What event caused the founder of Australia's liberal party to become Prime Minister?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What event caused the founder of Australia's liberal party to become Prime Minister?
+
+Opciones:
+A. Lyons' death in 1939
+B. Vote of no confidence in 1939
+C. Coalition collapse in 1939
+D. Election victory in 1940
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What event caused the founder of Australia's liberal party to become Prime Minister?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What event caused the founder of Australia's liberal party to become Prime Minister?
+
+Opciones:
+A. Lyons' death in 1939
+B. Vote of no confidence in 1939
+C. Coalition collapse in 1939
+D. Election victory in 1940
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Lyons' death in 1939,Vote of no confidence in 1939,Coalition collapse in 1939,Election victory in 1940,"{""A"": ""Lyons' death in 1939"", ""B"": ""Vote of no confidence in 1939"", ""C"": ""Coalition collapse in 1939"", ""D"": ""Election victory in 1940""}",A,Lyons' death in 1939,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0061,musique_mc__0061,musique_mc,multiple_choice,musique,musique_mc_100,What event caused the Liberal Party of Australia's longest-serving leader to become Prime Minister?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What event caused the Liberal Party of Australia's longest-serving leader to become Prime Minister?
+
+Opciones:
+A. Lyons' death in 1939
+B. Winning the 1949 federal election
+C. Resignation of the prime minister in 1941
+D. A party leadership challenge in 1939
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What event caused the Liberal Party of Australia's longest-serving leader to become Prime Minister?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What event caused the Liberal Party of Australia's longest-serving leader to become Prime Minister?
+
+Opciones:
+A. Lyons' death in 1939
+B. Winning the 1949 federal election
+C. Resignation of the prime minister in 1941
+D. A party leadership challenge in 1939
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Lyons' death in 1939,Winning the 1949 federal election,Resignation of the prime minister in 1941,A party leadership challenge in 1939,"{""A"": ""Lyons' death in 1939"", ""B"": ""Winning the 1949 federal election"", ""C"": ""Resignation of the prime minister in 1941"", ""D"": ""A party leadership challenge in 1939""}",A,Lyons' death in 1939,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0062,musique_mc__0062,musique_mc,multiple_choice,musique,musique_mc_100,What was the average per capita GVA in 2013 of the country which created Burma's academic system?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What was the average per capita GVA in 2013 of the country which created Burma's academic system?
+
+Opciones:
+A. £20,615
+B. £27,890
+C. £18,430
+D. £23,755
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What was the average per capita GVA in 2013 of the country which created Burma's academic system?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What was the average per capita GVA in 2013 of the country which created Burma's academic system?
+
+Opciones:
+A. £20,615
+B. £27,890
+C. £18,430
+D. £23,755
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}","£20,615","£27,890","£18,430","£23,755","{""A"": ""£20,615"", ""B"": ""£27,890"", ""C"": ""£18,430"", ""D"": ""£23,755""}",D,"£23,755",D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0063,musique_mc__0063,musique_mc,multiple_choice,musique,musique_mc_100,Who is the spouse of the creator of The Nanny Reunion: A Nosh to Remember?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the creator of The Nanny Reunion: A Nosh to Remember?
+
+Opciones:
+A. Charles Shaughnessy
+B. Peter Marc Jacobson
+C. Michael Patrick King
+D. Ben Stiller
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the spouse of the creator of The Nanny Reunion: A Nosh to Remember?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the spouse of the creator of The Nanny Reunion: A Nosh to Remember?
+
+Opciones:
+A. Charles Shaughnessy
+B. Peter Marc Jacobson
+C. Michael Patrick King
+D. Ben Stiller
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Charles Shaughnessy,Peter Marc Jacobson,Michael Patrick King,Ben Stiller,"{""A"": ""Charles Shaughnessy"", ""B"": ""Peter Marc Jacobson"", ""C"": ""Michael Patrick King"", ""D"": ""Ben Stiller""}",B,Peter Marc Jacobson,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0064,musique_mc__0064,musique_mc,multiple_choice,musique,musique_mc_100,Who founded the publisher of The Final Testament of the Holy Bible?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who founded the publisher of The Final Testament of the Holy Bible?
+
+Opciones:
+A. John Murray
+B. Larry Gagosian
+C. Alfred A. Knopf
+D. George Palmer Putnam
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who founded the publisher of The Final Testament of the Holy Bible?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who founded the publisher of The Final Testament of the Holy Bible?
+
+Opciones:
+A. John Murray
+B. Larry Gagosian
+C. Alfred A. Knopf
+D. George Palmer Putnam
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",John Murray,Larry Gagosian,Alfred A. Knopf,George Palmer Putnam,"{""A"": ""John Murray"", ""B"": ""Larry Gagosian"", ""C"": ""Alfred A. Knopf"", ""D"": ""George Palmer Putnam""}",B,Larry Gagosian,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0065,musique_mc__0065,musique_mc,multiple_choice,musique,musique_mc_100,During which era was the company that makes Nirbhay founded?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+During which era was the company that makes Nirbhay founded?
+
+Opciones:
+A. From the 1600s to the 1700s
+B. From the 1890s to the 1910s
+C. From the 1950s to the 1970s
+D. From the 2000s to the 2020s
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",During which era was the company that makes Nirbhay founded?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+During which era was the company that makes Nirbhay founded?
+
+Opciones:
+A. From the 1600s to the 1700s
+B. From the 1890s to the 1910s
+C. From the 1950s to the 1970s
+D. From the 2000s to the 2020s
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",From the 1600s to the 1700s,From the 1890s to the 1910s,From the 1950s to the 1970s,From the 2000s to the 2020s,"{""A"": ""From the 1600s to the 1700s"", ""B"": ""From the 1890s to the 1910s"", ""C"": ""From the 1950s to the 1970s"", ""D"": ""From the 2000s to the 2020s""}",C,From the 1950s to the 1970s,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0066,musique_mc__0066,musique_mc,multiple_choice,musique,musique_mc_100,During what era was the manufacturer of Agni-V founded?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+During what era was the manufacturer of Agni-V founded?
+
+Opciones:
+A. From the 1890s to the 1910s
+B. From the 1920s to the 1940s
+C. From the 1950s to the 1970s
+D. From the 1970s to the 1990s
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",During what era was the manufacturer of Agni-V founded?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+During what era was the manufacturer of Agni-V founded?
+
+Opciones:
+A. From the 1890s to the 1910s
+B. From the 1920s to the 1940s
+C. From the 1950s to the 1970s
+D. From the 1970s to the 1990s
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",From the 1890s to the 1910s,From the 1920s to the 1940s,From the 1950s to the 1970s,From the 1970s to the 1990s,"{""A"": ""From the 1890s to the 1910s"", ""B"": ""From the 1920s to the 1940s"", ""C"": ""From the 1950s to the 1970s"", ""D"": ""From the 1970s to the 1990s""}",C,From the 1950s to the 1970s,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0067,musique_mc__0067,musique_mc,multiple_choice,musique,musique_mc_100,In what era was the company known as the manufacturer of Agni-V founded?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In what era was the company known as the manufacturer of Agni-V founded?
+
+Opciones:
+A. From the 1950s to the 1970s
+B. From the 1890s to the 1910s
+C. From the 1970s to the 1990s
+D. From the 1920s to the 1940s
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In what era was the company known as the manufacturer of Agni-V founded?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In what era was the company known as the manufacturer of Agni-V founded?
+
+Opciones:
+A. From the 1950s to the 1970s
+B. From the 1890s to the 1910s
+C. From the 1970s to the 1990s
+D. From the 1920s to the 1940s
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",From the 1950s to the 1970s,From the 1890s to the 1910s,From the 1970s to the 1990s,From the 1920s to the 1940s,"{""A"": ""From the 1950s to the 1970s"", ""B"": ""From the 1890s to the 1910s"", ""C"": ""From the 1970s to the 1990s"", ""D"": ""From the 1920s to the 1940s""}",A,From the 1950s to the 1970s,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0068,musique_mc__0068,musique_mc,multiple_choice,musique,musique_mc_100,What city is located in the county containing Qiantong?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What city is located in the county containing Qiantong?
+
+Opciones:
+A. Ningbo
+B. Hangzhou
+C. Wenzhou
+D. Shaoxing
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What city is located in the county containing Qiantong?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What city is located in the county containing Qiantong?
+
+Opciones:
+A. Ningbo
+B. Hangzhou
+C. Wenzhou
+D. Shaoxing
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Ningbo,Hangzhou,Wenzhou,Shaoxing,"{""A"": ""Ningbo"", ""B"": ""Hangzhou"", ""C"": ""Wenzhou"", ""D"": ""Shaoxing""}",A,Ningbo,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0069,musique_mc__0069,musique_mc,multiple_choice,musique,musique_mc_100,What is the performer of Heartbeat named after?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the performer of Heartbeat named after?
+
+Opciones:
+A. Natalie Merchant
+B. Nina Simone
+C. Natalie Albino
+D. Nicole Albino
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the performer of Heartbeat named after?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the performer of Heartbeat named after?
+
+Opciones:
+A. Natalie Merchant
+B. Nina Simone
+C. Natalie Albino
+D. Nicole Albino
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Natalie Merchant,Nina Simone,Natalie Albino,Nicole Albino,"{""A"": ""Natalie Merchant"", ""B"": ""Nina Simone"", ""C"": ""Natalie Albino"", ""D"": ""Nicole Albino""}",C,Natalie Albino,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0070,musique_mc__0070,musique_mc,multiple_choice,musique,musique_mc_100,The Move Ya Body song's band is named after who?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The Move Ya Body song's band is named after who?
+
+Opciones:
+A. Jennifer Lopez
+B. Natalie Albino
+C. Nicole Scherzinger
+D. Nicole Albino
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",The Move Ya Body song's band is named after who?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The Move Ya Body song's band is named after who?
+
+Opciones:
+A. Jennifer Lopez
+B. Natalie Albino
+C. Nicole Scherzinger
+D. Nicole Albino
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Jennifer Lopez,Natalie Albino,Nicole Scherzinger,Nicole Albino,"{""A"": ""Jennifer Lopez"", ""B"": ""Natalie Albino"", ""C"": ""Nicole Scherzinger"", ""D"": ""Nicole Albino""}",B,Natalie Albino,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0071,musique_mc__0071,musique_mc,multiple_choice,musique,musique_mc_100,When did the spacecraft that detected storms on Neptune leave our solar system?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+When did the spacecraft that detected storms on Neptune leave our solar system?
+
+Opciones:
+A. August 30, 2007
+B. September 12, 2012
+C. August 25, 1989
+D. November 5, 2018
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",When did the spacecraft that detected storms on Neptune leave our solar system?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+When did the spacecraft that detected storms on Neptune leave our solar system?
+
+Opciones:
+A. August 30, 2007
+B. September 12, 2012
+C. August 25, 1989
+D. November 5, 2018
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}","August 30, 2007","September 12, 2012","August 25, 1989","November 5, 2018","{""A"": ""August 30, 2007"", ""B"": ""September 12, 2012"", ""C"": ""August 25, 1989"", ""D"": ""November 5, 2018""}",A,"August 30, 2007",A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0072,musique_mc__0072,musique_mc,multiple_choice,musique,musique_mc_100,The Nicole and Natalie album's band is named after who?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The Nicole and Natalie album's band is named after who?
+
+Opciones:
+A. Jessica Alba
+B. Nicole Albino
+C. Natalie Albino
+D. Nicole Richie
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",The Nicole and Natalie album's band is named after who?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The Nicole and Natalie album's band is named after who?
+
+Opciones:
+A. Jessica Alba
+B. Nicole Albino
+C. Natalie Albino
+D. Nicole Richie
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Jessica Alba,Nicole Albino,Natalie Albino,Nicole Richie,"{""A"": ""Jessica Alba"", ""B"": ""Nicole Albino"", ""C"": ""Natalie Albino"", ""D"": ""Nicole Richie""}",C,Natalie Albino,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0073,musique_mc__0073,musique_mc,multiple_choice,musique,musique_mc_100,Where was the founder of the National Women's Party born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the founder of the National Women's Party born?
+
+Opciones:
+A. Swarthmore, Pennsylvania
+B. Moorestown Township
+C. Mount Holly Township
+D. Mount Laurel Township
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where was the founder of the National Women's Party born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the founder of the National Women's Party born?
+
+Opciones:
+A. Swarthmore, Pennsylvania
+B. Moorestown Township
+C. Mount Holly Township
+D. Mount Laurel Township
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}","Swarthmore, Pennsylvania",Moorestown Township,Mount Holly Township,Mount Laurel Township,"{""A"": ""Swarthmore, Pennsylvania"", ""B"": ""Moorestown Township"", ""C"": ""Mount Holly Township"", ""D"": ""Mount Laurel Township""}",D,Mount Laurel Township,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0074,musique_mc__0074,musique_mc,multiple_choice,musique,musique_mc_100,What is the place of birth of the person who submitted the first version of the equal rights amendment to congress in 1923?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the place of birth of the person who submitted the first version of the equal rights amendment to congress in 1923?
+
+Opciones:
+A. Mount Laurel Township
+B. Cherry Hill Township
+C. Haddonfield, New Jersey
+D. Mount Holly Township
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the place of birth of the person who submitted the first version of the equal rights amendment to congress in 1923?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the place of birth of the person who submitted the first version of the equal rights amendment to congress in 1923?
+
+Opciones:
+A. Mount Laurel Township
+B. Cherry Hill Township
+C. Haddonfield, New Jersey
+D. Mount Holly Township
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Mount Laurel Township,Cherry Hill Township,"Haddonfield, New Jersey",Mount Holly Township,"{""A"": ""Mount Laurel Township"", ""B"": ""Cherry Hill Township"", ""C"": ""Haddonfield, New Jersey"", ""D"": ""Mount Holly Township""}",A,Mount Laurel Township,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0075,musique_mc__0075,musique_mc,multiple_choice,musique,musique_mc_100,The Directory of Public Worship was approved by a parliament whose modern equivalent has been based where since 2004?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The Directory of Public Worship was approved by a parliament whose modern equivalent has been based where since 2004?
+
+Opciones:
+A. Scottish Parliament Building
+B. Palace of Holyroodhouse
+C. Palace of Westminster
+D. Stormont Parliament Buildings
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",The Directory of Public Worship was approved by a parliament whose modern equivalent has been based where since 2004?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The Directory of Public Worship was approved by a parliament whose modern equivalent has been based where since 2004?
+
+Opciones:
+A. Scottish Parliament Building
+B. Palace of Holyroodhouse
+C. Palace of Westminster
+D. Stormont Parliament Buildings
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Scottish Parliament Building,Palace of Holyroodhouse,Palace of Westminster,Stormont Parliament Buildings,"{""A"": ""Scottish Parliament Building"", ""B"": ""Palace of Holyroodhouse"", ""C"": ""Palace of Westminster"", ""D"": ""Stormont Parliament Buildings""}",A,Scottish Parliament Building,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0076,musique_mc__0076,musique_mc,multiple_choice,musique,musique_mc_100,Where was the person featured on the Chester Arthur coin born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the person featured on the Chester Arthur coin born?
+
+Opciones:
+A. Colorado Springs, Colorado
+B. Fairfield, Vermont
+C. Louisville, Kentucky
+D. Mount Laurel Township
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where was the person featured on the Chester Arthur coin born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the person featured on the Chester Arthur coin born?
+
+Opciones:
+A. Colorado Springs, Colorado
+B. Fairfield, Vermont
+C. Louisville, Kentucky
+D. Mount Laurel Township
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}","Colorado Springs, Colorado","Fairfield, Vermont","Louisville, Kentucky",Mount Laurel Township,"{""A"": ""Colorado Springs, Colorado"", ""B"": ""Fairfield, Vermont"", ""C"": ""Louisville, Kentucky"", ""D"": ""Mount Laurel Township""}",D,Mount Laurel Township,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0077,musique_mc__0077,musique_mc,multiple_choice,musique,musique_mc_100,"Since 2004, what is the location of the body to which, if a matter is not specifically reserved, it is devolved?","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Since 2004, what is the location of the body to which, if a matter is not specifically reserved, it is devolved?
+
+Opciones:
+A. Palace of Westminster
+B. Scottish Parliament Building
+C. Edinburgh Castle
+D. Palace of Holyroodhouse
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}","Since 2004, what is the location of the body to which, if a matter is not specifically reserved, it is devolved?","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Since 2004, what is the location of the body to which, if a matter is not specifically reserved, it is devolved?
+
+Opciones:
+A. Palace of Westminster
+B. Scottish Parliament Building
+C. Edinburgh Castle
+D. Palace of Holyroodhouse
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Palace of Westminster,Scottish Parliament Building,Edinburgh Castle,Palace of Holyroodhouse,"{""A"": ""Palace of Westminster"", ""B"": ""Scottish Parliament Building"", ""C"": ""Edinburgh Castle"", ""D"": ""Palace of Holyroodhouse""}",B,Scottish Parliament Building,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0078,musique_mc__0078,musique_mc,multiple_choice,musique,musique_mc_100,The city which contains Broadhurst Park shares a border with what town?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The city which contains Broadhurst Park shares a border with what town?
+
+Opciones:
+A. Radcliffe
+B. Rochdale
+C. Prestwich
+D. Middleton
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",The city which contains Broadhurst Park shares a border with what town?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The city which contains Broadhurst Park shares a border with what town?
+
+Opciones:
+A. Radcliffe
+B. Rochdale
+C. Prestwich
+D. Middleton
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Radcliffe,Rochdale,Prestwich,Middleton,"{""A"": ""Radcliffe"", ""B"": ""Rochdale"", ""C"": ""Prestwich"", ""D"": ""Middleton""}",D,Middleton,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0079,musique_mc__0079,musique_mc,multiple_choice,musique,musique_mc_100,What is the record label of the Metalworks Studio founder?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the record label of the Metalworks Studio founder?
+
+Opciones:
+A. Nothing Records
+B. Necessary Records
+C. Biltmore Records
+D. TML Entertainment
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the record label of the Metalworks Studio founder?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the record label of the Metalworks Studio founder?
+
+Opciones:
+A. Nothing Records
+B. Necessary Records
+C. Biltmore Records
+D. TML Entertainment
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Nothing Records,Necessary Records,Biltmore Records,TML Entertainment,"{""A"": ""Nothing Records"", ""B"": ""Necessary Records"", ""C"": ""Biltmore Records"", ""D"": ""TML Entertainment""}",D,TML Entertainment,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0080,musique_mc__0080,musique_mc,multiple_choice,musique,musique_mc_100,What is the mouth of watercourse for the body of water where Bartram's Covered Bridge is located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the mouth of watercourse for the body of water where Bartram's Covered Bridge is located?
+
+Opciones:
+A. Susquehanna River
+B. Schuylkill River
+C. Delaware River
+D. Allegheny River
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the mouth of watercourse for the body of water where Bartram's Covered Bridge is located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the mouth of watercourse for the body of water where Bartram's Covered Bridge is located?
+
+Opciones:
+A. Susquehanna River
+B. Schuylkill River
+C. Delaware River
+D. Allegheny River
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Susquehanna River,Schuylkill River,Delaware River,Allegheny River,"{""A"": ""Susquehanna River"", ""B"": ""Schuylkill River"", ""C"": ""Delaware River"", ""D"": ""Allegheny River""}",C,Delaware River,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0081,musique_mc__0081,musique_mc,multiple_choice,musique,musique_mc_100,What is the ruler of the underworld in ancient Egypt a part of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the ruler of the underworld in ancient Egypt a part of?
+
+Opciones:
+A. ancient Egyptian religion
+B. ancient Greek religion
+C. ancient Mesopotamian religion
+D. ancient Canaanite religion
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the ruler of the underworld in ancient Egypt a part of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the ruler of the underworld in ancient Egypt a part of?
+
+Opciones:
+A. ancient Egyptian religion
+B. ancient Greek religion
+C. ancient Mesopotamian religion
+D. ancient Canaanite religion
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",ancient Egyptian religion,ancient Greek religion,ancient Mesopotamian religion,ancient Canaanite religion,"{""A"": ""ancient Egyptian religion"", ""B"": ""ancient Greek religion"", ""C"": ""ancient Mesopotamian religion"", ""D"": ""ancient Canaanite religion""}",A,ancient Egyptian religion,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0082,musique_mc__0082,musique_mc,multiple_choice,musique,musique_mc_100,What pantheon is the God of the underworld in ancient Egypt a part of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What pantheon is the God of the underworld in ancient Egypt a part of?
+
+Opciones:
+A. ancient Greek religion
+B. ancient Mesopotamian religion
+C. ancient Roman religion
+D. ancient Egyptian religion
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What pantheon is the God of the underworld in ancient Egypt a part of?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What pantheon is the God of the underworld in ancient Egypt a part of?
+
+Opciones:
+A. ancient Greek religion
+B. ancient Mesopotamian religion
+C. ancient Roman religion
+D. ancient Egyptian religion
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",ancient Greek religion,ancient Mesopotamian religion,ancient Roman religion,ancient Egyptian religion,"{""A"": ""ancient Greek religion"", ""B"": ""ancient Mesopotamian religion"", ""C"": ""ancient Roman religion"", ""D"": ""ancient Egyptian religion""}",D,ancient Egyptian religion,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0083,musique_mc__0083,musique_mc,multiple_choice,musique,musique_mc_100,In which district was Alhandra born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which district was Alhandra born?
+
+Opciones:
+A. Leiria District
+B. Lisbon District
+C. Setubal District
+D. Santarem District
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In which district was Alhandra born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which district was Alhandra born?
+
+Opciones:
+A. Leiria District
+B. Lisbon District
+C. Setubal District
+D. Santarem District
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Leiria District,Lisbon District,Setubal District,Santarem District,"{""A"": ""Leiria District"", ""B"": ""Lisbon District"", ""C"": ""Setubal District"", ""D"": ""Santarem District""}",B,Lisbon District,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0084,musique_mc__0084,musique_mc,multiple_choice,musique,musique_mc_100,In which state is Vera Barbosa's place of birth located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which state is Vera Barbosa's place of birth located?
+
+Opciones:
+A. Lisbon District
+B. Santarem District
+C. Setubal District
+D. Porto District
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In which state is Vera Barbosa's place of birth located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which state is Vera Barbosa's place of birth located?
+
+Opciones:
+A. Lisbon District
+B. Santarem District
+C. Setubal District
+D. Porto District
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Lisbon District,Santarem District,Setubal District,Porto District,"{""A"": ""Lisbon District"", ""B"": ""Santarem District"", ""C"": ""Setubal District"", ""D"": ""Porto District""}",A,Lisbon District,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0085,musique_mc__0085,musique_mc,multiple_choice,musique,musique_mc_100,In which state is Póvoa de Santa Iria's municipality located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which state is Póvoa de Santa Iria's municipality located?
+
+Opciones:
+A. Setubal District
+B. Porto District
+C. Lisbon District
+D. Santarem District
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",In which state is Póvoa de Santa Iria's municipality located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+In which state is Póvoa de Santa Iria's municipality located?
+
+Opciones:
+A. Setubal District
+B. Porto District
+C. Lisbon District
+D. Santarem District
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Setubal District,Porto District,Lisbon District,Santarem District,"{""A"": ""Setubal District"", ""B"": ""Porto District"", ""C"": ""Lisbon District"", ""D"": ""Santarem District""}",C,Lisbon District,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0086,musique_mc__0086,musique_mc,multiple_choice,musique,musique_mc_100,How old was Mary when engaged to the person from whom São José dos Campos takes it's name?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+How old was Mary when engaged to the person from whom São José dos Campos takes it's name?
+
+Opciones:
+A. 12–14 years old
+B. 15–17 years old
+C. 14–16 years old
+D. 9–11 years old
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",How old was Mary when engaged to the person from whom São José dos Campos takes it's name?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+How old was Mary when engaged to the person from whom São José dos Campos takes it's name?
+
+Opciones:
+A. 12–14 years old
+B. 15–17 years old
+C. 14–16 years old
+D. 9–11 years old
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",12–14 years old,15–17 years old,14–16 years old,9–11 years old,"{""A"": ""12–14 years old"", ""B"": ""15–17 years old"", ""C"": ""14–16 years old"", ""D"": ""9–11 years old""}",A,12–14 years old,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0087,musique_mc__0087,musique_mc,multiple_choice,musique,musique_mc_100,Where was Mary's betrothed born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was Mary's betrothed born?
+
+Opciones:
+A. Bethlehem
+B. Capernaum
+C. Nazareth
+D. Jerusalem
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where was Mary's betrothed born?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was Mary's betrothed born?
+
+Opciones:
+A. Bethlehem
+B. Capernaum
+C. Nazareth
+D. Jerusalem
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Bethlehem,Capernaum,Nazareth,Jerusalem,"{""A"": ""Bethlehem"", ""B"": ""Capernaum"", ""C"": ""Nazareth"", ""D"": ""Jerusalem""}",C,Nazareth,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0088,musique_mc__0088,musique_mc,multiple_choice,musique,musique_mc_100,Where is the country with ISO code ISO 3166-2:CV located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where is the country with ISO code ISO 3166-2:CV located?
+
+Opciones:
+A. central Atlantic Ocean
+B. North Atlantic Ocean
+C. West African coast
+D. Gulf of Guinea
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where is the country with ISO code ISO 3166-2:CV located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where is the country with ISO code ISO 3166-2:CV located?
+
+Opciones:
+A. central Atlantic Ocean
+B. North Atlantic Ocean
+C. West African coast
+D. Gulf of Guinea
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",central Atlantic Ocean,North Atlantic Ocean,West African coast,Gulf of Guinea,"{""A"": ""central Atlantic Ocean"", ""B"": ""North Atlantic Ocean"", ""C"": ""West African coast"", ""D"": ""Gulf of Guinea""}",A,central Atlantic Ocean,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0089,musique_mc__0089,musique_mc,multiple_choice,musique,musique_mc_100,Where is Assomada located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where is Assomada located?
+
+Opciones:
+A. central Mediterranean Sea
+B. southern Atlantic Ocean
+C. central Atlantic Ocean
+D. eastern Atlantic Ocean
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where is Assomada located?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where is Assomada located?
+
+Opciones:
+A. central Mediterranean Sea
+B. southern Atlantic Ocean
+C. central Atlantic Ocean
+D. eastern Atlantic Ocean
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",central Mediterranean Sea,southern Atlantic Ocean,central Atlantic Ocean,eastern Atlantic Ocean,"{""A"": ""central Mediterranean Sea"", ""B"": ""southern Atlantic Ocean"", ""C"": ""central Atlantic Ocean"", ""D"": ""eastern Atlantic Ocean""}",C,central Atlantic Ocean,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0090,musique_mc__0090,musique_mc,multiple_choice,musique,musique_mc_100,Where is Amílcar Cabral International Airport?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where is Amílcar Cabral International Airport?
+
+Opciones:
+A. South Atlantic Ocean
+B. Gulf of Guinea
+C. North Atlantic Ocean
+D. central Atlantic Ocean
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where is Amílcar Cabral International Airport?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where is Amílcar Cabral International Airport?
+
+Opciones:
+A. South Atlantic Ocean
+B. Gulf of Guinea
+C. North Atlantic Ocean
+D. central Atlantic Ocean
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",South Atlantic Ocean,Gulf of Guinea,North Atlantic Ocean,central Atlantic Ocean,"{""A"": ""South Atlantic Ocean"", ""B"": ""Gulf of Guinea"", ""C"": ""North Atlantic Ocean"", ""D"": ""central Atlantic Ocean""}",D,central Atlantic Ocean,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0091,musique_mc__0091,musique_mc,multiple_choice,musique,musique_mc_100,Where was the person who wrote about the rioting being a dividing factor in Birmingham educated?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the person who wrote about the rioting being a dividing factor in Birmingham educated?
+
+Opciones:
+A. University of Aberdeen
+B. University of Glasgow
+C. University of St Andrews
+D. University of Edinburgh
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where was the person who wrote about the rioting being a dividing factor in Birmingham educated?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the person who wrote about the rioting being a dividing factor in Birmingham educated?
+
+Opciones:
+A. University of Aberdeen
+B. University of Glasgow
+C. University of St Andrews
+D. University of Edinburgh
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",University of Aberdeen,University of Glasgow,University of St Andrews,University of Edinburgh,"{""A"": ""University of Aberdeen"", ""B"": ""University of Glasgow"", ""C"": ""University of St Andrews"", ""D"": ""University of Edinburgh""}",B,University of Glasgow,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0092,musique_mc__0092,musique_mc,multiple_choice,musique,musique_mc_100,Where was the designer of the Lap Engine educated?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the designer of the Lap Engine educated?
+
+Opciones:
+A. University of Glasgow
+B. University of Edinburgh
+C. University of Aberdeen
+D. University of Strathclyde
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where was the designer of the Lap Engine educated?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the designer of the Lap Engine educated?
+
+Opciones:
+A. University of Glasgow
+B. University of Edinburgh
+C. University of Aberdeen
+D. University of Strathclyde
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",University of Glasgow,University of Edinburgh,University of Aberdeen,University of Strathclyde,"{""A"": ""University of Glasgow"", ""B"": ""University of Edinburgh"", ""C"": ""University of Aberdeen"", ""D"": ""University of Strathclyde""}",A,University of Glasgow,A,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0093,musique_mc__0093,musique_mc,multiple_choice,musique,musique_mc_100,Where was the creator of the Lap Engine educated?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the creator of the Lap Engine educated?
+
+Opciones:
+A. University of Edinburgh
+B. University of Aberdeen
+C. University of Glasgow
+D. University of St Andrews
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Where was the creator of the Lap Engine educated?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Where was the creator of the Lap Engine educated?
+
+Opciones:
+A. University of Edinburgh
+B. University of Aberdeen
+C. University of Glasgow
+D. University of St Andrews
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",University of Edinburgh,University of Aberdeen,University of Glasgow,University of St Andrews,"{""A"": ""University of Edinburgh"", ""B"": ""University of Aberdeen"", ""C"": ""University of Glasgow"", ""D"": ""University of St Andrews""}",C,University of Glasgow,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0094,musique_mc__0094,musique_mc,multiple_choice,musique,musique_mc_100,The 1967 Federation Cup is an instance of this tournament which is named after what organization?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The 1967 Federation Cup is an instance of this tournament which is named after what organization?
+
+Opciones:
+A. International Olympic Committee
+B. International Tennis Federation
+C. Association of Tennis Professionals
+D. United States Tennis Association
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",The 1967 Federation Cup is an instance of this tournament which is named after what organization?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+The 1967 Federation Cup is an instance of this tournament which is named after what organization?
+
+Opciones:
+A. International Olympic Committee
+B. International Tennis Federation
+C. Association of Tennis Professionals
+D. United States Tennis Association
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",International Olympic Committee,International Tennis Federation,Association of Tennis Professionals,United States Tennis Association,"{""A"": ""International Olympic Committee"", ""B"": ""International Tennis Federation"", ""C"": ""Association of Tennis Professionals"", ""D"": ""United States Tennis Association""}",B,International Tennis Federation,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0095,musique_mc__0095,musique_mc,multiple_choice,musique,musique_mc_100,What is the competition that the 1965 Federation Cup is part of named after?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the competition that the 1965 Federation Cup is part of named after?
+
+Opciones:
+A. Association of Tennis Professionals
+B. International Olympic Committee
+C. Women's Tennis Association
+D. International Tennis Federation
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the competition that the 1965 Federation Cup is part of named after?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the competition that the 1965 Federation Cup is part of named after?
+
+Opciones:
+A. Association of Tennis Professionals
+B. International Olympic Committee
+C. Women's Tennis Association
+D. International Tennis Federation
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Association of Tennis Professionals,International Olympic Committee,Women's Tennis Association,International Tennis Federation,"{""A"": ""Association of Tennis Professionals"", ""B"": ""International Olympic Committee"", ""C"": ""Women's Tennis Association"", ""D"": ""International Tennis Federation""}",D,International Tennis Federation,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0096,musique_mc__0096,musique_mc,multiple_choice,musique,musique_mc_100,What is the competition the 1972 Federation Cup is part of named after?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the competition the 1972 Federation Cup is part of named after?
+
+Opciones:
+A. Women's Tennis Association
+B. Association of Tennis Professionals
+C. International Tennis Federation
+D. International Olympic Committee
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",What is the competition the 1972 Federation Cup is part of named after?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the competition the 1972 Federation Cup is part of named after?
+
+Opciones:
+A. Women's Tennis Association
+B. Association of Tennis Professionals
+C. International Tennis Federation
+D. International Olympic Committee
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Women's Tennis Association,Association of Tennis Professionals,International Tennis Federation,International Olympic Committee,"{""A"": ""Women's Tennis Association"", ""B"": ""Association of Tennis Professionals"", ""C"": ""International Tennis Federation"", ""D"": ""International Olympic Committee""}",C,International Tennis Federation,C,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0097,musique_mc__0097,musique_mc,multiple_choice,musique,musique_mc_100,"What is the capital of the county which contains Hickory Grove Estates, Mississippi?","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the capital of the county which contains Hickory Grove Estates, Mississippi?
+
+Opciones:
+A. West Point
+B. Starkville
+C. Columbus
+D. Meridian
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}","What is the capital of the county which contains Hickory Grove Estates, Mississippi?","Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+What is the capital of the county which contains Hickory Grove Estates, Mississippi?
+
+Opciones:
+A. West Point
+B. Starkville
+C. Columbus
+D. Meridian
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",West Point,Starkville,Columbus,Meridian,"{""A"": ""West Point"", ""B"": ""Starkville"", ""C"": ""Columbus"", ""D"": ""Meridian""}",B,Starkville,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0098,musique_mc__0098,musique_mc,multiple_choice,musique,musique_mc_100,Who is the father of the performer of Je dis aime?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the father of the performer of Je dis aime?
+
+Opciones:
+A. Francis Cabrel
+B. Louis Chedid
+C. Jean-Jacques Goldman
+D. Serge Gainsbourg
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the father of the performer of Je dis aime?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the father of the performer of Je dis aime?
+
+Opciones:
+A. Francis Cabrel
+B. Louis Chedid
+C. Jean-Jacques Goldman
+D. Serge Gainsbourg
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Francis Cabrel,Louis Chedid,Jean-Jacques Goldman,Serge Gainsbourg,"{""A"": ""Francis Cabrel"", ""B"": ""Louis Chedid"", ""C"": ""Jean-Jacques Goldman"", ""D"": ""Serge Gainsbourg""}",B,Louis Chedid,B,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
+musique_mc__0099,musique_mc__0099,musique_mc,multiple_choice,musique,musique_mc_100,Who is the father of the Labo M performer?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the father of the Labo M performer?
+
+Opciones:
+A. Jacques Higelin
+B. Jean-Jacques Goldman
+C. Serge Gainsbourg
+D. Louis Chedid
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Who is the father of the Labo M performer?,"Respondé la siguiente pregunta de opción múltiple.
+
+Reglas:
+- Elegí una única opción entre A, B, C o D.
+- Usá el contexto recuperado si está disponible.
+- No expliques tu respuesta.
+- Respondé únicamente con JSON válido.
+- El campo ""answer"" debe ser exactamente una de estas letras: ""A"", ""B"", ""C"" o ""D"".
+- El campo ""confidence"" debe ser un número entre 0 y 1.
+
+Pregunta:
+Who is the father of the Labo M performer?
+
+Opciones:
+A. Jacques Higelin
+B. Jean-Jacques Goldman
+C. Serge Gainsbourg
+D. Louis Chedid
+
+Formato obligatorio:
+{
+  ""answer"": ""A"",
+  ""confidence"": 0.0
+}",Jacques Higelin,Jean-Jacques Goldman,Serge Gainsbourg,Louis Chedid,"{""A"": ""Jacques Higelin"", ""B"": ""Jean-Jacques Goldman"", ""C"": ""Serge Gainsbourg"", ""D"": ""Louis Chedid""}",D,Louis Chedid,D,retrieve,True,dgslibisey/MuSiQue,validation,,577e360c863669a5cc119a11499592364ad31f5e6e03489d3edaab2b6d81230b
