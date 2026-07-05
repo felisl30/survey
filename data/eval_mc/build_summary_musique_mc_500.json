@@ -1,0 +1,45 @@
+{
+  "created_at": "2026-07-05T01:08:38.469381+00:00",
+  "mode": "real",
+  "generator_model": "gpt-5-mini",
+  "datasets": [
+    "musique"
+  ],
+  "per_dataset": 500,
+  "total_questions": 500,
+  "output_path": "data\\eval_mc\\questions_musique_mc_500.csv",
+  "rows_by_dataset": [
+    {
+      "dataset": "musique",
+      "loaded_candidates": 1800,
+      "selected": 500
+    }
+  ],
+  "source_generation": {
+    "initial_target": 500,
+    "extra_candidates_generated_until": 530,
+    "removed_problematic_ids": [
+      "musique_mc__0005",
+      "musique_mc__0109",
+      "musique_mc__0110",
+      "musique_mc__0225",
+      "musique_mc__0227",
+      "musique_mc__0228",
+      "musique_mc__0229",
+      "musique_mc__0261",
+      "musique_mc__0315"
+    ],
+    "replacement_ids": [
+      "musique_mc__0530",
+      "musique_mc__0542",
+      "musique_mc__0550",
+      "musique_mc__0553",
+      "musique_mc__0556",
+      "musique_mc__0567",
+      "musique_mc__0576",
+      "musique_mc__0579",
+      "musique_mc__0588"
+    ]
+  },
+  "notes": "Dataset MC MuSiQue ampliado a 500 preguntas y auditado: balance A/B/C/D perfecto, sin booleanas/truncadas/duplicados/overlap gold-distractor marcado."
+}

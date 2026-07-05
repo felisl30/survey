@@ -156,6 +156,21 @@ def to_json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False)
 
 
+def write_csv_atomic(df: pd.DataFrame, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = output_path.with_name(f".{output_path.name}.{os.getpid()}.tmp")
+    df.to_csv(tmp_path, index=False)
+    last_error: OSError | None = None
+    for attempt in range(8):
+        try:
+            os.replace(tmp_path, output_path)
+            return
+        except PermissionError as exc:
+            last_error = exc
+            time.sleep(0.25 * (attempt + 1))
+    raise last_error if last_error else RuntimeError(f"No se pudo escribir {output_path}")
+
+
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     with path.open("r", encoding="utf-8") as f:
@@ -735,7 +750,7 @@ def build_mc_dataset(
             # progreso disponible para inspeccion o reintento.
             partial_df = pd.DataFrame(all_output_rows)
             partial_df = partial_df[OUTPUT_COLUMNS]
-            partial_df.to_csv(output_path, index=False)
+            write_csv_atomic(partial_df, output_path)
 
         summary_rows.append(
             {
@@ -748,7 +763,7 @@ def build_mc_dataset(
     df = pd.DataFrame(all_output_rows)
     df = df[OUTPUT_COLUMNS]
 
-    df.to_csv(output_path, index=False)
+    write_csv_atomic(df, output_path)
 
     summary = {
         "created_at": datetime.now(timezone.utc).isoformat(),
