@@ -1,0 +1,352 @@
+[skip] RAG dataset ya existe: data/eval_mc/musique_mc_rag_500
+[skip] Indice ya existe: indexes/eval_mc/musique_mc_rag_500
+
+################################################################################
+MODEL: gpt-5-mini
+TAG:   gpt_5_mini
+OUT:   outputs/eval_mc/musique_mc_rag_500/gpt_5_mini
+################################################################################
+
+================================================================================
+Run S0 direct: gpt-5-mini
+================================================================================
+powershell -ExecutionPolicy Bypass -File ./evaluation/run_s0_mc_pipeline.ps1 -Mode real -Model gpt-5-mini -QuestionPath data/eval_mc/questions_musique_mc_500.csv -OutputPrefix s0_gpt_5_mini_musique_500 -Resume
+
+========================================
+  S0 direct baseline sobre benchmark MC
+========================================
+  Mode:         real
+  Model:        gpt-5-mini
+  Limit:        todas
+  BuildDataset: False
+  BuildMode:    dry-run
+  Datasets:     hotpotqa,musique,2wiki
+  PerDataset:   30
+  BuildOnly:    False
+  QuestionPath: data/eval_mc/questions_musique_mc_500.csv
+  OutputPrefix: s0_gpt_5_mini_musique_500
+  Resume:       True
+  Force:        False
+
+
+== Run S0 direct ==
+Archivo de entrada: data/eval_mc/questions_musique_mc_500.csv
+Archivo de salida: outputs/eval_mc/s0_gpt_5_mini_musique_500_raw.csv
+Filas totales consideradas: 500
+Filas ya existentes: 500
+Filas pendientes: 0
+Running S0 Direct LLM: 0it [00:00, ?it/s]Running S0 Direct LLM: 0it [00:00, ?it/s]
+
+Resultados guardados en: outputs/eval_mc/s0_gpt_5_mini_musique_500_raw.csv
+
+== Parse S0 outputs ==
+Resultados parseados guardados en: outputs/eval_mc/s0_gpt_5_mini_musique_500_parsed.csv
+
+Resumen de parseo
+-----------------
+Filas totales: 500
+
+Filas por dataset:
+dataset
+musique_mc    500
+
+Métodos de parseo:
+parse_method
+json    500
+
+Valid format rate: 1.000
+Run error rate: 0.000
+
+== Evaluate S0 accuracy ==
+MC accuracy: 0.706
+Valid prediction rate: 1.000
+Results: outputs/eval_mc/s0_gpt_5_mini_musique_500_mc_results.csv
+Summary: outputs/eval_mc/s0_gpt_5_mini_musique_500_mc_summary.csv
+
+========================================
+  Pipeline S0 MC completado
+========================================
+  Raw:           outputs/eval_mc/s0_gpt_5_mini_musique_500_raw.csv
+  Parsed:        outputs/eval_mc/s0_gpt_5_mini_musique_500_parsed.csv
+  Results:       outputs/eval_mc/s0_gpt_5_mini_musique_500_mc_results.csv
+  Summary:       outputs/eval_mc/s0_gpt_5_mini_musique_500_mc_summary.csv
+
+
+================================================================================
+Run S1 RAG top-5: gpt-5-mini
+================================================================================
+python evaluation/run_s1_mc_rag.py --questions-path data/eval_mc/musique_mc_rag_500/questions.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_raw.csv --model gpt-5-mini --top-k 5 --save-every 1 --resume
+Questions path: data/eval_mc/musique_mc_rag_500/questions.csv
+Index dir: indexes/eval_mc/musique_mc_rag_500
+Output path: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_raw.csv
+Modelo generación: gpt-5-mini
+Modelo embeddings: sentence-transformers/all-MiniLM-L6-v2
+Top-k: 5
+Filas consideradas: 500
+Filas ya existentes: 500
+Filas pendientes: 0
+
+Cargando modelo de embeddings...
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 1207.58it/s]
+Inicializando cliente OpenAI...
+Running S1 MC RAG: 0it [00:00, ?it/s]Running S1 MC RAG: 0it [00:00, ?it/s]
+
+Resultados S1 raw guardados en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_raw.csv
+
+================================================================================
+Parse S1: gpt-5-mini
+================================================================================
+python parse_s0_outputs.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_raw.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_parsed.csv
+Resultados parseados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_parsed.csv
+
+Resumen de parseo
+-----------------
+Filas totales: 500
+
+Filas por dataset:
+dataset
+musique_mc    500
+
+Métodos de parseo:
+parse_method
+json    500
+
+Valid format rate: 1.000
+Run error rate: 0.000
+
+================================================================================
+Evaluate S1: gpt-5-mini
+================================================================================
+python evaluate_s0.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_parsed.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_evaluated.csv --summary-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_summary.json --group-summary-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_group_summary.csv
+Resultados evaluados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_evaluated.csv
+Resumen JSON guardado en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_summary.json
+Resumen por grupos guardado en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s1_group_summary.csv
+
+Resumen de evaluación S0
+------------------------
+Filas totales: 500
+Accuracy / correct rate sobre casos decididos: 0.782
+Auto decision rate: 1.000
+Valid format rate: 1.000
+Run error rate: 0.000
+Manual review rate: 0.000
+Avg total tokens: 1462.380
+Avg latency seconds: 5.671
+
+Por dataset:
+- musique_mc: n=500, accuracy=0.782, auto_decision=1.000, valid_format=1.000, abstention=0.000, falsehood=n/a, manual_review=0.000
+
+================================================================================
+Run S2 adaptive RAG: gpt-5-mini
+================================================================================
+python evaluation/run_s2_mc_real_adaptive.py --questions-path data/eval_mc/musique_mc_rag_500/questions.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_raw.csv --model gpt-5-mini --top-k 5 --threshold 0.45 --min-gap 0.05 --save-every 1 --resume
+Questions path: data/eval_mc/musique_mc_rag_500/questions.csv
+Index dir: indexes/eval_mc/musique_mc_rag_500
+Output path: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_raw.csv
+Model: gpt-5-mini
+Policy: top1_ge_0.45_gap_ge_0.05
+Threshold: 0.45
+Min gap: 0.05
+Top-k: 5
+Rows total: 500
+Rows existing: 500
+Rows pending: 0
+
+Cargando modelo de embeddings...
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 4490.41it/s]
+Inicializando cliente OpenAI...
+Running S2-MC real: 0it [00:00, ?it/s]Running S2-MC real: 0it [00:00, ?it/s]
+
+Resultados S2-MC real guardados en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_raw.csv
+
+================================================================================
+Parse S2: gpt-5-mini
+================================================================================
+python parse_s0_outputs.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_raw.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_parsed.csv
+Resultados parseados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_parsed.csv
+
+Resumen de parseo
+-----------------
+Filas totales: 500
+
+Filas por dataset:
+dataset
+musique_mc    500
+
+Métodos de parseo:
+parse_method
+json    500
+
+Valid format rate: 1.000
+Run error rate: 0.000
+
+================================================================================
+Evaluate S2: gpt-5-mini
+================================================================================
+python evaluate_s0.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_parsed.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_evaluated.csv --summary-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_summary.json --group-summary-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_group_summary.csv
+Resultados evaluados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_evaluated.csv
+Resumen JSON guardado en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_summary.json
+Resumen por grupos guardado en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s2_group_summary.csv
+
+Resumen de evaluación S0
+------------------------
+Filas totales: 500
+Accuracy / correct rate sobre casos decididos: 0.754
+Auto decision rate: 1.000
+Valid format rate: 1.000
+Run error rate: 0.000
+Manual review rate: 0.000
+Avg total tokens: 1065.098
+Avg latency seconds: 6.836
+
+Por dataset:
+- musique_mc: n=500, accuracy=0.754, auto_decision=1.000, valid_format=1.000, abstention=0.000, falsehood=n/a, manual_review=0.000
+
+================================================================================
+Run S3 MC FLARE-like: gpt-5-mini
+================================================================================
+python evaluation/run_s3_mc_flare_like.py --questions-path data/eval_mc/musique_mc_rag_500/questions.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_raw.csv --model gpt-5-mini --top-k 5 --save-every 1 --resume
+S3-MC FLARE-like runner
+-----------------------
+Questions: data/eval_mc/musique_mc_rag_500/questions.csv
+Index: indexes/eval_mc/musique_mc_rag_500
+Output: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_raw.csv
+Model: gpt-5-mini
+Embedding model: sentence-transformers/all-MiniLM-L6-v2
+Top-k: 5
+Confidence threshold: 0.78
+Score threshold: 0.45
+Min gap: 0.05
+Rows considered: 500
+Rows existing: 500
+Rows pending: 0
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3175.96it/s]
+Running S3-MC: 0it [00:00, ?it/s]Running S3-MC: 0it [00:00, ?it/s]
+
+S3-MC raw saved to: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_raw.csv
+Rows: 500
+Run error rate: 0.000
+Active retrieval rate: 0.750
+Avg total tokens: 2295.71
+Avg latency seconds: 15.18
+
+================================================================================
+Parse S3: gpt-5-mini
+================================================================================
+python parse_s0_outputs.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_raw.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_parsed.csv
+Resultados parseados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_parsed.csv
+
+Resumen de parseo
+-----------------
+Filas totales: 500
+
+Filas por dataset:
+dataset
+musique_mc    500
+
+Métodos de parseo:
+parse_method
+json    500
+
+Valid format rate: 1.000
+Run error rate: 0.000
+
+================================================================================
+Evaluate S3: gpt-5-mini
+================================================================================
+python evaluate_s0.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_parsed.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_evaluated.csv --summary-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_summary.json --group-summary-path outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_group_summary.csv
+Resultados evaluados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_evaluated.csv
+Resumen JSON guardado en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_summary.json
+Resumen por grupos guardado en: outputs/eval_mc/musique_mc_rag_500/gpt_5_mini/s3_group_summary.csv
+
+Resumen de evaluación S0
+------------------------
+Filas totales: 500
+Accuracy / correct rate sobre casos decididos: 0.808
+Auto decision rate: 1.000
+Valid format rate: 1.000
+Run error rate: 0.000
+Manual review rate: 0.000
+Avg total tokens: 2295.708
+Avg latency seconds: 15.179
+
+Por dataset:
+- musique_mc: n=500, accuracy=0.808, auto_decision=1.000, valid_format=1.000, abstention=0.000, falsehood=n/a, manual_review=0.000
+
+================================================================================
+Summarize MuSiQue-500 model grid
+================================================================================
+python evaluation/summarize_musique_500_model_grid.py --models gpt-5-mini --systems s0,s1,s2,s3 --expected-n 500
+Metrics: outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.csv
+Report:  outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.md
+Missing: outputs/eval_mc/musique_mc_rag_500/model_grid_summary/missing_runs.csv
+
+================================================================================
+Build S5 post-hoc router table
+================================================================================
+python evaluation/build_musique_500_s5_router.py --models gpt-5-mini
+S5 table:   outputs/eval_mc/musique_mc_rag_500/posthoc/s5_router_table.csv
+S5 summary: outputs/eval_mc/musique_mc_rag_500/posthoc/s5_policy_summary.csv
+
+================================================================================
+Build S4 disagreement grid
+================================================================================
+python evaluation/build_musique_500_s4_disagreement_grid.py --models gpt-5-mini --s4-per-model 25
+S4 grid:    outputs/eval_mc/musique_mc_rag_500/posthoc/s4_disagreement_grid.csv
+S4 focus:   outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_candidates.csv
+S4 input:   outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_input.csv
+S4 summary: outputs/eval_mc/musique_mc_rag_500/posthoc/s4_disagreement_summary.csv
+
+================================================================================
+Run S4 FIRE-like on disagreement focus
+================================================================================
+python s4_model_code/run_s4_fire_like.py --input-path outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_input.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_raw.csv --source-system manual --limit 25 --use-index --initial-evidence-mode auto --claim-strategy rules --verification-strategy rules --query-strategy rules --repair-strategy rules --model g --resume
+Archivo de entrada: outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_input.csv
+Índice S2/S4: indexes/eval_mc/musique_mc_rag_500
+Archivo de salida: outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_raw.csv
+Source system: manual
+Use index: True
+Dry run: False
+Initial evidence mode: auto
+Claim strategy: rules
+Verification strategy: rules
+Query strategy: rules
+Repair strategy: rules
+Modelo: g
+Filas consideradas: 25
+Filas existentes: 0
+Filas pendientes: 25
+Running S4 FIRE-like:   0%|          | 0/25 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 103/103 [00:00<00:00, 3148.21it/s]
+Running S4 FIRE-like:   4%|▍         | 1/25 [00:04<01:49,  4.57s/it]Running S4 FIRE-like:   8%|▊         | 2/25 [00:04<00:46,  2.04s/it]Running S4 FIRE-like:  12%|█▏        | 3/25 [00:05<00:26,  1.21s/it]Running S4 FIRE-like:  16%|█▌        | 4/25 [00:05<00:16,  1.27it/s]Running S4 FIRE-like:  20%|██        | 5/25 [00:05<00:12,  1.62it/s]Running S4 FIRE-like:  24%|██▍       | 6/25 [00:05<00:09,  1.91it/s]Running S4 FIRE-like:  28%|██▊       | 7/25 [00:06<00:08,  2.22it/s]Running S4 FIRE-like:  32%|███▏      | 8/25 [00:06<00:06,  2.44it/s]Running S4 FIRE-like:  36%|███▌      | 9/25 [00:07<00:07,  2.22it/s]Running S4 FIRE-like:  40%|████      | 10/25 [00:07<00:06,  2.26it/s]Running S4 FIRE-like:  44%|████▍     | 11/25 [00:07<00:04,  2.92it/s]Running S4 FIRE-like:  48%|████▊     | 12/25 [00:07<00:03,  3.30it/s]Running S4 FIRE-like:  52%|█████▏    | 13/25 [00:07<00:02,  4.11it/s]Running S4 FIRE-like:  56%|█████▌    | 14/25 [00:08<00:02,  4.03it/s]Running S4 FIRE-like:  60%|██████    | 15/25 [00:08<00:02,  4.25it/s]Running S4 FIRE-like:  64%|██████▍   | 16/25 [00:08<00:02,  4.33it/s]Running S4 FIRE-like:  68%|██████▊   | 17/25 [00:08<00:01,  4.28it/s]Running S4 FIRE-like:  72%|███████▏  | 18/25 [00:08<00:01,  5.11it/s]Running S4 FIRE-like:  76%|███████▌  | 19/25 [00:09<00:01,  4.46it/s]Running S4 FIRE-like:  80%|████████  | 20/25 [00:09<00:01,  4.64it/s]Running S4 FIRE-like:  84%|████████▍ | 21/25 [00:09<00:00,  4.65it/s]Running S4 FIRE-like:  88%|████████▊ | 22/25 [00:09<00:00,  4.71it/s]Running S4 FIRE-like:  92%|█████████▏| 23/25 [00:10<00:00,  4.74it/s]Running S4 FIRE-like:  96%|█████████▌| 24/25 [00:10<00:00,  5.56it/s]Running S4 FIRE-like: 100%|██████████| 25/25 [00:10<00:00,  4.51it/s]Running S4 FIRE-like: 100%|██████████| 25/25 [00:10<00:00,  2.39it/s]
+
+Resultados S4 guardados en: outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_raw.csv
+
+Resumen S4 raw
+--------------
+Filas: 25
+
+Decisiones finales S4:
+- abstained: 25
+
+Abstention rate: 1.000
+Correction rate: 1.000
+Run error rate: 0.000
+
+Avg claims: 2.000
+Avg supported claims: 0.120
+Avg refuted claims: 0.120
+Avg NEI claims: 1.760
+Avg verification rounds: 3.800
+Avg retrieval rounds: 1.800
+Avg chunks retrieved: 3.440
+Avg latency seconds: 0.401
+Avg retrieval latency seconds: 0.383
+Avg total tokens: 0.000
+
+DONE. Resumen:
+  outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.csv
+  outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.md
+  outputs/eval_mc/musique_mc_rag_500/posthoc/s5_policy_summary.csv
+  outputs/eval_mc/musique_mc_rag_500/posthoc/s4_disagreement_grid.csv
+  outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_input.csv
