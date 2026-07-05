@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-07-04T22:22:02",
+  "corpus_path": "data\\eval_mc\\musique_mc_rag_500\\corpus.csv",
+  "output_dir": "indexes\\eval_mc\\musique_mc_rag_500",
+  "chunks_path": "indexes\\eval_mc\\musique_mc_rag_500\\chunks.csv",
+  "embeddings_path": "indexes\\eval_mc\\musique_mc_rag_500\\embeddings.npy",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "n_chunks": 6000,
+  "normalized_embeddings": true,
+  "batch_size": 32
+}

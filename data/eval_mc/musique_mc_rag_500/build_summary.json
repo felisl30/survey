@@ -1,0 +1,26 @@
+{
+  "benchmark_name": "musique_mc_500",
+  "created_at": "2026-07-04T22:19:05",
+  "input_path": "data\\eval_mc\\questions_musique_mc_500.csv",
+  "input_sha256": "6c2bcf2ea6814d6e861d4d2d009fae1658129f92cca7f685dfa0c19fa66dbf15",
+  "expected_sha256_checked": false,
+  "output_dir": "data\\eval_mc\\musique_mc_rag_500",
+  "questions_path": "data\\eval_mc\\musique_mc_rag_500\\questions.csv",
+  "corpus_path": "data\\eval_mc\\musique_mc_rag_500\\corpus.csv",
+  "qrels_path": "data\\eval_mc\\musique_mc_rag_500\\qrels.csv",
+  "n_questions": 500,
+  "n_corpus_docs": 6000,
+  "n_qrels": 6000,
+  "questions_without_context": 0,
+  "total_contexts": 6000,
+  "avg_contexts_per_question": 12.0,
+  "context_count_distribution": {
+    "12": 500
+  },
+  "notes": [
+    "qrels marca como relevante cada pasaje de evidence_json.",
+    "Esto sirve para retrieval sobre contexto provisto por el benchmark, pero no distingue evidencia gold estricta vs distractores.",
+    "La columna question contiene prompt MC compatible con RAG.",
+    "La columna retrieval_query conserva la pregunta limpia para búsqueda."
+  ]
+}
