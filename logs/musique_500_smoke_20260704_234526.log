@@ -1,0 +1,50 @@
+[skip] RAG dataset ya existe: data\eval_mc\musique_mc_rag_500
+[skip] Indice ya existe: indexes\eval_mc\musique_mc_rag_500
+
+################################################################################
+MODEL: gpt-5-mini
+TAG:   gpt_5_mini
+OUT:   outputs\eval_mc\musique_mc_rag_500\gpt_5_mini
+################################################################################
+
+================================================================================
+Run S0 direct: gpt-5-mini
+================================================================================
+powershell -ExecutionPolicy Bypass -File .\evaluation\run_s0_mc_pipeline.ps1 -Mode real -Model gpt-5-mini -QuestionPath data\eval_mc\questions_musique_mc_500.csv -OutputPrefix s0_gpt_5_mini_musique_500 -Resume -Limit 20
+
+========================================
+  S0 direct baseline sobre benchmark MC
+========================================
+  Mode:         real
+  Model:        gpt-5-mini
+  Limit:        20
+  BuildDataset: False
+  BuildMode:    dry-run
+  Datasets:     hotpotqa,musique,2wiki
+  PerDataset:   30
+  BuildOnly:    False
+  QuestionPath: data\eval_mc\questions_musique_mc_500.csv
+  OutputPrefix: s0_gpt_5_mini_musique_500
+  Resume:       True
+  Force:        False
+
+
+== Run S0 direct ==
+Traceback (most recent call last):
+  File "/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/run_s0_direct.py", line 319, in <module>
+    main()
+  File "/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/run_s0_direct.py", line 307, in main
+    run_experiment(
+  File "/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/run_s0_direct.py", line 184, in run_experiment
+    raise FileNotFoundError(f"No se encontró el archivo de entrada: {input_path}")
+FileNotFoundError: No se encontró el archivo de entrada: data\eval_mc\questions_musique_mc_500.csv
+[31;1mException: [0m/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/evaluation/run_s0_mc_pipeline.ps1:44:5[0m
+[31;1m[0m[36;1mLine |[0m
+[31;1m[0m[36;1m[36;1m  44 | [0m     [36;1mthrow "Fallo el paso '$Name' con codigo $LASTEXITCODE."[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mFallo el paso 'Run S0 direct' con codigo 1.[0m
+[31;1mException: [0m/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/evaluation/run_musique_500_model_grid.ps1:72:5[0m
+[31;1m[0m[36;1mLine |[0m
+[31;1m[0m[36;1m[36;1m  72 | [0m     [36;1mthrow "Fallo el paso '$Name' con codigo $LASTEXITCODE."[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mFallo el paso 'Run S0 direct: gpt-5-mini' con codigo 1.[0m

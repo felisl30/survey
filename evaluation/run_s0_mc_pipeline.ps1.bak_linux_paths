@@ -48,7 +48,7 @@ function Invoke-Step {
 function Get-ModelTag {
   param([string]$Name)
   if ($Name) {
-    return ($Name -replace "[//-/.]", "_")
+    return ($Name -replace "[/\-\.]", "_")
   }
   return "default"
 }

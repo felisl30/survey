@@ -1,0 +1,302 @@
+[skip] RAG dataset ya existe: data/eval_mc/musique_mc_rag_500
+[skip] Indice ya existe: indexes/eval_mc/musique_mc_rag_500
+
+################################################################################
+MODEL: gpt-5-mini
+TAG:   gpt-5-mini
+OUT:   outputs/eval_mc/musique_mc_rag_500/gpt-5-mini
+################################################################################
+
+================================================================================
+Run S0 direct: gpt-5-mini
+================================================================================
+powershell -ExecutionPolicy Bypass -File ./evaluation/run_s0_mc_pipeline.ps1 -Mode real -Model gpt-5-mini -QuestionPath data/eval_mc/questions_musique_mc_500.csv -OutputPrefix s0_gpt-5-mini_musique_500 -Resume -Limit 20
+
+========================================
+  S0 direct baseline sobre benchmark MC
+========================================
+  Mode:         real
+  Model:        gpt-5-mini
+  Limit:        20
+  BuildDataset: False
+  BuildMode:    dry-run
+  Datasets:     hotpotqa,musique,2wiki
+  PerDataset:   30
+  BuildOnly:    False
+  QuestionPath: data/eval_mc/questions_musique_mc_500.csv
+  OutputPrefix: s0_gpt-5-mini_musique_500
+  Resume:       True
+  Force:        False
+
+
+== Run S0 direct ==
+Archivo de entrada: data/eval_mc/questions_musique_mc_500.csv
+Archivo de salida: outputs/eval_mc/s0_gpt-5-mini_musique_500_raw.csv
+Filas totales consideradas: 20
+Filas ya existentes: 20
+Filas pendientes: 0
+Running S0 Direct LLM: 0it [00:00, ?it/s]Running S0 Direct LLM: 0it [00:00, ?it/s]
+
+Resultados guardados en: outputs/eval_mc/s0_gpt-5-mini_musique_500_raw.csv
+
+== Parse S0 outputs ==
+Resultados parseados guardados en: outputs/eval_mc/s0_gpt-5-mini_musique_500_parsed.csv
+
+Resumen de parseo
+-----------------
+Filas totales: 20
+
+Filas por dataset:
+dataset
+musique_mc    20
+
+Métodos de parseo:
+parse_method
+json    20
+
+Valid format rate: 1.000
+Run error rate: 0.000
+
+== Evaluate S0 accuracy ==
+MC accuracy: 0.600
+Valid prediction rate: 1.000
+Results: outputs/eval_mc/s0_gpt-5-mini_musique_500_mc_results.csv
+Summary: outputs/eval_mc/s0_gpt-5-mini_musique_500_mc_summary.csv
+
+========================================
+  Pipeline S0 MC completado
+========================================
+  Raw:           outputs/eval_mc/s0_gpt-5-mini_musique_500_raw.csv
+  Parsed:        outputs/eval_mc/s0_gpt-5-mini_musique_500_parsed.csv
+  Results:       outputs/eval_mc/s0_gpt-5-mini_musique_500_mc_results.csv
+  Summary:       outputs/eval_mc/s0_gpt-5-mini_musique_500_mc_summary.csv
+
+
+================================================================================
+Run S1 RAG top-5: gpt-5-mini
+================================================================================
+python evaluation/run_s1_mc_rag.py --questions-path data/eval_mc/musique_mc_rag_500/questions.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_raw.csv --model gpt-5-mini --top-k 5 --save-every 1 --resume --limit 20
+Questions path: data/eval_mc/musique_mc_rag_500/questions.csv
+Index dir: indexes/eval_mc/musique_mc_rag_500
+Output path: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_raw.csv
+Modelo generación: gpt-5-mini
+Modelo embeddings: sentence-transformers/all-MiniLM-L6-v2
+Top-k: 5
+Filas consideradas: 20
+Filas ya existentes: 20
+Filas pendientes: 0
+
+Cargando modelo de embeddings...
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2972.70it/s]
+Inicializando cliente OpenAI...
+Running S1 MC RAG: 0it [00:00, ?it/s]Running S1 MC RAG: 0it [00:00, ?it/s]
+
+Resultados S1 raw guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_raw.csv
+
+================================================================================
+Parse S1: gpt-5-mini
+================================================================================
+python parse_s0_outputs.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_raw.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_parsed.csv
+Resultados parseados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_parsed.csv
+
+Resumen de parseo
+-----------------
+Filas totales: 20
+
+Filas por dataset:
+dataset
+musique_mc    20
+
+Métodos de parseo:
+parse_method
+json    20
+
+Valid format rate: 1.000
+Run error rate: 0.000
+
+================================================================================
+Evaluate S1: gpt-5-mini
+================================================================================
+python evaluate_s0.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_parsed.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_evaluated.csv --summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_summary.json --group-summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_group_summary.csv
+Resultados evaluados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_evaluated.csv
+Resumen JSON guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_summary.json
+Resumen por grupos guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_group_summary.csv
+
+Resumen de evaluación S0
+------------------------
+Filas totales: 20
+Accuracy / correct rate sobre casos decididos: 0.600
+Auto decision rate: 1.000
+Valid format rate: 1.000
+Run error rate: 0.000
+Manual review rate: 0.000
+Avg total tokens: 1634.300
+Avg latency seconds: 8.585
+
+Por dataset:
+- musique_mc: n=20, accuracy=0.600, auto_decision=1.000, valid_format=1.000, abstention=0.000, falsehood=n/a, manual_review=0.000
+
+================================================================================
+Run S2 adaptive RAG: gpt-5-mini
+================================================================================
+python evaluation/run_s2_mc_real_adaptive.py --questions-path data/eval_mc/musique_mc_rag_500/questions.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_raw.csv --model gpt-5-mini --top-k 5 --threshold 0.45 --min-gap 0.05 --save-every 1 --resume --limit 20
+Questions path: data/eval_mc/musique_mc_rag_500/questions.csv
+Index dir: indexes/eval_mc/musique_mc_rag_500
+Output path: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_raw.csv
+Model: gpt-5-mini
+Policy: top1_ge_0.45_gap_ge_0.05
+Threshold: 0.45
+Min gap: 0.05
+Top-k: 5
+Rows total: 20
+Rows existing: 20
+Rows pending: 0
+
+Cargando modelo de embeddings...
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3120.90it/s]
+Inicializando cliente OpenAI...
+Running S2-MC real: 0it [00:00, ?it/s]Running S2-MC real: 0it [00:00, ?it/s]
+
+Resultados S2-MC real guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_raw.csv
+
+================================================================================
+Parse S2: gpt-5-mini
+================================================================================
+python parse_s0_outputs.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_raw.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_parsed.csv
+Resultados parseados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_parsed.csv
+
+Resumen de parseo
+-----------------
+Filas totales: 20
+
+Filas por dataset:
+dataset
+musique_mc    20
+
+Métodos de parseo:
+parse_method
+json    20
+
+Valid format rate: 1.000
+Run error rate: 0.000
+
+================================================================================
+Evaluate S2: gpt-5-mini
+================================================================================
+python evaluate_s0.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_parsed.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_evaluated.csv --summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_summary.json --group-summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_group_summary.csv
+Resultados evaluados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_evaluated.csv
+Resumen JSON guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_summary.json
+Resumen por grupos guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_group_summary.csv
+
+Resumen de evaluación S0
+------------------------
+Filas totales: 20
+Accuracy / correct rate sobre casos decididos: 0.750
+Auto decision rate: 1.000
+Valid format rate: 1.000
+Run error rate: 0.000
+Manual review rate: 0.000
+Avg total tokens: 1321.600
+Avg latency seconds: 7.452
+
+Por dataset:
+- musique_mc: n=20, accuracy=0.750, auto_decision=1.000, valid_format=1.000, abstention=0.000, falsehood=n/a, manual_review=0.000
+
+================================================================================
+Run S3 MC FLARE-like: gpt-5-mini
+================================================================================
+python evaluation/run_s3_mc_flare_like.py --questions-path data/eval_mc/musique_mc_rag_500/questions.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_raw.csv --model gpt-5-mini --top-k 5 --save-every 1 --resume --limit 20
+S3-MC FLARE-like runner
+-----------------------
+Questions: data/eval_mc/musique_mc_rag_500/questions.csv
+Index: indexes/eval_mc/musique_mc_rag_500
+Output: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_raw.csv
+Model: gpt-5-mini
+Embedding model: sentence-transformers/all-MiniLM-L6-v2
+Top-k: 5
+Confidence threshold: 0.78
+Score threshold: 0.45
+Min gap: 0.05
+Rows considered: 20
+Rows existing: 20
+Rows pending: 0
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2507.27it/s]
+Running S3-MC: 0it [00:00, ?it/s]Running S3-MC: 0it [00:00, ?it/s]
+
+S3-MC raw saved to: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_raw.csv
+Rows: 20
+Run error rate: 0.000
+Active retrieval rate: 0.750
+Avg total tokens: 2393.60
+Avg latency seconds: 15.55
+
+================================================================================
+Parse S3: gpt-5-mini
+================================================================================
+python parse_s0_outputs.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_raw.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_parsed.csv
+Resultados parseados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_parsed.csv
+
+Resumen de parseo
+-----------------
+Filas totales: 20
+
+Filas por dataset:
+dataset
+musique_mc    20
+
+Métodos de parseo:
+parse_method
+json    20
+
+Valid format rate: 1.000
+Run error rate: 0.000
+
+================================================================================
+Evaluate S3: gpt-5-mini
+================================================================================
+python evaluate_s0.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_parsed.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_evaluated.csv --summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_summary.json --group-summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_group_summary.csv
+Resultados evaluados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_evaluated.csv
+Resumen JSON guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_summary.json
+Resumen por grupos guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_group_summary.csv
+
+Resumen de evaluación S0
+------------------------
+Filas totales: 20
+Accuracy / correct rate sobre casos decididos: 0.650
+Auto decision rate: 1.000
+Valid format rate: 1.000
+Run error rate: 0.000
+Manual review rate: 0.000
+Avg total tokens: 2393.600
+Avg latency seconds: 15.547
+
+Por dataset:
+- musique_mc: n=20, accuracy=0.650, auto_decision=1.000, valid_format=1.000, abstention=0.000, falsehood=n/a, manual_review=0.000
+
+================================================================================
+Summarize MuSiQue-500 model grid
+================================================================================
+python evaluation/summarize_musique_500_model_grid.py --models gpt-5-mini --systems s0,s1,s2,s3 --expected-n 20
+Metrics: outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.csv
+Report:  outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.md
+Missing: outputs/eval_mc/musique_mc_rag_500/model_grid_summary/missing_runs.csv
+
+================================================================================
+Build S5 post-hoc router table
+================================================================================
+python evaluation/build_musique_500_s5_router.py --models gpt-5-mini
+Traceback (most recent call last):
+  File "/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/evaluation/build_musique_500_s5_router.py", line 304, in <module>
+    main()
+  File "/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/evaluation/build_musique_500_s5_router.py", line 275, in main
+    frame = load_system_frame(model, system, args.s0_out_dir, args.rag_root)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/evaluation/build_musique_500_s5_router.py", line 89, in load_system_frame
+    out["retrieved"] = pd.to_numeric(df.get("n_docs_retrieved", 0), errors="coerce").fillna(0).gt(0)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'fillna'
+[31;1mException: [0m/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/evaluation/run_musique_500_model_grid.ps1:55:5[0m
+[31;1m[0m[36;1mLine |[0m
+[31;1m[0m[36;1m[36;1m  55 | [0m     [36;1mthrow "Fallo el paso '$Name' con codigo $LASTEXITCODE."[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mFallo el paso 'Build S5 post-hoc router table' con codigo 1.[0m

@@ -75,7 +75,7 @@ function Invoke-PowerShellStep {
 
 function Get-ModelTag {
   param([string]$Model)
-  return ($Model -replace "[^A-Za-z0-9]+", "_")
+  return ($Model -replace "[//-/.]", "_")
 }
 
 Import-DotEnv ".env"

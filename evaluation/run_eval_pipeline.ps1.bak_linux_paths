@@ -45,7 +45,7 @@ if ($Mode -eq "real" -and -not $env:OPENAI_API_KEY) {
   throw "Mode 'real' requiere OPENAI_API_KEY seteado en el entorno o en .env."
 }
 
-$ModelTag = if ($Model) { $Model -replace "[//-/.]", "_" } else { "default" }
+$ModelTag = if ($Model) { $Model -replace "[/\-\.]", "_" } else { "default" }
 
 Write-Host ""
 Write-Host "========================================"

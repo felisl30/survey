@@ -75,7 +75,7 @@ function Invoke-PowerShellStep {
 
 function Get-ModelTag {
   param([string]$Model)
-  return ($Model -replace "[^A-Za-z0-9]+", "_")
+  return ($Model -replace "[/\-\.]", "_")
 }
 
 Import-DotEnv ".env"
@@ -86,12 +86,12 @@ if (-not $env:OPENAI_API_KEY) {
 $modelList = $Models.Split(",") | ForEach-Object { $_.Trim() } | Where-Object { $_ }
 $systemList = $Systems.Split(",") | ForEach-Object { $_.Trim().ToLower() } | Where-Object { $_ }
 
-$questionsMc = "data/eval_mc/questions_musique_mc_500.csv"
-$ragDir = "data/eval_mc/musique_mc_rag_500"
-$ragQuestions = "$ragDir/questions.csv"
-$ragCorpus = "$ragDir/corpus.csv"
-$indexDir = "indexes/eval_mc/musique_mc_rag_500"
-$baseOut = "outputs/eval_mc/musique_mc_rag_500"
+$questionsMc = "data\eval_mc\questions_musique_mc_500.csv"
+$ragDir = "data\eval_mc\musique_mc_rag_500"
+$ragQuestions = "$ragDir\questions.csv"
+$ragCorpus = "$ragDir\corpus.csv"
+$indexDir = "indexes\eval_mc\musique_mc_rag_500"
+$baseOut = "outputs\eval_mc\musique_mc_rag_500"
 
 if (-not (Test-Path $questionsMc)) {
   throw "No existe $questionsMc."
@@ -99,7 +99,7 @@ if (-not (Test-Path $questionsMc)) {
 
 if ($BuildRag -or -not (Test-Path $ragQuestions) -or -not (Test-Path $ragCorpus)) {
   Invoke-Step "Build MuSiQue-500 RAG dataset" @(
-    "evaluation/build_mc_rag_dataset.py",
+    "evaluation\build_mc_rag_dataset.py",
     "--input-path", $questionsMc,
     "--output-dir", $ragDir,
     "--benchmark-name", "musique_mc_500",
@@ -110,7 +110,7 @@ else {
   Write-Host "[skip] RAG dataset ya existe: $ragDir"
 }
 
-$indexFiles = @("$indexDir/chunks.csv", "$indexDir/embeddings.npy", "$indexDir/metadata.json")
+$indexFiles = @("$indexDir\chunks.csv", "$indexDir\embeddings.npy", "$indexDir\metadata.json")
 $indexMissing = $false
 foreach ($p in $indexFiles) {
   if (-not (Test-Path $p)) { $indexMissing = $true }
@@ -118,7 +118,7 @@ foreach ($p in $indexFiles) {
 
 if ($BuildIndex -or $ForceIndex -or $indexMissing) {
   $indexArgs = @(
-    "evaluation/build_mc_rag_index.py",
+    "evaluation\build_mc_rag_index.py",
     "--corpus-path", $ragCorpus,
     "--output-dir", $indexDir
   )
@@ -136,7 +136,7 @@ if ($Limit -gt 0) {
 
 foreach ($model in $modelList) {
   $tag = Get-ModelTag $model
-  $outDir = "$baseOut/$tag"
+  $outDir = "$baseOut\$tag"
   New-Item -ItemType Directory -Force -Path $outDir | Out-Null
 
   Write-Host ""
@@ -150,7 +150,7 @@ foreach ($model in $modelList) {
     $prefix = "s0_${tag}_musique_500"
     $s0Args = @(
       "-ExecutionPolicy", "Bypass",
-      "-File", "./evaluation/run_s0_mc_pipeline.ps1",
+      "-File", ".\evaluation\run_s0_mc_pipeline.ps1",
       "-Mode", "real",
       "-Model", $model,
       "-QuestionPath", $questionsMc,
@@ -163,26 +163,26 @@ foreach ($model in $modelList) {
 
   if ($systemList -contains "s1") {
     Invoke-Step "Run S1 RAG top-5: $model" (@(
-      "evaluation/run_s1_mc_rag.py",
+      "evaluation\run_s1_mc_rag.py",
       "--questions-path", $ragQuestions,
       "--index-dir", $indexDir,
-      "--output-path", "$outDir/s1_raw.csv",
+      "--output-path", "$outDir\s1_raw.csv",
       "--model", $model,
       "--top-k", "5",
       "--save-every", "1",
       "--resume"
     ) + $limitArgs)
 
-    Invoke-Step "Parse S1: $model" @("parse_s0_outputs.py", "--input-path", "$outDir/s1_raw.csv", "--output-path", "$outDir/s1_parsed.csv")
-    Invoke-Step "Evaluate S1: $model" @("evaluate_s0.py", "--input-path", "$outDir/s1_parsed.csv", "--output-path", "$outDir/s1_evaluated.csv", "--summary-path", "$outDir/s1_summary.json", "--group-summary-path", "$outDir/s1_group_summary.csv")
+    Invoke-Step "Parse S1: $model" @("parse_s0_outputs.py", "--input-path", "$outDir\s1_raw.csv", "--output-path", "$outDir\s1_parsed.csv")
+    Invoke-Step "Evaluate S1: $model" @("evaluate_s0.py", "--input-path", "$outDir\s1_parsed.csv", "--output-path", "$outDir\s1_evaluated.csv", "--summary-path", "$outDir\s1_summary.json", "--group-summary-path", "$outDir\s1_group_summary.csv")
   }
 
   if ($systemList -contains "s2") {
     Invoke-Step "Run S2 adaptive RAG: $model" (@(
-      "evaluation/run_s2_mc_real_adaptive.py",
+      "evaluation\run_s2_mc_real_adaptive.py",
       "--questions-path", $ragQuestions,
       "--index-dir", $indexDir,
-      "--output-path", "$outDir/s2_raw.csv",
+      "--output-path", "$outDir\s2_raw.csv",
       "--model", $model,
       "--top-k", "5",
       "--threshold", "0.45",
@@ -191,30 +191,30 @@ foreach ($model in $modelList) {
       "--resume"
     ) + $limitArgs)
 
-    Invoke-Step "Parse S2: $model" @("parse_s0_outputs.py", "--input-path", "$outDir/s2_raw.csv", "--output-path", "$outDir/s2_parsed.csv")
-    Invoke-Step "Evaluate S2: $model" @("evaluate_s0.py", "--input-path", "$outDir/s2_parsed.csv", "--output-path", "$outDir/s2_evaluated.csv", "--summary-path", "$outDir/s2_summary.json", "--group-summary-path", "$outDir/s2_group_summary.csv")
+    Invoke-Step "Parse S2: $model" @("parse_s0_outputs.py", "--input-path", "$outDir\s2_raw.csv", "--output-path", "$outDir\s2_parsed.csv")
+    Invoke-Step "Evaluate S2: $model" @("evaluate_s0.py", "--input-path", "$outDir\s2_parsed.csv", "--output-path", "$outDir\s2_evaluated.csv", "--summary-path", "$outDir\s2_summary.json", "--group-summary-path", "$outDir\s2_group_summary.csv")
   }
 
   if ($systemList -contains "s3") {
     Invoke-Step "Run S3 MC FLARE-like: $model" (@(
-      "evaluation/run_s3_mc_flare_like.py",
+      "evaluation\run_s3_mc_flare_like.py",
       "--questions-path", $ragQuestions,
       "--index-dir", $indexDir,
-      "--output-path", "$outDir/s3_raw.csv",
+      "--output-path", "$outDir\s3_raw.csv",
       "--model", $model,
       "--top-k", "5",
       "--save-every", "1",
       "--resume"
     ) + $limitArgs)
 
-    Invoke-Step "Parse S3: $model" @("parse_s0_outputs.py", "--input-path", "$outDir/s3_raw.csv", "--output-path", "$outDir/s3_parsed.csv")
-    Invoke-Step "Evaluate S3: $model" @("evaluate_s0.py", "--input-path", "$outDir/s3_parsed.csv", "--output-path", "$outDir/s3_evaluated.csv", "--summary-path", "$outDir/s3_summary.json", "--group-summary-path", "$outDir/s3_group_summary.csv")
+    Invoke-Step "Parse S3: $model" @("parse_s0_outputs.py", "--input-path", "$outDir\s3_raw.csv", "--output-path", "$outDir\s3_parsed.csv")
+    Invoke-Step "Evaluate S3: $model" @("evaluate_s0.py", "--input-path", "$outDir\s3_parsed.csv", "--output-path", "$outDir\s3_evaluated.csv", "--summary-path", "$outDir\s3_summary.json", "--group-summary-path", "$outDir\s3_group_summary.csv")
   }
 }
 
 if (-not $SkipSummary) {
   $summaryArgs = @(
-    "evaluation/summarize_musique_500_model_grid.py",
+    "evaluation\summarize_musique_500_model_grid.py",
     "--models", ($modelList -join ","),
     "--systems", ($systemList -join ","),
     "--expected-n", $(if ($Limit -gt 0) { "$Limit" } else { "500" })
@@ -224,22 +224,22 @@ if (-not $SkipSummary) {
 
 if (-not $SkipPosthoc) {
   Invoke-Step "Build S5 post-hoc router table" @(
-    "evaluation/build_musique_500_s5_router.py",
+    "evaluation\build_musique_500_s5_router.py",
     "--models", ($modelList -join ",")
   )
 
   Invoke-Step "Build S4 disagreement grid" @(
-    "evaluation/build_musique_500_s4_disagreement_grid.py",
+    "evaluation\build_musique_500_s4_disagreement_grid.py",
     "--models", ($modelList -join ","),
     "--s4-per-model", "$S4FocusLimit"
   )
 
   if ($RunS4Focus) {
     Invoke-Step "Run S4 FIRE-like on disagreement focus" @(
-      "s4_model_code/run_s4_fire_like.py",
-      "--input-path", "outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_input.csv",
+      "s4_model_code\run_s4_fire_like.py",
+      "--input-path", "outputs\eval_mc\musique_mc_rag_500\posthoc\s4_focus_input.csv",
       "--index-dir", $indexDir,
-      "--output-path", "outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_raw.csv",
+      "--output-path", "outputs\eval_mc\musique_mc_rag_500\posthoc\s4_focus_raw.csv",
       "--source-system", "manual",
       "--limit", "$S4FocusLimit",
       "--use-index",
@@ -256,8 +256,8 @@ if (-not $SkipPosthoc) {
 
 Write-Host ""
 Write-Host "DONE. Resumen:"
-Write-Host "  outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.csv"
-Write-Host "  outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.md"
-Write-Host "  outputs/eval_mc/musique_mc_rag_500/posthoc/s5_policy_summary.csv"
-Write-Host "  outputs/eval_mc/musique_mc_rag_500/posthoc/s4_disagreement_grid.csv"
-Write-Host "  outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_input.csv"
+Write-Host "  outputs\eval_mc\musique_mc_rag_500\model_grid_summary\model_grid_metrics.csv"
+Write-Host "  outputs\eval_mc\musique_mc_rag_500\model_grid_summary\model_grid_metrics.md"
+Write-Host "  outputs\eval_mc\musique_mc_rag_500\posthoc\s5_policy_summary.csv"
+Write-Host "  outputs\eval_mc\musique_mc_rag_500\posthoc\s4_disagreement_grid.csv"
+Write-Host "  outputs\eval_mc\musique_mc_rag_500\posthoc\s4_focus_input.csv"

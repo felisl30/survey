@@ -85,16 +85,12 @@ def load_system_frame(model: str, system: str, s0_out_dir: Path, rag_root: Path)
             out["retrieved"] = df["active_retrieval_triggered"].map(boolish)
         else:
             if "n_docs_retrieved" in df.columns:
-                retrieved_raw = df["n_docs_retrieved"]
-            else:
-                retrieved_raw = pd.Series(0, index=df.index)
-            out["retrieved"] = pd.to_numeric(retrieved_raw, errors="coerce").fillna(0).gt(0)
-    else:
-        if "n_docs_retrieved" in df.columns:
             retrieved_raw = df["n_docs_retrieved"]
         else:
             retrieved_raw = pd.Series(0, index=df.index)
         out["retrieved"] = pd.to_numeric(retrieved_raw, errors="coerce").fillna(0).gt(0)
+    else:
+        out["retrieved"] = pd.to_numeric(df.get("n_docs_retrieved", 0), errors="coerce").fillna(0).gt(0)
 
     for col in ["original_question", "question", "A", "B", "C", "D", "gold_answer", "gold_answer_text"]:
         if col in df.columns:
