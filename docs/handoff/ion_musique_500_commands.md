@@ -1,4 +1,4 @@
-# Para Ion - MuSiQue-500 final
+# Para Ion - corridas finales
 
 Desde la raiz del repo:
 
@@ -6,7 +6,7 @@ Desde la raiz del repo:
 cd C:\Users\Usuario\Downloads\NLPSURVEY
 ```
 
-## Corrida principal
+## 1. Corrida principal MuSiQue-500
 
 Este comando corre S0/S1/S2/S3 para varios tamanos de modelo y al final genera tambien S5 y la grilla de S4:
 
@@ -58,3 +58,55 @@ outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_raw.csv
 ```
 
 No usaria `-RunS4Focus` en la primera corrida larga porque consume tokens. Primero conviene tener S0-S3 + S5 + grilla S4.
+
+## 2. Robustez frente al ruido
+
+Este es el experimento clean/noisy/adversarial: sirve para ver que pasa cuando el RAG recibe contexto limpio, contexto con ruido o distractores adversariales.
+
+Este script es Bash, correr desde Git Bash o WSL:
+
+```bash
+MODEL="gpt-5.4-mini" bash scripts/run_musique_robustness_s0_s3.sh
+```
+
+Smoke barato:
+
+```bash
+LIMIT=20 MODEL="gpt-5.4-mini" bash scripts/run_musique_robustness_s0_s3.sh
+```
+
+Despues resumir desde PowerShell:
+
+```powershell
+python evaluation\summarize_musique_robustness_s0_s3.py --base-dir outputs\eval_mc\robustness_musique\gpt_5_4_mini
+python evaluation\analyze_musique_robustness_deep.py
+```
+
+Outputs a mirar:
+
+```text
+outputs/eval_mc/robustness_musique/gpt_5_4_mini/
+outputs/eval_mc/robustness_musique/gpt_5_4_mini/summary.csv
+outputs/eval_mc/robustness_musique/gpt_5_4_mini/deep_analysis/
+```
+
+## 3. S4 sobre robustez
+
+Si ya corrio robustness y queremos auditar casos dificiles con FIRE-like:
+
+```powershell
+python evaluation\build_s4_robustness_focus_input.py --base-dir outputs\eval_mc\robustness_musique\gpt_5_4_mini --questions-path data\eval_mc\robustness_musique\questions.csv --preset core5 --output-path outputs\eval_mc\robustness_musique\gpt_5_4_mini\s4\input\s4_robustness_focus_core5.csv
+```
+
+Y despues desde Git Bash o WSL:
+
+```bash
+bash scripts/run_s4_robustness_focus_rules.sh
+```
+
+## Orden recomendado
+
+1. Primero correr MuSiQue-500 principal.
+2. Despues correr robustness clean/noisy/adversarial.
+3. Mirar summaries.
+4. Recien ahi decidir si correr S4 focalizado, para no gastar tokens de mas.
