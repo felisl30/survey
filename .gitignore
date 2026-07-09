@@ -103,3 +103,6 @@ env/
 *.backup_*
 *.backup*
 *.bak
+*.bak_*
+*.broken_backup
+logs/*.log
