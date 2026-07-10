@@ -83,10 +83,22 @@ evaluation/README.md
 tmp_s4_extract/
 
 # Local model notes superseded by README and ENTREGA_FINAL
+s1_model_code/
+s2_model_code/
+s3_model_code/
 s1_model_code/*.txt
 s2_model_code/*.txt
 s3_model_code/*.txt
 s4_model_code/*.txt
+prepare_s0_dataset.py
+process_mmlu_truthfulqa_mix.py
+scripts/reproducir_resultados_principales.sh
+scripts/run_demo_pipeline.ps1
+scripts/run_frame_pipeline.ps1
+scripts/run_musique_500_full_linux.sh
+scripts/run_musique_model_grid_s0_s3.sh
+scripts/run_musique_robustness_s0_s3.sh
+scripts/run_s4_robustness_focus_rules.sh
 
 # Local indexes and helper scripts not included in final delivery
 indexes/eval_mc/robustness_musique_*/
