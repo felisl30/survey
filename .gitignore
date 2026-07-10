@@ -29,6 +29,12 @@ __pycache__/
 *.bak_*
 *.broken_backup
 old_versions/
+archivos_clave_para_robustez.txt
+comandos_para_probar_10.txt
+comandos_pipeline_ordenado.txt
+estructura_repo_codigo.md
+reporte_estructura_y_ejecucion_*.txt
+verificacion_de_resultados/
 
 # Local logs unless explicitly tracked as evidence
 logs/*.log
@@ -60,7 +66,14 @@ docs/datos_usados_modelos_nlp.txt
 docs/experimentos/*.md
 !docs/experimentos/informe_s4_focus_musique_500.md
 !docs/experimentos/resumen_comparacion_mc500_s0_s3.md
+evaluation/README.md
 tmp_s4_extract/
+
+# Local model notes superseded by README and ENTREGA_FINAL
+s1_model_code/*.txt
+s2_model_code/*.txt
+s3_model_code/*.txt
+s4_model_code/*.txt
 
 # Local indexes and helper scripts not included in final delivery
 indexes/eval_mc/robustness_musique_*/
