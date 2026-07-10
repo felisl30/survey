@@ -2,8 +2,6 @@
 
 Repositorio de experimentos para el informe **Estrategias RAG adaptativas para razonamiento multi-hop**.
 
-El informe editable esta en Overleaf y el PDF final versionado esta en `docs/informe/informe_final.pdf`.
-
 Para saber exactamente que se entrega y que archivo respalda cada resultado, usar `docs/ENTREGA_FINAL.md` como inventario canonico. Este README solo describe la estructura general del repo y como orientarse.
 
 ## Alcance experimental
@@ -58,8 +56,8 @@ El objetivo no fue comparar contra el ultimo frontier model, sino medir trade-of
 | --- | --- |
 | `.env.example` | Plantilla de variables de entorno. No contiene credenciales. |
 | `.gitignore` | Excluye caches, copias locales de Overleaf, zips y material intermedio. |
-| `direct_llm.py` | Wrapper comun para llamadas a la API usado por varios sistemas. |
-| `project_paths.py` | Rutas compartidas por scripts legacy y finales. |
+| `direct_llm.py` | Cliente comun de API usado por S0, S3, S4 y scripts de preflight. |
+| `project_paths.py` | Constantes de rutas compartidas por S0, S4 y constructores de evaluacion. |
 | `requirements.txt` | Dependencias Python necesarias para reproducir/analizar. |
 
 ## Reproduccion rapida
@@ -90,8 +88,6 @@ bash scripts/step11_run_musique_s0_and_final_aggregate.sh
 powershell -ExecutionPolicy Bypass -File scripts/run_musique_robustness_s0_s3.ps1
 ```
 
-## Que no forma parte de la entrega
+## Informe
 
-Los zips/exportaciones locales de Overleaf, carpetas temporales y smokes quedan fuera del entregable. Pueden servir como respaldo local, pero no deben citarse como fuente de resultados finales.
-
-El informe fuente final esta cargado en Overleaf. En este repo se entrega solo el PDF final en `docs/informe/informe_final.pdf`.
+El PDF final esta en `docs/informe/informe_final.pdf`.
