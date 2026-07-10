@@ -20,6 +20,8 @@ Este archivo enumera los artefactos que respaldan el informe final. Si hay dudas
 
 ## Resultados finales
 
+`docs/experimentos/` conserva solo las notas interpretativas usadas para S0-S3 y S4. S5 no tiene una nota manual versionada en esa carpeta: sus resultados finales son los reportes y tablas generados en `outputs/eval_mc/meta_router_gpt_5_mini/` y `outputs/eval_mc/musique_mc_rag_500/posthoc/s5_policy_summary.csv`.
+
 ### Saturacion inicial
 
 - `outputs/eval_mc/s0_benchmark_model_grid_summary.csv`
@@ -82,6 +84,9 @@ La organizacion por sistema esta resumida en `modelos/README.md`.
 ## Fuera de entrega
 
 - Exportaciones locales comprimidas: `docs/*.zip`.
+- Copias locales de Overleaf: `docs/overleaf_musique_rag/`.
+- Material local del poster: `docs/ia_fest_poster/`.
+- Handoffs y notas intermedias no citadas: `docs/handoff/` y notas viejas de `docs/experimentos/`.
 - Carpetas temporales: `tmp_s4_extract/`.
 - Smokes y pruebas chicas que no aparecen en el informe.
 - Versiones viejas del informe/poster que no coinciden con Overleaf.
