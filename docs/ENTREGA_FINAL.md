@@ -16,6 +16,7 @@ Este archivo enumera los artefactos que respaldan el informe final. Si hay dudas
 | HotpotQA-MC-500 | `data/eval_mc/hotpotqa_mc_rag_500/questions.csv`, `corpus.csv`, `qrels.csv`, `build_summary.json` |
 | 2Wiki-MC-500 | `data/eval_mc/2wiki_mc_rag_500/questions.csv`, `corpus.csv`, `qrels.csv`, `build_summary.json` |
 | Robustez MuSiQue | `data/eval_mc/robustness_musique/questions.csv`, `qrels.csv`, `corpus_clean.csv`, `corpus_noisy.csv`, `corpus_adversarial.csv` |
+| Saturacion MC-100 | `data/eval_mc/questions_*_mc_100.csv` y `data/eval_mc/build_summary_*_mc_100.json` |
 
 ## Resultados finales
 

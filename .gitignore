@@ -22,6 +22,19 @@ __pycache__/
 # Local runtime files
 *.pid
 
+# Local legacy data and indexes not included in final delivery
+data/eval/
+data/hotpotqa_distractor/
+data/hotpotqa_mini/
+data/s1/
+data/s2/
+data/mmlu_50_questions.csv
+data/questions_s0*.csv
+data/questions_truthfulqa_open.csv
+indexes/eval/
+indexes/s1/
+indexes/s2/
+
 # Local backup files
 *.backup_*
 *.backup*
