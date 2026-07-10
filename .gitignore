@@ -34,6 +34,7 @@ old_versions/
 logs/*.log
 
 # Local smoke-test artifacts
+outputs/**
 outputs/**/_smoke_data/
 outputs/**/*_smoke.csv
 outputs/**/*_smoke.json
@@ -51,4 +52,19 @@ outputs/**/*frame_demo*.txt
 docs/*.zip
 docs/ia_fest_poster/
 docs/overleaf_musique_rag/
+docs/handoff/
+docs/PIPELINE_BASICO.md
+docs/PLAN_EVALUACION_UNIFICADA.md
+docs/PROJECT_LAYOUT.md
+docs/datos_usados_modelos_nlp.txt
+docs/experimentos/*.md
+!docs/experimentos/informe_s4_focus_musique_500.md
+!docs/experimentos/resumen_comparacion_mc500_s0_s3.md
 tmp_s4_extract/
+
+# Local indexes and helper scripts not included in final delivery
+indexes/eval_mc/robustness_musique_*/
+scripts/patch_source_dataset_build_mc_rag.sh
+scripts/step*_smoke_*.sh
+scripts/step10b_find_musique_outputs*.sh
+scripts/step5b_fix_hotpotqa_summary.sh

@@ -1,3 +1,0 @@
-group_type,group,n,accuracy,valid_prediction_rate
-overall,all,100,0.69,1.0
-dataset,musique_mc,100,0.69,1.0

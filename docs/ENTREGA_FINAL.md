@@ -19,6 +19,10 @@ Este archivo enumera los artefactos que respaldan el informe final. Si hay dudas
 
 ## Resultados finales
 
+### Saturacion inicial
+
+- `outputs/eval_mc/s0_benchmark_model_grid_summary.csv`
+
 ### S0-S3 MuSiQue
 
 - `outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.csv`
@@ -52,6 +56,13 @@ Este archivo enumera los artefactos que respaldan el informe final. Si hay dudas
 - `outputs/eval_mc/meta_router_gpt_5_mini/s5_final_router_report.md`
 - `outputs/eval_mc/meta_router_gpt_5_mini/s5_rule_based_report.md`
 - `outputs/eval_mc/meta_router_gpt_5_mini/meta_router_question_table_report.md`
+
+## Logs finales
+
+- `logs/model_grid_s0_s3_full.log`
+- `logs/musique_500_full_20260705_002928.log`
+- `logs/musique_500_s4_focus_gpt_5_mini_limit25_rules.log`
+- `logs/musique_500_s4_focus_20260705_145849.log`
 
 ## Scripts a conservar
 

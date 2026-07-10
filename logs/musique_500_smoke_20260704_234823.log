@@ -1,285 +1,0 @@
-[skip] RAG dataset ya existe: data/eval_mc/musique_mc_rag_500
-[skip] Indice ya existe: indexes/eval_mc/musique_mc_rag_500
-
-################################################################################
-MODEL: gpt-5-mini
-TAG:   gpt-5-mini
-OUT:   outputs/eval_mc/musique_mc_rag_500/gpt-5-mini
-################################################################################
-
-================================================================================
-Run S0 direct: gpt-5-mini
-================================================================================
-powershell -ExecutionPolicy Bypass -File ./evaluation/run_s0_mc_pipeline.ps1 -Mode real -Model gpt-5-mini -QuestionPath data/eval_mc/questions_musique_mc_500.csv -OutputPrefix s0_gpt-5-mini_musique_500 -Resume -Limit 20
-
-========================================
-  S0 direct baseline sobre benchmark MC
-========================================
-  Mode:         real
-  Model:        gpt-5-mini
-  Limit:        20
-  BuildDataset: False
-  BuildMode:    dry-run
-  Datasets:     hotpotqa,musique,2wiki
-  PerDataset:   30
-  BuildOnly:    False
-  QuestionPath: data/eval_mc/questions_musique_mc_500.csv
-  OutputPrefix: s0_gpt-5-mini_musique_500
-  Resume:       True
-  Force:        False
-
-
-== Run S0 direct ==
-Archivo de entrada: data/eval_mc/questions_musique_mc_500.csv
-Archivo de salida: outputs/eval_mc/s0_gpt-5-mini_musique_500_raw.csv
-Filas totales consideradas: 20
-Filas ya existentes: 0
-Filas pendientes: 20
-Running S0 Direct LLM:   0%|          | 0/20 [00:00<?, ?it/s]Running S0 Direct LLM:   5%|▌         | 1/20 [00:23<07:23, 23.34s/it]Running S0 Direct LLM:  10%|█         | 2/20 [00:27<03:35, 11.99s/it]Running S0 Direct LLM:  15%|█▌        | 3/20 [00:31<02:24,  8.50s/it]Running S0 Direct LLM:  20%|██        | 4/20 [00:36<01:52,  7.03s/it]Running S0 Direct LLM:  25%|██▌       | 5/20 [00:41<01:33,  6.26s/it]Running S0 Direct LLM:  30%|███       | 6/20 [00:45<01:15,  5.41s/it]Running S0 Direct LLM:  35%|███▌      | 7/20 [00:47<00:57,  4.40s/it]Running S0 Direct LLM:  40%|████      | 8/20 [00:55<01:07,  5.63s/it]Running S0 Direct LLM:  45%|████▌     | 9/20 [01:08<01:25,  7.77s/it]Running S0 Direct LLM:  50%|█████     | 10/20 [01:14<01:13,  7.33s/it]Running S0 Direct LLM:  55%|█████▌    | 11/20 [02:30<04:15, 28.36s/it]Running S0 Direct LLM:  60%|██████    | 12/20 [02:36<02:51, 21.45s/it]Running S0 Direct LLM:  65%|██████▌   | 13/20 [02:49<02:12, 18.91s/it]Running S0 Direct LLM:  70%|███████   | 14/20 [02:55<01:30, 15.03s/it]Running S0 Direct LLM:  75%|███████▌  | 15/20 [02:58<00:57, 11.59s/it]Running S0 Direct LLM:  80%|████████  | 16/20 [03:02<00:36,  9.05s/it]Running S0 Direct LLM:  85%|████████▌ | 17/20 [03:09<00:25,  8.52s/it]Running S0 Direct LLM:  90%|█████████ | 18/20 [03:31<00:25, 12.52s/it]Running S0 Direct LLM:  95%|█████████▌| 19/20 [03:38<00:11, 11.04s/it]Running S0 Direct LLM: 100%|██████████| 20/20 [03:50<00:00, 11.09s/it]Running S0 Direct LLM: 100%|██████████| 20/20 [03:50<00:00, 11.50s/it]
-
-Resultados guardados en: outputs/eval_mc/s0_gpt-5-mini_musique_500_raw.csv
-
-== Parse S0 outputs ==
-Resultados parseados guardados en: outputs/eval_mc/s0_gpt-5-mini_musique_500_parsed.csv
-
-Resumen de parseo
------------------
-Filas totales: 20
-
-Filas por dataset:
-dataset
-musique_mc    20
-
-Métodos de parseo:
-parse_method
-json    20
-
-Valid format rate: 1.000
-Run error rate: 0.000
-
-== Evaluate S0 accuracy ==
-MC accuracy: 0.600
-Valid prediction rate: 1.000
-Results: outputs/eval_mc/s0_gpt-5-mini_musique_500_mc_results.csv
-Summary: outputs/eval_mc/s0_gpt-5-mini_musique_500_mc_summary.csv
-
-========================================
-  Pipeline S0 MC completado
-========================================
-  Raw:           outputs/eval_mc/s0_gpt-5-mini_musique_500_raw.csv
-  Parsed:        outputs/eval_mc/s0_gpt-5-mini_musique_500_parsed.csv
-  Results:       outputs/eval_mc/s0_gpt-5-mini_musique_500_mc_results.csv
-  Summary:       outputs/eval_mc/s0_gpt-5-mini_musique_500_mc_summary.csv
-
-
-================================================================================
-Run S1 RAG top-5: gpt-5-mini
-================================================================================
-python evaluation/run_s1_mc_rag.py --questions-path data/eval_mc/musique_mc_rag_500/questions.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_raw.csv --model gpt-5-mini --top-k 5 --save-every 1 --resume --limit 20
-Questions path: data/eval_mc/musique_mc_rag_500/questions.csv
-Index dir: indexes/eval_mc/musique_mc_rag_500
-Output path: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_raw.csv
-Modelo generación: gpt-5-mini
-Modelo embeddings: sentence-transformers/all-MiniLM-L6-v2
-Top-k: 5
-Filas consideradas: 20
-Filas ya existentes: 0
-Filas pendientes: 20
-
-Cargando modelo de embeddings...
-Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 1401.29it/s]
-Inicializando cliente OpenAI...
-Running S1 MC RAG:   0%|          | 0/20 [00:00<?, ?it/s]Running S1 MC RAG:   5%|▌         | 1/20 [00:17<05:34, 17.60s/it]Running S1 MC RAG:  10%|█         | 2/20 [00:22<03:04, 10.27s/it]Running S1 MC RAG:  15%|█▌        | 3/20 [00:25<01:57,  6.92s/it]Running S1 MC RAG:  20%|██        | 4/20 [00:44<03:05, 11.57s/it]Running S1 MC RAG:  25%|██▌       | 5/20 [00:48<02:11,  8.74s/it]Running S1 MC RAG:  30%|███       | 6/20 [00:54<01:52,  8.00s/it]Running S1 MC RAG:  35%|███▌      | 7/20 [00:58<01:28,  6.78s/it]Running S1 MC RAG:  40%|████      | 8/20 [01:09<01:37,  8.10s/it]Running S1 MC RAG:  45%|████▌     | 9/20 [01:22<01:44,  9.52s/it]Running S1 MC RAG:  50%|█████     | 10/20 [01:27<01:21,  8.14s/it]Running S1 MC RAG:  55%|█████▌    | 11/20 [01:34<01:10,  7.80s/it]Running S1 MC RAG:  60%|██████    | 12/20 [01:42<01:03,  7.97s/it]Running S1 MC RAG:  65%|██████▌   | 13/20 [01:54<01:04,  9.20s/it]Running S1 MC RAG:  70%|███████   | 14/20 [01:59<00:46,  7.75s/it]Running S1 MC RAG:  75%|███████▌  | 15/20 [02:05<00:36,  7.40s/it]Running S1 MC RAG:  80%|████████  | 16/20 [02:10<00:26,  6.67s/it]Running S1 MC RAG:  85%|████████▌ | 17/20 [02:14<00:16,  5.61s/it]Running S1 MC RAG:  90%|█████████ | 18/20 [02:41<00:24, 12.17s/it]Running S1 MC RAG:  95%|█████████▌| 19/20 [02:44<00:09,  9.46s/it]Running S1 MC RAG: 100%|██████████| 20/20 [02:51<00:00,  8.81s/it]Running S1 MC RAG: 100%|██████████| 20/20 [02:51<00:00,  8.60s/it]
-
-Resultados S1 raw guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_raw.csv
-
-================================================================================
-Parse S1: gpt-5-mini
-================================================================================
-python parse_s0_outputs.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_raw.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_parsed.csv
-Resultados parseados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_parsed.csv
-
-Resumen de parseo
------------------
-Filas totales: 20
-
-Filas por dataset:
-dataset
-musique_mc    20
-
-Métodos de parseo:
-parse_method
-json    20
-
-Valid format rate: 1.000
-Run error rate: 0.000
-
-================================================================================
-Evaluate S1: gpt-5-mini
-================================================================================
-python evaluate_s0.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_parsed.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_evaluated.csv --summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_summary.json --group-summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_group_summary.csv
-Resultados evaluados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_evaluated.csv
-Resumen JSON guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_summary.json
-Resumen por grupos guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s1_group_summary.csv
-
-Resumen de evaluación S0
-------------------------
-Filas totales: 20
-Accuracy / correct rate sobre casos decididos: 0.600
-Auto decision rate: 1.000
-Valid format rate: 1.000
-Run error rate: 0.000
-Manual review rate: 0.000
-Avg total tokens: 1634.300
-Avg latency seconds: 8.585
-
-Por dataset:
-- musique_mc: n=20, accuracy=0.600, auto_decision=1.000, valid_format=1.000, abstention=0.000, falsehood=n/a, manual_review=0.000
-
-================================================================================
-Run S2 adaptive RAG: gpt-5-mini
-================================================================================
-python evaluation/run_s2_mc_real_adaptive.py --questions-path data/eval_mc/musique_mc_rag_500/questions.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_raw.csv --model gpt-5-mini --top-k 5 --threshold 0.45 --min-gap 0.05 --save-every 1 --resume --limit 20
-Questions path: data/eval_mc/musique_mc_rag_500/questions.csv
-Index dir: indexes/eval_mc/musique_mc_rag_500
-Output path: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_raw.csv
-Model: gpt-5-mini
-Policy: top1_ge_0.45_gap_ge_0.05
-Threshold: 0.45
-Min gap: 0.05
-Top-k: 5
-Rows total: 20
-Rows existing: 0
-Rows pending: 20
-
-Cargando modelo de embeddings...
-Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 4303.44it/s]
-Inicializando cliente OpenAI...
-Running S2-MC real:   0%|          | 0/20 [00:00<?, ?it/s]Running S2-MC real:   5%|▌         | 1/20 [00:17<05:28, 17.30s/it]Running S2-MC real:  10%|█         | 2/20 [00:23<03:15, 10.85s/it]Running S2-MC real:  15%|█▌        | 3/20 [00:27<02:07,  7.51s/it]Running S2-MC real:  20%|██        | 4/20 [00:33<01:54,  7.18s/it]Running S2-MC real:  25%|██▌       | 5/20 [00:37<01:26,  5.75s/it]Running S2-MC real:  30%|███       | 6/20 [00:40<01:10,  5.06s/it]Running S2-MC real:  35%|███▌      | 7/20 [00:44<00:59,  4.55s/it]Running S2-MC real:  40%|████      | 8/20 [00:52<01:09,  5.80s/it]Running S2-MC real:  45%|████▌     | 9/20 [01:05<01:29,  8.09s/it]Running S2-MC real:  50%|█████     | 10/20 [01:17<01:30,  9.05s/it]Running S2-MC real:  55%|█████▌    | 11/20 [01:21<01:09,  7.69s/it]Running S2-MC real:  60%|██████    | 12/20 [01:27<00:56,  7.02s/it]Running S2-MC real:  65%|██████▌   | 13/20 [01:41<01:04,  9.27s/it]Running S2-MC real:  70%|███████   | 14/20 [01:49<00:52,  8.77s/it]Running S2-MC real:  75%|███████▌  | 15/20 [01:54<00:38,  7.78s/it]Running S2-MC real:  80%|████████  | 16/20 [01:59<00:27,  6.80s/it]Running S2-MC real:  85%|████████▌ | 17/20 [02:03<00:17,  5.97s/it]Running S2-MC real:  90%|█████████ | 18/20 [02:17<00:16,  8.42s/it]Running S2-MC real:  95%|█████████▌| 19/20 [02:19<00:06,  6.50s/it]Running S2-MC real: 100%|██████████| 20/20 [02:29<00:00,  7.50s/it]Running S2-MC real: 100%|██████████| 20/20 [02:29<00:00,  7.46s/it]
-
-Resultados S2-MC real guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_raw.csv
-
-================================================================================
-Parse S2: gpt-5-mini
-================================================================================
-python parse_s0_outputs.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_raw.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_parsed.csv
-Resultados parseados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_parsed.csv
-
-Resumen de parseo
------------------
-Filas totales: 20
-
-Filas por dataset:
-dataset
-musique_mc    20
-
-Métodos de parseo:
-parse_method
-json    20
-
-Valid format rate: 1.000
-Run error rate: 0.000
-
-================================================================================
-Evaluate S2: gpt-5-mini
-================================================================================
-python evaluate_s0.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_parsed.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_evaluated.csv --summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_summary.json --group-summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_group_summary.csv
-Resultados evaluados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_evaluated.csv
-Resumen JSON guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_summary.json
-Resumen por grupos guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s2_group_summary.csv
-
-Resumen de evaluación S0
-------------------------
-Filas totales: 20
-Accuracy / correct rate sobre casos decididos: 0.750
-Auto decision rate: 1.000
-Valid format rate: 1.000
-Run error rate: 0.000
-Manual review rate: 0.000
-Avg total tokens: 1321.600
-Avg latency seconds: 7.452
-
-Por dataset:
-- musique_mc: n=20, accuracy=0.750, auto_decision=1.000, valid_format=1.000, abstention=0.000, falsehood=n/a, manual_review=0.000
-
-================================================================================
-Run S3 MC FLARE-like: gpt-5-mini
-================================================================================
-python evaluation/run_s3_mc_flare_like.py --questions-path data/eval_mc/musique_mc_rag_500/questions.csv --index-dir indexes/eval_mc/musique_mc_rag_500 --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_raw.csv --model gpt-5-mini --top-k 5 --save-every 1 --resume --limit 20
-S3-MC FLARE-like runner
------------------------
-Questions: data/eval_mc/musique_mc_rag_500/questions.csv
-Index: indexes/eval_mc/musique_mc_rag_500
-Output: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_raw.csv
-Model: gpt-5-mini
-Embedding model: sentence-transformers/all-MiniLM-L6-v2
-Top-k: 5
-Confidence threshold: 0.78
-Score threshold: 0.45
-Min gap: 0.05
-Rows considered: 20
-Rows existing: 0
-Rows pending: 20
-Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3621.51it/s]
-Running S3-MC:   0%|          | 0/20 [00:00<?, ?it/s]Running S3-MC:   5%|▌         | 1/20 [00:40<12:44, 40.24s/it]Running S3-MC:  10%|█         | 2/20 [00:52<07:03, 23.53s/it]Running S3-MC:  15%|█▌        | 3/20 [01:04<05:17, 18.67s/it]Running S3-MC:  20%|██        | 4/20 [01:12<03:45, 14.12s/it]Running S3-MC:  25%|██▌       | 5/20 [01:24<03:22, 13.51s/it]Running S3-MC:  30%|███       | 6/20 [01:32<02:44, 11.72s/it]Running S3-MC:  35%|███▌      | 7/20 [01:37<02:03,  9.47s/it]Running S3-MC:  40%|████      | 8/20 [01:59<02:41, 13.46s/it]Running S3-MC:  45%|████▌     | 9/20 [02:19<02:48, 15.32s/it]Running S3-MC:  50%|█████     | 10/20 [02:32<02:26, 14.65s/it]Running S3-MC:  55%|█████▌    | 11/20 [02:53<02:30, 16.72s/it]Running S3-MC:  60%|██████    | 12/20 [03:06<02:04, 15.60s/it]Running S3-MC:  65%|██████▌   | 13/20 [03:27<02:01, 17.32s/it]Running S3-MC:  70%|███████   | 14/20 [03:38<01:32, 15.44s/it]Running S3-MC:  75%|███████▌  | 15/20 [03:45<01:04, 12.85s/it]Running S3-MC:  80%|████████  | 16/20 [03:59<00:52, 13.03s/it]Running S3-MC:  85%|████████▌ | 17/20 [04:06<00:33, 11.22s/it]Running S3-MC:  90%|█████████ | 18/20 [04:41<00:36, 18.48s/it]Running S3-MC:  95%|█████████▌| 19/20 [04:52<00:16, 16.22s/it]Running S3-MC: 100%|██████████| 20/20 [05:13<00:00, 17.70s/it]Running S3-MC: 100%|██████████| 20/20 [05:13<00:00, 15.69s/it]
-
-S3-MC raw saved to: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_raw.csv
-Rows: 20
-Run error rate: 0.000
-Active retrieval rate: 0.750
-Avg total tokens: 2393.60
-Avg latency seconds: 15.55
-
-================================================================================
-Parse S3: gpt-5-mini
-================================================================================
-python parse_s0_outputs.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_raw.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_parsed.csv
-Resultados parseados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_parsed.csv
-
-Resumen de parseo
------------------
-Filas totales: 20
-
-Filas por dataset:
-dataset
-musique_mc    20
-
-Métodos de parseo:
-parse_method
-json    20
-
-Valid format rate: 1.000
-Run error rate: 0.000
-
-================================================================================
-Evaluate S3: gpt-5-mini
-================================================================================
-python evaluate_s0.py --input-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_parsed.csv --output-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_evaluated.csv --summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_summary.json --group-summary-path outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_group_summary.csv
-Resultados evaluados guardados en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_evaluated.csv
-Resumen JSON guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_summary.json
-Resumen por grupos guardado en: outputs/eval_mc/musique_mc_rag_500/gpt-5-mini/s3_group_summary.csv
-
-Resumen de evaluación S0
-------------------------
-Filas totales: 20
-Accuracy / correct rate sobre casos decididos: 0.650
-Auto decision rate: 1.000
-Valid format rate: 1.000
-Run error rate: 0.000
-Manual review rate: 0.000
-Avg total tokens: 2393.600
-Avg latency seconds: 15.547
-
-Por dataset:
-- musique_mc: n=20, accuracy=0.650, auto_decision=1.000, valid_format=1.000, abstention=0.000, falsehood=n/a, manual_review=0.000
-
-================================================================================
-Summarize MuSiQue-500 model grid
-================================================================================
-python evaluation/summarize_musique_500_model_grid.py --models gpt-5-mini --systems s0,s1,s2,s3 --expected-n 20
-No encontre ningun resultado para resumir.
-[31;1mException: [0m/home/ubuntu/Documents/natural_language_processing/trabajo_cientifico/evaluation/run_musique_500_model_grid.ps1:55:5[0m
-[31;1m[0m[36;1mLine |[0m
-[31;1m[0m[36;1m[36;1m  55 | [0m     [36;1mthrow "Fallo el paso '$Name' con codigo $LASTEXITCODE."[0m
-[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-[31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mFallo el paso 'Summarize MuSiQue-500 model grid' con codigo 1.[0m

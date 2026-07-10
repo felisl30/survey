@@ -1,3 +1,0 @@
-group_type,group,n,accuracy,valid_prediction_rate
-overall,all,100,0.57,1.0
-dataset,2wiki_mc,100,0.57,1.0
