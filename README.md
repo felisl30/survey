@@ -1,8 +1,10 @@
-# NLPSURVEY - entrega final
+# NLPSURVEY
 
 Repositorio de experimentos para el informe **Estrategias RAG adaptativas para razonamiento multi-hop**.
 
-El informe entregable esta en Overleaf. Este repositorio conserva el codigo, datasets, salidas y logs que respaldan las tablas y conclusiones agregadas al informe.
+El informe editable esta en Overleaf y el PDF final versionado esta en `docs/informe/informe_final.pdf`.
+
+Para saber exactamente que se entrega y que archivo respalda cada resultado, usar `docs/ENTREGA_FINAL.md` como inventario canonico. Este README solo describe la estructura general del repo y como orientarse.
 
 ## Alcance experimental
 
@@ -38,19 +40,27 @@ El objetivo no fue comparar contra el ultimo frontier model, sino medir trade-of
 | `data/eval_mc/2wiki_mc_rag_500/` | Validacion multi-dataset 2Wiki-MC-500 |
 | `data/eval_mc/robustness_musique/` | Robustez MuSiQue con corpus limpio, ruidoso y adversarial |
 
-## Resultados usados en el informe
+## Estructura
 
-| Seccion del informe | Artefacto principal |
+| Ruta | Contenido |
 | --- | --- |
-| Saturacion de modelos/datasets | `outputs/eval_mc/s0_benchmark_model_grid_summary.csv` |
-| Tabla principal S0-S3 en MuSiQue | `outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.csv` |
-| Validacion multi-dataset | `outputs/eval_mc/cross_dataset/mc500_s0_s3_comparison_final.csv` |
-| Robustez con ruido/adversarial | `outputs/eval_mc/robustness_musique/gpt_5_mini/analysis/robustness_s0_s3_summary.csv` |
-| Auditor S4 focalizado | `outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_raw_gpt_5_mini_limit25_rules.csv` |
-| Meta-router S5 | `outputs/eval_mc/musique_mc_rag_500/posthoc/s5_policy_summary.csv` |
+| `modelos/` | Implementaciones finales S0-S5. Ver `modelos/README.md`. |
+| `data/eval_mc/` | Datasets finales usados para las corridas reportadas. |
+| `outputs/eval_mc/` | Tablas, reportes y salidas citadas por el informe. |
+| `logs/` | Logs finales de corridas largas. |
+| `scripts/` | Scripts de reconstruccion de datasets, indices y corridas agregadas. |
+| `evaluation/` | Utilidades de construccion, analisis y agregacion. |
+| `docs/` | Inventario de entrega, PDF final y notas interpretativas versionadas. |
 
-Los detalles exactos de archivos, scripts y logs estan en `docs/ENTREGA_FINAL.md`.
-La organizacion de los ejecutores S0-S5 esta documentada en `modelos/README.md`.
+## Archivos de raiz
+
+| Archivo | Rol |
+| --- | --- |
+| `.env.example` | Plantilla de variables de entorno. No contiene credenciales. |
+| `.gitignore` | Excluye caches, copias locales de Overleaf, zips y material intermedio. |
+| `direct_llm.py` | Wrapper comun para llamadas a la API usado por varios sistemas. |
+| `project_paths.py` | Rutas compartidas por scripts legacy y finales. |
+| `requirements.txt` | Dependencias Python necesarias para reproducir/analizar. |
 
 ## Reproduccion rapida
 

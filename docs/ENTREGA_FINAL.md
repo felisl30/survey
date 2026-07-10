@@ -8,6 +8,19 @@ Este archivo enumera los artefactos que respaldan el informe final. Si hay dudas
 - PDF final en el repo: `docs/informe/informe_final.pdf`.
 - Fuente editable: Overleaf. No se versiona la copia local de `main.tex` ni archivos auxiliares de compilacion.
 
+## Archivos de soporte en raiz
+
+Estos archivos se conservan en la raiz porque son configuracion o utilidades compartidas, no resultados experimentales:
+
+| Archivo | Uso |
+| --- | --- |
+| `.env.example` | Plantilla para `OPENAI_API_KEY` y variables locales. |
+| `.gitignore` | Mantiene fuera de Git caches, zips, copias locales y temporales. |
+| `README.md` | Guia general del repositorio. Este archivo, `docs/ENTREGA_FINAL.md`, es el inventario canonico. |
+| `direct_llm.py` | Cliente comun para llamadas directas al modelo. |
+| `project_paths.py` | Constantes de rutas usadas por scripts finales y auxiliares. |
+| `requirements.txt` | Dependencias de ejecucion y analisis. |
+
 ## Datasets finales
 
 | Bloque | Archivos |
