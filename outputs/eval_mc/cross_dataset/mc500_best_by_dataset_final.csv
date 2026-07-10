@@ -1,0 +1,4 @@
+﻿dataset,system,accuracy,best_delta_vs_s0,avg_total_tokens,token_ratio_vs_s0,avg_latency_seconds
+MuSiQue-MC-500,S3,0.808,0.112,2295.708,2.312,15.179
+HotpotQA-MC-500,S3,0.942,0.142,2285.420,2.512,14.003
+2Wiki-MC-500,S3,0.898,0.088,2460.528,2.374,18.015

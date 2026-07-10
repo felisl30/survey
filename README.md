@@ -1,23 +1,86 @@
-Papers utiles:
+# NLPSURVEY - entrega final
 
+Repositorio de experimentos para el informe **Estrategias RAG adaptativas para razonamiento multi-hop**.
 
-FIRE: Fact-checking with Iterative Retrieval and Verification
+El informe entregable esta en Overleaf. Este repositorio conserva el codigo, datasets, salidas y logs que respaldan las tablas y conclusiones agregadas al informe.
 
-https://aclanthology.org/2025.findings-naacl.158/
+## Alcance experimental
 
+### Sistemas
 
+| Sistema | Rol en el informe | Implementacion principal |
+| --- | --- | --- |
+| S0 | LLM directo, sin recuperacion | `run_s0_direct.py`, `parse_s0_outputs.py`, `evaluate_s0.py`, `direct_llm.py` |
+| S1 | RAG fijo con top-k constante | `evaluation/run_s1_mc_rag.py` |
+| S2 | RAG adaptativo con decision previa de recuperar | `evaluation/run_s2_mc_real_adaptive.py` |
+| S3 | Recuperacion activa tipo FLARE | `evaluation/run_s3_mc_flare_like.py` |
+| S4 | Auditor factual exploratorio/post-hoc | `s4_model_code/`, `docs/experimentos/informe_s4_focus_musique_500.md` |
+| S5 | Meta-router post-hoc/oracle sobre S0-S3 | `evaluation/meta_router/` |
 
-Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity
+S4 no se reporta como sistema competitivo principal de accuracy porque fue evaluado como auditor focalizado. En el informe queda como modulo exploratorio: aporta evidencia sobre verificacion factual, pero no reemplaza la tabla S0-S3.
 
-https://aclanthology.org/2024.naacl-long.389/
+### Modelos base
 
+Las corridas finales del informe usan modelos compactos/costo-eficientes disponibles al momento de la corrida:
 
+- `gpt-5-mini`
+- `gpt-5-nano`
+- `gpt-4.1-mini`
 
-Active Retrieval Augmented Generation
+El objetivo no fue comparar contra el ultimo frontier model, sino medir trade-offs de accuracy, costo y recuperacion en modelos de costo moderado.
 
-https://aclanthology.org/2023.emnlp-main.495/
+### Datasets
 
+| Dataset | Uso |
+| --- | --- |
+| `data/eval_mc/musique_mc_rag_500/` | Dataset principal MuSiQue-MC-500 |
+| `data/eval_mc/hotpotqa_mc_rag_500/` | Validacion multi-dataset HotpotQA-MC-500 |
+| `data/eval_mc/2wiki_mc_rag_500/` | Validacion multi-dataset 2Wiki-MC-500 |
+| `data/eval_mc/robustness_musique/` | Robustez MuSiQue con corpus limpio, ruidoso y adversarial |
 
-Teaching language models to support answers with verified quotes
+## Resultados usados en el informe
 
-https://arxiv.org/abs/2203.11147
+| Seccion del informe | Artefacto principal |
+| --- | --- |
+| Saturacion de modelos/datasets | `outputs/eval_mc/s0_benchmark_model_grid_summary.csv` |
+| Tabla principal S0-S3 en MuSiQue | `outputs/eval_mc/musique_mc_rag_500/model_grid_summary/model_grid_metrics.csv` |
+| Validacion multi-dataset | `outputs/eval_mc/cross_dataset/mc500_s0_s3_comparison_final.csv` |
+| Robustez con ruido/adversarial | `outputs/eval_mc/robustness_musique/gpt_5_mini/analysis/robustness_s0_s3_summary.csv` |
+| Auditor S4 focalizado | `outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_raw_gpt_5_mini_limit25_rules.csv` |
+| Meta-router S5 | `outputs/eval_mc/musique_mc_rag_500/posthoc/s5_policy_summary.csv` |
+
+Los detalles exactos de archivos, scripts y logs estan en `docs/ENTREGA_FINAL.md`.
+
+## Reproduccion rapida
+
+Crear entorno e instalar dependencias:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+Las corridas completas consumen API y no deben lanzarse por accidente. Para reconstruir los artefactos agregados al informe, usar los scripts versionados:
+
+```powershell
+# Construccion/indices multi-dataset
+bash scripts/step2_build_hotpotqa_mc500.sh
+bash scripts/step3_build_hotpotqa_rag_index.sh
+bash scripts/step6_build_2wiki_mc500.sh
+bash scripts/step7_build_2wiki_rag_index.sh
+
+# Corridas S0-S3 multi-dataset y agregacion
+bash scripts/step5_full_hotpotqa_s0_s3.sh
+bash scripts/step9_full_2wiki_s0_s3.sh
+bash scripts/step11_run_musique_s0_and_final_aggregate.sh
+
+# Robustez MuSiQue S0-S3
+powershell -ExecutionPolicy Bypass -File scripts/run_musique_robustness_s0_s3.ps1
+```
+
+## Que no forma parte de la entrega
+
+Los zips/exportaciones locales de Overleaf, carpetas temporales y smokes quedan fuera del entregable. Pueden servir como respaldo local, pero no deben citarse como fuente de resultados finales.
+
+El informe fuente final esta cargado en Overleaf. En este repo se entrega solo el PDF final en `docs/informe/informe_final.pdf`.

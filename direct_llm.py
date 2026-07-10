@@ -62,7 +62,8 @@ def _get_client():
             "No se encontró el paquete 'openai'. Instalalo con: pip install openai"
         ) from exc
 
-    return OpenAI(api_key=api_key)
+    timeout_seconds = float(os.getenv("OPENAI_TIMEOUT_SECONDS", "120"))
+    return OpenAI(api_key=api_key, timeout=timeout_seconds)
 
 
 def _jsonable(value: Any) -> Any:

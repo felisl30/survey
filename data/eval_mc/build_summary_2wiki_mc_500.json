@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-07-09T01:49:04.621671+00:00",
+  "mode": "real",
+  "generator_model": "gpt-5-mini",
+  "datasets": [
+    "2wiki"
+  ],
+  "per_dataset": 500,
+  "total_questions": 500,
+  "output_path": "data/eval_mc/questions_2wiki_mc_500.csv",
+  "rows_by_dataset": [
+    {
+      "dataset": "2wiki",
+      "loaded_candidates": 2500,
+      "selected": 500
+    }
+  ],
+  "notes": "Dataset MC generado para medir saturacion de S0/directo. La metrica principal es accuracy por dataset y promedio."
+}

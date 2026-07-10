@@ -1,0 +1,11 @@
+condition,system,summary_path,n,accuracy,valid_format_rate,run_error_rate,avg_confidence,avg_latency_seconds,avg_input_tokens,avg_output_tokens,avg_total_tokens,missing,delta_accuracy_vs_clean,delta_tokens_vs_clean
+baseline,s0,outputs\eval_mc\robustness_musique\gpt_5_mini\s0_summary.json,100,0.72,1.0,0.0,0.7182,6.999530000000001,320.97,671.9,992.87,,,
+clean,s1,outputs\eval_mc\robustness_musique\gpt_5_mini\clean\s1_summary.json,100,0.81,1.0,0.0,0.7219000000000001,4.88755,890.65,468.63,1359.28,False,0.0,0.0
+clean,s2,outputs\eval_mc\robustness_musique\gpt_5_mini\clean\s2_summary.json,100,0.81,1.0,0.0,0.7641,6.03182,584.22,514.14,1098.36,False,0.0,0.0
+clean,s3_mc,outputs\eval_mc\robustness_musique\gpt_5_mini\clean\s3_mc_summary.json,100,0.87,1.0,0.0,0.7113999999999997,15.526080000000002,1027.89,1286.88,2314.77,False,0.0,0.0
+noisy,s1,outputs\eval_mc\robustness_musique\gpt_5_mini\noisy\s1_summary.json,100,0.75,1.0,0.0,0.7223,6.543130000000002,867.66,483.48,1351.14,False,-0.06000000000000005,-8.139999999999873
+noisy,s2,outputs\eval_mc\robustness_musique\gpt_5_mini\noisy\s2_summary.json,100,0.74,1.0,0.0,0.7158000000000001,7.541899999999998,386.99,607.23,994.22,False,-0.07000000000000006,-104.13999999999987
+noisy,s3_mc,outputs\eval_mc\robustness_musique\gpt_5_mini\noisy\s3_mc_summary.json,100,0.8,1.0,0.0,0.6684,14.981929999999998,966.84,1280.62,2247.46,False,-0.06999999999999995,-67.30999999999995
+adversarial,s1,outputs\eval_mc\robustness_musique\gpt_5_mini\adversarial\s1_summary.json,100,0.81,1.0,0.0,0.6895,5.7737799999999995,868.11,483.12,1351.23,False,0.0,-8.049999999999955
+adversarial,s2,outputs\eval_mc\robustness_musique\gpt_5_mini\adversarial\s2_summary.json,100,0.75,1.0,0.0,0.7148,5.963030000000001,397.62,587.21,984.83,False,-0.06000000000000005,-113.52999999999986
+adversarial,s3_mc,outputs\eval_mc\robustness_musique\gpt_5_mini\adversarial\s3_mc_summary.json,100,0.79,1.0,0.0,0.7109000000000002,14.67028,937.58,1212.67,2150.25,False,-0.07999999999999996,-164.51999999999998

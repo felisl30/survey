@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from collections import Counter, defaultdict
+import argparse
 from pathlib import Path
 from typing import Any
 
@@ -569,6 +570,25 @@ def extract_interesting_cases(df: pd.DataFrame, pred: pd.DataFrame) -> pd.DataFr
 
 
 def main() -> None:
+    global IN_CSV, OUT_DIR, OUT_PREDICTIONS, OUT_SUMMARY, OUT_BY_CONDITION, OUT_DECISIONS, OUT_INTERESTING, OUT_REPORT, DOWNLOADS_REPORT
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input-csv", type=Path, default=IN_CSV)
+    parser.add_argument("--output-dir", type=Path, default=OUT_DIR)
+    parser.add_argument("--report-suffix", default="")
+    args = parser.parse_args()
+
+    IN_CSV = args.input_csv
+    OUT_DIR = args.output_dir
+    OUT_PREDICTIONS = OUT_DIR / "s5_rule_based_predictions.csv"
+    OUT_SUMMARY = OUT_DIR / "s5_rule_based_summary.csv"
+    OUT_BY_CONDITION = OUT_DIR / "s5_rule_based_by_condition.csv"
+    OUT_DECISIONS = OUT_DIR / "s5_rule_based_decision_distribution.csv"
+    OUT_INTERESTING = OUT_DIR / "s5_rule_based_interesting_cases.csv"
+    OUT_REPORT = OUT_DIR / "s5_rule_based_report.md"
+    suffix = f"_{args.report_suffix}" if args.report_suffix else ""
+    DOWNLOADS_REPORT = Path.home() / "Downloads" / f"s5_rule_based_report{suffix}.md"
+
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     require_file(IN_CSV)
 

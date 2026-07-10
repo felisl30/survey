@@ -205,6 +205,7 @@ def build_dataset(
     for row_idx, row in df.iterrows():
         qid = clean_str(row["id"])
         dataset = clean_str(row.get("dataset", benchmark_name))
+        source_dataset = clean_str(row.get("source_dataset", "")) or dataset
         original_question = extract_original_question(row)
         gold_answer = normalize_gold_answer(row)
         gold_answer_text = clean_str(row.get(gold_answer, ""))
@@ -235,7 +236,7 @@ def build_dataset(
             "question_id": qid,
             "dataset": dataset,
             "case_type": "multiple_choice",
-            "source_dataset": "musique",
+            "source_dataset": source_dataset,
             "benchmark_name": benchmark_name,
             "original_question": original_question,
             "question": mc_prompt,
@@ -269,7 +270,7 @@ def build_dataset(
                 "document_id": doc_id,
                 "question_id": qid,
                 "source_question_id": qid,
-                "source_dataset": "musique",
+                "source_dataset": source_dataset,
                 "benchmark_name": benchmark_name,
                 "rank_in_source": evidence_idx,
                 "title": title,

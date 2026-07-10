@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import math
+import argparse
 from pathlib import Path
 
 import pandas as pd
@@ -234,10 +235,21 @@ def oracle_row(row: pd.Series) -> pd.Series:
 
 
 def main() -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--robustness-dir", type=Path, default=ROBUSTNESS_DIR)
+    parser.add_argument("--questions-path", type=Path, default=QUESTIONS_PATH)
+    parser.add_argument("--output-dir", type=Path, default=OUT_DIR)
+    parser.add_argument("--model-name", default="gpt-5.4-mini")
+    args = parser.parse_args()
 
-    require_file(QUESTIONS_PATH)
-    questions = pd.read_csv(QUESTIONS_PATH)
+    out_csv = args.output_dir / "meta_router_question_table.csv"
+    out_report = args.output_dir / "meta_router_question_table_report.md"
+    downloads_report = Path.home() / "Downloads" / f"meta_router_question_table_report_{args.model_name.replace('.', '_').replace('-', '_')}.md"
+
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+
+    require_file(args.questions_path)
+    questions = pd.read_csv(args.questions_path)
 
     base_cols = [
         "id",
@@ -258,19 +270,19 @@ def main() -> None:
     ]
     base_cols = [c for c in base_cols if c in questions.columns]
 
-    s0 = extract_system_frame(ROBUSTNESS_DIR / "s0_evaluated.csv", "s0")
+    s0 = extract_system_frame(args.robustness_dir / "s0_evaluated.csv", "s0")
 
     frames = []
 
     for condition in CONDITIONS:
         frame = questions[base_cols].copy()
         frame["condition"] = condition
-        frame["model"] = "gpt-5.4-mini"
+        frame["model"] = args.model_name
 
         frame = frame.merge(s0, on="id", how="left", validate="one_to_one")
 
         for system in ["s1", "s2", "s3_mc"]:
-            path = ROBUSTNESS_DIR / condition / f"{system}_evaluated.csv"
+            path = args.robustness_dir / condition / f"{system}_evaluated.csv"
             sys_frame = extract_system_frame(path, system)
             frame = frame.merge(sys_frame, on="id", how="left", validate="one_to_one")
 
@@ -325,15 +337,15 @@ def main() -> None:
         & ~table["s2_correct_bool"]
     )
 
-    table.to_csv(OUT_CSV, index=False)
+    table.to_csv(out_csv, index=False)
 
     report_lines = []
     report_lines.append("# Meta-Router Question Table Report")
     report_lines.append("")
     report_lines.append("## Archivos generados")
     report_lines.append("")
-    report_lines.append(f"- `{OUT_CSV}`")
-    report_lines.append(f"- `{OUT_REPORT}`")
+    report_lines.append(f"- `{out_csv}`")
+    report_lines.append(f"- `{out_report}`")
     report_lines.append("")
     report_lines.append("## Shape")
     report_lines.append("")
@@ -433,12 +445,12 @@ def main() -> None:
     report_lines.append("```")
     report_lines.append("")
 
-    OUT_REPORT.write_text("\n".join(report_lines), encoding="utf-8")
-    DOWNLOADS_REPORT.write_text("\n".join(report_lines), encoding="utf-8")
+    out_report.write_text("\n".join(report_lines), encoding="utf-8")
+    downloads_report.write_text("\n".join(report_lines), encoding="utf-8")
 
-    print(f"OK: tabla generada en {OUT_CSV}")
-    print(f"OK: reporte generado en {OUT_REPORT}")
-    print(f"OK: copia del reporte en {DOWNLOADS_REPORT}")
+    print(f"OK: tabla generada en {out_csv}")
+    print(f"OK: reporte generado en {out_report}")
+    print(f"OK: copia del reporte en {downloads_report}")
     print(f"shape: {table.shape}")
 
 

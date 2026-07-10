@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import argparse
 
 import pandas as pd
 
@@ -116,6 +117,24 @@ def build_pattern_summary(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def main() -> None:
+    global IN_CSV, OUT_DIR, OUT_SUMMARY, OUT_BY_CONDITION, OUT_SELECTION_DISTRIBUTION, OUT_PATTERN_SUMMARY, OUT_REPORT, DOWNLOADS_REPORT
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input-csv", type=Path, default=IN_CSV)
+    parser.add_argument("--output-dir", type=Path, default=OUT_DIR)
+    parser.add_argument("--report-suffix", default="")
+    args = parser.parse_args()
+
+    IN_CSV = args.input_csv
+    OUT_DIR = args.output_dir
+    OUT_SUMMARY = OUT_DIR / "oracle_router_summary.csv"
+    OUT_BY_CONDITION = OUT_DIR / "oracle_router_by_condition.csv"
+    OUT_SELECTION_DISTRIBUTION = OUT_DIR / "oracle_router_selection_distribution.csv"
+    OUT_PATTERN_SUMMARY = OUT_DIR / "oracle_router_pattern_summary.csv"
+    OUT_REPORT = OUT_DIR / "oracle_router_report.md"
+    suffix = f"_{args.report_suffix}" if args.report_suffix else ""
+    DOWNLOADS_REPORT = Path.home() / "Downloads" / f"oracle_router_report{suffix}.md"
+
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     require_file(IN_CSV)
 

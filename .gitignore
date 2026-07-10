@@ -1,36 +1,3 @@
-
-# Python virtual environments
-tp_cientifico/
-.venv/
-venv/
-env/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-.ipynb_checkpoints/
-
-# OS / editor
-.DS_Store
-.vscode/
-
-# Python virtual environments
-tp_cientifico/
-.venv/
-venv/
-env/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-.ipynb_checkpoints/
-
-# OS / editor
-.DS_Store
-.vscode/
-
 # Python virtual environments
 tp_cientifico/
 .venv/
@@ -47,6 +14,23 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# OS / editor
+.DS_Store
+.vscode/
+
+# Local runtime files
+*.pid
+
+# Local backup files
+*.backup_*
+*.backup*
+*.bak
+*.bak_*
+*.broken_backup
+
+# Local logs unless explicitly tracked as evidence
+logs/*.log
 
 # Local smoke-test artifacts
 outputs/**/_smoke_data/
@@ -61,45 +45,9 @@ outputs/**/demo_*.txt
 outputs/**/*frame_demo*.csv
 outputs/**/*frame_demo*.json
 outputs/**/*frame_demo*.txt
-# Secrets / environment variables
-.env
-.env.*
-!.env.example
 
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-.ipynb_checkpoints/
-
-# Python virtual environments
-tp_cientifico/
-.venv/
-venv/
-env/
-
-# Secrets / environment variables
-.env
-.env.*
-!.env.example
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-.ipynb_checkpoints/
-
-# Python virtual environments
-tp_cientifico/
-.venv/
-venv/
-env/
-.env
-
-# Local runtime files
-*.pid
-
-# Local backup files
-*.backup_*
-*.backup*
-*.bak
+# Local report/export bundles
+docs/*.zip
+docs/ia_fest_poster/
+docs/overleaf_musique_rag/
+tmp_s4_extract/

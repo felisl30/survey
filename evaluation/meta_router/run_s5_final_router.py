@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import argparse
 
 import pandas as pd
 
@@ -240,6 +241,26 @@ def decision_distribution(pred: pd.DataFrame) -> pd.DataFrame:
 
 
 def main() -> None:
+    global TABLE_CSV, S5_PRED_CSV, OUT_DIR, OUT_PRED, OUT_SUMMARY, OUT_BY_CONDITION, OUT_DECISIONS, OUT_REPORT, DOWNLOADS_REPORT
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--table-csv", type=Path, default=TABLE_CSV)
+    parser.add_argument("--s5-pred-csv", type=Path, default=S5_PRED_CSV)
+    parser.add_argument("--output-dir", type=Path, default=OUT_DIR)
+    parser.add_argument("--report-suffix", default="")
+    args = parser.parse_args()
+
+    TABLE_CSV = args.table_csv
+    S5_PRED_CSV = args.s5_pred_csv
+    OUT_DIR = args.output_dir
+    OUT_PRED = OUT_DIR / "s5_final_router_predictions.csv"
+    OUT_SUMMARY = OUT_DIR / "s5_final_router_summary.csv"
+    OUT_BY_CONDITION = OUT_DIR / "s5_final_router_by_condition.csv"
+    OUT_DECISIONS = OUT_DIR / "s5_final_router_decision_distribution.csv"
+    OUT_REPORT = OUT_DIR / "s5_final_router_report.md"
+    suffix = f"_{args.report_suffix}" if args.report_suffix else ""
+    DOWNLOADS_REPORT = Path.home() / "Downloads" / f"s5_final_router_report{suffix}.md"
+
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     require_file(TABLE_CSV)
     require_file(S5_PRED_CSV)

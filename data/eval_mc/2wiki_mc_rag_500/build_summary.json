@@ -1,0 +1,26 @@
+{
+  "benchmark_name": "2wiki_mc_500",
+  "created_at": "2026-07-08T23:21:32",
+  "input_path": "data/eval_mc/questions_2wiki_mc_500.csv",
+  "input_sha256": "551e24994af0c83436b2e07912e2a12b4526cb5cae8b5c5dae17c6684e0ee191",
+  "expected_sha256_checked": false,
+  "output_dir": "data/eval_mc/2wiki_mc_rag_500",
+  "questions_path": "data/eval_mc/2wiki_mc_rag_500/questions.csv",
+  "corpus_path": "data/eval_mc/2wiki_mc_rag_500/corpus.csv",
+  "qrels_path": "data/eval_mc/2wiki_mc_rag_500/qrels.csv",
+  "n_questions": 500,
+  "n_corpus_docs": 5000,
+  "n_qrels": 5000,
+  "questions_without_context": 0,
+  "total_contexts": 5000,
+  "avg_contexts_per_question": 10.0,
+  "context_count_distribution": {
+    "10": 500
+  },
+  "notes": [
+    "qrels marca como relevante cada pasaje de evidence_json.",
+    "Esto sirve para retrieval sobre contexto provisto por el benchmark, pero no distingue evidencia gold estricta vs distractores.",
+    "La columna question contiene prompt MC compatible con RAG.",
+    "La columna retrieval_query conserva la pregunta limpia para búsqueda."
+  ]
+}
