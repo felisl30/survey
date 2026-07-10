@@ -106,3 +106,4 @@ scripts/patch_source_dataset_build_mc_rag.sh
 scripts/step*_smoke_*.sh
 scripts/step10b_find_musique_outputs*.sh
 scripts/step5b_fix_hotpotqa_summary.sh
+evaluation/run_frame_pipeline.ps1
