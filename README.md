@@ -49,7 +49,7 @@ El objetivo no fue comparar contra el ultimo frontier model, sino medir trade-of
 | `outputs/eval_mc/` | Tablas, reportes y salidas citadas por el informe. |
 | `logs/` | Logs finales de corridas largas. |
 | `scripts/` | Scripts de reconstruccion de datasets, indices y corridas agregadas. |
-| `evaluation/` | Utilidades de construccion, analisis y agregacion. |
+| `evaluation/` | Utilidades conservadas para construir datasets/indices y agregar resultados finales. |
 | `docs/` | Inventario de entrega, PDF final y notas interpretativas versionadas. |
 
 ## Archivos de raiz

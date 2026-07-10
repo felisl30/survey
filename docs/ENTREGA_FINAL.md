@@ -25,10 +25,10 @@ Estos archivos se conservan en la raiz porque son configuracion o utilidades com
 
 | Bloque | Archivos |
 | --- | --- |
-| MuSiQue-MC-500 | `data/eval_mc/musique_mc_rag_500/questions.csv`, `corpus.csv`, `qrels.csv`, `build_summary.json` |
-| HotpotQA-MC-500 | `data/eval_mc/hotpotqa_mc_rag_500/questions.csv`, `corpus.csv`, `qrels.csv`, `build_summary.json` |
-| 2Wiki-MC-500 | `data/eval_mc/2wiki_mc_rag_500/questions.csv`, `corpus.csv`, `qrels.csv`, `build_summary.json` |
-| Robustez MuSiQue | `data/eval_mc/robustness_musique/questions.csv`, `qrels.csv`, `corpus_clean.csv`, `corpus_noisy.csv`, `corpus_adversarial.csv` |
+| MuSiQue-MC-500 | `data/eval_mc/musique_mc_rag_500/questions.csv`, `data/eval_mc/musique_mc_rag_500/corpus.csv`, `data/eval_mc/musique_mc_rag_500/qrels.csv`, `data/eval_mc/musique_mc_rag_500/build_summary.json` |
+| HotpotQA-MC-500 | `data/eval_mc/hotpotqa_mc_rag_500/questions.csv`, `data/eval_mc/hotpotqa_mc_rag_500/corpus.csv`, `data/eval_mc/hotpotqa_mc_rag_500/qrels.csv`, `data/eval_mc/hotpotqa_mc_rag_500/build_summary.json` |
+| 2Wiki-MC-500 | `data/eval_mc/2wiki_mc_rag_500/questions.csv`, `data/eval_mc/2wiki_mc_rag_500/corpus.csv`, `data/eval_mc/2wiki_mc_rag_500/qrels.csv`, `data/eval_mc/2wiki_mc_rag_500/build_summary.json` |
+| Robustez MuSiQue | `data/eval_mc/robustness_musique/questions.csv`, `data/eval_mc/robustness_musique/qrels.csv`, `data/eval_mc/robustness_musique/corpus_clean.csv`, `data/eval_mc/robustness_musique/corpus_noisy.csv`, `data/eval_mc/robustness_musique/corpus_adversarial.csv` |
 | Saturacion MC-100 | `data/eval_mc/questions_*_mc_100.csv` y `data/eval_mc/build_summary_*_mc_100.json` |
 
 ## Resultados finales
@@ -86,13 +86,13 @@ La organizacion por sistema esta resumida en `modelos/README.md`.
 
 | Proposito | Scripts |
 | --- | --- |
-| Construir datasets MC-500 | `evaluation/build_mc_rag_dataset.py`, `scripts/step2_build_hotpotqa_mc500.sh`, `scripts/step6_build_2wiki_mc500.sh` |
-| Construir indices RAG | `scripts/step3_build_hotpotqa_rag_index.sh`, `scripts/step7_build_2wiki_rag_index.sh` |
-| Correr S0-S3 | `modelos/s0/run_s0_direct.py`, `modelos/s1/run_s1_mc_rag.py`, `modelos/s2/run_s2_mc_real_adaptive.py`, `modelos/s3/run_s3_mc_flare_like.py` |
-| Agregar multi-dataset | `scripts/step10_aggregate_mc500_comparison.sh`, `scripts/step11_run_musique_s0_and_final_aggregate.sh` |
-| Robustez | `scripts/run_musique_robustness_s0_s3.ps1` |
-| S4 | `modelos/s4/` |
-| S5 | `modelos/s5/meta_router/` |
+| Construir datasets MC-500 | `evaluation/build_mc_eval_dataset.py`, `evaluation/build_mc_rag_dataset.py`, `evaluation/validate_freeze_mc_benchmark.py`, `evaluation/inspect_mc_rag_readiness.py`, `scripts/step2_build_hotpotqa_mc500.sh`, `scripts/step6_build_2wiki_mc500.sh` |
+| Construir indices RAG | `evaluation/build_mc_rag_index.py`, `scripts/step3_build_hotpotqa_rag_index.sh`, `scripts/step7_build_2wiki_rag_index.sh` |
+| Correr S0-S3 | `modelos/s0/run_s0_direct.py`, `modelos/s1/run_s1_mc_rag.py`, `modelos/s2/run_s2_mc_real_adaptive.py`, `modelos/s3/run_s3_mc_flare_like.py`, `evaluation/run_s0_mc_pipeline.ps1`, `evaluation/run_musique_500_model_grid.ps1`, `evaluation/evaluate_mc_accuracy.py` |
+| Agregar MuSiQue y multi-dataset | `evaluation/summarize_musique_500_model_grid.py`, `scripts/step10_aggregate_mc500_comparison.sh`, `scripts/step11_run_musique_s0_and_final_aggregate.sh` |
+| Robustez | `evaluation/build_mc_robustness_dataset.py`, `evaluation/summarize_musique_robustness_s0_s3.py`, `evaluation/analyze_musique_robustness_deep.py`, `evaluation/export_musique_robustness_qualitative_examples.py`, `scripts/run_musique_robustness_s0_s3.ps1` |
+| S4 | `modelos/s4/`, `evaluation/build_musique_500_s4_disagreement_grid.py`, `evaluation/build_s4_robustness_focus_input.py` |
+| S5 | `modelos/s5/meta_router/`, `evaluation/build_musique_500_s5_router.py` |
 
 ## Fuera de entrega
 
