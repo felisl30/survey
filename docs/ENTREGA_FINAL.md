@@ -4,9 +4,11 @@ Este archivo enumera los artefactos que respaldan el informe final. Si hay dudas
 
 ## Informe
 
-- Overleaf: proyecto `6a4a9ced0273a6945654292b`.
-- PDF final en el repo: `docs/informe/informe_final.pdf`.
-- Fuente editable: Overleaf. No se versiona la copia local de `main.tex` ni archivos auxiliares de compilacion.
+El informe final esta en `docs/informe/informe_final.pdf`.
+
+## Poster
+
+El poster final esta en `docs/poster/poster_nlp_investigacion.pdf`.
 
 ## Archivos de soporte en raiz
 
@@ -96,10 +98,6 @@ La organizacion por sistema esta resumida en `modelos/README.md`.
 
 ## Fuera de entrega
 
-- Exportaciones locales comprimidas: `docs/*.zip`.
-- Copias locales de Overleaf: `docs/overleaf_musique_rag/`.
-- Material local del poster: `docs/ia_fest_poster/`.
 - Handoffs y notas intermedias no citadas: `docs/handoff/` y notas viejas de `docs/experimentos/`.
-- Carpetas temporales: `tmp_s4_extract/`.
 - Smokes y pruebas chicas que no aparecen en el informe.
 - Versiones viejas del informe/poster que no coinciden con Overleaf.

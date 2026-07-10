@@ -48,7 +48,7 @@ El objetivo no fue comparar contra el ultimo frontier model, sino medir trade-of
 | `logs/` | Logs finales de corridas largas. |
 | `scripts/` | Scripts de reconstruccion de datasets, indices y corridas agregadas. |
 | `evaluation/` | Utilidades conservadas para construir datasets/indices y agregar resultados finales. |
-| `docs/` | Inventario de entrega, PDF final y notas interpretativas versionadas. |
+| `docs/` | Inventario de entrega, informe final, poster final y notas interpretativas versionadas. |
 
 ## Archivos de raiz
 
@@ -91,3 +91,7 @@ powershell -ExecutionPolicy Bypass -File scripts/run_musique_robustness_s0_s3.ps
 ## Informe
 
 El PDF final esta en `docs/informe/informe_final.pdf`.
+
+## Poster
+
+El poster final esta en `docs/poster/poster_nlp_investigacion.pdf`.
