@@ -163,7 +163,7 @@ foreach ($model in $modelList) {
 
   if ($systemList -contains "s1") {
     Invoke-Step "Run S1 RAG top-5: $model" (@(
-      "evaluation/run_s1_mc_rag.py",
+      "modelos/s1/run_s1_mc_rag.py",
       "--questions-path", $ragQuestions,
       "--index-dir", $indexDir,
       "--output-path", "$outDir/s1_raw.csv",
@@ -173,13 +173,13 @@ foreach ($model in $modelList) {
       "--resume"
     ) + $limitArgs)
 
-    Invoke-Step "Parse S1: $model" @("parse_s0_outputs.py", "--input-path", "$outDir/s1_raw.csv", "--output-path", "$outDir/s1_parsed.csv")
-    Invoke-Step "Evaluate S1: $model" @("evaluate_s0.py", "--input-path", "$outDir/s1_parsed.csv", "--output-path", "$outDir/s1_evaluated.csv", "--summary-path", "$outDir/s1_summary.json", "--group-summary-path", "$outDir/s1_group_summary.csv")
+    Invoke-Step "Parse S1: $model" @("modelos/s0/parse_s0_outputs.py", "--input-path", "$outDir/s1_raw.csv", "--output-path", "$outDir/s1_parsed.csv")
+    Invoke-Step "Evaluate S1: $model" @("modelos/s0/evaluate_s0.py", "--input-path", "$outDir/s1_parsed.csv", "--output-path", "$outDir/s1_evaluated.csv", "--summary-path", "$outDir/s1_summary.json", "--group-summary-path", "$outDir/s1_group_summary.csv")
   }
 
   if ($systemList -contains "s2") {
     Invoke-Step "Run S2 adaptive RAG: $model" (@(
-      "evaluation/run_s2_mc_real_adaptive.py",
+      "modelos/s2/run_s2_mc_real_adaptive.py",
       "--questions-path", $ragQuestions,
       "--index-dir", $indexDir,
       "--output-path", "$outDir/s2_raw.csv",
@@ -191,13 +191,13 @@ foreach ($model in $modelList) {
       "--resume"
     ) + $limitArgs)
 
-    Invoke-Step "Parse S2: $model" @("parse_s0_outputs.py", "--input-path", "$outDir/s2_raw.csv", "--output-path", "$outDir/s2_parsed.csv")
-    Invoke-Step "Evaluate S2: $model" @("evaluate_s0.py", "--input-path", "$outDir/s2_parsed.csv", "--output-path", "$outDir/s2_evaluated.csv", "--summary-path", "$outDir/s2_summary.json", "--group-summary-path", "$outDir/s2_group_summary.csv")
+    Invoke-Step "Parse S2: $model" @("modelos/s0/parse_s0_outputs.py", "--input-path", "$outDir/s2_raw.csv", "--output-path", "$outDir/s2_parsed.csv")
+    Invoke-Step "Evaluate S2: $model" @("modelos/s0/evaluate_s0.py", "--input-path", "$outDir/s2_parsed.csv", "--output-path", "$outDir/s2_evaluated.csv", "--summary-path", "$outDir/s2_summary.json", "--group-summary-path", "$outDir/s2_group_summary.csv")
   }
 
   if ($systemList -contains "s3") {
     Invoke-Step "Run S3 MC FLARE-like: $model" (@(
-      "evaluation/run_s3_mc_flare_like.py",
+      "modelos/s3/run_s3_mc_flare_like.py",
       "--questions-path", $ragQuestions,
       "--index-dir", $indexDir,
       "--output-path", "$outDir/s3_raw.csv",
@@ -207,8 +207,8 @@ foreach ($model in $modelList) {
       "--resume"
     ) + $limitArgs)
 
-    Invoke-Step "Parse S3: $model" @("parse_s0_outputs.py", "--input-path", "$outDir/s3_raw.csv", "--output-path", "$outDir/s3_parsed.csv")
-    Invoke-Step "Evaluate S3: $model" @("evaluate_s0.py", "--input-path", "$outDir/s3_parsed.csv", "--output-path", "$outDir/s3_evaluated.csv", "--summary-path", "$outDir/s3_summary.json", "--group-summary-path", "$outDir/s3_group_summary.csv")
+    Invoke-Step "Parse S3: $model" @("modelos/s0/parse_s0_outputs.py", "--input-path", "$outDir/s3_raw.csv", "--output-path", "$outDir/s3_parsed.csv")
+    Invoke-Step "Evaluate S3: $model" @("modelos/s0/evaluate_s0.py", "--input-path", "$outDir/s3_parsed.csv", "--output-path", "$outDir/s3_evaluated.csv", "--summary-path", "$outDir/s3_summary.json", "--group-summary-path", "$outDir/s3_group_summary.csv")
   }
 }
 
@@ -236,7 +236,7 @@ if (-not $SkipPosthoc) {
 
   if ($RunS4Focus) {
     Invoke-Step "Run S4 FIRE-like on disagreement focus" @(
-      "s4_model_code/run_s4_fire_like.py",
+      "modelos/s4/run_s4_fire_like.py",
       "--input-path", "outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_input.csv",
       "--index-dir", $indexDir,
       "--output-path", "outputs/eval_mc/musique_mc_rag_500/posthoc/s4_focus_raw.csv",

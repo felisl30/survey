@@ -21,13 +21,13 @@ function Invoke-Step([string]$Name, [string[]]$ArgsList) {
 
 function Invoke-EvalMc([string]$InputPath, [string]$Prefix) {
   Invoke-Step "Parse $Prefix" @(
-    "parse_s0_outputs.py",
+    "modelos/s0/parse_s0_outputs.py",
     "--input-path", $InputPath,
     "--output-path", "${Prefix}_parsed.csv"
   )
 
   Invoke-Step "Evaluate $Prefix" @(
-    "evaluate_s0.py",
+    "modelos/s0/evaluate_s0.py",
     "--input-path", "${Prefix}_parsed.csv",
     "--output-path", "${Prefix}_evaluated.csv",
     "--summary-path", "${Prefix}_summary.json",
@@ -60,7 +60,7 @@ if ($null -ne $Limit) {
 Write-Host "================================================================================"
 
 Invoke-Step "S0 direct baseline" (@(
-  "run_s0_direct.py",
+  "modelos/s0/run_s0_direct.py",
   "--input-path", $questions,
   "--output-path", "$out/s0_raw.csv",
   "--model", $Model,
@@ -83,7 +83,7 @@ foreach ($condition in $conditions) {
   Write-Host "================================================================================"
 
   Invoke-Step "S1 classic RAG top-5 $condition" (@(
-    "evaluation/run_s1_mc_rag.py",
+    "modelos/s1/run_s1_mc_rag.py",
     "--questions-path", $questions,
     "--index-dir", $indexDir,
     "--output-path", "$condOut/s1_raw.csv",
@@ -96,7 +96,7 @@ foreach ($condition in $conditions) {
   Invoke-EvalMc "$condOut/s1_raw.csv" "$condOut/s1"
 
   Invoke-Step "S2 real adaptive $condition" (@(
-    "evaluation/run_s2_mc_real_adaptive.py",
+    "modelos/s2/run_s2_mc_real_adaptive.py",
     "--questions-path", $questions,
     "--index-dir", $indexDir,
     "--output-path", "$condOut/s2_raw.csv",
@@ -111,7 +111,7 @@ foreach ($condition in $conditions) {
   Invoke-EvalMc "$condOut/s2_raw.csv" "$condOut/s2"
 
   Invoke-Step "S3-MC FLARE-like $condition" (@(
-    "evaluation/run_s3_mc_flare_like.py",
+    "modelos/s3/run_s3_mc_flare_like.py",
     "--questions-path", $questions,
     "--index-dir", $indexDir,
     "--output-path", "$condOut/s3_mc_raw.csv",

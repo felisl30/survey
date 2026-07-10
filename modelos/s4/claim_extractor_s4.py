@@ -19,16 +19,16 @@ Este archivo:
 Uso rápido
 ----------
 Self-test sin API:
-python s4_model_code/claim_extractor_s4.py --self-test
+python modelos/s4/claim_extractor_s4.py --self-test
 
 Ejemplo por reglas:
-python s4_model_code/claim_extractor_s4.py \
+python modelos/s4/claim_extractor_s4.py \
   --question "According to the available corpus, who composed La traviata?" \
   --answer "La traviata was composed by Giuseppe Verdi." \
   --strategy rules
 
 Ejemplo con LLM:
-python s4_model_code/claim_extractor_s4.py \
+python modelos/s4/claim_extractor_s4.py \
   --question "According to the available corpus, who composed La traviata?" \
   --answer "La traviata was composed by Giuseppe Verdi." \
   --strategy llm
@@ -50,7 +50,7 @@ from typing import Any, Literal
 # Paths e imports del proyecto
 # ---------------------------------------------------------------------------
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 S4_CODE_DIR = Path(__file__).resolve().parent
 
 for path in [PROJECT_ROOT, S4_CODE_DIR]:
@@ -67,7 +67,7 @@ try:
         build_claim_extraction_prompt,
     )
 except ModuleNotFoundError:
-    from s4_model_code.prompts_s4 import (
+    from modelos.s4.prompts_s4 import (
         DEFAULT_MAX_CLAIMS,
         S4_CLAIM_EXTRACTION_SYSTEM_PROMPT,
         VALID_CLAIM_TYPES,

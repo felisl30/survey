@@ -40,12 +40,12 @@ test -d "$INDEX_DIR"
 test -f "$INDEX_DIR/chunks.csv"
 test -f "$INDEX_DIR/embeddings.npy"
 test -f "$INDEX_DIR/metadata.json"
-test -f run_s0_direct.py
-test -f parse_s0_outputs.py
-test -f evaluate_s0.py
-test -f evaluation/run_s1_mc_rag.py
-test -f evaluation/run_s2_mc_real_adaptive.py
-test -f evaluation/run_s3_mc_flare_like.py
+test -f modelos/s0/run_s0_direct.py
+test -f modelos/s0/parse_s0_outputs.py
+test -f modelos/s0/evaluate_s0.py
+test -f modelos/s1/run_s1_mc_rag.py
+test -f modelos/s2/run_s2_mc_real_adaptive.py
+test -f modelos/s3/run_s3_mc_flare_like.py
 echo "OK: archivos necesarios encontrados."
 
 mkdir -p "$OUT"
@@ -69,11 +69,11 @@ run_eval_mc () {
   local RAW="$1"
   local PREFIX="$2"
 
-  python parse_s0_outputs.py \
+  python modelos/s0/parse_s0_outputs.py \
     --input-path "$RAW" \
     --output-path "${PREFIX}_parsed.csv"
 
-  python evaluate_s0.py \
+  python modelos/s0/evaluate_s0.py \
     --input-path "${PREFIX}_parsed.csv" \
     --output-path "${PREFIX}_evaluated.csv" \
     --summary-path "${PREFIX}_summary.json" \
@@ -82,7 +82,7 @@ run_eval_mc () {
 
 echo
 echo "== 3. S0 direct completo =="
-python run_s0_direct.py \
+python modelos/s0/run_s0_direct.py \
   --input-path "$QUESTIONS" \
   --output-path "$OUT/s0_raw.csv" \
   --model "$MODEL" \
@@ -93,7 +93,7 @@ run_eval_mc "$OUT/s0_raw.csv" "$OUT/s0"
 
 echo
 echo "== 4. S1 classic RAG top-5 completo =="
-python evaluation/run_s1_mc_rag.py \
+python modelos/s1/run_s1_mc_rag.py \
   --questions-path "$QUESTIONS" \
   --index-dir "$INDEX_DIR" \
   --output-path "$OUT/s1_raw.csv" \
@@ -106,7 +106,7 @@ run_eval_mc "$OUT/s1_raw.csv" "$OUT/s1"
 
 echo
 echo "== 5. S2 real adaptive completo =="
-python evaluation/run_s2_mc_real_adaptive.py \
+python modelos/s2/run_s2_mc_real_adaptive.py \
   --questions-path "$QUESTIONS" \
   --index-dir "$INDEX_DIR" \
   --output-path "$OUT/s2_raw.csv" \
@@ -121,7 +121,7 @@ run_eval_mc "$OUT/s2_raw.csv" "$OUT/s2"
 
 echo
 echo "== 6. S3-MC FLARE-like completo =="
-python evaluation/run_s3_mc_flare_like.py \
+python modelos/s3/run_s3_mc_flare_like.py \
   --questions-path "$QUESTIONS" \
   --index-dir "$INDEX_DIR" \
   --output-path "$OUT/s3_raw.csv" \

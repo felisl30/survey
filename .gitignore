@@ -90,6 +90,7 @@ s1_model_code/*.txt
 s2_model_code/*.txt
 s3_model_code/*.txt
 s4_model_code/*.txt
+modelos/s4/*.txt
 prepare_s0_dataset.py
 process_mmlu_truthfulqa_mix.py
 scripts/reproducir_resultados_principales.sh

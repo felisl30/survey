@@ -93,7 +93,7 @@ Este análisis estima el techo máximo de una política que pudiera elegir, por 
 Implementar:
 
 ```text
-evaluation/meta_router/run_s5_rule_based_router.py
+modelos/s5/meta_router/run_s5_rule_based_router.py
 ```
 
 Ese script debe usar señales disponibles antes de mirar el gold, por ejemplo:

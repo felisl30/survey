@@ -36,7 +36,7 @@ Este archivo:
 Uso rápido
 ----------
 
-python s4_model_code/evaluate_s4_claims.py \
+python modelos/s4/evaluate_s4_claims.py \
   --input-path outputs/s4/generation/fire_like_s4_parsed_retrieve_test_5_hybrid_claims_llm_verify.csv \
   --claim-output-path outputs/s4/evaluation/fire_like_s4_claim_results_retrieve_test_5_hybrid_llm.csv \
   --summary-path outputs/s4/evaluation/fire_like_s4_claim_summary_retrieve_test_5_hybrid_llm.json \
@@ -54,7 +54,7 @@ from typing import Any
 
 import pandas as pd
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 

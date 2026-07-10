@@ -26,17 +26,17 @@ Este runner recorre un CSV de respuestas ya generadas por S2 o S3 y, para cada f
     6. Permite limit, resume, dry-run y guardado incremental.
 
 Este archivo asume que ya existen:
-    s4_model_code/prompts_s4.py
-    s4_model_code/claim_extractor_s4.py
-    s4_model_code/fire_verifier_s4.py
-    s4_model_code/fire_controller_s4.py
+    modelos/s4/prompts_s4.py
+    modelos/s4/claim_extractor_s4.py
+    modelos/s4/fire_verifier_s4.py
+    modelos/s4/fire_controller_s4.py
 
 Uso recomendado
 ---------------
 
 Smoke test realista sobre 5 respuestas parseadas de S2, usando índice real:
 
-python s4_model_code/run_s4_fire_like.py \
+python modelos/s4/run_s4_fire_like.py \
   --input-path outputs/s2/generation/adaptive_rag_s2_parsed.csv \
   --index-dir indexes/s2/adaptive_rag \
   --output-path outputs/s4/generation/fire_like_s4_raw_test_5.csv \
@@ -55,7 +55,7 @@ python s4_model_code/run_s4_fire_like.py \
 
 Smoke test sin índice ni API:
 
-python s4_model_code/run_s4_fire_like.py \
+python modelos/s4/run_s4_fire_like.py \
   --input-path outputs/s2/generation/adaptive_rag_s2_parsed.csv \
   --output-path outputs/s4/generation/fire_like_s4_raw_test_5_dry.csv \
   --limit 5 \
@@ -81,11 +81,11 @@ from tqdm import tqdm
 # Paths e imports del proyecto
 # ---------------------------------------------------------------------------
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 S4_CODE_DIR = Path(__file__).resolve().parent
-S2_CODE_DIR = PROJECT_ROOT / "s2_model_code"
-S1_CODE_DIR = PROJECT_ROOT / "s1_model_code"
-S3_CODE_DIR = PROJECT_ROOT / "s3_model_code"
+S2_CODE_DIR = PROJECT_ROOT / "modelos" / "s2"
+S1_CODE_DIR = PROJECT_ROOT / "modelos" / "s1"
+S3_CODE_DIR = PROJECT_ROOT / "modelos" / "s3"
 
 for path in [PROJECT_ROOT, S4_CODE_DIR, S3_CODE_DIR, S2_CODE_DIR, S1_CODE_DIR]:
     path_str = str(path)
@@ -107,7 +107,7 @@ try:
     )
 except ModuleNotFoundError:
     from project_paths import S2_INDEX_DIR, S2_PARSED_OUTPUT_PATH, S4_RAW_OUTPUT_PATH
-    from s4_model_code.fire_controller_s4 import (
+    from modelos.s4.fire_controller_s4 import (
         DEFAULT_INDEX_DIR,
         DEFAULT_MAX_CLAIMS,
         DEFAULT_MAX_CHARS_PER_CHUNK,

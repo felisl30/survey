@@ -23,7 +23,7 @@ Flujo:
 Este archivo integra:
 - claim_extractor_s4.py
 - fire_verifier_s4.py
-- retriever_s1.py / índice S2
+- índice RAG local con chunks.csv y embeddings.npy
 - prompts_s4.py para reparación final opcional con LLM
 
 No recorre CSV completo. Eso va en:
@@ -32,16 +32,16 @@ No recorre CSV completo. Eso va en:
 Uso rápido
 ----------
 Self-test sin API ni índice real:
-python s4_model_code/fire_controller_s4.py --self-test
+python modelos/s4/fire_controller_s4.py --self-test
 
 Ejemplo sin índice, con dry-run:
-python s4_model_code/fire_controller_s4.py \
+python modelos/s4/fire_controller_s4.py \
   --question "According to the available corpus, who composed La traviata?" \
   --initial-answer "La traviata was composed by Giuseppe Verdi." \
   --dry-run
 
 Ejemplo con índice real:
-python s4_model_code/fire_controller_s4.py \
+python modelos/s4/fire_controller_s4.py \
   --question "According to the available corpus, who composed La traviata?" \
   --initial-answer "La traviata was composed by Giuseppe Verdi." \
   --index-dir indexes/s2/adaptive_rag \
@@ -66,10 +66,10 @@ from typing import Any, Literal
 # Paths e imports del proyecto
 # ---------------------------------------------------------------------------
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 S4_CODE_DIR = Path(__file__).resolve().parent
-S2_CODE_DIR = PROJECT_ROOT / "s2_model_code"
-S1_CODE_DIR = PROJECT_ROOT / "s1_model_code"
+S2_CODE_DIR = PROJECT_ROOT / "modelos" / "s2"
+S1_CODE_DIR = PROJECT_ROOT / "modelos" / "s1"
 
 for path in [PROJECT_ROOT, S4_CODE_DIR, S2_CODE_DIR, S1_CODE_DIR]:
     path_str = str(path)
@@ -93,14 +93,14 @@ try:
     )
 except ModuleNotFoundError:
     from project_paths import S2_INDEX_DIR
-    from s4_model_code.claim_extractor_s4 import extract_claims
-    from s4_model_code.fire_verifier_s4 import (
+    from modelos.s4.claim_extractor_s4 import extract_claims
+    from modelos.s4.fire_verifier_s4 import (
         build_search_query_rules,
         generate_search_query_llm,
         sanitize_chunks,
         verify_claim_once,
     )
-    from s4_model_code.prompts_s4 import (
+    from modelos.s4.prompts_s4 import (
         DEFAULT_MAX_CLAIMS,
         DEFAULT_MAX_CHARS_PER_CHUNK,
         S4_FINAL_REPAIR_SYSTEM_PROMPT,
@@ -297,25 +297,65 @@ def load_json_object(text: str) -> tuple[dict[str, Any] | None, str]:
 
 def create_retriever(index_dir: Path = DEFAULT_INDEX_DIR) -> Any:
     """
-    Crea el retriever usado por S1/S2/S3.
+    Crea el retriever usado por S4.
 
-    Requiere que exista s1_model_code/retriever_s1.py y el índice:
+    Requiere un índice compatible con los scripts S1/S2/S3:
     - chunks.csv
     - embeddings.npy
     - metadata.json
     """
-    try:
-        from retriever_s1 import S1Retriever
-    except ModuleNotFoundError as exc:
-        raise ModuleNotFoundError(
-            "No se pudo importar retriever_s1.py. "
-            "Ejecutá desde la raíz del proyecto y verificá s1_model_code/."
-        ) from exc
-
     if not index_dir.exists():
         raise FileNotFoundError(f"No existe index_dir: {index_dir}")
 
-    return S1Retriever(index_dir=index_dir)
+    chunks_path = index_dir / "chunks.csv"
+    embeddings_path = index_dir / "embeddings.npy"
+    if not chunks_path.exists():
+        raise FileNotFoundError(chunks_path)
+    if not embeddings_path.exists():
+        raise FileNotFoundError(embeddings_path)
+
+    import numpy as np
+    import pandas as pd
+    from sentence_transformers import SentenceTransformer
+
+    class LocalIndexRetriever:
+        def __init__(self, index_dir: Path) -> None:
+            self.index_dir = index_dir
+            self.chunks = pd.read_csv(index_dir / "chunks.csv")
+            self.embeddings = np.load(index_dir / "embeddings.npy").astype("float32")
+            if len(self.chunks) != self.embeddings.shape[0]:
+                raise ValueError(
+                    "chunks.csv y embeddings.npy no coinciden: "
+                    f"{len(self.chunks)} vs {self.embeddings.shape[0]}"
+                )
+            norms = np.linalg.norm(self.embeddings, axis=1, keepdims=True)
+            norms[norms == 0] = 1.0
+            self.embeddings = self.embeddings / norms
+            self.model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+
+        def retrieve(self, query: str, top_k: int = 2) -> list[dict[str, Any]]:
+            query_embedding = self.model.encode(
+                [query],
+                convert_to_numpy=True,
+                normalize_embeddings=False,
+            ).astype("float32")
+            norms = np.linalg.norm(query_embedding, axis=1, keepdims=True)
+            norms[norms == 0] = 1.0
+            query_embedding = query_embedding / norms
+
+            scores = (query_embedding @ self.embeddings.T)[0]
+            order = np.argsort(-scores)[:top_k]
+
+            rows: list[dict[str, Any]] = []
+            for rank, idx in enumerate(order, start=1):
+                row = self.chunks.iloc[int(idx)].to_dict()
+                row["score"] = float(scores[int(idx)])
+                row["rank"] = rank
+                row.setdefault("chunk_id", row.get("id", f"chunk_{int(idx)}"))
+                rows.append(row)
+            return rows
+
+    return LocalIndexRetriever(index_dir=index_dir)
 
 
 def sanitize_chunk(item: dict[str, Any], *, fallback_rank: int = 1) -> dict[str, Any]:

@@ -17,11 +17,16 @@ en pasos posteriores para no repetir llamados al modelo.
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 from tqdm import tqdm
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from direct_llm import ask_direct_llm_with_metadata
 from project_paths import S0_QUESTIONS_PATH, S0_RAW_OUTPUT_PATH

@@ -51,7 +51,7 @@ Este parser:
 Uso rápido
 ----------
 
-python s4_model_code/parse_s4_outputs.py \
+python modelos/s4/parse_s4_outputs.py \
   --input-path outputs/s4/generation/fire_like_s4_raw_retrieve_test_5_hybrid_claims_llm_verify.csv \
   --output-path outputs/s4/generation/fire_like_s4_parsed_retrieve_test_5_hybrid_claims_llm_verify.csv
 """
@@ -68,7 +68,7 @@ from typing import Any
 
 import pandas as pd
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 

@@ -46,9 +46,9 @@ echo "OUT_DIR=$OUT_DIR"
 echo
 echo "== 1. Precheck =="
 test -f "$MUSIQUE_QUESTIONS"
-test -f run_s0_direct.py
-test -f parse_s0_outputs.py
-test -f evaluate_s0.py
+test -f modelos/s0/run_s0_direct.py
+test -f modelos/s0/parse_s0_outputs.py
+test -f modelos/s0/evaluate_s0.py
 
 for s in s1 s2 s3; do
   test -f "$MUSIQUE_DIR/${s}_evaluated.csv"
@@ -74,7 +74,7 @@ PY
 
 echo
 echo "== 3. Correr S0 MuSiQue-MC-500 completo =="
-python run_s0_direct.py \
+python modelos/s0/run_s0_direct.py \
   --input-path "$MUSIQUE_QUESTIONS" \
   --output-path "$MUSIQUE_DIR/s0_raw.csv" \
   --model "$MODEL" \
@@ -83,11 +83,11 @@ python run_s0_direct.py \
 
 echo
 echo "== 4. Parsear y evaluar S0 MuSiQue =="
-python parse_s0_outputs.py \
+python modelos/s0/parse_s0_outputs.py \
   --input-path "$MUSIQUE_DIR/s0_raw.csv" \
   --output-path "$MUSIQUE_DIR/s0_parsed.csv"
 
-python evaluate_s0.py \
+python modelos/s0/evaluate_s0.py \
   --input-path "$MUSIQUE_DIR/s0_parsed.csv" \
   --output-path "$MUSIQUE_DIR/s0_evaluated.csv" \
   --summary-path "$MUSIQUE_DIR/s0_summary.json" \

@@ -6,7 +6,7 @@ Construye un input focalizado para auditar con S4/FIRE-like respuestas de S3-MC
 en el experimento de robustez MuSiQue.
 
 No llama a OpenAI.
-Solo arma un CSV compatible con s4_model_code/run_s4_fire_like.py.
+Solo arma un CSV compatible con modelos/s4/run_s4_fire_like.py.
 
 Uso:
 python evaluation/build_s4_robustness_focus_input.py \

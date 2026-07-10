@@ -143,7 +143,7 @@ if ($BuildOnly) {
 }
 
 $runArgs = @(
-  "run_s0_direct.py",
+  "modelos/s0/run_s0_direct.py",
   "--input-path", $qPath,
   "--output-path", $rawPath
 )
@@ -152,7 +152,7 @@ if ($Limit -gt 0) { $runArgs += @("--limit", "$Limit") }
 if ($Resume) { $runArgs += "--resume" }
 
 $parseArgs = @(
-  "parse_s0_outputs.py",
+  "modelos/s0/parse_s0_outputs.py",
   "--input-path", $rawPath,
   "--output-path", $parsedPath
 )

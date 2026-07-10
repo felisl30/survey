@@ -306,7 +306,7 @@ def load_hotpotqa_examples(max_scan: int) -> list[dict[str, Any]]:
     if not HOTPOTQA_JSONL.exists():
         raise FileNotFoundError(
             f"No se encontro HotpotQA local en {HOTPOTQA_JSONL}. "
-            "Primero descargalo con s1_model_code/download_hotpotqa_distractor.py."
+            "Primero descargalo y dejalo en la ruta esperada por este constructor."
         )
     return load_jsonl(HOTPOTQA_JSONL)[:max_scan]
 

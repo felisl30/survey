@@ -36,7 +36,7 @@ Uso rápido
 
 Caso retrieve test 5 hybrid+llm:
 
-python s4_model_code/verify_s4_results.py \
+python modelos/s4/verify_s4_results.py \
   --s4-parsed-path outputs/s4/generation/fire_like_s4_parsed_retrieve_test_5_hybrid_claims_llm_verify.csv \
   --claim-results-path outputs/s4/evaluation/fire_like_s4_claim_results_retrieve_test_5_hybrid_llm.csv \
   --answer-results-path outputs/s4/evaluation/fire_like_s4_answer_results_retrieve_test_5_hybrid_llm.csv \
@@ -62,7 +62,7 @@ from typing import Any
 
 import pandas as pd
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 

@@ -10,12 +10,12 @@ El informe entregable esta en Overleaf. Este repositorio conserva el codigo, dat
 
 | Sistema | Rol en el informe | Implementacion principal |
 | --- | --- | --- |
-| S0 | LLM directo, sin recuperacion | `run_s0_direct.py`, `parse_s0_outputs.py`, `evaluate_s0.py`, `direct_llm.py` |
-| S1 | RAG fijo con top-k constante | `evaluation/run_s1_mc_rag.py` |
-| S2 | RAG adaptativo con decision previa de recuperar | `evaluation/run_s2_mc_real_adaptive.py` |
-| S3 | Recuperacion activa tipo FLARE | `evaluation/run_s3_mc_flare_like.py` |
-| S4 | Auditor factual exploratorio/post-hoc | `s4_model_code/`, `docs/experimentos/informe_s4_focus_musique_500.md` |
-| S5 | Meta-router post-hoc/oracle sobre S0-S3 | `evaluation/meta_router/` |
+| S0 | LLM directo, sin recuperacion | `modelos/s0/run_s0_direct.py`, `modelos/s0/parse_s0_outputs.py`, `modelos/s0/evaluate_s0.py`, `direct_llm.py` |
+| S1 | RAG fijo con top-k constante | `modelos/s1/run_s1_mc_rag.py` |
+| S2 | RAG adaptativo con decision previa de recuperar | `modelos/s2/run_s2_mc_real_adaptive.py` |
+| S3 | Recuperacion activa tipo FLARE | `modelos/s3/run_s3_mc_flare_like.py` |
+| S4 | Auditor factual exploratorio/post-hoc | `modelos/s4/`, `docs/experimentos/informe_s4_focus_musique_500.md` |
+| S5 | Meta-router post-hoc/oracle sobre S0-S3 | `modelos/s5/meta_router/` |
 
 S4 no se reporta como sistema competitivo principal de accuracy porque fue evaluado como auditor focalizado. En el informe queda como modulo exploratorio: aporta evidencia sobre verificacion factual, pero no reemplaza la tabla S0-S3.
 
@@ -50,6 +50,7 @@ El objetivo no fue comparar contra el ultimo frontier model, sino medir trade-of
 | Meta-router S5 | `outputs/eval_mc/musique_mc_rag_500/posthoc/s5_policy_summary.csv` |
 
 Los detalles exactos de archivos, scripts y logs estan en `docs/ENTREGA_FINAL.md`.
+La organizacion de los ejecutores S0-S5 esta documentada en `modelos/README.md`.
 
 ## Reproduccion rapida
 

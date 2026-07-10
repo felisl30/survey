@@ -297,7 +297,7 @@ def main() -> None:
     lines.append("Implementar:")
     lines.append("")
     lines.append("```text")
-    lines.append("evaluation/meta_router/run_s5_rule_based_router.py")
+    lines.append("modelos/s5/meta_router/run_s5_rule_based_router.py")
     lines.append("```")
     lines.append("")
     lines.append("Ese script debe usar señales disponibles antes de mirar el gold, por ejemplo:")

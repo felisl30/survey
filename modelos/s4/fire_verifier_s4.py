@@ -25,17 +25,17 @@ Estrategias:
 Uso rápido
 ----------
 Self-test sin API:
-python s4_model_code/fire_verifier_s4.py --self-test
+python modelos/s4/fire_verifier_s4.py --self-test
 
 Ejemplo por reglas con evidencia textual:
-python s4_model_code/fire_verifier_s4.py \
+python modelos/s4/fire_verifier_s4.py \
   --question "According to the available corpus, who composed La traviata?" \
   --claim "La traviata was composed by Giuseppe Verdi." \
   --evidence-text "La traviata is an opera in three acts by Giuseppe Verdi." \
   --strategy rules
 
 Ejemplo LLM sin gastar API:
-python s4_model_code/fire_verifier_s4.py \
+python modelos/s4/fire_verifier_s4.py \
   --question "According to the available corpus, who composed La traviata?" \
   --claim "La traviata was composed by Giuseppe Verdi." \
   --evidence-text "La traviata is an opera in three acts by Giuseppe Verdi." \
@@ -62,7 +62,7 @@ from typing import Any, Literal
 # Paths e imports del proyecto
 # ---------------------------------------------------------------------------
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 S4_CODE_DIR = Path(__file__).resolve().parent
 
 for path in [PROJECT_ROOT, S4_CODE_DIR]:
@@ -80,7 +80,7 @@ try:
         build_search_query_prompt,
     )
 except ModuleNotFoundError:
-    from s4_model_code.prompts_s4 import (
+    from modelos.s4.prompts_s4 import (
         DEFAULT_MAX_CHARS_PER_CHUNK,
         S4_CLAIM_VERIFICATION_SYSTEM_PROMPT,
         S4_SEARCH_QUERY_SYSTEM_PROMPT,

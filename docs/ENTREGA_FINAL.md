@@ -67,15 +67,17 @@ Este archivo enumera los artefactos que respaldan el informe final. Si hay dudas
 
 ## Scripts a conservar
 
+La organizacion por sistema esta resumida en `modelos/README.md`.
+
 | Proposito | Scripts |
 | --- | --- |
 | Construir datasets MC-500 | `evaluation/build_mc_rag_dataset.py`, `scripts/step2_build_hotpotqa_mc500.sh`, `scripts/step6_build_2wiki_mc500.sh` |
 | Construir indices RAG | `scripts/step3_build_hotpotqa_rag_index.sh`, `scripts/step7_build_2wiki_rag_index.sh` |
-| Correr S0-S3 | `run_s0_direct.py`, `evaluation/run_s1_mc_rag.py`, `evaluation/run_s2_mc_real_adaptive.py`, `evaluation/run_s3_mc_flare_like.py` |
+| Correr S0-S3 | `modelos/s0/run_s0_direct.py`, `modelos/s1/run_s1_mc_rag.py`, `modelos/s2/run_s2_mc_real_adaptive.py`, `modelos/s3/run_s3_mc_flare_like.py` |
 | Agregar multi-dataset | `scripts/step10_aggregate_mc500_comparison.sh`, `scripts/step11_run_musique_s0_and_final_aggregate.sh` |
 | Robustez | `scripts/run_musique_robustness_s0_s3.ps1` |
-| S4 | `s4_model_code/` |
-| S5 | `evaluation/meta_router/` |
+| S4 | `modelos/s4/` |
+| S5 | `modelos/s5/meta_router/` |
 
 ## Fuera de entrega
 
