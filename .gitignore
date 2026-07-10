@@ -28,6 +28,7 @@ __pycache__/
 *.bak
 *.bak_*
 *.broken_backup
+old_versions/
 
 # Local logs unless explicitly tracked as evidence
 logs/*.log
